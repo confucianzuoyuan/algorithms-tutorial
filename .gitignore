@@ -1,0 +1,11 @@
+*.aux
+*.fls
+*.toc
+*.xdv
+*.synctex.gz
+*.fdb_latexmk
+*.log
+*.out
+*.listing
+_minted-*
+.vscode/
