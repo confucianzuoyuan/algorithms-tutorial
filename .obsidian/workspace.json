@@ -17,25 +17,7 @@
                 "mode": "source",
                 "source": false
               }
-            },
-            "group": "29d9b4b9d9a83757"
-          }
-        ]
-      },
-      {
-        "id": "a0db5259a72ca201",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "7e9bdd60fcf30ce7",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "算法基础.md"
-              }
-            },
-            "group": "29d9b4b9d9a83757"
+            }
           }
         ]
       }
@@ -165,10 +147,11 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "7e9bdd60fcf30ce7",
+  "active": "7bce6afc39339319",
   "lastOpenFiles": [
-    "Excalidraw/146-双向链表示意图.excalidraw.md",
+    "Excalidraw/斐波那契数列的内存布局.excalidraw.md",
     "算法基础.md",
+    "Excalidraw/146-双向链表示意图.excalidraw.md",
     "Excalidraw/GPT模型作为算法的例子.excalidraw.md",
     "Excalidraw/内存模型示意图.excalidraw.md",
     "Excalidraw/编译器作为算法的例子.excalidraw.md",
