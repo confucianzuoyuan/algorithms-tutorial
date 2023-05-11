@@ -1,0 +1,183 @@
+{
+  "main": {
+    "id": "1bcdcde0513cb99c",
+    "type": "split",
+    "children": [
+      {
+        "id": "3eed94a7adc1dc70",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bce6afc39339319",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "算法基础.md",
+                "mode": "source",
+                "source": false
+              }
+            },
+            "group": "29d9b4b9d9a83757"
+          }
+        ]
+      },
+      {
+        "id": "a0db5259a72ca201",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e9bdd60fcf30ce7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "算法基础.md"
+              }
+            },
+            "group": "29d9b4b9d9a83757"
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7d738bd3bff587a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "d37085f594435d37",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed83e74c8022bdc5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "28a9de01137599e8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "16a3030916c3a35f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "b1e54eb79b42cb4b",
+    "type": "split",
+    "children": [
+      {
+        "id": "b0cffa414b5f0b29",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f4b9df29ce1961a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "算法基础.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1a7463d01a118b80",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "算法基础.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c0904b9b8e95ee56",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "cb15c6ad730a41ed",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "算法基础.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
+    }
+  },
+  "active": "7e9bdd60fcf30ce7",
+  "lastOpenFiles": [
+    "Excalidraw/146-双向链表示意图.excalidraw.md",
+    "算法基础.md",
+    "Excalidraw/GPT模型作为算法的例子.excalidraw.md",
+    "Excalidraw/内存模型示意图.excalidraw.md",
+    "Excalidraw/编译器作为算法的例子.excalidraw.md",
+    "Excalidraw/快速排序作为算法的例子.excalidraw.md",
+    "Excalidraw",
+    "Excalidraw/Drawing 2023-05-11 09.53.16.excalidraw.md",
+    "GPT模型作为算法的例子.svg",
+    "未命名.canvas",
+    "588-1.png",
+    "algorithms.pdf"
+  ]
+}
