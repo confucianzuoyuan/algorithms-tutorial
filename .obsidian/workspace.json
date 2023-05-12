@@ -8,54 +8,46 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7bce6afc39339319",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "算法基础篇.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c28f5e9fe961e9cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "哈希表篇.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "1ecbfc6a32530464",
             "type": "leaf",
             "state": {
+              "type": "canvas",
+              "state": {
+                "file": "算法课大纲.canvas",
+                "viewState": {
+                  "x": -133.5,
+                  "y": 822.2060960334031,
+                  "zoom": -0.6302264591956134
+                }
+              }
+            }
+          },
+          {
+            "id": "7e61972ff75bc0d7",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "排序篇.md",
+                "file": "链表篇.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "41cc94c46615f28b",
+            "id": "9f0bab6198bdec28",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "二分查找篇.md",
+                "file": "树形结构篇.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -121,6 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "树形结构篇.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,6 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "树形结构篇.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +152,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "树形结构篇.md"
+              }
             }
           }
         ]
@@ -179,14 +175,25 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "ed83e74c8022bdc5",
+  "active": "9f0bab6198bdec28",
   "lastOpenFiles": [
-    "链表篇.md",
-    "算法基础.md",
+    "算法课大纲.canvas",
+    "树形结构篇.md",
     "排序篇.md",
+    "94-1.jpg",
+    "21-1.jpg",
+    "148-2.jpg",
+    "148-1.jpg",
+    "内存模型示意图.svg",
+    "Excalidraw/Drawing 2023-05-12 12.10.51.excalidraw.md",
+    "链表篇.md",
+    "figures/算法基础/插入排序完整过程示意图/figure.svg",
+    "figures/算法基础/插入排序完整过程示意图/figure.pdf",
+    "figures/算法基础/插入排序的纸牌示意图/figure.pdf",
+    "算法基础篇.md",
+    "算法基础.md",
     "哈希表篇.md",
     "二分查找篇.md",
-    "算法基础篇.md",
     "Excalidraw/斐波那契数列的内存布局.excalidraw.md",
     "Excalidraw/146-双向链表示意图.excalidraw.md",
     "Excalidraw/GPT模型作为算法的例子.excalidraw.md",
@@ -196,7 +203,6 @@
     "Excalidraw",
     "Excalidraw/Drawing 2023-05-11 09.53.16.excalidraw.md",
     "GPT模型作为算法的例子.svg",
-    "未命名.canvas",
     "588-1.png",
     "algorithms.pdf"
   ]
