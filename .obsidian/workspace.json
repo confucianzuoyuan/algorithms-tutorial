@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3eed94a7adc1dc70",
+        "id": "43086281fec90b4b",
         "type": "tabs",
         "children": [
           {
-            "id": "1ecbfc6a32530464",
+            "id": "c9638d6aa32467f0",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,23 +139,29 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "ed83e74c8022bdc5",
+  "active": "c9638d6aa32467f0",
   "lastOpenFiles": [
+    "组合搜索篇.md",
+    "图论篇.md",
+    "贪心算法篇.md",
+    "算法课大纲.canvas",
+    "状态机篇.md",
+    "动态规划篇.md",
+    "46-1.svg",
+    "78-1.svg",
+    "内存模型示意图.svg",
     "快速排序作为算法的例子.svg",
     "编译器作为算法的例子.svg",
     "GPT模型作为算法的例子.svg",
     "算法基础篇.md",
     "树形结构篇.md",
-    "算法课大纲.canvas",
     "排序篇.md",
     "94-1.jpg",
     "21-1.jpg",
     "148-2.jpg",
     "148-1.jpg",
-    "内存模型示意图.svg",
     "Excalidraw/Drawing 2023-05-12 12.10.51.excalidraw.md",
     "链表篇.md",
-    "figures/算法基础/插入排序完整过程示意图/figure.svg",
     "figures/算法基础/插入排序完整过程示意图/figure.pdf",
     "figures/算法基础/插入排序的纸牌示意图/figure.pdf",
     "算法基础.md",
@@ -169,7 +175,6 @@
     "Excalidraw/快速排序作为算法的例子.excalidraw.md",
     "Excalidraw",
     "Excalidraw/Drawing 2023-05-11 09.53.16.excalidraw.md",
-    "588-1.png",
     "algorithms.pdf"
   ]
 }
