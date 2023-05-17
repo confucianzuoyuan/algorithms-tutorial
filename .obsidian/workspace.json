@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "43086281fec90b4b",
+        "id": "7a5aac1ac72c9f54",
         "type": "tabs",
         "children": [
           {
-            "id": "c9638d6aa32467f0",
+            "id": "74065e2deb399a3a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,21 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "80c6395735cc14f1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "动态规划篇.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "动态规划篇.md",
+                "file": "算法基础篇.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "动态规划篇.md",
+                "file": "算法基础篇.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "动态规划篇.md"
+                "file": "算法基础篇.md"
               }
             }
           }
@@ -160,21 +147,39 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "80c6395735cc14f1",
+  "active": "74065e2deb399a3a",
   "lastOpenFiles": [
-    "钢条切割问题-2.svg",
-    "Excalidraw/Drawing 2023-05-16 14.15.54.excalidraw.md",
-    "动态规划篇.md",
-    "钢条切割问题-1.svg",
-    "Excalidraw/Drawing 2023-05-15 11.49.05.excalidraw.md",
-    "算法基础篇.md",
+    "数据结构与算法分析教程.pdf",
+    "lu2048782ng28b.tmp",
+    "lu2048782ng1zp.tmp",
+    "lu2048782ng1zm.tmp",
+    "lu2048782ng1zj.tmp",
+    "lu2048782ng1zg.tmp",
+    "lu2048782ng1zd.tmp",
+    "lu2048782ng1za.tmp",
+    "lu2048782ng1z7.tmp",
+    "lu2048782ng1z4.tmp",
+    "lu2048782ng1z1.tmp",
+    "算法课大纲.canvas",
+    "树形结构篇.md",
+    "力扣题目索引列表.md",
+    "哈希表篇.md",
     "二分查找篇.md",
-    "排序篇.md",
-    "状态机篇.md",
+    "数组、栈和队列篇.md",
+    "算法基础篇.md",
     "组合搜索篇.md",
+    "动态规划篇.md",
+    "队列示意图.svg",
+    "Excalidraw/动态数组原理图.excalidraw.md",
+    "Excalidraw/栈-1.excalidraw.md",
+    "栈-1.svg",
+    "有限状态机篇.md",
     "图论篇.md",
     "贪心算法篇.md",
-    "算法课大纲.canvas",
+    "钢条切割问题-2.svg",
+    "Excalidraw/Drawing 2023-05-16 14.15.54.excalidraw.md",
+    "钢条切割问题-1.svg",
+    "排序篇.md",
     "链表篇.md",
     "46-1.svg",
     "78-1.svg",
@@ -182,23 +187,13 @@
     "快速排序作为算法的例子.svg",
     "编译器作为算法的例子.svg",
     "GPT模型作为算法的例子.svg",
-    "树形结构篇.md",
-    "94-1.jpg",
-    "21-1.jpg",
-    "148-2.jpg",
-    "Excalidraw/Drawing 2023-05-12 12.10.51.excalidraw.md",
-    "figures/算法基础/插入排序完整过程示意图/figure.pdf",
-    "figures/算法基础/插入排序的纸牌示意图/figure.pdf",
     "算法基础.md",
-    "哈希表篇.md",
     "Excalidraw/斐波那契数列的内存布局.excalidraw.md",
     "Excalidraw/146-双向链表示意图.excalidraw.md",
     "Excalidraw/GPT模型作为算法的例子.excalidraw.md",
     "Excalidraw/内存模型示意图.excalidraw.md",
     "Excalidraw/编译器作为算法的例子.excalidraw.md",
     "Excalidraw/快速排序作为算法的例子.excalidraw.md",
-    "Excalidraw",
-    "Excalidraw/Drawing 2023-05-11 09.53.16.excalidraw.md",
-    "algorithms.pdf"
+    "Excalidraw/Drawing 2023-05-11 09.53.16.excalidraw.md"
   ]
 }

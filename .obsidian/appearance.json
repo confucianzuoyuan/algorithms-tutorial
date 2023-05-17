@@ -1,9 +1,9 @@
 {
   "accentColor": "",
   "theme": "moonstone",
-  "baseFontSize": 21,
+  "baseFontSize": 16,
   "interfaceFontFamily": "",
-  "textFontFamily": "FZBeiWeiKaiShu-S19S",
+  "textFontFamily": "JetBrainsMono Nerd Font,FZBeiWeiKaiShu-S19S",
   "monospaceFontFamily": "JetBrainsMono Nerd Font",
   "enabledCssSnippets": [
     "bolder_bold"
