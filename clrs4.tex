@@ -1,8 +1,29 @@
 \documentclass[lang=cn,newtx,10pt,scheme=chinese]{elegantbook}
 
+\title{《算法导论第四版》学习笔记}
+\author{左元}
+
+\setcounter{tocdepth}{3}
+
+\cover{算法导论第四版插图/封面.pdf}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+\usepackage{cprotect}
+
 \begin{document}
 
+\maketitle
+\frontmatter
+
 \tableofcontents
+
+\mainmatter
 
 \part{基础知识}
 
@@ -460,7 +481,7 @@ T(n)= & c_1 n+c_2(n-1)+c_4(n-1)+c_5\left(\frac{n(n+1)}{2}-1\right) \\
 
 \part{排序和顺序统计量}
 
-\chapter{简介}
+\chapter*{简介}
 
 \chapter{堆排序}
 
@@ -472,7 +493,7 @@ T(n)= & c_1 n+c_2(n-1)+c_4(n-1)+c_5\left(\frac{n(n+1)}{2}-1\right) \\
 
 \part{数据结构}
 
-\chapter{简介}
+\chapter*{简介}
 
 \chapter{基本数据结构}
 
@@ -484,20 +505,74 @@ T(n)= & c_1 n+c_2(n-1)+c_4(n-1)+c_5\left(\frac{n(n+1)}{2}-1\right) \\
 
 \part{高级设计与分析技术}
 
-\chapter{简介}
+\chapter*{简介}
+
+\chapter{动态规划}
+
+\chapter{贪心算法}
+
+\chapter{均摊分析}
 
 \part{高级数据结构}
 
-\chapter{简介}
+\chapter*{简介}
+
+\chapter{增强数据结构}
+
+\chapter{B树}
+
+\chapter{用于不相交集合的数据结构}
 
 \part{图算法}
 
-\chapter{简介}
+\chapter*{简介}
+
+\chapter{基本的图算法}
+
+\chapter{最小生成树}
+
+\chapter{单源最短路径}
+
+\chapter{所有结点对的最短路径问题}
+
+\chapter{最大流}
+
+\chapter{二部图匹配}
 
 \part{算法问题选编}
 
-\chapter{简介}
+\chapter*{简介}
+
+\chapter{并行算法}
+
+\chapter{在线算法}
+
+\chapter{矩阵操作}
+
+\chapter{线性规划}
+
+\chapter{多项式与快速傅立叶变换}
+
+\chapter{数论算法}
+
+\chapter{字符串匹配}
+
+\chapter{机器学习算法}
+
+\chapter{NP完全性}
+
+\chapter{近似算法}
 
 \part{附录：数学基础知识}
+
+\chapter*{简介}
+
+\chapter*{求和}
+
+\chapter*{集合}
+
+\chapter*{计数和概率}
+
+\chapter*{矩阵}
 
 \end{document}
