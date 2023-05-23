@@ -393,7 +393,7 @@ T(n)= & c_1 n+c_2(n-1)+c_4(n-1)+c_5\left(\frac{n(n+1)}{2}-1\right) \\
 
 许多有用的算法具有递归的结构：为了解决一个给定的问题，它们会递归（调用自身）一次或多次来处理紧密相关的子问题。这些算法通常遵循分治法：它们将问题分解为几个与原始问题类似但规模较小的子问题，递归地解决这些子问题，然后将这些解合并以创建原始问题的解决方案。
 
-在分治法中，如果问题足够小（基本情况），则直接解决它而不进行递归。否则（递归情况），您执行三个特定的步骤：
+在分治法中，如果问题足够小（基本情况），则直接解决它而不进行递归。否则（递归情况），你执行三个特定的步骤：
 
 \textbf{分解}原问题为若干子问题，这些子问题是原问题的规模较小的实例。
 
@@ -580,7 +580,7 @@ $$
 
 $O(g(n))$的定义要求集合中的每个函数$f(n)$都是渐进非负的：只要$n$足够大，$f(n)$必须是非负的。（渐进正函数是指对于所有足够大的$n$，函数都是正的。）因此，函数$g(n)$本身必须是渐进非负的，否则集合$O(g(n))$为空。因此，我们假设在$O$符号中使用的每个函数都是渐进非负的。这个假设也适用于本章中定义的其他渐进符号。
 
-您可能会惊讶我们是如何用集合来定义$O$符号的。实际上，您可能会期望我们会写“$f(n) \in O(g(n))$”，以表示$f(n)$属于集合$O(g(n))$。相反，我们通常写“$f(n)=O(g(n))$”，并说“$f(n)$是big-oh of $g(n)$”，以表达相同的概念。虽然一开始可能会感到混乱，但在本节后面我们将看到这样做的好处。
+你可能会惊讶我们是如何用集合来定义$O$符号的。实际上，你可能会期望我们会写“$f(n) \in O(g(n))$”，以表示$f(n)$属于集合$O(g(n))$。相反，我们通常写“$f(n)=O(g(n))$”，并说“$f(n)$是big-oh of $g(n)$”，以表达相同的概念。虽然一开始可能会感到混乱，但在本节后面我们将看到这样做的好处。
 
 让我们探讨一个例子，说明如何使用$O$符号的正式定义来证明我们丢弃低阶项和忽略最高阶项的常数系数的做法是正确的。我们将展示$4 n^2+100 n+500=O\left(n^2\right)$，即使低阶项的系数比主项大得多。我们需要找到正常数$c$和$n_0$，使得对于所有$n \geq n_0$，都有$4 n^2+100 n+500 \leq c n^2$。将两边都除以$n^2$得到$4+100 / n+500 / n^2 \leq c$。这个不等式对于许多$c$和$n_0$的选择都成立。例如，如果我们选择$n_0=1$，那么这个不等式对于$c=604$成立。如果我们选择$n_0=10$，那么$c=19$可以工作，选择$n_0=100$允许我们使用$c=5.05$。
 
@@ -620,9 +620,9 @@ $O-, \Omega-$和$\Theta$符号的定义导致以下定理，其证明我们留�
 
 归并排序呢？由于归并排序在所有情况下都以$\Theta(n\lg n)$时间运行，我们可以只说它的运行时间是$\Theta(n\lg n)$，而不指定最坏情况、最佳情况或任何其他情况。
 
-有时人们会混淆$O$符号和$\Theta$符号，错误地使用$O$符号来表示渐进紧密界限。他们会说：“一个$O(n\lg n)$时间复杂度的算法比一个$O\left(n^2\right)$时间复杂度的算法运行得更快。”也许是这样，也许不是。由于$O$符号仅表示渐进上界，所谓的$O\left(n^2\right)$时间复杂度的算法实际上可能在$\Theta(n)$时间内运行。您应该小心选择适当的渐进符号。如果要表示渐进紧密界限，请使用$\Theta$符号。
+有时人们会混淆$O$符号和$\Theta$符号，错误地使用$O$符号来表示渐进紧密界限。他们会说：“一个$O(n\lg n)$时间复杂度的算法比一个$O\left(n^2\right)$时间复杂度的算法运行得更快。”也许是这样，也许不是。由于$O$符号仅表示渐进上界，所谓的$O\left(n^2\right)$时间复杂度的算法实际上可能在$\Theta(n)$时间内运行。你应该小心选择适当的渐进符号。如果要表示渐进紧密界限，请使用$\Theta$符号。
 
-我们通常使用渐进符号来提供最简单和最精确的界限。例如，如果一个算法在所有情况下的运行时间为$3n^2+20n$，我们使用渐进符号来写出它的运行时间为$\Theta\left(n^2\right)$。严格来说，我们也可以写出运行时间为$O\left(n^3\right)$或$\Theta\left(3n^2+20n\right)$。然而，在这种情况下，这些表达式都不如写$\Theta\left(n^2\right)$有用：如果运行时间为$3n^2+20n$，那么$O\left(n^3\right)$不如$\Theta\left(n^2\right)$精确，而$\Theta\left(3n^2+20n\right)$引入了复杂性，混淆了增长的顺序。通过编写最简单和最精确的界限，例如$\Theta\left(n^2\right)$，我们可以对不同的算法进行分类和比较。在整本书中，您将看到几乎所有的渐进运行时间都基于多项式和对数函数：例如$n，n \lg ^2 n，n^2 \lg n$或$n^{1 / 2}$。您还将看到其他一些函数，例如指数、$\lg \lg n$和$\lg ^* n$（请参见第3.3节）。通常很容易比较这些函数的增长速度。问题3-3会给您提供良好的练习。
+我们通常使用渐进符号来提供最简单和最精确的界限。例如，如果一个算法在所有情况下的运行时间为$3n^2+20n$，我们使用渐进符号来写出它的运行时间为$\Theta\left(n^2\right)$。严格来说，我们也可以写出运行时间为$O\left(n^3\right)$或$\Theta\left(3n^2+20n\right)$。然而，在这种情况下，这些表达式都不如写$\Theta\left(n^2\right)$有用：如果运行时间为$3n^2+20n$，那么$O\left(n^3\right)$不如$\Theta\left(n^2\right)$精确，而$\Theta\left(3n^2+20n\right)$引入了复杂性，混淆了增长的顺序。通过编写最简单和最精确的界限，例如$\Theta\left(n^2\right)$，我们可以对不同的算法进行分类和比较。在整本书中，你将看到几乎所有的渐进运行时间都基于多项式和对数函数：例如$n，n \lg ^2 n，n^2 \lg n$或$n^{1 / 2}$。你还将看到其他一些函数，例如指数、$\lg \lg n$和$\lg ^* n$（请参见第3.3节）。通常很容易比较这些函数的增长速度。问题3-3会给你提供良好的练习。
 
 \textbf{等式和不等式中的渐进记号}
 
@@ -636,25 +636,378 @@ T(n)=2 T(n / 2)+\Theta(n)
 $$
 如果我们只关心$T(n)$的渐进行为，那么没有必要准确指定所有低阶项，因为它们都被理解为包含在由术语$\Theta(n)$表示的匿名函数中。
 
+这段文字讲解了渐进符号在表达式中的应用。其中，匿名函数的数量被理解为渐进符号出现的次数。例如，在表达式$$\sum_{i=1}^n O(i)$$中，只有一个匿名函数（一个关于$i$的函数）。因此，这个表达式与$O(1)+O(2)+\cdots+O(n)$不同，后者没有一个清晰的解释。
+
+在某些情况下，渐进符号出现在等式的左侧，如$$2 n^2+\Theta(n)=\Theta\left(n^2\right)$$使用以下规则解释这样的等式：无论在等号左边如何选择匿名函数，总有一种方式可以选择等号右边的匿名函数使等式成立。因此，我们的例子意味着对于任何$\Theta(n)$中的函数$f(n)$，都存在一些$\Theta\left(n^2\right)$中的函数$g(n)$，使得$2 n^2+f(n)=g(n)$对于所有的$n$都成立。换句话说，等式的右侧提供了比左侧更粗略的细节。
+
+这段文字讲解了如何将多个等式链在一起。例如，我们可以将以下关系组合在一起：
+$$
+\begin{aligned}
+2 n^2+3 n+1 & =2 n^2+\Theta(n) \\
+& =\Theta\left(n^2\right)
+\end{aligned}
+$$
+按照上述规则，分别解释每个等式。第一个等式表示存在一些函数$f(n) \in \Theta(n)$，使得对于所有的$n$，$2 n^2+3 n+1=2 n^2+f(n)$。第二个等式表示对于任何函数$g(n) \in \Theta(n)$（例如刚才提到的$f(n)$），都存在一些函数$h(n) \in \Theta\left(n^2\right)$，使得对于所有的$n$，$2 n^2+g(n)=h(n)$。这种解释意味着$2 n^2+3 n+1=\Theta\left(n^2\right)$，这正是等式链的直观含义。
+
 \textbf{渐进记号的适当的滥用}
+
+这段文字讲解了渐进符号的滥用问题。除了将等号滥用为集合成员关系，我们现在可以看到它具有精确的数学解释，还有一种滥用渐进符号的情况，即必须从上下文中推断趋向于$\infty$的变量。例如，当我们说$O(g(n))$时，我们可以假设我们关注$g(n)$随着$n$的增长而增长，如果我们说$O(g(m))$，我们就是在谈论$g(m)$随着$m$的增长而增长。表达式中的自由变量指示了哪个变量趋向于$\infty$。
+
+需要上下文知识来确定哪个变量趋向于$\infty$的最常见情况是，当渐进符号内部的函数是常数时，例如表达式$O(1)$。我们无法从表达式中推断出哪个变量趋向于$\infty$，因为表达式中没有变量。上下文必须消除歧义。例如，如果使用渐进符号的等式是$f(n)=O(1)$，那么很明显我们感兴趣的变量是$n$。然而，从上下文中知道感兴趣的变量是$n$，可以通过使用$O$符号的正式定义来理解这个表达式：表达式$f(n)=O(1)$意味着随着$n$趋近于$\infty$，函数$f(n)$被一个常数从上方限制。从技术上讲，如果我们在渐进符号本身中明确指示趋向于$\infty$的变量可能会更少歧义，但那会使符号变得混乱。相反，我们只需确保上下文清楚地表明哪个变量（或变量）趋向于$\infty$即可。
+
+当渐进符号内部的函数被正常数限制时，例如$T(n)=O(1)$，我们通常会以另一种方式滥用渐进符号，尤其是在陈述递归关系式时。我们可能会写出类似于$T(n)=O(1)$，其中$n<3$。根据$O$符号的正式定义，这个陈述是没有意义的，因为定义只说明对于某个$n_0>0$，当$n \geq n_0$时，$T(n)$被正数常数$c$限制在上面。$n<n_0$时，$T(n)$的值不一定受到限制。因此，在例子$T(n)=O(1)$中，当$n<3$时，我们不能推断出任何关于$T(n)$的限制，因为可能$n_0>3$。
+
+当我们说$T(n)=O(1)$，其中$n<3$时，通常意味着存在一个正的常数$c$，使得$n<3$时$T(n) \leq c$。这种惯例使我们省去了命名限制常数的麻烦，使其保持匿名状态，同时我们将注意力集中在分析中更重要的变量上。其他渐进符号也有类似的滥用。例如，$T(n)=\Theta(1)$，其中$n<3$表示当$n<3$时，$T(n)$在正数常数上下限制。
+
+偶尔，描述算法运行时间的函数可能无法定义某些输入大小，例如，当算法假设输入大小是2的精确幂时。我们仍然使用渐进符号来描述运行时间的增长，理解任何限制仅适用于函数被定义的情况。例如，假设$f(n)$仅在自然数或非负实数的子集上定义。那么，$f(n)=O(g(n))$意味着在$f(n)$的定义域上，即在$f(n)$被定义的地方，对于所有$n \geq n_0$，$O$符号定义中的界$0 \leq T(n) \leq c g(n)$成立。这种滥用很少被指出，因为通常从上下文中可以清楚地理解其含义。
+
+在数学中，滥用符号是可以接受的，而且经常是可取的，只要我们不误用它。如果我们清楚地理解了滥用的含义，并且不得出错误的结论，它可以简化我们的数学语言，有助于提高我们的高层次理解，并帮助我们专注于真正重要的事情。
 
 \textbf{$o$记号}
 
+$O$符号提供的渐进上界可能是渐进紧的，也可能不是。界$2 n^2=O\left(n^2\right)$是渐进紧的，但界$2 n=O\left(n^2\right)$不是。我们使用小$o$符号来表示不是渐进紧的上界。我们正式定义小$o(g(n))$（"$g$的$n$的小$o$"）为集合
+$$
+o(g(n))=\{f(n)：\text { 对于任何正常数} c>0，\text{存在常数} n_0>0 \text {，使得} 0 \leq f(n)<c g(n) \text {对于所有} n \geq n_0\}。
+$$
+例如，$2 n=o\left(n^2\right)$，但$2 n^2 \neq o\left(n^2\right)$。
+
+$O$符号和小$o$符号的定义相似。主要区别在于，在$f(n)=O(g(n))$中，界$0 \leq f(n) \leq c g(n)$对于某些正常数$c>0$成立，但在$f(n)=o(g(n))$中，界$0 \leq f(n)<c g(n)$对于所有正常数$c>0$成立。直观地说，在小$o$符号中，当$n$变大时，函数$f(n)$相对于$g(n)$变得微不足道：
+$$
+\lim _{n \rightarrow \infty} \frac{f(n)}{g(n)}=0
+$$
+一些作者使用这个极限作为小$o$符号的定义，但本书中的定义也限制了匿名函数为渐进非负。
+
 \textbf{$\omega$记号}
+
+类比于$O$符号和$o$符号，$\omega$符号是$\Omega$符号的对应物。我们使用$\omega$符号来表示不是渐进紧的下界。一种定义方法是：
+当且仅当$g(n) \in o(f(n))$时，$f(n) \in \omega(g(n))$。
+然而，正式地，我们将$\omega(g(n))$（"$g$的$n$的小$\omega$"）定义为集合
+$$
+\omega(g(n))=\{f(n)：\text { 对于任何正常数} c>0，\text{存在常数} n_0>0 \text {，使得} 0 \leq c g(n)<f(n) \text {对于所有} n \geq n_0\}。
+$$
+在$o$符号的定义中，$f(n)<c g(n)$，而在$\omega$符号的定义中，则相反：$\operatorname{cg}(n)<f(n)$。对于$\omega$符号的例子，我们有$n^2 / 2=\omega(n)$，但$n^2 / 2 \neq \omega\left(n^2\right)$。关系$f(n)=\omega(g(n))$意味着
+$$
+\lim _{n \rightarrow \infty} \frac{f(n)}{g(n)}=\infty
+$$
+如果极限存在。也就是说，当$n$变大时，$f(n)$相对于$g(n)$变得任意大。
 
 \textbf{比较函数}
 
+许多实数的关系属性也适用于渐进比较。对于以下内容，请假设$f(n)$和$g(n)$是渐进正的。
+
 \textbf{传递性}
+
+\begin{equation*}
+\begin{array}{llll}
+f(n)=\Theta(g(n)) \text { and } g(n)=\Theta(h(n)) & \text { imply } & f(n)=\Theta(h(n)), \\
+f(n)=O(g(n)) \text { and } g(n)=O(h(n)) & \text { imply } & f(n)=O(h(n)), \\
+f(n)=\Omega(g(n)) \text { and } g(n)=\Omega(h(n)) & \text { imply } & f(n)=\Omega(h(n)), \\
+f(n)=o(g(n)) \text { and } g(n)=o(h(n)) & \text { imply } & f(n)=o(h(n)), \\
+f(n)=\omega(g(n)) \text { and } g(n)=\omega(h(n)) & \text { imply } & f(n)=\omega(h(n)) .
+\end{array}
+\end{equation*}
+
 
 \textbf{反身性}
 
+\begin{equation*}
+\begin{aligned}
+& f(n)=\Theta(f(n)), \\
+& f(n)=O(f(n)), \\
+& f(n)=\Omega(f(n)) .
+\end{aligned}
+\end{equation*}
+
 \textbf{对称性}
 
+$$
+f(n)=\Theta(g(n)) \text { if and only if } g(n)=\Theta(f(n)) \text {. }
+$$
 
+\textbf{对称转换}
+
+\begin{equation*}
+\begin{array}{ll}
+f(n)=O(g(n)) & \text { if and only if } g(n)=\Omega(f(n)) \\
+f(n)=o(g(n)) & \text { if and only if } g(n)=\omega(f(n))
+\end{array}
+\end{equation*}
+
+由于这些属性适用于渐进符号，我们可以将两个函数$f$和$g$的渐进比较与两个实数$a$和$b$的比较进行类比：
+
+$f(n)=O(g(n))$ is like $a \leq b$,
+
+$f(n)=\Omega(g(n))$ is like $a \geq b$,
+
+$f(n)=\Theta(g(n))$ is like $a=b$,
+
+$f(n)=o(g(n))$ is like $a<b$,
+
+$f(n)=\omega(g(n)) \quad$ is like $a>b$.
+
+如果$f(n)=o(g(n))$，我们称$f(n)$渐进小于$g(n)$；如果$f(n)=\omega(g(n))$，我们称$f(n)$渐进大于$g(n)$。
+
+然而，实数的一个属性不能转化为渐进符号：
+
+\textbf{三分律}：对于任何两个实数$a$和$b$，恰好有一个成立：$a<b, a=b$或$a>b$。
+
+虽然可以比较任何两个实数，但并非所有函数都是渐进可比的。也就是说，对于两个函数$f(n)$和$g(n)$，可能既不满足$f(n)=O(g(n))$，也不满足$f(n)=\Omega(g(n))$。例如，我们无法使用渐进符号比较函数$n$和$n^{1+\sin n}$，因为$n^{1+\sin n}$中的指数值在0和2之间振荡，并取得了其中的所有值。
 
 \section{标准记号和常用函数}
 
+本节回顾了一些标准的数学函数和符号，并探讨了它们之间的关系。它还说明了渐进符号的使用。
+
+\textbf{单调性}
+
+如果$m\leq n$意味着$f(m)\leq f(n)$，则函数$f(n)$是单调递增的。类似地，如果$m\leq n$意味着$f(m)\geq f(n)$，则它是单调递减的。如果$m<n$意味着$f(m)<f(n)$，则函数$f(n)$是严格递增的；如果$m<n$意味着$f(m)>f(n)$，则函数$f(n)$是严格递减的。
+
+\textbf{向下取整和向上取整}
+
+对于任何实数$x$，我们用$\lfloor x\rfloor$（读作“$x$的底部”）表示不大于$x$的最大整数，用$\lceil x\rceil$（读作“$x$的顶部”）表示不小于$x$的最小整数。向下取整函数是单调递增的，向上取整函数也是如此。
+
+向下取整和向上取整遵循以下属性。对于任何整数$n$，我们有
+$$
+\lfloor n\rfloor=n=\lceil n\rceil
+$$
+对于所有实数$x$，我们有：
+
+$$
+x-1<\lfloor x\rfloor \leq x \leq\lceil x\rceil<x+1 .
+$$
+我们还有
+$$
+-\lfloor x\rfloor=\lceil-x\rceil \text {, }
+$$
+或者等价的，
+$$
+-\lceil x\rceil=\lfloor-x\rfloor .
+$$
+对于任意实数 $x \geq 0$ 和整数 $a, b>0$，我们有
+$$
+\begin{aligned}
+{\left[\frac{\lceil x / a\rceil}{b}\right\rceil } & =\left\lceil\frac{x}{a b}\right\rceil, \\
+\left\lfloor\frac{\lfloor x / a\rfloor}{b}\right\rfloor & =\left\lfloor\frac{x}{a b}\right\rfloor, \\
+\left\lceil\frac{a}{b}\right\rceil & \leq \frac{a+(b-1)}{b}, \\
+\left\lfloor\frac{a}{b}\right\rfloor & \geq \frac{a-(b-1)}{b} .
+\end{aligned}
+$$
+对于任意整数 $n$ 和实数 $x$，我们有
+$$
+\begin{aligned}
+& \lfloor n+x\rfloor=n+\lfloor x\rfloor, \\
+& \lceil n+x\rceil=n+\lceil x\rceil .
+\end{aligned}
+$$
+
+\textbf{模算术}
+
+对于任何整数$a$和任何正整数$n$，$a \bmod n$的值是商$a / n$的余数（或者说模数）：
+$$
+a \bmod n=a-n\lfloor a / n\rfloor。
+$$
+即使$a$是负数，也有
+$$
+0 \leq a \bmod n<n。
+$$
+如果已经定义了一个整数除以另一个整数时的余数的明确概念，则提供特殊的符号来表示余数的相等是方便的。如果$(a \bmod n)=(b \bmod n)$，我们写作$a=b(\bmod n)$，并说$a$等价于$b$，模$n$。换句话说，当$a$和$b$除以$n$时余数相同时，$a=b(\bmod n)$。等价地，当且仅当$n$是$b-a$的因子时，$a=b(\bmod n)$。如果$a$与$b$在模$n$意义下不等价，则写作$a \neq b(\bmod n)$。
+
+\textbf{多项式}
+
+给定非负整数$d$，$n$的$d$次多项式是形如
+$$
+p(n)=\sum_{i=0}^d a_i n^i,
+$$
+的函数$p(n)$，其中常数$a_0, a_1, \ldots, a_d$是多项式的系数，且$a_d \neq 0$。当且仅当$a_d>0$时，多项式是渐进正的。对于渐进正的$d$次多项式$p(n)$，有$p(n)=\Theta\left(n^d\right)$。对于任何实常数$a \geq 0$，函数$n^a$是单调递增的，而对于任何实常数$a \leq 0$，函数$n^a$是单调递减的。如果$f(n)=O\left(n^k\right)$，则称函数$f(n)$是多项式有界的，其中$k$是某个常数。
+
+\textbf{指数}
+
+对于所有的实数 $a>0, m$ 和 $n$，我们有以下性质：
+$$
+\begin{aligned}
+a^0 & =1, \\
+a^1 & =a, \\
+a^{-1} & =1 / a, \\
+\left(a^m\right)^n & =a^{m n}, \\
+\left(a^m\right)^n & =\left(a^n\right)^m \\
+a^m a^n & =a^{m+n} .
+\end{aligned}
+$$
+对于所有的 $n$ 和 $a \geq 1$，函数 $a^n$ 对于 $n$ 单调递增。某些时候，我们假定 $0^0=1$。
+
+我们可以通过以下事实将多项式和指数函数的增长速率联系起来。对于所有实常数$a>1$和$b$，有：
+$$
+\lim _{n \rightarrow \infty} \frac{n^b}{a^n}=0
+$$
+从上面的式子我们可以得出以下结论：
+$$
+n^b=o\left(a^n\right)
+$$
+因此，任何底数严格大于1的指数函数增长速度都比任何多项式函数快。
+
+使用$e$表示自然对数函数的底数$2.71828 \ldots$，对于所有实数$x$，我们有：
+$$
+e^x=1+x+\frac{x^2}{2 !}+\frac{x^3}{3 !}+\cdots=\sum_{i=0}^{\infty} \frac{x^i}{i !}
+$$
+
+其中“!”表示本节后面定义的阶乘函数。对于所有实数$x$，我们有以下不等式：
+$$
+1+x \leq e^x \text {, }
+$$
+等号成立当且仅当$x=0$。当$|x| \leq 1$时，我们有近似关系$1+x \leq e^x \leq 1+x+x^2$。当$x \rightarrow 0$时，用$1+x$来近似$e^x$是相当好的：
+$$
+e^x=1+x+\Theta\left(x^2\right) \text {. }
+$$
+（在这个方程中，渐进符号用于描述$x \rightarrow 0$时的极限行为，而不是$x \rightarrow \infty$。）对于所有$x$，我们有：
+$$
+\lim _{n \rightarrow \infty}\left(1+\frac{x}{n}\right)^n=e^x \text {. }
+$$
+
+\textbf{对数}
+
+We use the following notations:
+$$
+\begin{aligned}
+\lg n & =\log _2 n & & \text { (binary logarithm), } \\
+\ln n & =\log _e n & & \text { (natural logarithm), } \\
+\lg ^k n & =(\lg n)^k & & \text { (exponentiation) } \\
+\lg \lg n & =\lg (\lg n) & & \text { (composition). }
+\end{aligned}
+$$
+我们采用以下符号约定：在没有括号的情况下，$\lg n+1$表示$(\lg n)+1$而不是$\lg (n+1)$。
+
+对于任何常数$b>1$，如果$n \leq 0$，则函数$\log _b n$未定义，如果$n>0$，则函数严格单调递增，如果$0<n<1$，则函数为负，如果$n>1$，则函数为正，如果$n=1$，则函数为0。对于所有实数$a>0, b>0, c>0$和$n$，我们有：
+$$
+\begin{aligned}
+a & =b^{\log _b a}, \\
+\log _c(a b) & =\log _c a+\log _c b, \\
+\log _b a^n & =n \log _b a \\
+\log _b a & =\frac{\log _c a}{\log _c b}, \\
+\log _b(1 / a) & =-\log _b a, \\
+\log _b a & =\frac{1}{\log _a b}, \\
+a^{\log _b c} & =c^{\log _b a},
+\end{aligned}
+$$
+这里，上面的每个等式中，对数的底都是1。
+
+根据方程（3.19），将对数的底从一个常数变为另一个常数只会使对数的值乘以一个常数因子。因此，我们经常在不关心常数因子的情况下使用符号“$\lg n$”，例如在$O$符号中。计算机科学家发现2是对数最自然的底数，因为许多算法和数据结构涉及将问题分成两部分。当$|x|<1$时，$\ln (1+x)$有一个简单的级数展开式：
+$$
+\ln (1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}-\cdots
+$$
+对于 $x>-1$，我们同样有以下不等式：
+$$
+\frac{x}{1+x} \leq \ln (1+x) \leq x
+$$
+等号仅在$x=0$时成立。
+
+如果$f(n)=O\left(\lg ^k n\right)$，其中$k$是某个常数，则称函数$f(n)$是polylogarithmically有界的。我们可以通过在方程（3.13）中将$n$替换为$\lg n$，将$a$替换为$2^a$，来将多项式和polylogarithm的增长联系起来。对于所有实常数$a>0$和$b$，我们有：
+$$
+\lg ^b n=o\left(n^a\right)
+$$
+因此，任何正的多项式函数的增长速度都比任何polylogarithmic函数快。
+
+\textbf{阶乘}
+
+The notation $n$ ! (read " $n$ factorial") is defined for integers $n \geq 0$ as
+$$
+n != \begin{cases}1 & \text { if } n=0 \\ n \cdot(n-1) ! & \text { if } n>0 .\end{cases}
+$$
+Thus, $n !=1 \cdot 2 \cdot 3 \cdots n$.
+A weak upper bound on the factorial function is $n ! \leq n^n$, since each of the $n$ terms in the factorial product is at most $n$. Stirling's approximation,
+$$
+n !=\sqrt{2 \pi n}\left(\frac{n}{e}\right)^n\left(1+\Theta\left(\frac{1}{n}\right)\right),
+$$
+where $e$ is the base of the natural logarithm, gives us a tighter upper bound, and a lower bound as well. Exercise 3.3-4 asks you to prove the three facts
+$$
+\begin{aligned}
+n ! & =o\left(n^n\right), \\
+n ! & =\omega\left(2^n\right), \\
+\lg (n !) & =\Theta(n \lg n),
+\end{aligned}
+$$
+
+where Stirling's approximation is helpful in proving equation (3.28). The following equation also holds for all $n \geq 1$ :
+$n !=\sqrt{2 \pi n}\left(\frac{n}{e}\right)^n e^{\alpha_n}$
+where
+$\frac{1}{12 n+1}<\alpha_n<\frac{1}{12 n}$.
+
+\textbf{迭代函数}
+
+We use the notation $f^{(i)}(n)$ to denote the function $f(n)$ iteratively applied $i$ times to an initial value of $n$. Formally, let $f(n)$ be a function over the reals. For nonnegative integers $i$, we recursively define
+$$
+f^{(i)}(n)= \begin{cases}n & \text { if } i=0 \\ f\left(f^{(i-1)}(n)\right) & \text { if } i>0\end{cases}
+$$
+For example, if $f(n)=2 n$, then $f^{(i)}(n)=2^i n$.
+
+\textbf{迭代对数函数}
+
+We use the notation $\lg ^* n$ (read "log star of $n$ ") to denote the iterated logarithm, defined as follows. Let $\lg ^{(i)} n$ be as defined above, with $f(n)=\lg n$. Because the logarithm of a nonpositive number is undefined, $\lg ^{(i)} n$ is defined only if $\lg ^{(i-1)} n>0$. Be sure to distinguish $\lg ^{(i)} n$ (the logarithm function applied $i$ times in succession, starting with argument $n$ ) from $\lg ^i n$ (the logarithm of $n$ raised to the $i$ th power). Then we define the iterated logarithm function as
+$$
+\lg ^* n=\min \left\{i \geq 0: \lg ^{(i)} n \leq 1\right\} \text {. }
+$$
+The iterated logarithm is a very slowly growing function:
+$$
+\begin{aligned}
+\operatorname{gg}^* 2 & =1 \\
+\mathrm{gg}^* 4 & =2 \\
+\lg ^* 16 & =3, \\
+\lg ^* 65536 & =4 \\
+\lg ^*\left(2^{65536}\right) & =5
+\end{aligned}
+$$
+Since the number of atoms in the observable universe is estimated to be about $10^{80}$, which is much less than $2^{65536}=10^{65536 / \lg 10} \approx 10^{19,728}$, we rarely encounter an input size $n$ for which $\lg ^* n>5$.
+
+\textbf{斐波那契数}
+
+We define the Fibonacci numbers $F_i$, for $i \geq 0$, as follows:
+$$
+F_i= \begin{cases}0 & \text { if } i=0, \\ 1 & \text { if } i=1 \\ F_{i-1}+F_{i-2} & \text { if } i \geq 2 .\end{cases}
+$$
+Thus, after the first two, each Fibonacci number is the sum of the two previous ones, yielding the sequence
+$0,1,1,2,3,5,8,13,21,34,55, \ldots$
+Fibonacci numbers are related to the golden ratio $\phi$ and its conjugate $\hat{\phi}$, which are the two roots of the equation
+$$
+x^2=x+1
+$$
+As Exercise 3.3-7 asks you to prove, the golden ratio is given by
+$$
+\begin{aligned}
+\phi & =\frac{1+\sqrt{5}}{2} \\
+& =1.61803 \ldots
+\end{aligned}
+$$
+and its conjugate, by
+$$
+\begin{aligned}
+\widehat{\phi} & =\frac{1-\sqrt{5}}{2} \\
+& =-.61803 \ldots
+\end{aligned}
+$$
+Specifically, we have
+$F_i=\frac{\phi^i-\widehat{\phi}^i}{\sqrt{5}}$,
+which can be proved by induction (Exercise 3.3-8). Since $|\hat{\phi}|<1$, we have
+$$
+\begin{aligned}
+\frac{\left|\hat{\phi}^i\right|}{\sqrt{5}} & <\frac{1}{\sqrt{5}} \\
+& <\frac{1}{2}
+\end{aligned}
+$$
+which implies that
+$$
+F_i=\left\lfloor\frac{\phi^i}{\sqrt{5}}+\frac{1}{2}\right\rfloor \text {, }
+$$
+which is to say that the $i$ th Fibonacci number $F_i$ is equal to $\phi^i / \sqrt{5}$ rounded to the nearest integer. Thus, Fibonacci numbers grow exponentially.
+
 \chapter{分治策略}
+
+分治法是设计渐进有效算法的强大策略。我们在第2.3.1节中学习归并排序时看到了分治法的一个例子。在本章中，我们将探讨分治法的应用，并获得有价值的数学工具，可以用来解决分析分治算法时出现的递归关系式。
+
+回想一下，对于分治法，你需要递归地解决给定问题（实例）。如果问题足够小-基本情况-你只需直接解决它而不进行递归。否则-递归情况-你需要执行三个特征步骤：
+
+1. 将问题分成一个或多个子问题，这些子问题是相同问题的较小实例。
+2. 通过递归地解决它们来征服子问题。
+3. 将子问题的解组合成原始问题的解。
+
+分治算法将一个大问题分解成更小的子问题，这些子问题本身可能会被分解成更小的子问题，以此类推。当递归到达基本情况且子问题足够小以直接解决而无需进一步递归时，递归停止。
 
 \section{矩阵相乘}
 
@@ -669,6 +1022,41 @@ $$
 \chapter{概率分析与随机算法}
 
 \section{雇佣问题}
+
+假设你需要雇用一位新的办公室助手。你之前的招聘尝试都没有成功，因此你决定使用一家就业机构。就业机构每天向你推荐一个候选人。你会面试该候选人，然后决定是否雇用他。你必须向就业机构支付一笔小费来面试申请人。实际上雇用一个申请人更加昂贵，因为你必须解雇当前的办公室助手，并向就业机构支付大量的招聘费用。你承诺始终拥有最适合工作的人。因此，你决定在面试每个申请人之后，如果该申请人比当前的办公室助手更有资格，你将解雇当前的办公室助手并雇用新的申请人。你愿意支付这种策略的结果费用，但你希望估计这种费用会是多少。
+
+本页上的HIRE-ASSISTANT过程以伪代码表示了这种招聘策略。办公室助手工作的候选人编号为1到$n$，按照这个顺序进行面试。该过程假定在面试候选人$i$之后，你可以确定候选人$i$是否是迄今为止最优秀的候选人。它首先创建一个虚拟候选人，编号为0，该候选人的资质低于其他所有候选人。
+
+这个问题的成本模型与第2章中描述的模型不同。我们关注的不是HIRE-ASSISTANT的运行时间，而是面试和招聘所支付的费用。表面上，分析此算法的成本表面上，分析这个问题的成本似乎与分析归并排序的运行时间非常不同。然而，所使用的分析技术无论是分析成本还是运行时间都是相同的。在任何情况下，我们都在计算执行某些基本操作的次数。
+
+面试的成本很低，例如$c_i$，而招聘则很昂贵，成本为$c_h$。假设一共雇用了$m$人，则与此算法相关的总成本为$O\left(c_i n+c_h m\right)$。无论你雇用多少人，你总是会面试$n$个候选人，因此总是会产生与面试相关的$\operatorname{cost} c_i n$。因此，我们集中分析$c_h m$，即招聘成本。这个数量取决于你面试候选人的顺序。
+
+这种情况作为一种常见的计算范例。算法通常需要通过检查序列的每个元素并维护当前的“赢家”来找到序列中的最大或最小值。招聘问题模拟了一个过程多久更新其当前获胜元素的概念。
+
+\textbf{最坏情况分析}
+
+在最坏的情况下，您实际上会雇用您面试的每个候选人。如果候选人按照严格递增的质量顺序到来，则会发生这种情况，此时您将雇用$n$次，总雇用成本为$O\left(c_h n\right)$。
+
+当然，候选人并不总是按照质量递增的顺序到来。事实上，您不知道他们到达的顺序，也无法控制这个顺序。因此，自然而然地会问，在典型或平均情况下我们期望会发生什么。
+
+\textbf{可能性分析}
+
+概率分析是在问题分析中使用概率的方法。最常见的情况是，我们使用概率分析来分析算法的运行时间。有时我们使用它来分析其他量，例如HIRE-ASSISTANT过程中的招聘成本。为了进行概率分析，我们必须使用关于输入分布的知识或假设。然后我们分析我们的算法，计算平均情况下的运行时间，即在可能输入的分布上进行平均或期望值计算。在报告这样的运行时间时，我们称之为平均情况下的运行时间。
+
+在决定输入分布时必须小心。对于某些问题，您可以合理地假设所有可能输入的集合，并使用概率分析作为设计高效算法的技术和获得有关问题的见解的手段。对于其他问题，您无法确定合理的输入分布，在这些情况下您无法使用概率分析。
+
+对于招聘问题，我们可以假设申请人以随机顺序到来。对于这个问题，这意味着什么呢？我们假设您可以比较任何两个候选人并决定哪个更有资格，这就是说，候选人之间存在一个完全顺序。（有关完全顺序的定义，请参见第B.2节。）因此，您可以为每个候选人排名，从1到$n$使用$\operatorname{rank}(i)$表示申请人$i$的排名，并采用约定，即较高的排名对应更有资格的申请人。有序列表$\langle\operatorname{rank(1)}$，$\operatorname{rank}(2)$，$\ldots$，$\operatorname{rank}(n)\rangle$是列表$\langle 1,2,\ldots,n\rangle$的排列。说申请人以随机顺序到来等价于说这个排名列表等可能地是$1$到$n$的$n$!个排列中的任何一个。或者，我们说这些排名形成一个均匀随机排列，也就是说，每个可能的$n$!个排列出现的概率相等。
+第5.2节包含了招聘问题的概率分析。
+
+\textbf{随机算法}
+
+为了使用概率分析，您需要了解有关输入分布的一些信息。在许多情况下，您对输入分布了解甚少。即使您确实了解有关分布的一些信息，您可能无法将此知识计算模型化。然而，概率和随机性经常作为算法设计和分析的工具，通过使算法的一部分表现出随机性。
+
+在招聘问题中，似乎候选人是以随机顺序呈现给您的，但您无法知道他们是否真的是这样。因此，为了为招聘问题开发随机化算法，您需要更多地控制您面试候选人的顺序。因此，我们将略微改变模型。就业机构提前向您发送$n$个候选人的列表。每天，您随机选择要面试的候选人。虽然您对候选人一无所知（除了他们的姓名），但我们已经做出了重大改变。您没有接受就业机构给您的顺序并希望它是随机的，而是获得了控制过程并强制执行随机顺序。
+
+更一般地说，如果算法的行为不仅由其输入确定，而且还由随机数生成器产生的值确定，则称该算法为随机化算法。我们假设我们可以使用随机数生成器RANDOM。调用$\operatorname{RANDOM}(a,b)$将返回一个整数，该整数在$a$和$b$之间（包括$a$和$b$），每个这样的整数具有相等的可能性。例如，$\operatorname{RANDOm}(0,1)$以$1/2$的概率产生0，并以$1/2$的概率产生1。调用$\operatorname{RANDOM}(3,7)$返回$3,4,5,6$或7中的任何一个，每个整数的概率为$1/5$。RANDOM返回的每个整数都独立于先前调用返回的整数。您可以将RANDOM想象为掷一个$(b-a+1)$面的骰子来获取其输出。（在实践中，大多数编程环境提供伪随机数生成器：一种返回“看起来”统计上随机的数字的确定性算法。）
+
+在分析随机算法的运行时间时，我们将运行时间的期望值取自由随机数生成器返回的值的分布。我们通过将随机化算法的运行时间称为期望运行时间来将这些算法与输入为随机的算法区分开来。通常，在概率分布涉及算法输入时，我们讨论平均情况下的运行时间，而在算法本身进行随机选择时，我们讨论期望运行时间。
 
 \section{指示器随机变量}
 
