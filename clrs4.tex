@@ -1436,6 +1436,90 @@ $$
 
 \section{用递归树方法求解递归式}
 
+虽然你可以使用代入法来证明递归的解决方案是正确的，但你可能会难以想出一个好的猜测。像我们在第2.3.2节中分析归并排序递归时所做的那样，绘制递归树可以帮助你。在递归树中，每个节点表示递归函数调用集合中某个地方的单个子问题的成本。通常，你在树的每个级别中对成本进行求和，以获得每个级别的成本，然后你对所有级别的成本进行求和，以确定递归所有级别的总成本。但是，有时候计算总成本需要更多的创造力。
+
+递归树最好用于产生好的猜测的直觉，然后你可以通过代入法进行验证。然而，如果你在绘制递归树和求和成本时非常细心，你可以将递归树用作递归解决方案的直接证明。但是，如果你仅使用它来生成一个好的猜测，你通常可以容忍一小部分“粗心”，这可以简化数学。当你以后使用代入法验证猜测时，你的数学应该是精确的。本节演示了如何使用递归树解决递归、生成好的猜测并获得递归的直觉。
+
+\textbf{一个例子}
+
+让我们看看递归树如何为递归式$T(n)=3 T(n / 4)+\Theta\left(n^2\right)$提供一个上限解的好猜测。图4.1展示了如何为$T(n)=3 T(n / 4)+c n^2$推导递归树，其中常数$c>0$是$\Theta\left(n^2\right)$项中的上限常数。图的(a)部分显示了$T(n)$，它的(b)部分展开成一个等效的表示递归的树形图。根节点处的$c n^2$项表示递归的顶层成本，而根节点的三个子树表示大小为$n / 4$的子问题所产生的成本。图(c)显示了将(b)部分中成本为$T(n / 4)$的每个节点进一步展开的过程。根节点的三个子节点的成本为$c(n / 4)^2$。我们继续通过按照递归式确定的组成部分将树中的每个节点展开来扩展该树。
+
+由于每次向下一级时子问题大小减少4倍，递归必须最终在$n<n_0$的基本情况中结束。按照惯例，当$n<n_0$时，基本情况为$T(n)=\Theta(1)$，其中$n_0>0$是任何足够大以使递归式定义良好的阈值常数。然而，为了直观起见，让我们简化一下数学。假设$n$是4的精确幂，并且基本情况是$T(1)=\Theta(1)$。事实证明，这些假设不会影响渐近解。
+
+递归树的高度是多少？深度为$i$的节点的子问题大小为$n / 4^i$。当我们从根节点向下遍历树时，当$n / 4^i=1$或等价地，当$i=\log _4 n$时，子问题大小达到$n=1$。因此，该树在深度$0,1,2,\ldots,\log _4 n-1$处具有内部节点，在深度$\log _4 n$处具有叶子节点。
+
+图4.1的(d)部分显示了树的每个级别的成本。每个级别的节点数是上一级的三倍，因此深度为$i$的节点数为$3^i$。由于子问题大小在距离根越远的每个级别上减少4倍，因此深度为$i=0,1,2,\ldots,\log _4 n-1$的每个内部节点的成本为$c\left(n / 4^i\right)^2$。相乘，我们看到给定深度$i$的所有节点的总成本为$3^ic\left(n / 4^i\right)^2=(3 / 16)^i \mathrm{cn}^2$。底层，在深度$\log _4 n$处，包含$3^{\log _4 n}=n^{\log _4 3}$个叶子（使用第66页上的公式（3.21））。每个叶子项对总叶子成本的贡献为$\Theta(1)$，导致总叶子成本为$\Theta\left(n^{\log _4 3}\right)$。
+
+现在我们在所有级别上加起来，以确定整个树的成本：
+
+$$
+\begin{aligned}
+T(n) & =c n^2+\frac{3}{16} c n^2+\left(\frac{3}{16}\right)^2 c n^2+\cdots+\left(\frac{3}{16}\right)^{\log _4 n} c n^2+\Theta\left(n^{\log _4 3}\right) \\
+& =\sum_{i=0}^{\log _4 n}\left(\frac{3}{16}\right)^i c n^2+\Theta\left(n^{\log _4 3}\right) \\
+& <\sum_{i=0}^{\infty}\left(\frac{3}{16}\right)^i c n^2+\Theta\left(n^{\log _4 3}\right) \\
+& =\frac{1}{1-(3 / 16)} c n^2+\Theta\left(n^{\log _4 3}\right) \quad \text { (by equation (A.7) on page 1142) } \\
+& =\frac{16}{13} c n^2+\Theta\left(n^{\log _4 3}\right) \quad\left(\Theta\left(n^{\log _4 3}\right)=O\left(n^{0.8}\right)=O\left(n^2\right)\right) . \\
+& =O\left(n^2\right) \quad
+\end{aligned}
+$$
+
+我们已经推导出递归式$T(n)=O\left(n^2\right)$的上限解。在这个例子中，$\mathrm{cn}^2$的系数形成一个递减的几何级数。根据公式(A.7)，这些系数的总和从上面受到常数$16/13$的限制。由于根节点对总成本的贡献为$\mathrm{cn}^2$，因此根节点的成本支配了整个树的总成本。
+
+事实上，如果$O\left(n^2\right)$确实是递归式的上限解（我们马上就会验证），那么它必须是一个紧密的上限解。为什么？第一个递归调用会产生$\Theta\left(n^2\right)$的成本，因此$\Omega\left(n^2\right)$必须是递归式的下限解。
+
+现在，让我们使用代换法来验证我们的猜测是否正确，即$T(n)=O\left(n^2\right)$是递归式$T(n)=3 T(n / 4)+\Theta\left(n^2\right)$的上限解。我们想要证明存在某个常数$d>0$，使得$T(n) \leq d n^2$。使用与之前相同的常数$c>0$，我们有：
+
+$$
+\begin{aligned}
+T(n) & \leq 3 T(n / 4)+c n^2 \\
+& \leq 3 d(n / 4)^2+c n^2 \\
+& =\frac{3}{16} d n^2+c n^2 \\
+& \leq d n^2,
+\end{aligned}
+$$
+
+如果我们选择$d \geq(16 / 13) c$，则最后一步成立。
+对于归纳的基本情况，设$n_0>0$为充分大的阈值常数，当$n<n_0$时，递归式$T(n)=\Theta(1)$得到了很好的定义。我们可以选择足够大的$d$，使得$d$支配$\Theta$中隐藏的常数，这样$1 \leq n<n_0$时$d n^2 \geq d \geq T(n)$，从而完成基本情况的证明。
+我们刚才看到的代换法证明涉及两个命名常数$c$和$d$。我们命名了$c$并用它代表$\Theta$符号隐藏的上限常数，该常数保证存在。我们不能任意选择$c$，因为它是给定的，尽管对于任何这样的$c$，任何常数$c^{\prime} \geq c$也足够。我们还命名了$d$，但我们可以自由选择任何符合我们需求的值。在这个例子中，$d$的值恰好取决于$c$的值，这是可以接受的，因为如果$c$是常数，则$d$也是常数。
+
+\textbf{一个不规则的例子}
+
+让我们为另一个更不规则的例子找到一个渐近上限。图4.2显示了递归式
+$$
+T(n)=T(n / 3)+T(2 n / 3)+\Theta(n) \text {. }
+$$
+的递归树。这个递归树是不平衡的，不同的根节点到叶节点的路径长度不同。在任何节点向左移动会产生一个大小为原问题的三分之一的子问题，向右移动会产生一个大小为原问题的三分之二的子问题。设$n_0>0$为隐式阈值常数，使得$0<n<n_0$时$T(n)=\Theta(1)$，并且令$c$表示$n \geq n_0$时$\Theta(n)$项隐藏的上限常数。实际上，这里有两个$n_0$常数-一个是递归中的阈值，另一个是$\Theta$符号中的阈值，因此我们将$n_0$设为这两个常数中较大的那个。
+
+树的高度沿着树的右边缘向下，对应于大小为$n,(2 / 3) n,(4 / 9) n, \ldots, \Theta(1)$的子问题，其成本分别受到$c n, c(2 n / 3)$，$c(4 n / 9), \ldots, \Theta(1)$的限制。当$(2 / 3)^h n<n_0 \leq$ $(2 / 3)^{h-1} n$时，我们到达了最右边的叶子节点，这发生在$h=\left\lfloor\log _{3 / 2}\left(n / n_0\right)\right\rfloor+1$时，因为应用第64页上方程式（3.2）中的floor边界，取$x=\log _{3 / 2}\left(n / n_0\right)$，我们有$(2 / 3)^h n=$ $(2 / 3)^{\lfloor x\rfloor+1} n<(2 / 3)^x n=\left(n_0 / n\right) n=n_0$和$(2 / 3)^{h-1} n=(2 / 3)^{\lfloor x\rfloor} n>(2 / 3)^x n$ $=\left(n_0 / n\right) n=n_0$。因此，树的高度为$h=\Theta(\lg n)$。
+
+现在我们可以理解上限了。让我们暂时不考虑叶子节点。对每个级别的内部节点的成本求和，每个级别最多有$c n$个乘以$\Theta(\lg n)$的树高度，所有内部节点的总成本为$O(n \lg n)$。
+
+现在要处理递归树的叶子节点，它们表示基本情况，每个成本为$\Theta(1)$。有多少叶子节点？诱人的想法是将它们的数量上界定为高度为$h=\left\lfloor\log _{3 / 2}\left(n / n_0\right)\right\rfloor+1$的完全二叉树中的叶子节点数，因为递归树包含在这样一个完全二叉树中。但这种方法实际上给出了一个较差的上界。完全二叉树在根节点有1个节点，在深度1有2个节点，通常在深度$k$有$2^k$个节点。由于高度为$h=\left\lfloor\log _{3 / 2} n\right\rfloor+1$，完全二叉树中有$2^h=2^{\left\lfloor\log _{3 / 2} n\right\rfloor+1} \leq 2 n^{\log _{3 / 2} 2}$个叶子节点，这是递归树中叶子节点数的上界。由于每个叶子的成本是$\Theta(1)$，这个分析表明递归树中所有叶子的总成本是$O\left(n^{\log _{3 / 2} 2}\right)=O\left(n^{1.71}\right)$，这是比所有内部节点的$O(n \lg n)$成本更大的一个渐近上限。实际上，正如我们即将看到的，这个上限并不紧密。递归树中所有叶子的成本是$O(n)$-渐近小于$O(n \lg n)$。换句话说，内部节点的成本支配着叶子节点的成本，而不是相反。
+
+与其分析叶子节点，我们现在可以停下来通过代入法证明$T(n)=\Theta(n \lg n)$。这种方法是可行的（参见练习4.4-3），但了解递归树有多少叶子节点是很有教益的。你可能会看到成本的递归式，其中叶子节点的成本支配着内部节点的成本，如果你有一些关于叶子节点数量分析的经验，那么你将更有把握。
+
+为了弄清楚到底有多少叶子节点，让我们为$T(n)$的递归树中的叶子节点编写一个递归$L(n)$。由于$T(n)$中所有叶子节点都属于根节点的左子树或右子树，我们有：
+
+\begin{equation}
+L(n)= \begin{cases}1 & \text { if } n<n_0 \\ L(n / 3)+L(2 n / 3) & \text { if } n \geq n_0\end{cases}
+\end{equation}
+
+这个递归式与递归式（4.14）类似，但它缺少了$\Theta(n)$项，并包含了一个显式的基本情况。由于这个递归式省略了$\Theta(n)$项，因此它更容易求解。让我们应用代入法来证明它有解$L(n)=O(n)$。使用归纳假设$L(n) \leq d n$，其中$d>0$是某个常数，并假设归纳假设对小于$n$的所有值都成立，我们有：
+
+$$
+\begin{aligned}
+L(n) & =L(n / 3)+L(2 n / 3) \\
+& \leq d n / 3+2(d n) / 3 \\
+& \leq d n,
+\end{aligned}
+$$
+
+这对于任何$d>0$都成立。现在我们可以选择足够大的$d$来处理基本情况$L(n)=1$，对于$0<n<n_0$，其中$d=1$就足够了，从而完成叶子节点上限的代入法。（练习4.4-2要求你证明$L(n)=\Theta(n)$。）
+
+回到递归式（4.14）的$T(n)$，现在显然所有级别的叶子节点的总成本必须为$L(n) \cdot \Theta(1)=\Theta(n)$。由于我们已经得出了内部节点成本为$O(n \lg n)$的上限，因此递归式（4.14）的解为$T(n)=O(n \lg n)+\Theta(n)=O(n \lg n)$。（练习4.4-3要求你证明$T(n)=\Theta(n \lg n)$。）
+
+通过代入法验证递归树得出的任何上限是明智的，特别是如果你已经做出了简化假设。但是，另一种策略是使用更强大的数学方法，通常以下一节中的主方法（不幸的是不适用于递归式（4.14））或Akra-Bazzi方法（适用于该式，但需要微积分）的形式。即使你使用了强大的方法，递归树也可以提高你对在沉重的数学背景下发生了什么的直觉。
+
 \section{用主方法求解递归式}
 
 主方法提供了一种“食谱”方法，用于解决形如
@@ -1449,11 +1533,240 @@ $$
 正如我们所提到的，在解决描述算法运行时间的递归时，我们通常更愿意忽略的一个技术细节是要求输入大小$n$是整数。例如，我们在第41页上看到，归并排序的运行时间可以由递归$(2.3), T(n)=2 T(n / 2)+\Theta(n)$来描述。但是，如果$n$是奇数，我们实际上没有两个大小完全相同的问题。相反，为了确保问题大小为整数，我们将一个子问题舍入到大小$\lfloor n / 2\rfloor$，将另一个子问题舍入到大小$\lceil n / 2\rceil$，因此真正的递归是$T(n)=T(\lceil n / 2\rceil+T(\lfloor n / 2\rfloor)+\Theta(n)$。但是，这种带有floor和ceiling的递归比定义在实数上的递归$(2.3)$更长更麻烦。如果不必担心floor和ceiling，我们就不想担心它们，特别是因为这两个递归具有相同的$\Theta(n \lg n)$解决方案。
 主方法允许你声明一个主递归而不使用floor和ceiling，并隐含地推断它们。无论如何将参数舍入到最近的整数，它提供的渐近界限仍然保持不变。此外，正如我们将在第4.6节中看到的那样，如果你在实数上定义主递归而没有隐含的floor和ceiling，则渐近界限仍然不会改变。因此，你可以忽略主递归中的floor和ceiling。第4.7节给出了更一般的分治递归中忽略floor和ceiling的充分条件。
 
+\textbf{主定理}
+
+主方法依赖下面的主定理
+
+\begin{theorem}{主定理}{}
+设$a>0$和$b>1$是常数，$f(n)$是在所有足够大的实数上定义且非负的驱动函数。定义递归式$T(n)$，其中$n \in \mathbb{N}$：
+$$
+T(n)=a T(n / b)+f(n)
+$$
+其中$a T(n / b)$实际上表示$a^{\prime} T(\lfloor n / b\rfloor)+a^{\prime \prime} T(\lceil n / b\rceil)$，其中$a^{\prime} \geq 0$和$a^{\prime \prime} \geq 0$是满足$a=a^{\prime}+a^{\prime \prime}$的常数。那么$T(n)$的渐近行为可以如下刻画：
+
+1. 如果存在常数$\epsilon>0$，使得$f(n)=O\left(n^{\log _b a-\epsilon}\right)$，则$T(n)=\Theta\left(n^{\log _b a}\right)$。
+
+2. 如果存在常数$k \geq 0$，使得$f(n)=\Theta\left(n^{\log _b a} \lg ^k n\right)$，则$T(n)=\Theta\left(n^{\log _b a} \lg ^{k+1} n\right)$。
+
+3. 如果存在常数$\epsilon>0$，使得$f(n)=\Omega\left(n^{\log _b a+\epsilon}\right)$，并且如果$f(n)$还满足正则条件$a f(n / b) \leq c f(n)$，其中$c<1$是某个常数，且$n$足够大，则$T(n)=\Theta(f(n))$。
+\end{theorem}
+
+在应用主定理到一些例子之前，让我们花费一些时间来广泛理解它的含义。函数$n^{\log _b a}$被称为分水岭函数。在三种情况中，我们将驱动函数$f(n)$与分水岭函数$n^{\log _b a}$进行比较。直观地说，如果分水岭函数的增长速度渐近地比驱动函数快，那么情况1适用。如果这两个函数的渐近增长率几乎相同，则情况2适用。情况3是情况1的“相反情况”，其中驱动函数的增长速度渐近地比分水岭函数快。但是技术细节很重要。
+
+在情况1中，分水岭函数不仅必须渐近地比驱动函数快，而且必须多项式地更快。也就是说，分水岭函数$n^{\log _b a}$必须比驱动函数$f(n)$至少快一个因子$\Theta\left(n^\epsilon\right)$，其中$\epsilon>0$是某个常数。然后，主定理说明解为$T(n)=\Theta\left(n^{\log _b a}\right)$。在这种情况下，如果我们查看递归式的递归树，则每个级别的成本至少以几何级数从根到叶子增长，并且叶子节点的总成本支配内部节点的总成本。
+
+在情况2中，分水岭和驱动函数的渐近增长率几乎相同。但更具体地说，驱动函数比分水岭函数快一个因子$\Theta\left(\lg ^k n\right)$，其中$k \geq 0$。主定理说明我们要将额外的$\lg n$因子附加到$f(n)$上，得到解$T(n)=\Theta\left(n^{\log _b a} \lg ^{k+1} n\right)$。在这种情况下，递归树的每个级别的成本大致相同$-\Theta\left(n^{\log _b a} \lg ^k n\right)$-并且有$\Theta(\lg n)$个级别。在实践中，情况2最常见的情况是$k=0$，在这种情况下，分水岭和驱动函数具有相同的渐近增长率，解为$T(n)=\Theta\left(n^{\log _b a} \lg n\right)$。
+
+情况3与情况1相似。驱动函数不仅必须渐近地比分水岭函数快，而且必须多项式地更快。也就是说，驱动函数$f(n)$必须比分水岭函数$n^{\log _b a}$至少快一个因子$\Theta\left(n^\epsilon\right)$，其中$\epsilon>0$是某个常数。此外，驱动函数必须满足正则条件$a f(n / b) \leq c f(n)$。当应用情况3时，大多数多项式有界函数都满足这个条件。如果驱动函数在局部区域增长缓慢，但整体上增长相对较快，则可能不满足正则条件。（练习4.5-5给出了这样一个函数的例子。）对于情况3，主定理说明解为$T(n)=\Theta(f(n))$。如果我们查看递归树，则每个级别的成本至少以几何级数从根到叶子下降，并且根的成本支配所有其他节点的成本。
+
+值得再次看一下情况1或情况3适用的分水岭函数和驱动函数之间需要有多项式分离的要求。分离不需要很大，但必须存在，并且必须多项式增长。例如，对于递归式$T(n)=4 T(n / 2)+n^{1.99}$（尽管这不是分析算法时可能遇到的递归式），分水岭函数为$n^{\log _b a}=n^2$。因此，驱动函数$f(n)=n^{1.99}$相对于分水岭函数来说至少多项式小了一个因子$n^{0.01}$。因此，情况1适用，$\epsilon=0.01$。
+
+\textbf{使用主方法}
+
+使用主定理，你确定适用主定理的情况（如果有）并写下答案。
+
+首先，考虑递归式$T(n)=9 T(n / 3)+n$。对于这个递归式，我们有$a=9$和$b=3$，这意味着$n^{\log _b a}=n^{\log _3 9}=\Theta\left(n^2\right)$。由于对于任何常数$\epsilon \leq 1$，$f(n)=n=O\left(n^{2-\epsilon}\right)$，因此我们可以应用主定理的情况1得出解为$T(n)=\Theta\left(n^2\right)$。
+
+现在考虑递归式$T(n)=T(2 n / 3)+1$，它具有$a=1$和$b=3 / 2$，这意味着分水岭函数为$n^{\log _b a}=n^{\log _{3 / 2} 1}=n^0=1$。由于$f(n)=1=\Theta\left(n^{\log _b a} \lg ^0 n\right)=\Theta(1)$，因此适用情况2。递归的解为$T(n)=\Theta(\lg n)$。
+
+对于递归式$T(n)=3 T(n / 4)+n \lg n$，我们有$a=3$和$b=4$，这意味着$n^{\log _b a}=n^{\log _4 3}=O\left(n^{0.793}\right)$。由于$f(n)=n \lg n=\Omega\left(n^{\log _4 3+\epsilon}\right)$，其中$\epsilon$可以大约为0.2，只要正则条件对$f(n)$成立，情况3就适用。它成立，因为对于足够大的$n$，我们有$a f(n / b)=3(n / 4) \lg (n / 4) \leq(3 / 4) n \lg n=c f(n)$，其中$c=3 / 4$。根据情况3，递归的解为$T(n)=\Theta(n \lg n)$。
+
+接下来，让我们看看递归式$T(n)=2 T(n / 2)+n \lg n$，其中$a=2, b=2$，且$n^{\log _b a}=n^{\log _2 2}=n$。由于$f(n)=n \lg n=$ $\Theta\left(n^{\log _b a} \lg ^1 n\right)$，所以适用情况2。我们得出结论，解为$T(n)=\Theta\left(n \lg ^2 n\right)$。
+
+我们可以使用主定理来解决第2.3.2节、第4.1节和第4.2节中看到的递归式。
+
+递归式（2.3），$T(n)=2 T(n / 2)+\Theta(n)$，在第41页描述了归并排序的运行时间。由于$a=2$和$b=2$，分水岭函数为$n^{\log _b a}=n^{\log _2 2}=n$。由于$f(n)=\Theta(n)$，因此适用情况2，解为$T(n)=\Theta(n \lg n)$。
+
+递归式（4.9），$T(n)=8 T(n / 2)+\Theta(1)$，在第84页描述了矩阵乘法的简单递归算法的运行时间。我们有$a=8$和$b=2$，这意味着分水岭函数为$n^{\log _b a}=n^{\log _2 8}=n^3$。由于$n^3$多项式地大于驱动函数$f(n)=\Theta(1)$，实际上，对于任何正的$\epsilon<3$，我们都有$f(n)=O\left(n^{3-\epsilon}\right)$，情况1适用。我们得出结论$T(n)=\Theta\left(n^3\right)$。
+
+最后，递归式（4.10），$T(n)=7 T(n / 2)+\Theta\left(n^2\right)$，在第87页中出现，是从Strassen矩阵乘法的分析中得出的。对于这个递归式，我们有$a=7$和$b=2$，分水岭函数为$n^{\log _b a}=n^{\lg 7}$。观察到$\lg 7=2.807355 \ldots$，我们可以让$\epsilon=0.8$并限制驱动函数$f(n)=\Theta\left(n^2\right)=O\left(n^{\lg 7-\epsilon}\right)$。情况1适用，解为$T(n)=\Theta\left(n^{\lg 7}\right)$。
+
+\textbf{主方法什么时候不适用}
+
+有些情况下，你无法使用主定理。例如，分水岭函数和驱动函数可能无法渐近比较。我们可能会发现，对于无限多个$n$的值，$f(n) \gg n^{\log _b a}$，但也可能会发现，对于另外无限多个不同的$n$的值，$f(n) \ll n^{\log _b a}$。然而，在算法研究中出现的大多数驱动函数都可以与分水岭函数有意义地比较。如果你遇到一个主递归式，而情况并非如此，你将不得不使用替换或其他方法。
+
+即使可以比较驱动函数和分水岭函数的相对增长，主定理也不能涵盖所有可能性。当$f(n)=o\left(n^{\log _b a}\right)$时，在情况1和情况2之间存在一个差距，但分水岭函数并没有多项式增长得更快。同样，在情况2和情况3之间存在一个差距，当$f(n)=\omega\left(n^{\log _b a}\right)$时，驱动函数增长得比分水岭函数多对数级别，但它并没有多项式增长得更快。如果驱动函数落入这些间隙之一，或者情况3中的正则条件不满足，你将需要使用主方法以外的方法来解决递归式。
+
+作为一个驱动函数落入间隙的例子，考虑递归式$T(n)=2 T(n / 2)+n / \lg n$。由于$a=2$且$b=2$，分水岭函数为$n^{\log _b a}=n^{\log _2 2}=n^1=n$。驱动函数为$n / \lg n=o(n)$，这意味着它增长的速度比分水岭函数$n$慢得多。但是，$n / \lg n$只比$n$慢对数级别，而不是多项式级别。更准确地说，第67页的方程式（3.24）表明，$\lg n=o\left(n^\epsilon\right)$对于任何常数$\epsilon>0$都成立，这意味着$1 / \lg n=\omega\left(n^{-\epsilon}\right)$且$n / \lg n=\omega\left(n^{1-\epsilon}\right)=\omega\left(n^{\log _b a-\epsilon}\right)$。因此不存在任何常数$\epsilon>0$使得$n / \lg n=O\left(n^{\log _b a-\epsilon}\right)$，这是情况1适用所必需的。情况2也不适用，因为$n / \lg n=\Theta\left(n^{\log _b a} \lg ^k n\right)$，其中$k=-1$，但情况2适用时$k$必须是非负的。
+
+要解决这种递归式，必须使用其他方法，例如替换法（第4.3节）或Akra-Bazzi方法（第4.7节）。 （练习4.6-3要求你证明答案为$\Theta(n \lg \lg n)$。）虽然主定理不能处理这种特定的递归式，但它确实可以处理在实践中经常出现的绝大多数递归式。
+
 \section{连续主定理的证明}
+
+在其完整性上证明主定理（定理4.1），特别是处理地板和天花板的棘手技术问题，超出了本书的范围。然而，本节陈述并证明了主定理的一个变体，称为连续主定理${ }^1$，其中主递归式（4.17）定义在足够大的正实数上。这个版本的证明不受地板和天花板的影响，包含了理解主递归式行为所需的主要思想。第4.7节更详细地讨论了分治递归中的地板和天花板，提出了足够的条件，使它们不影响渐近解。
+
+当然，由于你不需要理解主定理的证明才能应用主方法，因此你可以选择跳过本节。但是，如果你希望研究本教科书范围之外的更高级算法，则可能会欣赏对潜在数学的更好理解，连续主定理的证明提供了这种理解。
+
+尽管我们通常假设递归式是算法性的，并且不需要明确说明基本情况，但我们必须对证明进行更加谨慎，以证明这种做法是正确的。本节中的引理和定理明确说明了基本情况，因为归纳证明需要数学基础。在数学世界中，非常小心地证明定理，以证明在实践中更加随意的做法是正确的，这是很常见的。
+
+连续主定理的证明涉及两个引理。引理4.2使用稍微简化的主递归式，阈值常数为$n_0=1$，而不是隐含的基本情况所需的更一般的$n_0>0$阈值常数。该引理使用递归树将简化的主递归式的解决方案减少到求和的求解方案。引理4.3为求和提供了渐近界限，反映了主定理的三种情况。最后，连续主定理本身（定理4.4）为主递归式提供了渐近界限，同时推广到任意阈值常数$n_0>0$，这是隐含的基本情况所需的。
+
+其中一些证明使用第72-73页上描述的问题3-5中描述的属性来组合和简化复杂的渐近表达式。尽管问题3-5仅涉及$\Theta$符号，但那里列举的属性也可以扩展到$O$符号和$\Omega$符号。
+
+以下是第一个引理。
+
+\begin{lemma}{}{}
+设$a>0$且$b>1$为常数，$f(n)$为定义在实数$n \geq 1$上的函数。则递归式
+$$
+T(n)= \begin{cases}\Theta(1) & \text { if } 0 \leq n<1 \\ a T(n / b)+f(n) & \text { if } n \geq 1\end{cases}
+$$
+有解
+$$
+T(n)=\Theta\left(n^{\log _b a}\right)+\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j f\left(n / b^j\right) .
+$$
+\end{lemma}
+
+\begin{proof}
+考虑图4.3中的递归树。首先看看其内部节点。树的根具有成本$f(n)$，并且它有$a$个孩子，每个孩子的成本为$f(n / b)$。（当可视化递归树时，将$a$视为整数很方便，但数学上不需要。）每个孩子都有$a$个孩子，深度为2处有$a^2$个节点，每个孩子的成本为$f\left(n / b^2\right)$。一般地，深度$j$处有$a^j$个节点，每个节点的成本为$f\left(n / b^j\right)$。
+
+现在，我们继续理解叶子节点。树向下生长，直到$n / b^j$小于1为止。因此，树的高度为$\left\lfloor\log _b n\right\rfloor+1$，因为$n / b^{\left\lfloor\log _b n\right\rfloor} \geq n / b^{\log _b n}=1$且$n / b^{\left\lfloor\log _b n\right\rfloor+1}<n / b^{\log _b n}=1$。由于如我们所观察到的，深度$j$处的节点数为$a^j$，所有叶子节点都在深度$\left\lfloor\log _b n\right\rfloor+1$处，因此该树包含$a^{\left\lfloor\log _b n\right\rfloor+1}$个叶子节点。使用第66页上的恒等式（3.21），我们有$a^{\left.\log _b n\right\rfloor+1} \leq a^{\log _b n+1}=a n^{\log _b a}=O\left(n^{\log _b a}\right)$，因为$a$是常数，且$a^{\left\lfloor\log _b n\right\rfloor+1} \geq a^{\log _b n}=n^{\log _b a}=\Omega\left(n^{\log _b a}\right)$。因此，叶子节点的总数是$\Theta\left(n^{\log _b a}\right)$-渐近地，这是分界函数。
+
+现在我们可以通过对树中每个深度的节点的成本求和来推导方程（4.18），如图所示。方程中的第一项是叶子节点的总成本。由于每个叶子节点都在深度$\left\lfloor\log _b n\right\rfloor+1$处，且$n / b^{\left\lfloor\log _b n\right\rfloor+1}<1$，递归的基本情况给出了叶子节点的成本：$T\left(n / b^{\left\lfloor\log _b n\right\rfloor+1}\right)=\Theta(1)$。因此，所有$\Theta\left(n^{\log _b a}\right)$个叶子节点的成本是$\Theta\left(n^{\log _b a}\right) \cdot \Theta(1)=\Theta\left(n^{\log _b a}\right)$，根据问题3-5(d)。方程（4.18）中的第二项是内部节点的成本，在基础的分治算法中，它代表将问题分解为子问题，然后重新组合子问题的成本。由于深度$j$处所有内部节点的成本均为$a^j f\left(n / b^j\right)$，所有内部节点的总成本为
+$$
+\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j f\left(n / b^j\right)
+$$
+\end{proof}
+
+正如我们将要看到的，主定理的三种情况取决于递归树各层的总成本分布：
+
+情况1：成本从根到叶子按几何级数增长，每一层成本都增加一个常数因子。
+
+情况2：成本取决于定理中$k$的值。当$k=0$时，每一层的成本相等；当$k=1$时，从根到叶子成本线性增长；当$k=2$时，增长是二次的；一般情况下，成本在$k$中呈多项式增长。
+
+情况3：成本从根到叶子按几何级数递减，每一层成本都缩小一个常数因子。
+
+方程（4.18）中的求和描述了基础分治算法中分解和合并步骤的成本。下一个引理提供了求和增长的渐近界限。
+
+\begin{lemma}{}{}
+引理4.3
+设$a>0$和$b>1$为常数，$f(n)$是定义在$n\geq1$的实数上的函数。则对于$n\geq1$，函数
+$$
+g(n)=\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j f\left(n / b^j\right)
+$$
+的渐近行为可以如下刻画：
+
+1. 若存在常数$\epsilon>0$，使得$f(n)=O\left(n^{\log _b a-\epsilon}\right)$，则$g(n)=O\left(n^{\log _b a}\right)$。
+
+2. 若存在常数$k \geq 0$，使得$f(n)=\Theta\left(n^{\log _b a} \lg ^k n\right)$，则$g(n)=\Theta\left(n^{\log _b a} \lg ^{k+1} n\right)$。
+
+3. 若存在$c$在范围$0<c<1$内，使得对于所有$n\geq1$，有$0<a f(n / b) \leq c f(n)$，则$g(n)=\Theta(f(n))$。
+\end{lemma}
+
+\begin{proof}
+证明 对于情况1，我们有$f(n)=O\left(n^{\log _b a-\epsilon}\right)$，这意味着$f\left(n / b^j\right)=$ $O\left(\left(n / b^j\right)^{\log _b a-\epsilon}\right)$。将其代入方程（4.19）中得到
+
+$$
+\begin{aligned}
+g(n) & =\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j O\left(\left(\frac{n}{b^j}\right)^{\log _b a-\epsilon}\right) \\
+& =O\left(\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j\left(\frac{n}{b^j}\right)^{\log _b a-\epsilon}\right) \\
+& =O\left(n^{\log _b a-\epsilon} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\frac{a b^\epsilon}{b^{\log _b a}}\right)^j\right) \\
+& =O\left(n^{\log _b a-\epsilon} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(b^\epsilon\right)^j\right) \\
+& =O\left(n^{\log _b a-\epsilon}\left(\frac{b^{\left.\epsilon\left(\log _b n\right\rfloor+1\right)}-1}{b^\epsilon-1}\right)\right)
+\end{aligned}
+$$
+
+最后一个级数是等比数列。由于$b$和$\epsilon$是常数，因此$b^\epsilon-1$的分母不影响$g(n)$的渐近增长，分子中的-1也不影响。由于$b^{\epsilon\left(\left\lfloor\log _b n\right\rfloor+1\right)} \leq\left(b^{\log _b n+1}\right)^\epsilon=b^\epsilon n^\epsilon=O\left(n^\epsilon\right)$，我们得到$g(n)=O\left(n^{\log _b a-\epsilon} \cdot O\left(n^\epsilon\right)\right)=O\left(n^{\log _b a}\right)$，从而证明了情况1。
+
+情况2假设$f(n)=\Theta\left(n^{\log _b a} \lg ^k n\right)$，因此我们可以得出$f\left(n / b^j\right)=\Theta\left(\left(n / b^j\right)^{\log _b a} \lg ^k\left(n / b^j\right)\right)$。将其代入方程（4.19）中，并反复应用问题3-5(c)，得到
+
+$$
+\begin{aligned}
+g(n) & =\Theta\left(\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j\left(\frac{n}{b^j}\right)^{\log _b a} \lg ^k\left(\frac{n}{b^j}\right)\right) \\
+& =\Theta\left(n^{\log _b a} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} \frac{a^j}{b^{j \log _b a}} \lg ^k\left(\frac{n}{b^j}\right)\right) \\
+& =\Theta\left(n^{\log _b a} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} \lg ^k\left(\frac{n}{b^j}\right)\right) \\
+& =\Theta\left(n^{\log _b a} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\frac{\log _b\left(n / b^j\right)}{\log _b 2}\right)^k\right) \\
+& =\Theta\left(n^{\log _b a} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\frac{\log _b n-j}{\log _b 2}\right)^k\right) \\
+& =\Theta\left(\frac{n^{\log _b a}}{\log _b^k 2} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\log _b n-j\right)^k\right) \\
+& =\Theta\left(n^{\log _b a} \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\log _b n-j\right)^k\right)
+\end{aligned}
+$$
+
+$\Theta$符号内的求和可以如下从上界限界：
+
+$$
+\begin{aligned}
+& \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\log _b n-j\right)^k \leq \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor}\left(\left\lfloor\log _b n\right\rfloor+1-j\right)^k \\
+& =\sum_{j=1}^{\left\lfloor\log _b n\right\rfloor+1} j^k \quad \text { (reindexing-pages 1143-1144) } \\
+& =O\left(\left(\left\lfloor\log _b n\right\rfloor+1\right)^{k+1}\right) \quad \text { (by Exercise A.1-5 on page 1144) } \\
+& =O\left(\log _b^{k+1} n\right) \quad \text { (by Exercise 3.3-3 on page 70) . } \\
+&
+\end{aligned}
+$$
+
+练习4.6-1要求你展示，类似地将求和从下界限界为$\Omega\left(\log _b^{k+1} n\right)$。由于我们有紧密的上下界，因此这个求和是$\Theta\left(\log _b^{k+1} n\right)$，由此我们可以得出$g(n)=\Theta\left(n^{\log _b a} \log _b^{k+1} n\right)$，从而完成了情况2的证明。
+
+对于情况3，注意到$f(n)$出现在$g(n)$的定义（当$j=0$时），并且$g(n)$的所有项都是正数。因此，我们必须有$g(n)=$ $\Omega(f n))$，只需要证明$g(n)=O(f(n))$即可。对不等式$a f(n / b) \leq c f(n)$进行$j$次迭代得到$a^j f\left(n / b^j\right) \leq c^j f(n)$。将其代入方程（4.19）中，我们得到
+
+$$
+\begin{aligned}
+g(n) & =\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j f\left(n / b^j\right) \\
+& \leq \sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} c^j f(n) \\
+& \leq f(n) \sum_{j=0}^{\infty} c^j \\
+& =f(n)\left(\frac{1}{1-c}\right) \\
+& =O(f(n)) .
+\end{aligned}
+$$
+
+因此，我们可以得出$g(n)=\Theta(f(n))$。情况3证明完成后，引理的整个证明也就完成了。
+\end{proof}
+
+现在我们可以陈述并证明连续主定理了。
+
+\begin{theorem}{连续主定理}{}
+假设$a>0$和$b>1$是常数，并且$f(n)$是在所有足够大的实数上定义且非负的驱动函数。通过以下算法递归定义正实数上的$T(n)$：
+$$
+T(n)=a T(n / b)+f(n)
+$$
+那么$T(n)$的渐近行为可以如下刻画：
+\begin{enumerate}
+\item 如果存在一个常数$\epsilon>0$，使得$f(n)=O\left(n^{\log _b a-\epsilon}\right)$，则$T(n)=$ $\Theta\left(n^{\log _b a}\right)$。
+\item 如果存在一个常数$k \geq 0$，使得$f(n)=\Theta\left(n^{\log _b a} \lg ^k n\right)$，则$T(n)=$ $\Theta\left(n^{\log _b a} \lg ^{k+1} n\right)$。
+\item 如果存在一个常数$\epsilon>0$，使得$f(n)=\Omega\left(n^{\log _b a+\epsilon}\right)$，并且如果$f(n)$还满足正则性条件$a f(n / b) \leq c f(n)$（其中$c<1$是常数，并且$n$足够大），则$T(n)=\Theta(f(n))$。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
 
 \section{Akra-Bazzi递归式}
 
+本节概述了两个与分治递归相关的高级主题。第一个处理由于使用floor和ceiling而产生的技术细节，第二个讨论了Akra-Bazzi方法，这涉及到一些微积分，用于解决复杂的分治递归。
+
+特别地，我们将研究由M. Akra和L. Bazzi [13]最初研究的算法分治递归的类。这些Akra-Bazzi递归采用以下形式：
+$$
+T(n)=f(n)+\sum_{i=1}^k a_i T\left(n / b_i\right),
+$$
+其中$k$是正整数；所有常数$a_1, a_2, \ldots, a_k \in \mathbb{R}$都是严格正的；所有常数$b_1, b_2, \ldots, b_k \in \mathbb{R}$都严格大于1；并且驱动函数$f(n)$在足够大的非负实数上定义且本身非负。
+
+Akra-Bazzi递归推广了主定理所涉及的递归类。虽然主递归表征将问题分解为相等大小的子问题（模除floor和ceiling）的分治算法的运行时间，但Akra-Bazzi递归可以描述将问题分解为不同大小的子问题的分治算法的运行时间。但是，主定理允许你忽略floor和ceiling，但是Akra-Bazzi方法用于解决Akra-Bazzi递归需要额外的要求来处理floor和ceiling。
+
+但是，在深入了解Akra-Bazzi方法之前，让我们先了解忽略Akra-Bazzi递归中的floor和ceiling所涉及的限制。正如你所知，算法通常处理整数大小的输入。然而，递归的数学通常比整数更容易处理实数，因为我们必须处理floor和ceiling以确保项被良好定义。这种差异可能看起来并不大，特别是因为递归通常是这样的真相，但为了数学上的正确性，我们必须小心我们的假设。由于我们的最终目标是理解算法而不是数学边角情况的琐碎细节，因此我们希望既随意又严谨。我们如何在确保严谨性的同时随意地处理floor和ceiling？
+
+从数学角度来看，处理floor和ceiling的困难在于某些驱动函数可能非常奇怪。因此，在Akra-Bazzi递归中通常不能忽略floor和ceiling。幸运的是，我们在算法研究中遇到的大多数驱动函数表现良好，floor和ceiling不会产生影响。
+
+
+
+
+
+
+$$
+\begin{aligned}
+& T(n)=\Theta\left(n^p\left(1+\int_1^n \frac{f(x)}{x^{p+1}} d x\right)\right) \\
+& =\Theta\left(n^p\left(1+\int_1^n x^{-p} d x\right)\right) \\
+& =\Theta\left(n^p\left(1+\left[\frac{x^{1-p}}{1-p}\right]_1^n\right)\right) \\
+& =\Theta\left(n^p\left(1+\left(\frac{n^{1-p}}{1-p}-\frac{1}{1-p}\right)\right)\right) \\
+& =\Theta\left(n^p \cdot \Theta\left(n^{1-p}\right)\right) \\
+& =\Theta(n) \\
+&
+\end{aligned}
+$$
+
+尽管Akra-Bazzi方法比主定理更通用，但它需要微积分和有时需要更多的推理。如果你要忽略floor和ceiling，还必须确保你的驱动函数满足多项式增长条件，尽管这很少是问题。当子问题大小更或多或少相等时，主定理更简单易用。它们都是你算法工具箱中的好工具。
+
 \chapter{概率分析与随机算法}
+
+本章介绍概率分析和随机算法。如果你不熟悉概率论的基础知识，应该阅读附录C的C.1-C.4节，复习这些材料。我们将在本书中多次回顾概率分析和随机算法。
 
 \section{雇佣问题}
 
