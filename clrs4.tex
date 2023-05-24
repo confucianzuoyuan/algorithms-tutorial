@@ -1726,7 +1726,106 @@ $$
 \end{theorem}
 
 \begin{proof}
+证明思路是通过运用引理4.3来限制引理4.2中的求和式（4.18）。但是我们必须针对$0<n<1$使用引理4.2的基本情况，而这个定理使用了一个隐含的基本情况$0<n<n_0$，其中$n_0>0$是任意的阈值常数。由于递归是算法性质的，我们可以假设$f(n)$对于$n \geq n_0$已经被定义。
 
+对于$n>0$，让我们定义两个辅助函数$T^{\prime}(n)=T\left(n_0 n\right)$和$f^{\prime}(n)=f\left(n_0 n\right)$。我们有：
+
+\begin{equation}
+\begin{aligned}
+T^{\prime}(n) & =T\left(n_0 n\right) \\
+& = \begin{cases}\Theta(1) & \text { if } n_0 n<n_0 \\
+a T\left(n_0 n / b\right)+f\left(n_0 n\right) & \text { if } n_0 n \geq n_0\end{cases} \\
+& = \begin{cases}\Theta(1) & \text { if } n<1, \\
+a T^{\prime}(n / b)+f^{\prime}(n) & \text { if } n \geq 1 .\end{cases}
+\end{aligned}
+\end{equation}
+
+我们已经得到了$T^{\prime}(n)$的递归关系式，它满足引理4.2的条件，根据该引理，解为：
+
+\begin{equation}
+T^{\prime}(n)=\Theta\left(n^{\log _b a}\right)+\sum_{j=0}^{\left\lfloor\log _b n\right\rfloor} a^j f^{\prime}\left(n / b^j\right)
+\end{equation}
+
+为了解决$T^{\prime}(n)$，我们首先需要限制$f^{\prime}(n)$。让我们检查定理中的各个情况。
+
+情况1的条件是$f(n)=O\left(n^{\log _b a-\epsilon}\right)$，其中$\epsilon>0$是某个常数。我们有：
+
+$$
+\begin{aligned}
+f^{\prime}(n) & =f\left(n_0 n\right) \\
+& =O\left(\left(n_0 n\right)^{\log _b a-\epsilon}\right) \\
+& =O\left(n^{\log _b a-\epsilon}\right),
+\end{aligned}
+$$
+
+由于$a, b, n_0$和$\epsilon$都是常数。函数$f^{\prime}(n)$满足引理4.3的情况1的条件，而且引理4.2中方程（4.18）中的求和式计算结果为$O\left(n^{\log _b a}\right)$。因为$a, b$和$n_0$都是常数，我们有：
+
+$$
+\begin{aligned}
+T(n) & =T^{\prime}\left(n / n_0\right) \\
+& =\Theta\left(\left(n / n_0\right)^{\log _b a}\right)+O\left(\left(n / n_0\right)^{\log _b a}\right) \\
+& =\Theta\left(n^{\log _b a}\right)+O\left(n^{\log _b a}\right) \\
+& =\Theta\left(n^{\log _b a}\right)
+\end{aligned}
+$$
+
+从而完成了定理中的情况1。
+
+情况2的条件是$f(n)=\Theta\left(n^{\log _b a} \lg ^k n\right)$，其中$k \geq 0$是某个常数。我们有：
+
+$$
+\begin{aligned}
+f^{\prime}(n) & =f\left(n_0 n\right) \\
+& =\Theta\left(\left(n_0 n\right)^{\log _b a} \lg ^k\left(n_0 n\right)\right) \\
+& =\Theta\left(n^{\log _b a} \lg ^k n\right) \quad \text { (by eliminating the constant terms) } .
+\end{aligned}
+$$
+
+类似于情况1的证明，函数$f^{\prime}(n)$满足引理4.3的情况2的条件。因此，引理4.2中方程（4.18）中的求和式为$\Theta\left(n^{\log _b a} \lg ^{k+1} n\right)$，这意味着：
+
+$$
+\begin{aligned}
+T(n) & =T^{\prime}\left(n / n_0\right) \\
+& =\Theta\left(\left(n / n_0\right)^{\log _b a}\right)+\Theta\left(\left(n / n_0\right)^{\log _b a} \lg ^{k+1}\left(n / n_0\right)\right) \\
+& =\Theta\left(n^{\log _b a}\right)+\Theta\left(n^{\log _b a} \lg ^{k+1} n\right) \\
+& =\Theta\left(n^{\log _b a} \lg ^{k+1} n\right) \quad \quad \text { (by Problem 3-5(c)), }
+\end{aligned}
+$$
+
+从而证明了定理中的情况2。
+
+最后，情况3的条件是$f(n)=\Omega\left(n^{\log _b a+\epsilon}\right)$，其中$\epsilon>0$是某个常数，并且$f(n)$还满足正则条件$a f(n / b) \leq c f(n)$，其中$n \geq n_0$且$c<1$和$n_0>1$是某些常数。情况3的第一部分类似于情况1：
+
+$$
+\begin{aligned}
+f^{\prime}(n) & =f\left(n_0 n\right) \\
+& =\Omega\left(\left(n_0 n\right)^{\log _b a+\epsilon}\right) \\
+& =\Omega\left(n^{\log _b a+\epsilon}\right) .
+\end{aligned}
+$$
+
+利用$f^{\prime}(n)$的定义以及$n_0 n \geq n_0$对于所有$n \geq 1$成立的事实，我们有：
+
+$$
+\begin{aligned}
+a f^{\prime}(n / b) & =a f\left(n_0 n / b\right) \\
+& \leq c f\left(n_0 n\right) \\
+& =c f^{\prime}(n) .
+\end{aligned}
+$$
+
+因此，$f^{\prime}(n)$满足引理4.3的情况3的要求，而且引理4.2中方程（4.18）中的求和式计算结果为$\Theta\left(f^{\prime}(n)\right)$，得到：
+
+$$
+\begin{aligned}
+T(n) & =T^{\prime}\left(n / n_0\right) \\
+& =\Theta\left(\left(n / n_0\right)^{\log _b a}\right)+\Theta\left(f^{\prime}\left(n / n_0\right)\right) \\
+& =\Theta\left(f^{\prime}\left(n / n_0\right)\right) \\
+& =\Theta(f(n))
+\end{aligned}
+$$
+
+这完成了定理中情况3的证明，从而完成了整个定理的证明。
 \end{proof}
 
 \section{Akra-Bazzi递归式}
@@ -1745,10 +1844,46 @@ Akra-Bazzi递归推广了主定理所涉及的递归类。虽然主递归表征�
 
 从数学角度来看，处理floor和ceiling的困难在于某些驱动函数可能非常奇怪。因此，在Akra-Bazzi递归中通常不能忽略floor和ceiling。幸运的是，我们在算法研究中遇到的大多数驱动函数表现良好，floor和ceiling不会产生影响。
 
+\textbf{多项式增长条件}
 
+如果方程（4.22）中的驱动函数$f(n)$在以下意义上表现良好，则可以忽略floor和ceiling。
 
+对于所有足够大的正实数，定义在上的函数$f(n)$满足多项式增长条件，如果存在一个常数$\hat{n}>0$，使得对于每个常数$\phi \geq 1$，存在一个常数$d>1$（取决于$\phi$），使得对于所有$1 \leq \psi \leq \phi$和$n \geq \hat{n}$，都有$f(n) / d \leq f(\psi n) \leq d f(n)$。
+这个定义可能是本教材中最难理解的定义之一。从一阶角度来看，它表明$f(n)$满足$f(\Theta(n))=\Theta(f(n))$的性质，尽管多项式增长条件实际上略微更强（请参见练习4.7-4）。该定义还意味着$f(n)$是渐进正的（请参见练习4.7-3）。
 
+满足多项式增长条件的函数的例子包括任何形式为$f(n)=\Theta\left(n^\alpha \lg ^\beta n \lg \lg ^\gamma n\right)$的函数，其中$\alpha, \beta$和$\gamma$是常数。本书中使用的大多数多项式有界函数都满足此条件。指数和超指数不满足此条件（例如，请参见练习4.7-2），也存在不满足此条件的多项式有界函数。
 
+\textbf{在“好的”递归中的floor和ceiling}
+
+当Akra-Bazzi递归中的驱动函数满足多项式增长条件时，floor和ceiling不会改变解的渐近行为。下面的定理，没有给出证明，正式化了这个概念。
+
+\begin{theorem}{}{}
+设$T(n)$是定义在非负实数上的函数，满足递归式（4.22），其中$f(n)$满足多项式增长条件。设$T^{\prime}(n)$是另一个定义在自然数上的函数，也满足递归式（4.22），除了每个$T\left(n / b_i\right)$被替换为$T\left(\left\lceil n / b_i\right\rceil\right)$或$T\left(\left\lfloor n / b_i\right\rfloor\right)$之外。那么我们有$T^{\prime}(n)=\Theta(T(n))$。
+\end{theorem}
+
+Floor和ceiling对递归中的参数表示一种较小的扰动。根据第64页的不等式（3.2），它们最多会使参数扰动1。但是更大的扰动是可以容忍的。只要递归（4.22）中的驱动函数$f(n)$满足多项式增长条件，那么用$T\left(n / b_i+h_i(n)\right)$替换任何一个$T\left(n / b_i\right)$都不会影响渐近解，其中$\left|h_i(n)\right|=O\left(n / \lg ^{1+\epsilon} n\right)$，$\epsilon>0$为某个常数，且$n$足够大。因此，在分治算法中，除法步骤可以相对粗略，而不会影响其运行时间递归的解。
+
+\textbf{Akra-Bazzi方法}
+
+不出所料，Akra-Bazzi方法是为解决Akra-Bazzi递归（4.22）而开发的，根据定理4.5，它适用于存在floor和ceiling或更大的扰动，正如刚才所讨论的那样。该方法首先确定唯一的实数$p$，使得$\sum_{i=1}^k a_i / b_i^p=1$。这样的$p$总是存在的，因为当$p \rightarrow-\infty$时，和趋向于$\infty$；它随着$p$的增加而减小；当$p \rightarrow \infty$时，它趋向于0。然后，Akra-Bazzi方法给出递归的解：
+
+\begin{equation}
+T(n)=\Theta\left(n^p\left(1+\int_1^n \frac{f(x)}{x^{p+1}} d x\right)\right)
+\end{equation}
+
+作为一个例子，考虑递归式
+
+\begin{equation}
+T(n)=T(n / 5)+T(7 n / 10)+n
+\end{equation}
+
+当我们研究一种从$n$个数字集合中选择第$i$小元素的算法时，我们将在第240页看到类似的递归（9.1）。该递归具有方程（4.22）的形式，其中$a_1=a_2=1$，$b_1=5$，$b_2=10/7$，$f(n)=n$。为了解决它，Akra-Bazzi方法指出我们应该确定唯一的$p$，满足：
+
+$$
+\left(\frac{1}{5}\right)^p+\left(\frac{7}{10}\right)^p=1
+$$
+
+求解$p$有点麻烦 - 结果$p=0.83978 \ldots$ - 但是我们可以在不知道$p$的确切值的情况下解决递归。注意到$(1 / 5)^0+(7 / 10)^0=2$，$(1 / 5)^1+(7 / 10)^1=9 / 10$，因此$p$在$0<p<1$范围内。这足以让Akra-Bazzi方法给出我们的解。我们将使用微积分的一个事实，即如果$k \neq-1$，则$\int x^k d x=x^{k+1} /(k+1)$，我们将应用于$k=-p \neq-1$。Akra-Bazzi解（4.23）给出
 
 $$
 \begin{aligned}
@@ -1807,6 +1942,139 @@ $$
 
 \section{指示器随机变量}
 
+为了分析许多算法，包括聘用问题，我们使用指示随机变量。指示随机变量提供了在概率和期望之间转换的便捷方法。给定样本空间$S$和事件$A$，与事件$A$相关联的指示随机变量$\mathrm{I}\{A\}$定义为：
+
+$$
+\mathrm{I}\{A\}= \begin{cases}1 & \text { if } A \text { occurs } \\ 0 & \text { if } A \text { does not occur } .\end{cases}
+$$
+
+作为一个简单的例子，让我们确定掷一枚公平硬币时获得正面的期望次数。单次硬币抛掷的样本空间为$S=\{H, T\}$，其中$\operatorname{Pr}\{H\}=\operatorname{Pr}\{T\}=1 / 2$。我们可以定义与硬币出现正面事件$H$相关联的指示随机变量$X_H$。此变量计算本次抛掷中获得的正面次数，如果硬币出现正面，则为1，否则为0。我们写成：
+
+$$
+\begin{aligned}
+X_H & =\mathrm{I}\{H\} \\
+& = \begin{cases}1 & \text { if } H \text { occurs }, \\
+0 & \text { if } T \text { occurs } .\end{cases}
+\end{aligned}
+$$
+
+在一次抛掷硬币中获得正面的期望次数就是我们的指示变量$X_H$的期望值：
+
+$$
+\begin{aligned}
+\mathrm{E}\left[X_H\right] & =\mathrm{E}[\mathrm{I}\{H\}] \\
+& =1 \cdot \operatorname{Pr}\{H\}+0 \cdot \operatorname{Pr}\{T\} \\
+& =1 \cdot(1 / 2)+0 \cdot(1 / 2) \\
+& =1 / 2 .
+\end{aligned}
+$$
+
+因此，抛一次公正硬币所得到的正面期望数量为$1/2$。如下引理所示，与事件$A$相关联的指示随机变量的期望值等于$A$发生的概率。
+
+\begin{lemma}{}{}
+给定样本空间$S$和样本空间$S$中的事件$A$，令$X_A=\mathrm{I}\{A\}$。则$\mathrm{E}\left[X_A\right]=\operatorname{Pr}\{A\}$。
+\end{lemma}
+
+\begin{proof}
+证明根据方程(5.1)中指示随机变量的定义和期望值的定义，我们有
+
+$$
+\begin{aligned}
+\mathrm{E}\left[X_A\right] & =\mathrm{E}[\mathrm{I}\{A\}] \\
+& =1 \cdot \operatorname{Pr}\{A\}+0 \cdot \operatorname{Pr}\{\bar{A}\} \\
+& =\operatorname{Pr}\{A\},
+\end{aligned}
+$$
+
+$$
+\text { where } \bar{A} \text { denotes } S-A \text {, the complement of } A \text {. }
+$$
+\end{proof}
+
+虽然对于像计算单次抛掷硬币的正面期望次数这样的应用，指示随机变量可能看起来很繁琐，但它们对于分析执行重复随机试验的情况非常有用。例如，在附录$\mathrm{C}$中，指示随机变量提供了一种简单的方法来确定$n$次硬币抛掷中正面朝上的期望次数。一种选择是将获得0个正面、1个正面、2个正面等的概率分别考虑，以得到第1199页上方程(C.41)的结果。或者，我们可以采用方程(C.42)提出的更简单的方法，该方法隐含地使用了指示随机变量。更明确地说明这一点，让$X_i$成为与第$i$次抛掷出现正面事件相关联的指示随机变量：$X_i=\mathrm{I}$第$i$次抛掷结果为事件$\left.H\right\}$。让$X$成为表示$n$次硬币抛掷中总正面次数的随机变量，这样
+
+$$
+X=\sum_{i=1}^n X_i
+$$
+In order to compute the expected number of heads, take the expectation of both sides of the above equation to obtain
+$$
+\mathrm{E}[X]=\mathrm{E}\left[\sum_{i=1}^n X_i\right]
+$$
+
+根据引理5.1，每个随机变量的期望值为$\mathrm{E}\left[X_i\right]=1 / 2$，其中$i=1,2, \ldots, n$。然后我们可以计算期望值之和：$\sum_{i=1}^n \mathrm{E}\left[X_i\right]=n / 2$。但是方程(5.2)要求的是总和的期望值，而不是期望值之和。我们该如何解决这个难题？期望的线性性，即第1192页上的方程(C.24)，可以解决这个问题：总和的期望值总是等于期望值之和。即使在随机变量之间存在依赖关系时，期望的线性性也适用。将指示随机变量与期望的线性性相结合，可以为我们计算多个事件发生时的期望值提供强大的技巧。现在我们可以计算正面朝上的期望次数：
+
+$$
+\begin{aligned}
+\mathrm{E}[X] & =\mathrm{E}\left[\sum_{i=1}^n X_i\right] \\
+& =\sum_{i=1}^n \mathrm{E}\left[X_i\right] \\
+& =\sum_{i=1}^n 1 / 2 \\
+& =n / 2
+\end{aligned}
+$$
+
+因此，与方程(C.41)中使用的方法相比，指示随机变量极大地简化了计算。我们在整本书中都使用指示随机变量。
+使用指示随机变量分析聘用问题
+回到聘用问题，我们现在希望计算你聘用新办公助手的次数的期望值。为了使用概率分析，让我们假设候选人以随机顺序到达，如第5.1节所讨论的那样。（我们将在第5.3节中看到如何消除这个假设。）让$X$成为其值等于你聘用新办公助手次数的随机变量。然后我们可以应用第1192页上的方程(C.23)中的期望值定义来获得：
+
+$$
+\mathrm{E}[X]=\sum_{x=1}^n x \operatorname{Pr}\{X=x\} \text {, }
+$$
+
+但是这个计算会很繁琐。相反，让我们通过使用指示随机变量来简化计算。
+
+为了使用指示随机变量，不要仅定义一个变量表示你聘用新办公助手的次数来计算$\mathrm{E}[X]$，而是将聘用过程视为重复的随机试验，并定义$n$个变量，表示每个特定候选人是否被聘用。具体而言，让$X_i$成为与第$i$个候选人被聘用事件相关联的指示随机变量。因此，
+
+$$
+\begin{aligned}
+X_i & =\mathrm{I} \text { \{candidate } i \text { is hired }\} \\
+& = \begin{cases}1 & \text { if candidate } i \text { is hired }, \\
+0 & \text { if candidate } i \text { is not hired },\end{cases}
+\end{aligned}
+$$
+
+以及
+
+$$
+X=X_1+X_2+\cdots+X_n
+$$
+
+引理 5.1 给出了
+
+$$
+\left.\mathrm{E}\left[X_i\right]=\operatorname{Pr} \text { candidate } i \text { is hired }\right\}
+$$
+
+因此，我们必须计算HIRE-ASSISTANT的第5-6行被执行的概率。
+
+当且仅当候选人$i$比候选人1到$i-1$中的每个人都更好时，候选人$i$才会在第6行被聘用。因为我们假设候选人以随机顺序到达，所以前$i$个候选人以随机顺序出现。这前$i$个候选人中的任何一个都有同等的可能性成为迄今为止最合格的人。候选人$i$有$1/i$的概率比候选人1到$i-1$更合适，因此有$1/i$的概率被聘用。根据引理5.1，我们得出结论：
+
+$$
+\mathrm{E}\left[X_i\right]=1 / i
+$$
+
+现在我们可以计算 $\mathrm{E}[X]$ ：
+
+$$
+\begin{array}{rlr}
+\mathrm{E}[X] & =\mathrm{E}\left[\sum_{i=1}^n X_i\right] & \text { (by equation (5.3)) } \\
+& =\sum_{i=1}^n \mathrm{E}\left[X_i\right] & \text { (by equation (C.24), linearity of expectation) } \\
+& =\sum_{i=1}^n \frac{1}{i} & \text { (by equation (5.4)) } \\
+& =\ln n+O(1) & \text { (by equation (A.9), the harmonic series). }
+\end{array}
+$$
+
+即使你面试了$n$个人，平均而言，你实际上只聘用了大约$\ln n$个人。我们将这个结果总结在以下引理中。
+
+\begin{lemma}{}{}
+Assuming that the candidates are presented in a random order, algorithm HIREASSISTANT has an average-case total hiring $\operatorname{cost}$ of $O\left(c_h \ln n\right)$.
+\end{lemma}
+
+\begin{proof}
+这个界限立即从我们对聘用成本的定义和方程(5.6)中得出，方程显示聘用的期望次数大约为$\ln n$。
+\end{proof}
+
+平均情况下的聘用成本相对于最坏情况下的$O\left(c_h n\right)$聘用成本是一个显著的改进。
+
 \section{随机算法}
 
 在前一节中，我们展示了了解输入分布如何帮助我们分析算法的平均情况行为。如果你不知道分布怎么办？那么你就无法进行平均情况分析。然而，如第5.1节所述，你可能能够使用随机化算法。
@@ -1818,6 +2086,64 @@ $$
 另一方面，考虑随机化算法，该算法首先对候选人列表进行排列，然后确定最佳候选人。在这种情况下，我们在算法中随机化，而不是在输入分布中随机化。给定特定的输入，例如上面的$A_3$，我们无法确定最大值被更新的次数，因为这个数量在每次运行算法时都不同。第一次在$A_3$上运行算法时，它可能会生成排列$A_1$并执行10次更新。但是第二次运行算法时，它可能会生成排列$A_2$并仅执行一次更新。第三次运行算法时，它可能执行其他数量的更新。每次运行算法时，其执行取决于所做的随机选择，并且很可能与算法的先前执行不同。对于该算法和许多其他随机化算法，没有特定的输入会引起其最坏情况的行为。即使你最坏的敌人也不能产生一个糟糕的输入数组，因为随机排列使输入顺序无关紧要。仅当随机数生成器产生“不幸”的排列时，随机化算法才表现不佳。
 
 对于招聘问题，在代码中唯一需要更改的是随机排列数组，就像在RANDOMIZED-HIRE-ASSISTANT过程中所做的那样。这个简单的变化创建了一个随机化算法，其性能与假设候选人按随机顺序呈现所获得的性能相匹配。
+
+\begin{lemma}{}{}
+随机雇佣助手程序的期望雇佣成本是$O\left(c_h \ln n\right)$。
+\end{lemma}
+
+\begin{proof}
+重新排列输入数组可以实现与第5.2节中HIRE-ASSISTANT的概率分析完全相同的情况。
+
+通过仔细比较引理5.2和5.3，你可以看到概率分析和随机算法之间的区别。引理5.2对输入进行了假设。引理5.3没有这样的假设，尽管随机化输入需要一些额外的时间。为了保持一致的术语，我们将引理5.2表述为平均雇佣成本，将引理5.3表述为期望雇佣成本。在本节的其余部分，我们将讨论随机排列输入涉及的一些问题。
+\end{proof}
+
+\textbf{随机排列数组}
+
+许多随机算法通过对给定的输入数组进行排列来随机化输入。本书的其他地方将介绍其他随机化算法，但现在，让我们看看如何随机排列$n$个元素的数组。目标是产生一个均匀随机排列，即一个与任何其他排列一样可能的排列。由于有$n$!种可能的排列，我们希望任何特定排列被产生的概率为$1 / n !$。
+
+你可能认为，要证明排列是均匀随机排列，只需证明对于每个元素$A[i]$，元素最终在位置$j$的概率为$1 / n$即可。练习$5.3-4$表明，这个更弱的条件实际上是不充分的。
+
+我们的生成随机排列的方法在原地对数组进行排列：输入数组的最多一定数量的元素会被存储在数组外。过程RANDOMLY-PERMUTE在$\Theta(n)$时间内就可以原地排列数组$A[1:n]$。在第$i$次迭代中，它从元素$A[i]$到$A[n]$中随机选择元素$A[i]$。在第$i$次迭代之后，$A[i]$不再改变。
+
+我们使用循环不变式来证明过程RANDOMLY-PERMUTE生成均匀随机排列。对于一个$n$个元素的集合，一个$k$-排列是一个包含$k$个$n$个元素中的序列，没有重复项。（见附录C第1180页。）有$n!/(n-k)$!种可能的$k$-排列。
+
+\begin{lemma}{}{}
+过程RANDOMLY-PERMUTE计算均匀随机排列。
+\end{lemma}
+
+\begin{proof}
+我们使用以下循环不变式：
+
+在第1-2行的for循环的第$i$次迭代之前，对于$n$个元素的每个可能的$(i-1)$-排列，子数组$A[1:i-1]$以$(n-i+1)!/n!$的概率包含这个$(i-1)$-排列。
+
+我们需要证明这个不变式在第一次循环迭代之前是正确的，每次循环迭代都保持不变式，循环终止，并且在循环终止时不变式提供了一个有用的属性来证明正确性。
+
+初始化：考虑在第一次循环迭代之前的情况，因此$i=1$。循环不变式表示，对于每个可能的0-排列，子数组$A[1:0]$以$(n-i+1)!/n!=n!/n!=1$的概率包含这个0-排列。子数组$A[1:0]$是一个空子数组，而0-排列没有元素。因此，$A[1:0]$以1的概率包含任何0-排列，并且循环不变式在第一次迭代之前成立。
+
+保持不变式：根据循环不变式，我们假设在第$i$次迭代之前，每个可能的$(i-1)$ -排列以$(n-i+1)!/n!$的概率出现在子数组$A[1:i-1]$中。我们将展示在第$i$次迭代后，每个可能的$i$-排列以$(n-i)!/n!$的概率出现在子数组$A[1:i]$中。然后增加$i$以进行下一次迭代，以保持循环不变式。
+
+让我们来看看第$i$次迭代。考虑一个特定的$i$-排列，并用$\left\langle x_1,x_2,\ldots,x_i\right\rangle$表示其中的元素。这个排列由一个$(i-1)$-排列$\left\langle x_1,\ldots,x_{i-1}\right\rangle$和算法放置在$A[i]$中的值$x_i$组成。让$E_1$表示前$i-1$次迭代在$A[1:i-1]$中创建了特定的$(i-1)$-排列$\left\langle x_1,\ldots,x_{i-1}\right\rangle$的事件。根据循环不变式，$\operatorname{Pr}\left\{E_1\right\}=(n-i+1)!/n!$。让$E_2$表示第$i$次迭代将$x_i$放在位置$A[i]$的事件。当且仅当$E_1$和$E_2$同时发生时，$i$-排列$\left\langle x_1,\ldots,x_i\right\rangle$才会出现在$A[1:i]$中，因此我们希望计算$\operatorname{Pr}\left\{E_2 \cap E_1\right\}$。使用第1187页上的方程(C.16)，我们有：
+
+$$
+\operatorname{Pr}\left\{E_2 \cap E_1\right\}=\operatorname{Pr}\left\{E_2 \mid E_1\right\} \operatorname{Pr}\left\{E_1\right\}
+$$
+
+概率$\operatorname{Pr}\left\{E_2 \mid E_1\right\}$等于$1/(n-i+1)$，因为在第2行中，算法从$A[i:n]$位置中的$n-i+1$个值中随机选择$x_i$。因此，我们有：
+
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{E_2 \cap E_1\right\} & =\operatorname{Pr}\left\{E_2 \mid E_1\right\} \operatorname{Pr}\left\{E_1\right\} \\
+& =\frac{1}{n-i+1} \cdot \frac{(n-i+1) !}{n !} \\
+& =\frac{(n-i) !}{n !} .
+\end{aligned}
+$$
+
+终止：循环终止，因为它是一个迭代$n$次的for循环。在终止时，$i=n+1$，我们有子数组$A[1:n]$是一个给定的$n$-排列，概率为$(n-(n+1)+1)!/n!=0!/n!=1/n!$。
+
+因此，RANDOMLY-PERMUTE产生了一个均匀随机排列。
+\end{proof}
+
+随机化算法通常是解决问题最简单、最有效的方法。
 
 \section{概率分析和指示器随机变量的进一步使用}
 
@@ -1848,7 +2174,297 @@ $$
 \end{aligned}
 $$
 
+More intuitively, once $b_i$ is chosen, the probability that $b_j$ is chosen to be the same day is $1 / n$. As long as the birthdays are independent, the probability that $i$ and $j$ have the same birthday is the same as the probability that the birthday of one of them falls on a given day.
 
+We can analyze the probability of at least 2 out of $k$ people having matching birthdays by looking at the complementary event. The probability that at least two of the birthdays match is 1 minus the probability that all the birthdays are different. The event $B_k$ that $k$ people have distinct birthdays is
+$$
+B_k=\bigcap_{i=1}^k A_i \text {, }
+$$
+where $A_i$ is the event that person $i$ 's birthday is different from person $j$ 's for all $j<i$. Since we can write $B_k=A_k \cap B_{k-1}$, we obtain from equation (C.18) on page 1189 the recurrence
+$$
+\operatorname{Pr}\left\{B_k\right\}=\operatorname{Pr}\left\{B_{k-1}\right\} \operatorname{Pr}\left\{A_k \mid B_{k-1}\right\}
+$$
+where we take $\operatorname{Pr}\left\{B_1\right\}=\operatorname{Pr}\left\{A_1\right\}=1$ as an initial condition. In other words, the probability that $b_1, b_2, \ldots, b_k$ are distinct birthdays equals the probability that $b_1, b_2, \ldots, b_{k-1}$ are distinct birthdays multiplied by the probability that $b_k \neq b_i$ for $i=1,2, \ldots, k-1$, given that $b_1, b_2, \ldots, b_{k-1}$ are distinct.
+
+If $b_1, b_2, \ldots, b_{k-1}$ are distinct, the conditional probability that $b_k \neq b_i$ for $i=1,2, \ldots, k-1$ is $\operatorname{Pr}\left\{A_k \mid B_{k-1}\right\}=(n-k+1) / n$, since out of the $n$ days, $n-(k-1)$ days are not taken. We iteratively apply the recurrence (5.8) to obtain
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{B_k\right\} & =\operatorname{Pr}\left\{B_{k-1}\right\} \operatorname{Pr}\left\{A_k \mid B_{k-1}\right\} \\
+& =\operatorname{Pr}\left\{B_{k-2}\right\} \operatorname{Pr}\left\{A_{k-1} \mid B_{k-2}\right\} \operatorname{Pr}\left\{A_k \mid B_{k-1}\right\} \\
+& \vdots \\
+& =\operatorname{Pr}\left\{B_1\right\} \operatorname{Pr}\left\{A_2 \mid B_1\right\} \operatorname{Pr}\left\{A_3 \mid B_2\right\} \cdots \operatorname{Pr}\left\{A_k \mid B_{k-1}\right\} \\
+& =1 \cdot\left(\frac{n-1}{n}\right)\left(\frac{n-2}{n}\right) \cdots\left(\frac{n-k+1}{n}\right) \\
+& =1 \cdot\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right) \cdots\left(1-\frac{k-1}{n}\right) .
+\end{aligned}
+$$
+Inequality (3.14) on page $66,1+x \leq e^x$, gives us
+
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{B_k\right\} & \leq e^{-1 / n} e^{-2 / n} \cdots e^{-(k-1) / n} \\
+& =e^{-\sum_{i=1}^{k-1} i / n} \\
+& =e^{-k(k-1) / 2 n} \\
+& \leq \frac{1}{2}
+\end{aligned}
+$$
+when $-k(k-1) / 2 n \leq \ln (1 / 2)$. The probability that all $k$ birthdays are distinct is at most $1 / 2$ when $k(k-1) \geq 2 n \ln 2$ or, solving the quadratic equation, when $k \geq(1+\sqrt{1+(8 \ln 2) n}) / 2$. For $n=365$, we must have $k \geq 23$. Thus, if at least 23 people are in a room, the probability is at least $1 / 2$ that at least two people have the same birthday. Since a year on Mars is 669 Martian days long, it takes 31 Martians to get the same effect.
+An analysis using indicator random variables
+Indicator random variables afford a simpler but approximate analysis of the birthday paradox. For each pair $(i, j)$ of the $k$ people in the room, define the indicator random variable $X_{i j}$, for $1 \leq i<j \leq k$, by
+$$
+\begin{aligned}
+X_{i j} & =\mathrm{I} \text { \{person } i \text { and person } j \text { have the same birthday }\} \\
+& = \begin{cases}1 & \text { if person } i \text { and person } j \text { have the same birthday, } \\
+0 & \text { otherwise. }\end{cases}
+\end{aligned}
+$$
+By equation (5.7), the probability that two people have matching birthdays is $1 / n$, and thus by Lemma 5.1 on page 130 , we have
+$$
+\begin{aligned}
+\mathrm{E}\left[X_{i j}\right] & =\operatorname{Pr}\{\text { person } i \text { and person } j \text { have the same birthday }\} \\
+& =1 / n .
+\end{aligned}
+$$
+Letting $X$ be the random variable that counts the number of pairs of individuals having the same birthday, we have
+$$
+X=\sum_{i=1}^{k-1} \sum_{j=i+1}^k X_{i j}
+$$
+Taking expectations of both sides and applying linearity of expectation, we obtain
+$$
+\begin{aligned}
+\mathrm{E}[X] & =\mathrm{E}\left[\sum_{i=1}^{k-1} \sum_{j=i+1}^k X_{i j}\right] \\
+& =\sum_{i=1}^{k-1} \sum_{j=i+1}^k \mathrm{E}\left[X_{i j}\right]
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+& =\left(\begin{array}{l}
+k \\
+2
+\end{array}\right) \frac{1}{n} \\
+& =\frac{k(k-1)}{2 n} .
+\end{aligned}
+$$
+When $k(k-1) \geq 2 n$, therefore, the expected number of pairs of people with the same birthday is at least 1 . Thus, if we have at least $\sqrt{2 n}+1$ individuals in a room, we can expect at least two to have the same birthday. For $n=365$, if $k=28$, the expected number of pairs with the same birthday is $(28 \cdot 27) /(2 \cdot 365) \approx 1.0356$. Thus, with at least 28 people, we expect to find at least one matching pair of birthdays. On Mars, with 669 days per year, we need at least 38 Martians.
+
+The first analysis, which used only probabilities, determined the number of people required for the probability to exceed $1 / 2$ that a matching pair of birthdays exists, and the second analysis, which used indicator random variables, determined the number such that the expected number of matching birthdays is 1 . Although the exact numbers of people differ for the two situations, they are the same asymptotically: $\Theta(\sqrt{n})$.
+
+\subsection{球和箱子}
+
+考虑一个过程，在这个过程中，你随机地投掷相同的球进入编号为$1,2,\ldots,b$的$ b $个箱子中。投掷是独立的，每次投掷时，球同等可能地落入任何一个箱子中。被投掷的球落入任何给定箱子的概率为$1/b$。如果我们将投球过程视为Bernoulli试验序列（请参见附录C.4），其中成功意味着球落在给定的箱子中，则每次试验成功的概率为$1/b$。这个模型特别适用于分析哈希（请参见第11章），我们可以回答关于投球过程的各种有趣问题。（问题C-2提出了关于球和箱子的其他问题。）
+
+\begin{itemize}
+\item 有多少个球掉进了给定的箱子？掉进给定箱子的球的数量遵循二项分布$b(k;n,1/b)$。如果你投掷$n$个球，第1199页的方程式（C.41）告诉我们，掉进给定箱子的球的期望数量为$n/b$。
+\item 平均而言，你需要投掷多少个球，才能让一个给定的箱子里面有一个球？直到给定箱子接收到一个球的投掷次数遵循几何分布，概率为$1/b$，根据第1197页的方程式（C.36），直到成功的期望投掷次数为$1/(1/b)=b$。
+\item 你需要投掷多少个球，才能让每个箱子都至少有一个球？我们称一个球落入空箱的投掷为“命中”。我们想知道需要投掷$n$次才能得到$b$次命中的期望次数。
+\end{itemize}
+
+利用命中数，我们可以将$n$次投掷划分为多个阶段。第$i$个阶段由第$(i-1)$次命中后到第$i$次命中的投掷组成。第一个阶段包括第一次投掷，因为当所有箱子都是空的时候，你保证会有一次命中。在第$i$个阶段的每次投掷中，有$i-1$个箱子里面有球，$b-i+1$个箱子是空的。因此，在第$i$个阶段的每次投掷中，获得命中的概率为$(b-i+1)/b$。
+
+设$n_i$表示第$i$个阶段的投掷次数，则需要得到$b$次命中的投掷次数为$n=\sum_{i=1}^b n_i$。每个随机变量$n_i$都具有概率为$(b-i+1)/b$的几何分布，因此，根据方程式（C.36），我们有：
+
+$$
+\mathrm{E}\left[n_i\right]=\frac{b}{b-i+1}
+$$
+
+根据期望的线性性质，我们有
+
+$$
+\begin{array}{rlr}
+\mathrm{E}[n] & =\mathrm{E}\left[\sum_{i=1}^b n_i\right] \\
+& =\sum_{i=1}^b \mathrm{E}\left[n_i\right] & \\
+& =\sum_{i=1}^b \frac{b}{b-i+1} & \\
+& =b \sum_{i=1}^b \frac{1}{i} & \text { (by equation (A.14) on page 1144) } \\
+& =b(\ln b+O(1)) & \text { (by equation (A.9) on page 1142) } .
+\end{array}
+$$
+
+因此，我们需要投掷大约$b\ln b$次，才能期望每个箱子都有一个球。这个问题也被称为优惠券收集问题，它说如果你想收集$b$种不同的优惠券，那么你应该期望获得大约$b\ln b$张随机获得的优惠券才能成功。
+
+5.4.3 Streaks
+
+Suppose that you flip a fair coin $n$ times. What is the longest streak of consecutive heads that you expect to see? We'll prove upper and lower bounds separately to show that the answer is $\Theta(\lg n)$.
+
+We first prove that the expected length of the longest streak of heads is $O(\lg n)$. The probability that each coin flip is a head is $1 / 2$. Let $A_{i k}$ be the event that a streak of heads of length at least $k$ begins with the $i$ th coin flip or, more precisely, the event that the $k$ consecutive coin flips $i, i+1, \ldots, i+k-1$ yield only heads, where $1 \leq k \leq n$ and $1 \leq i \leq n-k+1$. Since coin flips are mutually independent, for any given event $A_{i k}$, the probability that all $k$ flips are heads is
+$\operatorname{Pr}\left\{A_{i k}\right\}=\frac{1}{2^k}$
+For $k=2\lceil\lg n\rceil$,
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{A_{i, 2\lceil\lg n]}\right\} & =\frac{1}{2^{2\lceil\lg n]}} \\
+& \leq \frac{1}{2^{2 \lg n}} \\
+& =\frac{1}{n^2},
+\end{aligned}
+$$
+and thus the probability that a streak of heads of length at least $2\lceil\lg n\rceil$ begins in position $i$ is quite small. There are at most $n-2\lceil\lg n\rceil+1$ positions where such a streak can begin. The probability that a streak of heads of length at least $2\lceil\lg n\rceil$ begins anywhere is therefore
+$$
+\begin{aligned}
+& \operatorname{Pr}\left\{\bigcup_{i=1}^{n-2\lceil\lg n\rceil+1} A_{i, 2\lceil\lg n]}\right\} \\
+& \leq \sum_{i=1}^{n-2[\lg n\rceil+1} \operatorname{Pr}\left\{A_{i, 2[\lg n]}\right\} \quad \text { (by Boole's inequality (C.21) on page 1190) } \\
+& \leq \sum_{i=1}^{n-2[\lg n\rceil+1} \frac{1}{n^2} \\
+&<\sum_{i=1}^n \frac{1}{n^2} \\
+&=\frac{1}{n} .
+\end{aligned}
+$$
+We can use inequality (5.10) to bound the length of the longest streak. For $j=0,1,2, \ldots, n$, let $L_j$ be the event that the longest streak of heads has length exactly $j$, and let $L$ be the length of the longest streak. By the definition of expected value, we have
+$$
+\mathrm{E}[L]=\sum_{j=0}^n j \operatorname{Pr}\left\{L_j\right\}
+$$
+
+We could try to evaluate this sum using upper bounds on each $\operatorname{Pr}\left\{L_j\right\}$ similar to those computed in inequality (5.10). Unfortunately, this method yields weak bounds. We can use some intuition gained by the above analysis to obtain a good bound, however. For no individual term in the summation in equation (5.11) are both the factors $j$ and $\operatorname{Pr}\left\{L_j\right\}$ large. Why? When $j \geq 2\lceil\lg n\rceil$, then $\operatorname{Pr}\left\{L_j\right\}$ is very small, and when $j<2\lceil\lg n\rceil$, then $j$ is fairly small. More precisely, since the events $L_j$ for $j=0,1, \ldots, n$ are disjoint, the probability that a streak of heads of length at least $2\lceil\lg n\rceil$ begins anywhere is $\sum_{j=2\lceil\lg n\rceil}^n \operatorname{Pr}\left\{L_j\right\}$. Inequality (5.10) tells us that the probability that a streak of heads of length at least $2\lceil\lg n\rceil$ begins anywhere is less than $1 / n$, which means that $\sum_{j=2\lceil\lg n\rceil}^n \operatorname{Pr}\left\{L_j\right\}<1 / n$. Also, noting that $\sum_{j=0}^n \operatorname{Pr}\left\{L_j\right\}=1$, we have that $\sum_{j=0}^{2\lceil\lg n\rceil-1} \operatorname{Pr}\left\{L_j\right\} \leq 1$. Thus, we obtain
+$$
+\begin{aligned}
+\mathrm{E}[L] & =\sum_{j=0}^n j \operatorname{Pr}\left\{L_j\right\} \\
+& =\sum_{j=0}^{2\lceil\lg n\rceil-1} j \operatorname{Pr}\left\{L_j\right\}+\sum_{j=2\lceil\lg n\rceil}^n j \operatorname{Pr}\left\{L_j\right\} \\
+& <\sum_{j=0}^{2\lceil\lg n\rceil-1}(2\lceil\lg n\rceil) \operatorname{Pr}\left\{L_j\right\}+\sum_{j=2\lceil\lg n\rceil}^n n \operatorname{Pr}\left\{L_j\right\} \\
+& =2\lceil\lg n\rceil \sum_{j=0}^{n\lceil\lg n\rceil-1} \operatorname{Pr}\left\{L_j\right\}+n \sum_{j=2\lceil\lg n\rceil} \operatorname{Pr}\left\{L_j\right\} \\
+& <2\lceil\lg n\rceil \cdot 1+n \cdot \frac{1}{n} \\
+& =O(\lg n) .
+\end{aligned}
+$$
+The probability that a streak of heads exceeds $r\lceil\lg n\rceil$ flips diminishes quickly with $r$. Let's get a rough bound on the probability that a streak of at least $r\lceil\lg n\rceil$ heads occurs, for $r \geq 1$. The probability that a streak of at least $r\lceil\lg n\rceil$ heads starts in position $i$ is
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{A_{i, r\lceil\lg n\rceil}\right\} & =\frac{1}{2^{r\lceil\lg n\rceil}} \\
+& \leq \frac{1}{n^r} .
+\end{aligned}
+$$
+A streak of at least $r\lceil\lg n\rceil$ heads cannot start in the last $n-r\lceil\lg n\rceil+1$ flips, but let's overestimate the probability of such a streak by allowing it to start anywhere within the $n$ coin flips. Then the probability that a streak of at least $r\lceil\lg n\rceil$ heads occurs is at most
+
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{\bigcup_{i=1}^n A_{i, r\lceil\lg n]}\right\} & \leq \sum_{i=1}^n \operatorname{Pr}\left\{A_{i, r[\lg n\rceil}\right\} \\
+& \leq \sum_{i=1}^n \frac{1}{n^r} \\
+& =\frac{1}{n^{r-1}}
+\end{aligned}
+$$
+(by Boole's inequality (C.21))
+Equivalently, the probability is at least $1-1 / n^{r-1}$ that the longest streak has length less than $r\lceil\lg n\rceil$.
+
+As an example, during $n=1000$ coin flips, the probability of encountering a streak of at least $2\lceil\lg n\rceil=20$ heads is at most $1 / n=1 / 1000$. The chance of a streak of at least $3\lceil\lg n\rceil=30$ heads is at most $1 / n^2=1 / 1,000,000$.
+
+Let's now prove a complementary lower bound: the expected length of the longest streak of heads in $n$ coin flips is $\Omega(\lg n)$. To prove this bound, we look for streaks of length $s$ by partitioning the $n$ flips into approximately $n / s$ groups of $s$ flips each. If we choose $s=\lfloor(\lg n) / 2\rfloor$, we'll see that it is likely that at least one of these groups comes up all heads, which means that it's likely that the longest streak has length at least $s=\Omega(\lg n)$. We'll then show that the longest streak has expected length $\Omega(\lg n)$.
+
+Let's partition the $n$ coin flips into at least $\lfloor n /\lfloor(\lg n) / 2\rfloor\rfloor$ groups of $\lfloor(\lg n) / 2\rfloor$ consecutive flips and bound the probability that no group comes up all heads. By equation (5.9), the probability that the group starting in position $i$ comes up all heads is
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{A_{i,\lfloor(\lg n) / 2\rfloor}\right\} & =\frac{1}{2\lfloor(\lg n) / 2\rfloor} \\
+& \geq \frac{1}{\sqrt{n}} .
+\end{aligned}
+$$
+The probability that a streak of heads of length at least $\lfloor(\lg n) / 2\rfloor$ does not begin in position $i$ is therefore at most $1-1 / \sqrt{n}$. Since the $\lfloor n /\lfloor(\lg n) / 2\rfloor\rfloor$ groups are formed from mutually exclusive, independent coin flips, the probability that every one of these groups fails to be a streak of length $\lfloor(\lg n) / 2\rfloor$ is at most
+$$
+\begin{aligned}
+(1-1 / \sqrt{n})^{\lfloor n /\lfloor(\lg n) / 2\rfloor\rfloor} & \leq(1-1 / \sqrt{n})^{n /\lfloor(\lg n) / 2\rfloor-1} \\
+& \leq(1-1 / \sqrt{n})^{2 n / \lg n-1} \\
+& \leq e^{-(2 n / \lg n-1) / \sqrt{n}} \\
+& =O\left(e^{-\ln n}\right) \\
+& =O(1 / n) .
+\end{aligned}
+$$
+
+For this argument, we used inequality (3.14), $1+x \leq e^x$, on page 66 and the fact, which you may verify, that $(2 n / \lg n-1) / \sqrt{n} \geq \ln n$ for sufficiently large $n$.
+We want to bound the probability that the longest streak equals or exceeds $\lfloor(\lg n) / 2\rfloor$. To do so, let $L$ be the event that the longest streak of heads equals or exceeds $s=\lfloor(\lg n) / 2\rfloor$. Let $\bar{L}$ be the complementary event, that the longest streak of heads is strictly less than $s$, so that $\operatorname{Pr}\{L\}+\operatorname{Pr}\{\bar{L}\}=1$. Let $F$ be the event that every group of $s$ flips fails to be a streak of $s$ heads. By inequality (5.12), we have $\operatorname{Pr}\{F\}=O(1 / n)$. If the longest streak of heads is less than $s$, then certainly every group of $s$ flips fails to be a streak of $s$ heads, which means that event $\bar{L}$ implies event $F$. Of course, event $F$ could occur even if event $\bar{L}$ does not (for example, if a streak of $s$ or more heads crosses over the boundary between two groups), and so we have $\operatorname{Pr}\{\bar{L}\} \leq \operatorname{Pr}\{F\}=O(1 / n)$. Since $\operatorname{Pr}\{L\}+\operatorname{Pr}\{\bar{L}\}=1$, we have that
+$$
+\begin{aligned}
+\operatorname{Pr}\{L\} & =1-\operatorname{Pr}\{\bar{L}\} \\
+& \geq 1-\operatorname{Pr}\{F\} \\
+& =1-O(1 / n)
+\end{aligned}
+$$
+That is, the probability that the longest streak equals or exceeds $\lfloor(\lg n) / 2\rfloor$ is
+$$
+\sum_{j=\lfloor(\lg n) / 2\rfloor}^n \operatorname{Pr}\left\{L_j\right\} \geq 1-O(1 / n) \text {. }
+$$
+We can now calculate a lower bound on the expected length of the longest streak, beginning with equation (5.11) and proceeding in a manner similar to our analysis of the upper bound:
+$$
+\begin{aligned}
+\mathrm{E}[L] & =\sum_{j=0}^n j \operatorname{Pr}\left\{L_j\right\} \\
+& =\sum_{j=0}^{\lfloor(\lg n) / 2\rfloor-1} j \operatorname{Pr}\left\{L_j\right\}+\sum_{j=\lfloor(\lg n) / 2\rfloor}^n j \operatorname{Pr}\left\{L_j\right\} \\
+& \geq \sum_{j=0}^{\lfloor(\lg n) / 2\rfloor-1} 0 \cdot \operatorname{Pr}\left\{L_j\right\}+\sum_{j=\lfloor(\lg n) / 2\rfloor}^n\lfloor(\lg n) / 2\rfloor \operatorname{Pr}\left\{L_j\right\} \\
+& =0 \cdot \sum_{j=0}^{\lfloor(\lg n) / 2\rfloor-1} \operatorname{Pr}\left\{L_j\right\}+\lfloor(\lg n) / 2\rfloor \sum_{j=\lfloor(\lg n) / 2\rfloor}^n \operatorname{Pr}\left\{L_j\right\} \\
+& \geq 0+\lfloor(\lg n) / 2\rfloor(1-O(1 / n)) \quad \text { inequality } \\
+& =\Omega(\lg n) .
+\end{aligned}
+$$
+
+As with the birthday paradox, we can obtain a simpler, but approximate, analysis using indicator random variables. Instead of determining the expected length of the longest streak, we'll find the expected number of streaks with at least a given length. Let $X_{i k}=\mathrm{I}\left\{A_{i k}\right\}$ be the indicator random variable associated with a streak of heads of length at least $k$ beginning with the $i$ th coin flip. To count the total number of such streaks, define
+$$
+X_k=\sum_{i=1}^{n-k+1} X_{i k}
+$$
+Taking expectations and using linearity of expectation, we have
+$$
+\begin{aligned}
+\mathrm{E}\left[X_k\right] & =\mathrm{E}\left[\sum_{i=1}^{n-k+1} X_{i k}\right] \\
+& =\sum_{i=1}^{n-k+1} \mathrm{E}\left[X_{i k}\right] \\
+& =\sum_{i=1}^{n-k+1} \operatorname{Pr}\left\{A_{i k}\right\} \\
+& =\sum_{i=1}^{n-k+1} \frac{1}{2^k} \\
+& =\frac{n-k+1}{2^k}
+\end{aligned}
+$$
+By plugging in various values for $k$, we can calculate the expected number of streaks of length at least $k$. If this expected number is large (much greater than 1 ), then we expect many streaks of length $k$ to occur, and the probability that one occurs is high. If this expected number is small (much less than 1), then we expect to see few streaks of length $k$, and the probability that one occurs is low. If $k=c \lg n$, for some positive constant $c$, we obtain
+$$
+\begin{aligned}
+\mathrm{E}\left[X_{c \lg n}\right] & =\frac{n-c \lg n+1}{2^{c \lg n}} \\
+& =\frac{n-c \lg n+1}{n^c} \\
+& =\frac{1}{n^{c-1}}-\frac{(c \lg n-1) / n}{n^{c-1}} \\
+& =\Theta\left(1 / n^{c-1}\right) .
+\end{aligned}
+$$
+If $c$ is large, the expected number of streaks of length $c \lg n$ is small, and we conclude that they are unlikely to occur. On the other hand, if $c=1 / 2$, then we obtain $\mathrm{E}\left[X_{(1 / 2) \lg n}\right]=\Theta\left(1 / n^{1 / 2-1}\right)=\Theta\left(n^{1 / 2}\right)$, and we expect there to be numerous streaks of length $(1 / 2) \lg n$. Therefore, one streak of such a length is likely to occur. We can conclude that the expected length of the longest streak is $\Theta(\lg n)$.
+
+\subsection{在线招聘问题}
+
+最后一个例子，让我们考虑聘用问题的一个变种。现在假设你不想面试所有候选人以找到最好的候选人。你也想避免在找到越来越好的申请人时雇用和解雇。相反，你愿意为了只招聘一次而接受一个接近最佳的候选人。你必须遵守一项公司要求：每次面试后，你必须立即向申请人提供职位或立即拒绝申请人。在最小化面试量和最大化招聘的候选人质量之间存在什么权衡？
+
+我们可以用以下方式对这个问题进行建模。在见到申请人之后，你可以给每个申请人一个分数。让分数$(i)$表示你给第$i$个申请人的分数，并假设没有两个申请人得到相同的分数。在你见过$j$个申请人之后，你知道哪个申请人得分最高，但不知道剩下的$n-j$个申请人中是否有人会得到更高的分数。你决定采取选择正整数$k<n$的策略，面试并拒绝前$k$个申请人，然后聘请此后第一个比所有前面的申请人都更有资格的申请人。如果最合格的申请人是前$k$个受访者之一，那么你将聘请第$n$个受访者-最后一个受访者。我们在过程ONLINE-MAXIMUM $(k, n)$中形式化地描述了这种策略，该过程返回你想要聘用的候选人的索引。
+
+如果我们确定每个可能的$k$值的情况下，你聘用最合格申请人的概率，那么你可以选择最佳的$k$值，并使用该值实施策略。暂时假设$k$是固定的。令$M(j)=\max \{$ score $(i): 1 \leq i \leq j\}$表示申请人1到$j$中的最高分数。设$S$是你成功选择最合格申请人的事件，$S_i$是最合格申请人是第$i$个受访者时你成功的事件。由于各个$S_i$是不相交的，我们有$\operatorname{Pr}\{S\}=\sum_{i=1}^n \operatorname{Pr}\left\{S_i\right\}$。注意到当最合格申请人是前$k$个之一时，你永远不会成功，因此对于$i=1,2, \ldots, k$，我们有$\operatorname{Pr}\left\{S_i\right\}=0$。因此，我们得到：
+
+$$
+\operatorname{Pr}\{S\}=\sum_{i=k+1}^n \operatorname{Pr}\left\{S_i\right\}
+$$
+
+现在我们计算$\operatorname{Pr}\left\{S_i\right\}$。为了在最合格申请人是第$i$个时成功，必须发生两件事。首先，最合格申请人必须在位置$i$上，我们用$B_i$表示这个事件。其次，算法不能选择第$k+1$到$i-1$个位置上的任何申请人，这仅在对于每个满足$k+1 \leq j \leq i-1$的$j$，行6找到$\operatorname{score}(j)<$best-score时才会发生。（因为分数是唯一的，我们可以忽略分数$(j)=$best-score的可能性。）换句话说，所有值score $(k+1)$到score $(i-1)$必须小于$M(k)$。如果有任何一个大于$M(k)$，则算法返回第一个大于它的索引。我们用$O_i$表示不选择第$k+1$到$i-1$个位置上的任何申请人的事件。幸运的是，事件$B_i$和$O_i$是独立的。事件$O_i$仅取决于位置1到$i-1$上的值的相对顺序，而$B_i$仅取决于位置$i$上的值是否大于所有其他位置上的值。位置1到$i-1$上的值的顺序不会影响位置$i$上的值是否大于它们中的所有值，而位置$i$上的值也不会影响位置1到$i-1$上的值的顺序。因此，我们可以应用第1188页上的方程(C.17)来得到：
+
+$$
+\operatorname{Pr}\left\{S_i\right\}=\operatorname{Pr}\left\{B_i \cap O_i\right\}=\operatorname{Pr}\left\{B_i\right\} \operatorname{Pr}\left\{O_i\right\}
+$$
+
+我们有$\operatorname{Pr}\left\{B_i\right\}=1 / n$，因为最大值在$n$个位置中的任何一个位置上都是等可能的。对于事件$O_i$发生，位置1到$i-1$中的最大值（在这$i-1$个位置中任何一个位置上都是等可能的）必须在前$k$个位置之一。因此，$\operatorname{Pr}\left\{O_i\right\}=k /(i-1)$，$\operatorname{Pr}\left\{S_i\right\}=k /(n(i-1))$。使用方程(5.14)，我们有：
+
+$$
+\begin{aligned}
+\operatorname{Pr}\{S\} & =\sum_{i=k+1}^n \operatorname{Pr}\left\{S_i\right\} \\
+& =\sum_{i=k+1}^n \frac{k}{n(i-1)}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+& =\frac{k}{n} \sum_{i=k+1}^n \frac{1}{i-1} \\
+& =\frac{k}{n} \sum_{i=k}^{n-1} \frac{1}{i}
+\end{aligned}
+$$
+
+我们通过积分来近似上下界限制这个求和。根据第1150页的不等式(A.19)，我们有：
+
+$$
+\int_k^n \frac{1}{x} d x \leq \sum_{i=k}^{n-1} \frac{1}{i} \leq \int_{k-1}^{n-1} \frac{1}{x} d x
+$$
+
+计算这些定积分给出了我们的限制：
+
+$$
+\frac{k}{n}(\ln n-\ln k) \leq \operatorname{Pr}\{S\} \leq \frac{k}{n}(\ln (n-1)-\ln (k-1)),
+$$
+
+这为$\operatorname{Pr}\{S\}$提供了相当紧密的限制。因为你希望最大化成功的概率，让我们专注于选择最大化$\operatorname{Pr}\{S\}$下限的$k$值。(此外，下限表达式比上限表达式更容易最大化。)对表达式$(k / n)(\ln n-\ln k)$关于$k$求导，我们得到：
+
+$$
+\frac{1}{n}(\ln n-\ln k-1)
+$$
+
+将这个导数设为0，我们可以看出当$\ln k=\ln n-1=\ln (n / e)$，或者等价地，$k=n / e$时，你可以最大化概率的下限。因此，如果你使用$k=n / e$实现我们的策略，你将以至少$1 / e$的概率成功聘请最合格的申请人。
 
 \part{排序和顺序统计量}
 
@@ -1933,31 +2549,5 @@ $$
 \chapter{NP完全性}
 
 \chapter{近似算法}
-
-\part{附录：数学基础知识}
-
-\chapter*{简介}
-
-当你分析算法时，通常需要借助一些数学工具。其中一些工具就像高中代数那样简单，但其他工具可能对你来说是新的。在第一部分中，我们看到了如何操作渐近符号和解决递归问题。这个附录包括了分析算法中使用的其他几个概念和方法的汇编。正如第一部分的介绍中所指出的那样，你可能在阅读本书之前就已经看过这个附录中的大部分材料，尽管这里出现的一些特定符号约定可能与你在其他地方看到的不同。因此，你应该把这个附录当作参考资料。然而，与本书的其余部分一样，我们包括了练习和问题，以便你提高这些领域的技能。
-
-附录A提供了评估和限定求和的方法，在算法分析中经常出现。这里的许多公式都出现在任何微积分教材中，但你会发现把这些方法编制在一个地方很方便。
-
-附录B包含了集合、关系、函数、图和树的基本定义和符号。它还给出了这些数学对象的一些基本属性。
-
-附录C从计数的基本原理开始：排列、组合等。其余部分包含基本概率的定义和属性。本书中大多数算法不需要概率来进行分析，因此你可以在第一次阅读时轻松地省略本章后面的部分，甚至不用浏览它们。稍后，当你遇到想更好地理解的概率分析时，你会发现附录C为参考目的组织得很好。
-
-附录D定义了矩阵及其运算和一些基本属性。如果你已经学过线性代数课程，那么你可能已经看过这些材料的大部分内容。但是，你可能会发现在一个地方查找符号和定义很有帮助。
-
-\chapter*{求和}
-
-当一个算法包含迭代控制结构，如while或for循环时，你可以将其运行时间表示为循环体每次执行所花费的时间之和。例如，第2.2节认为插入排序的第$i$次迭代在最坏情况下需要的时间与$i$成比例。将每次迭代花费的时间相加得到了求和（或级数）$\sum_{i=2}^n i$。评估这个求和产生了算法最坏情况下运行时间为$\Theta\left(n^2\right)$的界限。这个例子说明了为什么你应该知道如何操作和限制求和。
-
-附录A.1列出了涉及求和的几个基本公式。附录A.2提供了有用的限制求和技巧。附录A.1中的公式没有证明，但其中一些的证明出现在附录A.2中，以说明该部分的方法。你可以在任何微积分教材中找到大多数其他证明。
-
-\chapter*{集合}
-
-\chapter*{计数和概率}
-
-\chapter*{矩阵}
 
 \end{document}
