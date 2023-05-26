@@ -1,0 +1,4 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'clrs4.blg'
+[93] biber:340> INFO - === Fri May 26, 2023, 15:24:53
+[107] Biber.pm:419> INFO - Reading 'clrs4.bcf'
