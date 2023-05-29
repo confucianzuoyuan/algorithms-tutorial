@@ -2272,13 +2272,13 @@ Assuming that the candidates are presented in a random order, algorithm HIREASSI
 
 \textbf{随机排列数组}
 
-许多随机算法通过对给定的输入数组进行排列来随机化输入。本书的其他地方将介绍其他随机化算法，但现在，让我们看看如何随机排列$n$个元素的数组。目标是产生一个均匀随机排列，即一个与任何其他排列一样可能的排列。由于有$n$!种可能的排列，我们希望任何特定排列被产生的概率为$1 / n !$。
+许多随机算法通过对给定的输入数组进行排列来随机化输入。本书的其他地方将介绍其他随机化算法，但现在，让我们看看如何随机排列$n$个元素的数组。目标是产生一个均匀随机排列，即一个与任何其他排列一样可能的排列。由于有$n$!种可能的排列，我们希望任何特定排列被产生的概率为$1/n!$。
 
-你可能认为，要证明排列是均匀随机排列，只需证明对于每个元素$A[i]$，元素最终在位置$j$的概率为$1 / n$即可。练习$5.3-4$表明，这个更弱的条件实际上是不充分的。
+你可能认为，要证明排列是均匀随机排列，只需证明对于每个元素$A[i]$，元素最终在位置$j$的概率为$1/n$即可。
 
 我们的生成随机排列的方法在原地对数组进行排列：输入数组的最多一定数量的元素会被存储在数组外。过程RANDOMLY-PERMUTE在$\Theta(n)$时间内就可以原地排列数组$A[1:n]$。在第$i$次迭代中，它从元素$A[i]$到$A[n]$中随机选择元素$A[i]$。在第$i$次迭代之后，$A[i]$不再改变。
 
-我们使用循环不变式来证明过程RANDOMLY-PERMUTE生成均匀随机排列。对于一个$n$个元素的集合，一个$k$-排列是一个包含$k$个$n$个元素中的序列，没有重复项。（见附录C第1180页。）有$n!/(n-k)$!种可能的$k$-排列。
+我们使用循环不变式来证明过程RANDOMLY-PERMUTE生成均匀随机排列。对于一个$n$个元素的集合，一个$k$-排列是一个包含$k$个$n$个元素中的序列，没有重复项。有$n!/(n-k)$!种可能的$k$-排列。
 
 \begin{lemma}{}{}
 过程RANDOMLY-PERMUTE计算均匀随机排列。
@@ -2355,7 +2355,7 @@ $$
 B_k=\bigcap_{i=1}^k A_i \text {, }
 $$
 
-其中$A_i$是事件，表示对于所有$j<i$，第$i$个人的生日与第$j$个人的生日不同。由于我们可以写成$B_k=A_k\cap B_{k-1}$，因此从第1189页的式子(C.18)得到递归式：
+其中$A_i$是事件，表示对于所有$j<i$，第$i$个人的生日与第$j$个人的生日不同。由于我们可以写成$B_k=A_k\cap B_{k-1}$，因此从(C.18)得到递归式：
 
 $$
 \operatorname{Pr}\left\{B_k\right\}=\operatorname{Pr}\left\{B_{k-1}\right\} \operatorname{Pr}\left\{A_k \mid B_{k-1}\right\}
@@ -2564,7 +2564,7 @@ $$
 \end{aligned}
 $$
 
-在这个论证中，我们在第66页使用了不等式(3.14)，$1+x \leq e^x$，并且使用了一个事实，你可以验证，即$(2n/\lg n-1)/\sqrt{n}\geq \ln n$对于足够大的$n$成立。
+在这个论证中，我们使用了不等式(3.14)，$1+x \leq e^x$，并且使用了一个事实，你可以验证，即$(2n/\lg n-1)/\sqrt{n}\geq \ln n$对于足够大的$n$成立。
 
 我们想要限制最长连续正面朝上的长度等于或超过$\lfloor(\lg n) / 2\rfloor$的概率。为此，令$L$为最长连续正面朝上的长度等于或超过$s=\lfloor(\lg n) / 2\rfloor$的事件。令$\bar{L}$为补集事件，即最长连续正面朝上的长度小于$s$，因此$\operatorname{Pr}\{L\}+\operatorname{Pr}\{\bar{L}\}=1$。令$F$为每个$s$次抛硬币组都不是$s$个正面朝上的连续出现的事件。根据不等式(5.12)，我们有$\operatorname{Pr}\{F\}=O(1/n)$。如果最长连续正面朝上的长度小于$s$，那么每个$s$次抛硬币组都肯定不是$s$个正面朝上的连续出现，这意味着事件$\bar{L}$暗示事件$F$。当然，即使事件$\bar{L}$不发生（例如，如果一个长度为$s$或更多的正面朝上的连续出现越过两个组之间的边界），事件$F$仍然可能发生，因此我们有$\operatorname{Pr}\{\bar{L}\}\leq \operatorname{Pr}\{F\}=O(1/n)$。由于$\operatorname{Pr}\{L\}+\operatorname{Pr}\{\bar{L}\}=1$，我们有：
 
@@ -2980,9 +2980,12 @@ $$
 
 \section{带有界限的求和}
 
-You can choose from several techniques to bound the summations that describe the running times of algorithms. Here are some of the most frequently used methods.
-Mathematical induction
-The most basic way to evaluate a series is to use mathematical induction. As an example, let's prove that the arithmetic series $\sum_{k=1}^n k$ evaluates to $n(n+1) / 2$. For $n=1$, we have that $n(n+1) / 2=1 \cdot 2 / 2=1$, which equals $\sum_{k=1}^1 k$. With the inductive assumption that it holds for $n$, we prove that it holds for $n+1$. We have
+您可以从几种技术中选择，来限定描述算法运行时间的求和。以下是一些最常用的方法。
+
+\textbf{数学归纳法}
+
+评估级数的最基本方法是使用数学归纳法。例如，让我们证明算术级数 $\sum_{k=1}^n k$ 的值为 $n(n+1) / 2$。对于 $n=1$，我们有 $n(n+1) / 2=1 \cdot 2 / 2=1$，这等于 $\sum_{k=1}^1 k$。在归纳假设成立的前提下，我们证明它对 $n+1$ 也成立。我们有...
+
 $$
 \begin{aligned}
 \sum_{k=1}^{n+1} k & =\sum_{k=1}^n k+(n+1) \\
@@ -2991,7 +2994,9 @@ $$
 & =\frac{(n+1)(n+2)}{2} .
 \end{aligned}
 $$
-You don't always need to guess the exact value of a summation in order to use mathematical induction. Instead, you can use induction to prove an upper or lower bound on a summation. As an example, let's prove the asymptotic upper bound $\sum_{k=0}^n 3^k=O\left(3^n\right)$. More specifically, we'll prove that $\sum_{k=0}^n 3^k \leq c 3^n$ for some constant $c$. For the initial condition $n=0$, we have $\sum_{k=0}^0 3^k=1 \leq c \cdot 1$ as long as $c \geq 1$. Assuming that the bound holds for $n$, we prove that it holds for $n+1$. We have
+
+您不必总是猜测一个求和的确切值，才能使用数学归纳法。相反，您可以使用归纳法来证明一个求和的上限或下限。例如，让我们证明渐进上界 $\sum_{k=0}^n 3^k=O\left(3^n\right)$。更具体地说，我们将证明 $\sum_{k=0}^n 3^k \leq c 3^n$ 对于某个常数 $c$ 成立。对于初始条件 $n=0$，我们有 $\sum_{k=0}^0 3^k=1 \leq c \cdot 1$ 只要 $c \geq 1$。假设该限制对于 $n$ 成立，我们证明它对于 $n+1$ 也成立。我们有...
+
 $$
 \begin{aligned}
 \sum_{k=0}^{n+1} 3^k & =\sum_{k=0}^n 3^k+3^{n+1} \\
@@ -3000,10 +3005,11 @@ $$
 & \leq c 3^{n+1}
 \end{aligned}
 $$
-(by the inductive hypothesis)
-as long as $(1 / 3+1 / c) \leq 1$ or, equivalently, $c \geq 3 / 2$. Thus, $\sum_{k=0}^n 3^k=O\left(3^n\right)$, as we wished to show.
 
-You need to take care when using asymptotic notation to prove bounds by induction. Consider the following fallacious proof that $\sum_{k=1}^n k=O(n)$. Certainly, $\sum_{k=1}^1 k=O(1)$. Assuming that the bound holds for $n$, we now prove it for $n+1$ :
+只要 $(1 / 3+1 / c) \leq 1$ 或者等价地 $c \geq 3 / 2$。因此，$\sum_{k=0}^n 3^k=O\left(3^n\right)$，正如我们所希望的那样。
+
+在使用渐进符号证明归纳上限时，需要小心。考虑下面一个错误的证明，即 $\sum_{k=1}^n k=O(n)$。当然，$\sum_{k=1}^1 k=O(1)$。假设该限制对于 $n$ 成立，我们现在证明它对于 $n+1$ 也成立：
+
 $$
 \begin{aligned}
 \sum_{k=1}^{n+1} k & =\sum_{k=1}^n k+(n+1) \\
@@ -3011,19 +3017,24 @@ $$
 & =O(n+1) .
 \end{aligned}
 $$
-The bug in the argument is that the "constant" hidden by the "big-oh" grows with $n$ and thus is not constant. We have not shown that the same constant works for all $n$.
 
-Bounding the terms
-You can sometimes obtain a good upper bound on a series by bounding each term of the series, and it often suffices to use the largest term to bound the others. For example, a quick upper bound on the arithmetic series (A.1) is
+该论证的错误在于“大O符号”隐藏的“常数”随着 $n$ 的增长而增长，因此不是常数。我们没有证明同一个常数适用于所有 $n$。
+
+\textbf{限定项}
+
+有时您可以通过限定级数的每个项来获得一个很好的上限，并且通常使用最大项来限制其他项就足够了。例如，算术级数 (A.1) 的一个快速上限是：
+
 $$
 \begin{aligned}
 \sum_{k=1}^n k & \leq \sum_{k=1}^n n \\
 & =n^2 .
 \end{aligned}
 $$
-In general, for a series $\sum_{k=1}^n a_k$, if we let $a_{\max }=\max \left\{a_k: 1 \leq k \leq n\right\}$, then $\sum_{k=1}^n a_k \leq n \cdot a_{\max }$.
 
-The technique of bounding each term in a series by the largest term is a weak method when the series can in fact be bounded by a geometric series. Given the series $\sum_{k=0}^n a_k$, suppose that $a_{k+1} / a_k \leq r$ for all $k \geq 0$, where $0<r<1$ is a constant. You can bound the sum by an infinite decreasing geometric series, since $a_k \leq a_0 r^k$, and thus
+一般来说，对于一个级数 $\sum_{k=1}^n a_k$，如果我们让 $a_{\max }=\max \left\{a_k: 1 \leq k \leq n\right\}$，那么 $\sum_{k=1}^n a_k \leq n \cdot a_{\max }$。
+
+当级数实际上可以被一个几何级数限定时，通过将级数中的每个项限制为最大项的方法是一种薄弱的方法。给定级数 $\sum_{k=0}^n a_k$，假设对于所有 $k \geq 0$，都有 $a_{k+1} / a_k \leq r$，其中 $0<r<1$ 是一个常数。由于 $a_k \leq a_0 r^k$，因此您可以将该级数限定为一个无限递减的几何级数，即
+
 $$
 \begin{aligned}
 \sum_{k=0}^n a_k & \leq \sum_{k=0}^{\infty} a_0 r^k \\
@@ -3031,14 +3042,18 @@ $$
 & =a_0 \frac{1}{1-r} .
 \end{aligned}
 $$
-You can apply this method to bound the summation $\sum_{k=1}^{\infty}\left(k / 3^k\right)$. In order to start the summation at $k=0$, rewrite it as $\sum_{k=0}^{\infty}\left((k+1) / 3^{k+1}\right)$. The first term $\left(a_0\right)$ is $1 / 3$, and the ratio $(r)$ of consecutive terms is
+
+您可以使用这种方法来限定求和 $\sum_{k=1}^{\infty}\left(k / 3^k\right)$。为了从 $k=0$ 开始求和，将其重写为 $\sum_{k=0}^{\infty}\left((k+1) / 3^{k+1}\right)$。第一项 $\left(a_0\right)$ 是 $1 / 3$，连续项的比值 $(r)$ 是
+
 $$
 \begin{aligned}
 \frac{(k+2) / 3^{k+2}}{(k+1) / 3^{k+1}} & =\frac{1}{3} \cdot \frac{k+2}{k+1} \\
 & \leq \frac{2}{3}
 \end{aligned}
 $$
-for all $k \geq 0$. Thus, we have
+
+对于所有 $k \geq 0$ 。所以我们有
+
 $$
 \begin{aligned}
 \sum_{k=1}^{\infty} \frac{k}{3^k} & =\sum_{k=0}^{\infty} \frac{k+1}{3^{k+1}} \\
@@ -3046,7 +3061,9 @@ $$
 & =1
 \end{aligned}
 $$
-A common bug in applying this method is to show that the ratio of consecutive terms is less than 1 and then to assume that the summation is bounded by a geometric series. An example is the infinite harmonic series, which diverges since
+
+应用这种方法时常见的错误是证明连续项的比值小于1，然后假设求和可以被一个几何级数限定。一个例子是无穷调和级数，它发散，因为
+
 $$
 \begin{aligned}
 \sum_{k=1}^{\infty} \frac{1}{k} & =\lim _{n \rightarrow \infty} \sum_{k=1}^n \frac{1}{k} \\
@@ -3054,11 +3071,15 @@ $$
 & =\infty .
 \end{aligned}
 $$
-The ratio of the $(k+1)$ st and $k$ th terms in this series is $k /(k+1)<1$, but the series is not bounded by a decreasing geometric series. To bound a series by a geometric series, you need to show that there is an $r<1$, which is a constant, such that the ratio of all pairs of consecutive terms never exceeds $r$. In the harmonic series, no such $r$ exists because the ratio becomes arbitrarily close to 1 .
-Splitting summations
-One way to obtain bounds on a difficult summation is to express the series as the sum of two or more series by partitioning the range of the index and then to bound each of the resulting series. For example, let's find a lower bound on the arithmetic series $\sum_{k=1}^n k$, which we have already seen has an upper bound of $n^2$. You might attempt to bound each term in the summation by the smallest term, but since that term is 1 , you would get a lower bound of $n$ for the summation-far off from the upper bound of $n^2$.
 
-You can obtain a better lower bound by first splitting the summation. Assume for convenience that $n$ is even, so that
+该级数中第 $(k+1)$ 项和第 $k$ 项的比值为 $k /(k+1)<1$，但该级数不能被一个递减的几何级数限定。要通过一个几何级数限定一个级数，您需要证明存在一个 $r<1$，它是一个常数，使得所有连续项的比值都不超过 $r$。在调和级数中，不存在这样的 $r$，因为比值趋近于1。
+
+\textbf{分割求和}
+
+获得一个困难求和的上下界的一种方法是通过将指标范围分成两个或多个系列的和来表达该级数，然后限制每个结果系列。例如，让我们找到算术级数 $\sum_{k=1}^n k$ 的下限，我们已经知道它的上限是 $n^2$。您可以尝试通过将求和中的每个项限制为最小项来限制求和，但由于最小项是1，您将得到求和的下限为 $n$，远远低于上限 $n^2$。
+
+您可以通过首先分割求和来获得更好的下限。为方便起见，假设 $n$ 是偶数，因此
+
 $$
 \begin{aligned}
 \sum_{k=1}^n k & =\sum_{k=1}^{n / 2} k+\sum_{k=n / 2+1}^n k \\
@@ -3067,15 +3088,19 @@ $$
 & =\Omega\left(n^2\right)
 \end{aligned}
 $$
-which is an asymptotically tight bound, since $\sum_{k=1}^n k=O\left(n^2\right)$.
-For a summation arising from the analysis of an algorithm, you can sometimes split the summation and ignore a constant number of the initial terms. Generally, this technique applies when each term $a_k$ in a summation $\sum_{k=0}^n a_k$ is independent of $n$. Then for any constant $k_0>0$, you can write
+
+这是一个渐近紧密的上限，因为 $\sum_{k=1}^n k=O\left(n^2\right)$。
+
+对于从算法分析中产生的求和，有时可以分割求和并忽略初始项的常数个数。通常，当求和中的每个项 $a_k$ 与 $n$ 无关时，该技术适用。然后，对于任何常数 $k_0>0$，您可以写成
+
 $$
 \begin{aligned}
 \sum_{k=0}^n a_k & =\sum_{k=0}^{k_0-1} a_k+\sum_{k=k_0}^n a_k \\
 & =\Theta(1)+\sum_{k=k_0}^n a_k
 \end{aligned}
 $$
-since the initial terms of the summation are all constant and there are a constant number of them. You can then use other methods to bound $\sum_{k=k_0}^n a_k$. This technique applies to infinite summations as well. For example, let's find an asymptotic upper bound on $\sum_{k=0}^{\infty} k^2 / 2^k$. The ratio of consecutive terms is
+
+因为求和的初始项都是常数，而且它们的数量是恒定的。然后，您可以使用其他方法来限制 $\sum_{k=k_0}^n a_k$。这种技术同样适用于无穷级数。例如，让我们找到 $\sum_{k=0}^{\infty} k^2 / 2^k$ 的渐近上限。连续项的比值是
 
 $$
 \begin{aligned}
@@ -3083,7 +3108,9 @@ $$
 & \leq 8 / 9
 \end{aligned}
 $$
-if $k \geq 3$. Thus, you can split the summation into
+
+如果 $k \geq 3$ 。 这样，我们可以把求和分裂为
+
 $$
 \begin{aligned}
 \sum_{k=0}^{\infty} \frac{k^2}{2^k} & =\sum_{k=0}^2 \frac{k^2}{2^k}+\sum_{k=3}^{\infty} \frac{k^2}{2^k} \\
@@ -3093,14 +3120,15 @@ $$
 & =O(1) .
 \end{aligned}
 $$
-(by reindexing)
-(by inequality (A.15))
-(by equation (A.16))
-The technique of splitting summations can help determine asymptotic bounds in much more difficult situations. For example, here is one way to obtain a bound of $O(\lg n)$ on the harmonic series (A.9):
+
+分割求和的技巧可以帮助确定在更困难的情况下的渐近界限。例如，以下是一种获得调和级数（A.9）的 $O(\lg n)$ 级别上限的方法：
+
 $$
 H_n=\sum_{k=1}^n \frac{1}{k} \text {. }
 $$
-The idea is to split the range 1 to $n$ into $\lfloor\lg n\rfloor+1$ pieces and upper-bound the contribution of each piece by 1 . For $i=0,1, \ldots,\lfloor\lg n\rfloor$, the $i$ th piece consists of the terms starting at $1 / 2^i$ and going up to but not including $1 / 2^{i+1}$. The last piece might contain terms not in the original harmonic series, giving
+
+这个想法是将从1到 $n$ 的范围分成 $\lfloor\lg n\rfloor+1$ 个部分，并将每个部分的贡献上限设为1。对于 $i=0,1, \ldots,\lfloor\lg n\rfloor$，第 $i$ 个部分包含从 $1 / 2^i$ 开始但不包括 $1 / 2^{i+1}$ 的项。最后一个部分可能包含不在原调和级数中的项，从而得到
+
 $$
 \begin{aligned}
 \sum_{k=1}^n \frac{1}{k} & \leq \sum_{i=0}^{\lfloor\lg n\rfloor} \sum_{j=0}^{2^i-1} \frac{1}{2^i+j} \\
@@ -3111,23 +3139,31 @@ $$
 \end{aligned}
 $$
 
-Approximation by integrals
-When a summation has the form $\sum_{k=m}^n f(k)$, where $f(k)$ is a monotonically increasing function, you can approximate it by integrals:
+\textbf{通过积分进行近似}
+
+当一个求和具有 $\sum_{k=m}^n f(k)$ 的形式，其中 $f(k)$ 是单调递增的函数时，您可以通过积分进行近似：
+
 $$
 \int_{m-1}^n f(x) d x \leq \sum_{k=m}^n f(k) \leq \int_m^{n+1} f(x) d x .
 $$
-Figure A.1 justifies this approximation. The summation is represented as the area of the rectangles in the figure, and the integral is the blue region under the curve. When $f(k)$ is a monotonically decreasing function, you can use a similar method to provide the bounds
+
+图 A.1 证明了这种近似方法的正确性。该求和表示为图中矩形的面积，而积分则是曲线下蓝色区域的面积。当 $f(k)$ 是单调递减的函数时，您可以使用类似的方法来提供界限。
+
 $$
 \int_m^{n+1} f(x) d x \leq \sum_{k=m}^n f(k) \leq \int_{m-1}^n f(x) d x .
 $$
-The integral approximation (A.19) can be used to prove the tight bounds in inequality (A.10) for the $n$th harmonic number. The lower bound is
+
+积分近似（A.19）可用于证明不等式（A.10）对于第 $n$ 个调和数的紧密界限。下限是
+
 $$
 \begin{aligned}
 \sum_{k=1}^n \frac{1}{k} & \geq \int_1^{n+1} \frac{d x}{x} \\
 & =\ln (n+1)
 \end{aligned}
 $$
-For the upper bound, the integral approximation gives
+
+对于上界，积分近似给出
+
 $$
 \begin{aligned}
 \sum_{k=1}^n \frac{1}{k} & =\sum_{k=2}^n \frac{1}{k}+1 \\
