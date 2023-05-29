@@ -2776,9 +2776,399 @@ $$
 
 \appendix
 
-\part{附录}
+\part{数学背景知识}
 
-\chapter{数学知识}
+\chapter*{简介}
+
+当分析算法时，通常需要借助一些数学工具。其中一些工具像高中代数一样简单，但其他工具可能是你第一次接触。在第一部分中，我们学习了如何操作渐进符号和解决递归式。本附录包括了分析算法中使用的其他几个概念和方法的概述。正如第一部分的介绍中所述，你可能在读这本书之前就已经看过本附录中的大部分材料，尽管这里出现的某些特定符号约定可能与你在其他地方看到的不同。因此，你应该把这个附录当作参考资料。然而，和本书的其他部分一样，我们包括了练习和问题，以便你提高在这些领域的技能。
+
+附录A提供了评估和限制求和的方法，这在算法分析中经常出现。这里的许多公式出现在任何微积分教材中，但将这些方法编译在一个地方会更方便。
+
+附录B包含了集合、关系、函数、图和树的基本定义和符号。它还介绍了这些数学对象的一些基本属性。
+
+附录C从计数的基本原则开始：排列、组合等等。其余部分包含基本概率的定义和属性。本书中大多数算法在其分析中不需要概率，因此你可以在第一次阅读时轻松地省略本章后面的部分，甚至不用浏览它们。稍后，当你遇到一个想更好地理解的概率分析时，你会发现附录C是一个很好的参考资料。
+
+附录D定义了矩阵、它们的操作以及一些基本属性。如果你已经学过线性代数课程，那么你可能已经看过大部分这些材料了。但是，如果你想查找符号和定义，那么将它们编译在一个地方可能会有所帮助。
+
+\chapter{求和}
+
+当算法包含迭代控制结构，如while或for循环时，你可以将其运行时间表示为循环体的每次执行所花费的时间之和。例如，第2.2节论证了插入排序的第$i$次迭代在最坏情况下需要的时间与$i$成正比。将每次迭代花费的时间相加得到了求和（或级数）$\sum_{i=2}^n i$。对这个求和进行评估，将算法的最坏情况运行时间限制为$\Theta\left(n^2\right)$。这个例子说明了为什么你应该知道如何操作和限制求和。
+
+附录A.1列出了涉及求和的几个基本公式。附录A.2提供了有用的技术来限制求和。附录A.1中的公式没有证明，但其中一些的证明出现在附录A.2中，以说明该部分的方法。你可以在任何微积分教材中找到大部分其他证明。
+
+\section{求和公式及其性质}
+
+给定一个数字序列$a_1,a_2,\ldots,a_n$，其中$n$是非负整数，有限和$a_1+a_2+\cdots+a_n$可以表示为$\sum_{k=1}^n a_k$。如果$n=0$，则求和的值定义为0。有限级数的值总是明确定义的，其项的添加顺序并不重要。
+
+给定一个数字序列$a_1,a_2,\ldots$，我们可以将它们的无限和$a_1+a_2+\cdots$写成$\sum_{k=1}^{\infty} a_k$，意思是$\lim _{n \rightarrow \infty} \sum_{k=1}^n a_k$。如果极限不存在，则级数发散，否则它收敛。收敛级数的项并不总是可以按任意顺序相加。但是，你可以重新排列绝对收敛级数的项，即级数$\sum_{k=1}^{\infty} a_k$，其中级数$\sum_{k=1}^{\infty}\left|a_k\right|$也收敛。
+
+\textbf{线性性质}
+
+对于任意实数 $c$ 以及任意有限的序列 $a_1, a_2, \ldots, a_n$ 和 $b_1, b_2, \ldots, b_n$，
+
+$$
+\sum_{k=1}^n\left(c a_k+b_k\right)=c \sum_{k=1}^n a_k+\sum_{k=1}^n b_k \text {. }
+$$
+
+线性性质也适用于无限收敛级数。
+
+线性性质适用于包含渐近符号的求和。例如，
+
+$$
+\sum_{k=1}^n \Theta(f(k))=\Theta\left(\sum_{k=1}^n f(k)\right)
+$$
+
+在这个方程中，左边的$\Theta$符号适用于变量$k$，但右边的$\Theta$符号适用于$n$。这样的操作也适用于无限收敛级数。
+
+\textbf{等差数列}
+
+求和
+
+$$
+\sum_{k=1}^n k=1+2+\cdots+n
+$$
+
+是等差数列，求和结果如下
+
+$$
+\begin{aligned}
+\sum_{k=1}^n k & =\frac{n(n+1)}{2} \\
+& =\Theta\left(n^2\right)
+\end{aligned}
+$$
+
+一个一般的算术级数包括每一项中的加法常数$a \geq 0$和常数系数$b>0$，但总体渐近相同：
+
+$$
+\sum_{k=1}^n(a+b k)=\Theta\left(n^2\right)
+$$
+
+\textbf{平方的求和和立方的求和}
+
+以下公式用在平方的求和以及立方的求和：
+
+$$
+\begin{aligned}
+& \sum_{k=0}^n k^2=\frac{n(n+1)(2 n+1)}{6} \\
+& \sum_{k=0}^n k^3=\frac{n^2(n+1)^2}{4} .
+\end{aligned}
+$$
+
+\textbf{几何级数}
+
+对于实数 $x \neq 1$，有求和公式
+
+$$
+\sum_{k=0}^n x^k=1+x+x^2+\cdots+x^n
+$$
+
+是一个几何级数，求值为如下：
+
+$$
+\sum_{k=0}^n x^k=\frac{x^{n+1}-1}{x-1}
+$$
+
+当求和是无限的且$|x|<1$时，会出现无限递减几何级数：
+
+$$
+\sum_{k=0}^{\infty} x^k=\frac{1}{1-x}
+$$
+
+如果我们假设 $0^{\circ}=1$，这些公式即使是在 $x=0$ 的情况下，也成立。
+
+\textbf{调和级数}
+
+对于正整数$n$，第$n$个调和数是：
+
+$$
+\begin{aligned}
+H_n & =1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\cdots+\frac{1}{n} \\
+& =\sum_{k=1}^n \frac{1}{k} \\
+& =\ln n+O(1) .
+\end{aligned}
+$$
+
+不等式 (A.20) 和 (A.21) 提供了更强的界
+
+$$
+\ln (n+1) \leq H_n \leq \ln n+1
+$$
+
+\textbf{级数积分和微分}
+
+对上述公式进行积分或求导可以得到其他公式。例如，对无限几何级数（A.7）的两边求导并乘以$x$，得到：
+
+$$
+\begin{aligned}
+& \sum_{k=0}^{\infty} k x^k=\frac{x}{(1-x)^2} \\
+& \text { for }|x|<1 .
+\end{aligned}
+$$
+
+\textbf{裂项级数}
+
+对于任意序列 $a_0, a_1, \ldots, a_n$,
+
+$$
+\sum_{k=1}^n\left(a_k-a_{k-1}\right)=a_n-a_0
+$$
+
+因为 $a_1, a_2, \ldots, a_{n-1}$ 中的每一项被加和被减均为刚好一次。称其和裂项相消。类似地，
+
+$$
+\sum_{k=0}^{n-1}\left(a_k-a_{k+1}\right)=a_0-a_n \text {. }
+$$
+
+下面是一个裂项和的例子，考虑级数
+
+$$
+\sum_{k=1}^{n-1} \frac{1}{k(k+1)}
+$$
+
+将每一项重写为
+
+$$
+\frac{1}{k(k+1)}=\frac{1}{k}-\frac{1}{k+1} \text {, }
+$$
+
+可得
+
+$$
+\begin{aligned}
+\sum_{k=1}^{n-1} \frac{1}{k(k+1)} & =\sum_{k=1}^{n-1}\left(\frac{1}{k}-\frac{1}{k+1}\right) \\
+& =1-\frac{1}{n} .
+\end{aligned}
+$$
+
+\textbf{求和公式中的索引重写}
+
+有时，通过更改序列的索引，通常是反转求和顺序，可以简化序列。考虑序列$\sum_{k=0}^n a_{n-k}$。由于这个求和中的项是$a_n, a_{n-1}, \ldots, a_0$，我们可以通过令$j=n-k$来反转索引的顺序，并将这个求和重写为：
+
+$$
+\sum_{k=0}^n a_{n-k}=\sum_{j=0}^n a_j \text {. }
+$$
+
+通常，如果求和的索引在求和式的正文中带有负号，那么考虑重新索引是值得的。
+
+例如，考虑求和：
+
+$$
+\sum_{k=1}^n \frac{1}{n-k+1}
+$$
+
+索引$k$在$1/(n-k+1)$中带有负号。实际上，我们可以简化这个求和，这次将$j=n-k+1$，得到：
+
+$$
+\sum_{k=1}^n \frac{1}{n-k+1}=\sum_{j=1}^n \frac{1}{j} \text {, }
+$$
+
+也就是调和级数 (A.8) 。
+
+\textbf{乘积}
+
+有限乘积 $a_1 a_2 \cdots a_n$ 可以表示为
+
+$$
+\prod_{k=1}^n a_k
+$$
+
+如果 $n=0$，乘积的求值结果定义为 1 。你可以使用恒等式将带有乘积的公式转换为带有求和的公式，该恒等式为：
+
+$$
+\lg \left(\prod_{k=1}^n a_k\right)=\sum_{k=1}^n \lg a_k .
+$$
+
+\section{带有界限的求和}
+
+You can choose from several techniques to bound the summations that describe the running times of algorithms. Here are some of the most frequently used methods.
+Mathematical induction
+The most basic way to evaluate a series is to use mathematical induction. As an example, let's prove that the arithmetic series $\sum_{k=1}^n k$ evaluates to $n(n+1) / 2$. For $n=1$, we have that $n(n+1) / 2=1 \cdot 2 / 2=1$, which equals $\sum_{k=1}^1 k$. With the inductive assumption that it holds for $n$, we prove that it holds for $n+1$. We have
+$$
+\begin{aligned}
+\sum_{k=1}^{n+1} k & =\sum_{k=1}^n k+(n+1) \\
+& =\frac{n(n+1)}{2}+(n+1) \\
+& =\frac{n^2+n+2 n+2}{2} \\
+& =\frac{(n+1)(n+2)}{2} .
+\end{aligned}
+$$
+You don't always need to guess the exact value of a summation in order to use mathematical induction. Instead, you can use induction to prove an upper or lower bound on a summation. As an example, let's prove the asymptotic upper bound $\sum_{k=0}^n 3^k=O\left(3^n\right)$. More specifically, we'll prove that $\sum_{k=0}^n 3^k \leq c 3^n$ for some constant $c$. For the initial condition $n=0$, we have $\sum_{k=0}^0 3^k=1 \leq c \cdot 1$ as long as $c \geq 1$. Assuming that the bound holds for $n$, we prove that it holds for $n+1$. We have
+$$
+\begin{aligned}
+\sum_{k=0}^{n+1} 3^k & =\sum_{k=0}^n 3^k+3^{n+1} \\
+& \leq c 3^n+3^{n+1} \\
+& =\left(\frac{1}{3}+\frac{1}{c}\right) c 3^{n+1} \\
+& \leq c 3^{n+1}
+\end{aligned}
+$$
+(by the inductive hypothesis)
+as long as $(1 / 3+1 / c) \leq 1$ or, equivalently, $c \geq 3 / 2$. Thus, $\sum_{k=0}^n 3^k=O\left(3^n\right)$, as we wished to show.
+
+You need to take care when using asymptotic notation to prove bounds by induction. Consider the following fallacious proof that $\sum_{k=1}^n k=O(n)$. Certainly, $\sum_{k=1}^1 k=O(1)$. Assuming that the bound holds for $n$, we now prove it for $n+1$ :
+$$
+\begin{aligned}
+\sum_{k=1}^{n+1} k & =\sum_{k=1}^n k+(n+1) \\
+& =O(n)+(n+1) \quad \Longleftarrow \text { wrong! } \\
+& =O(n+1) .
+\end{aligned}
+$$
+The bug in the argument is that the "constant" hidden by the "big-oh" grows with $n$ and thus is not constant. We have not shown that the same constant works for all $n$.
+
+Bounding the terms
+You can sometimes obtain a good upper bound on a series by bounding each term of the series, and it often suffices to use the largest term to bound the others. For example, a quick upper bound on the arithmetic series (A.1) is
+$$
+\begin{aligned}
+\sum_{k=1}^n k & \leq \sum_{k=1}^n n \\
+& =n^2 .
+\end{aligned}
+$$
+In general, for a series $\sum_{k=1}^n a_k$, if we let $a_{\max }=\max \left\{a_k: 1 \leq k \leq n\right\}$, then $\sum_{k=1}^n a_k \leq n \cdot a_{\max }$.
+
+The technique of bounding each term in a series by the largest term is a weak method when the series can in fact be bounded by a geometric series. Given the series $\sum_{k=0}^n a_k$, suppose that $a_{k+1} / a_k \leq r$ for all $k \geq 0$, where $0<r<1$ is a constant. You can bound the sum by an infinite decreasing geometric series, since $a_k \leq a_0 r^k$, and thus
+$$
+\begin{aligned}
+\sum_{k=0}^n a_k & \leq \sum_{k=0}^{\infty} a_0 r^k \\
+& =a_0 \sum_{k=0}^{\infty} r^k \\
+& =a_0 \frac{1}{1-r} .
+\end{aligned}
+$$
+You can apply this method to bound the summation $\sum_{k=1}^{\infty}\left(k / 3^k\right)$. In order to start the summation at $k=0$, rewrite it as $\sum_{k=0}^{\infty}\left((k+1) / 3^{k+1}\right)$. The first term $\left(a_0\right)$ is $1 / 3$, and the ratio $(r)$ of consecutive terms is
+$$
+\begin{aligned}
+\frac{(k+2) / 3^{k+2}}{(k+1) / 3^{k+1}} & =\frac{1}{3} \cdot \frac{k+2}{k+1} \\
+& \leq \frac{2}{3}
+\end{aligned}
+$$
+for all $k \geq 0$. Thus, we have
+$$
+\begin{aligned}
+\sum_{k=1}^{\infty} \frac{k}{3^k} & =\sum_{k=0}^{\infty} \frac{k+1}{3^{k+1}} \\
+& \leq \frac{1}{3} \cdot \frac{1}{1-2 / 3} \\
+& =1
+\end{aligned}
+$$
+A common bug in applying this method is to show that the ratio of consecutive terms is less than 1 and then to assume that the summation is bounded by a geometric series. An example is the infinite harmonic series, which diverges since
+$$
+\begin{aligned}
+\sum_{k=1}^{\infty} \frac{1}{k} & =\lim _{n \rightarrow \infty} \sum_{k=1}^n \frac{1}{k} \\
+& =\lim _{n \rightarrow \infty} \Theta(\lg n) \\
+& =\infty .
+\end{aligned}
+$$
+The ratio of the $(k+1)$ st and $k$ th terms in this series is $k /(k+1)<1$, but the series is not bounded by a decreasing geometric series. To bound a series by a geometric series, you need to show that there is an $r<1$, which is a constant, such that the ratio of all pairs of consecutive terms never exceeds $r$. In the harmonic series, no such $r$ exists because the ratio becomes arbitrarily close to 1 .
+Splitting summations
+One way to obtain bounds on a difficult summation is to express the series as the sum of two or more series by partitioning the range of the index and then to bound each of the resulting series. For example, let's find a lower bound on the arithmetic series $\sum_{k=1}^n k$, which we have already seen has an upper bound of $n^2$. You might attempt to bound each term in the summation by the smallest term, but since that term is 1 , you would get a lower bound of $n$ for the summation-far off from the upper bound of $n^2$.
+
+You can obtain a better lower bound by first splitting the summation. Assume for convenience that $n$ is even, so that
+$$
+\begin{aligned}
+\sum_{k=1}^n k & =\sum_{k=1}^{n / 2} k+\sum_{k=n / 2+1}^n k \\
+& \geq \sum_{k=1}^{n / 2} 0+\sum_{k=n / 2+1}^n \frac{n}{2} \\
+& =\left(\frac{n}{2}\right)^2 \\
+& =\Omega\left(n^2\right)
+\end{aligned}
+$$
+which is an asymptotically tight bound, since $\sum_{k=1}^n k=O\left(n^2\right)$.
+For a summation arising from the analysis of an algorithm, you can sometimes split the summation and ignore a constant number of the initial terms. Generally, this technique applies when each term $a_k$ in a summation $\sum_{k=0}^n a_k$ is independent of $n$. Then for any constant $k_0>0$, you can write
+$$
+\begin{aligned}
+\sum_{k=0}^n a_k & =\sum_{k=0}^{k_0-1} a_k+\sum_{k=k_0}^n a_k \\
+& =\Theta(1)+\sum_{k=k_0}^n a_k
+\end{aligned}
+$$
+since the initial terms of the summation are all constant and there are a constant number of them. You can then use other methods to bound $\sum_{k=k_0}^n a_k$. This technique applies to infinite summations as well. For example, let's find an asymptotic upper bound on $\sum_{k=0}^{\infty} k^2 / 2^k$. The ratio of consecutive terms is
+
+$$
+\begin{aligned}
+\frac{(k+1)^2 / 2^{k+1}}{k^2 / 2^k} & =\frac{(k+1)^2}{2 k^2} \\
+& \leq 8 / 9
+\end{aligned}
+$$
+if $k \geq 3$. Thus, you can split the summation into
+$$
+\begin{aligned}
+\sum_{k=0}^{\infty} \frac{k^2}{2^k} & =\sum_{k=0}^2 \frac{k^2}{2^k}+\sum_{k=3}^{\infty} \frac{k^2}{2^k} \\
+& =\sum_{k=0}^2 \frac{k^2}{2^k}+\sum_{k=0}^{\infty} \frac{(k+3)^2}{2^{k+3}} \quad \text { (by reindexing) } \\
+& \leq \sum_{k=0}^2 \frac{k^2}{2^k}+\frac{9}{8} \sum_{k=0}^{\infty}\left(\frac{8}{9}\right)^k \quad \text { (by inequality (A.15)) } \\
+& =(0+1 / 2+1)+\frac{9 / 8}{1-8 / 9} \quad \text { (by equation (A.16)) } \\
+& =O(1) .
+\end{aligned}
+$$
+(by reindexing)
+(by inequality (A.15))
+(by equation (A.16))
+The technique of splitting summations can help determine asymptotic bounds in much more difficult situations. For example, here is one way to obtain a bound of $O(\lg n)$ on the harmonic series (A.9):
+$$
+H_n=\sum_{k=1}^n \frac{1}{k} \text {. }
+$$
+The idea is to split the range 1 to $n$ into $\lfloor\lg n\rfloor+1$ pieces and upper-bound the contribution of each piece by 1 . For $i=0,1, \ldots,\lfloor\lg n\rfloor$, the $i$ th piece consists of the terms starting at $1 / 2^i$ and going up to but not including $1 / 2^{i+1}$. The last piece might contain terms not in the original harmonic series, giving
+$$
+\begin{aligned}
+\sum_{k=1}^n \frac{1}{k} & \leq \sum_{i=0}^{\lfloor\lg n\rfloor} \sum_{j=0}^{2^i-1} \frac{1}{2^i+j} \\
+& \leq \sum_{i=0}^{\lfloor\lg n\rfloor} \sum_{j=0}^{2^i-1} \frac{1}{2^i} \\
+& =\sum_{i=0}^{\lfloor\lg n\rfloor}\left(2^i \cdot \frac{1}{2^i}\right) \\
+& =\sum_{i=0}^{\lfloor\lg n\rfloor} 1 \\
+& \leq \lg n+1 .
+\end{aligned}
+$$
+
+Approximation by integrals
+When a summation has the form $\sum_{k=m}^n f(k)$, where $f(k)$ is a monotonically increasing function, you can approximate it by integrals:
+$$
+\int_{m-1}^n f(x) d x \leq \sum_{k=m}^n f(k) \leq \int_m^{n+1} f(x) d x .
+$$
+Figure A.1 justifies this approximation. The summation is represented as the area of the rectangles in the figure, and the integral is the blue region under the curve. When $f(k)$ is a monotonically decreasing function, you can use a similar method to provide the bounds
+$$
+\int_m^{n+1} f(x) d x \leq \sum_{k=m}^n f(k) \leq \int_{m-1}^n f(x) d x .
+$$
+The integral approximation (A.19) can be used to prove the tight bounds in inequality (A.10) for the $n$th harmonic number. The lower bound is
+$$
+\begin{aligned}
+\sum_{k=1}^n \frac{1}{k} & \geq \int_1^{n+1} \frac{d x}{x} \\
+& =\ln (n+1)
+\end{aligned}
+$$
+For the upper bound, the integral approximation gives
+$$
+\begin{aligned}
+\sum_{k=1}^n \frac{1}{k} & =\sum_{k=2}^n \frac{1}{k}+1 \\
+& \leq \int_1^n \frac{d x}{x}+1 \\
+& =\ln n+1 .
+\end{aligned}
+$$
+
+\chapter{集合论以及相关知识}
+
+\section{集合}
+
+\section{关系}
+
+\section{函数}
+
+\section{图}
+
+\section{树}
+
+
+
+\chapter{计数和概率}
+
+\section{计数}
+
+\section{概率}
+
+\section{离散随机变量}
+
+\section{几何分布和二项分布}
+
+\section{二项分布的尾部}
+
+\chapter{矩阵}
+
+\section{矩阵和矩阵运算}
+
+\section{矩阵的基本性质}
+
+\part{算法的代码实现}
 
 \chapter{Python代码}
 
