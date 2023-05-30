@@ -2980,7 +2980,7 @@ $$
 
 \section{带有界限的求和}
 
-您可以从几种技术中选择，来限定描述算法运行时间的求和。以下是一些最常用的方法。
+你可以从几种技术中选择，来限定描述算法运行时间的求和。以下是一些最常用的方法。
 
 \textbf{数学归纳法}
 
@@ -2995,7 +2995,7 @@ $$
 \end{aligned}
 $$
 
-您不必总是猜测一个求和的确切值，才能使用数学归纳法。相反，您可以使用归纳法来证明一个求和的上限或下限。例如，让我们证明渐进上界 $\sum_{k=0}^n 3^k=O\left(3^n\right)$。更具体地说，我们将证明 $\sum_{k=0}^n 3^k \leq c 3^n$ 对于某个常数 $c$ 成立。对于初始条件 $n=0$，我们有 $\sum_{k=0}^0 3^k=1 \leq c \cdot 1$ 只要 $c \geq 1$。假设该限制对于 $n$ 成立，我们证明它对于 $n+1$ 也成立。我们有...
+你不必总是猜测一个求和的确切值，才能使用数学归纳法。相反，你可以使用归纳法来证明一个求和的上限或下限。例如，让我们证明渐进上界 $\sum_{k=0}^n 3^k=O\left(3^n\right)$。更具体地说，我们将证明 $\sum_{k=0}^n 3^k \leq c 3^n$ 对于某个常数 $c$ 成立。对于初始条件 $n=0$，我们有 $\sum_{k=0}^0 3^k=1 \leq c \cdot 1$ 只要 $c \geq 1$。假设该限制对于 $n$ 成立，我们证明它对于 $n+1$ 也成立。我们有...
 
 $$
 \begin{aligned}
@@ -3022,7 +3022,7 @@ $$
 
 \textbf{限定项}
 
-有时您可以通过限定级数的每个项来获得一个很好的上限，并且通常使用最大项来限制其他项就足够了。例如，算术级数 (A.1) 的一个快速上限是：
+有时你可以通过限定级数的每个项来获得一个很好的上限，并且通常使用最大项来限制其他项就足够了。例如，算术级数 (A.1) 的一个快速上限是：
 
 $$
 \begin{aligned}
@@ -3033,7 +3033,7 @@ $$
 
 一般来说，对于一个级数 $\sum_{k=1}^n a_k$，如果我们让 $a_{\max }=\max \left\{a_k: 1 \leq k \leq n\right\}$，那么 $\sum_{k=1}^n a_k \leq n \cdot a_{\max }$。
 
-当级数实际上可以被一个几何级数限定时，通过将级数中的每个项限制为最大项的方法是一种薄弱的方法。给定级数 $\sum_{k=0}^n a_k$，假设对于所有 $k \geq 0$，都有 $a_{k+1} / a_k \leq r$，其中 $0<r<1$ 是一个常数。由于 $a_k \leq a_0 r^k$，因此您可以将该级数限定为一个无限递减的几何级数，即
+当级数实际上可以被一个几何级数限定时，通过将级数中的每个项限制为最大项的方法是一种薄弱的方法。给定级数 $\sum_{k=0}^n a_k$，假设对于所有 $k \geq 0$，都有 $a_{k+1} / a_k \leq r$，其中 $0<r<1$ 是一个常数。由于 $a_k \leq a_0 r^k$，因此你可以将该级数限定为一个无限递减的几何级数，即
 
 $$
 \begin{aligned}
@@ -3043,7 +3043,7 @@ $$
 \end{aligned}
 $$
 
-您可以使用这种方法来限定求和 $\sum_{k=1}^{\infty}\left(k / 3^k\right)$。为了从 $k=0$ 开始求和，将其重写为 $\sum_{k=0}^{\infty}\left((k+1) / 3^{k+1}\right)$。第一项 $\left(a_0\right)$ 是 $1 / 3$，连续项的比值 $(r)$ 是
+你可以使用这种方法来限定求和 $\sum_{k=1}^{\infty}\left(k / 3^k\right)$。为了从 $k=0$ 开始求和，将其重写为 $\sum_{k=0}^{\infty}\left((k+1) / 3^{k+1}\right)$。第一项 $\left(a_0\right)$ 是 $1 / 3$，连续项的比值 $(r)$ 是
 
 $$
 \begin{aligned}
@@ -3072,13 +3072,13 @@ $$
 \end{aligned}
 $$
 
-该级数中第 $(k+1)$ 项和第 $k$ 项的比值为 $k /(k+1)<1$，但该级数不能被一个递减的几何级数限定。要通过一个几何级数限定一个级数，您需要证明存在一个 $r<1$，它是一个常数，使得所有连续项的比值都不超过 $r$。在调和级数中，不存在这样的 $r$，因为比值趋近于1。
+该级数中第 $(k+1)$ 项和第 $k$ 项的比值为 $k /(k+1)<1$，但该级数不能被一个递减的几何级数限定。要通过一个几何级数限定一个级数，你需要证明存在一个 $r<1$，它是一个常数，使得所有连续项的比值都不超过 $r$。在调和级数中，不存在这样的 $r$，因为比值趋近于1。
 
 \textbf{分割求和}
 
-获得一个困难求和的上下界的一种方法是通过将指标范围分成两个或多个系列的和来表达该级数，然后限制每个结果系列。例如，让我们找到算术级数 $\sum_{k=1}^n k$ 的下限，我们已经知道它的上限是 $n^2$。您可以尝试通过将求和中的每个项限制为最小项来限制求和，但由于最小项是1，您将得到求和的下限为 $n$，远远低于上限 $n^2$。
+获得一个困难求和的上下界的一种方法是通过将指标范围分成两个或多个系列的和来表达该级数，然后限制每个结果系列。例如，让我们找到算术级数 $\sum_{k=1}^n k$ 的下限，我们已经知道它的上限是 $n^2$。你可以尝试通过将求和中的每个项限制为最小项来限制求和，但由于最小项是1，你将得到求和的下限为 $n$，远远低于上限 $n^2$。
 
-您可以通过首先分割求和来获得更好的下限。为方便起见，假设 $n$ 是偶数，因此
+你可以通过首先分割求和来获得更好的下限。为方便起见，假设 $n$ 是偶数，因此
 
 $$
 \begin{aligned}
@@ -3091,7 +3091,7 @@ $$
 
 这是一个渐近紧密的上限，因为 $\sum_{k=1}^n k=O\left(n^2\right)$。
 
-对于从算法分析中产生的求和，有时可以分割求和并忽略初始项的常数个数。通常，当求和中的每个项 $a_k$ 与 $n$ 无关时，该技术适用。然后，对于任何常数 $k_0>0$，您可以写成
+对于从算法分析中产生的求和，有时可以分割求和并忽略初始项的常数个数。通常，当求和中的每个项 $a_k$ 与 $n$ 无关时，该技术适用。然后，对于任何常数 $k_0>0$，你可以写成
 
 $$
 \begin{aligned}
@@ -3100,7 +3100,7 @@ $$
 \end{aligned}
 $$
 
-因为求和的初始项都是常数，而且它们的数量是恒定的。然后，您可以使用其他方法来限制 $\sum_{k=k_0}^n a_k$。这种技术同样适用于无穷级数。例如，让我们找到 $\sum_{k=0}^{\infty} k^2 / 2^k$ 的渐近上限。连续项的比值是
+因为求和的初始项都是常数，而且它们的数量是恒定的。然后，你可以使用其他方法来限制 $\sum_{k=k_0}^n a_k$。这种技术同样适用于无穷级数。例如，让我们找到 $\sum_{k=0}^{\infty} k^2 / 2^k$ 的渐近上限。连续项的比值是
 
 $$
 \begin{aligned}
@@ -3141,13 +3141,13 @@ $$
 
 \textbf{通过积分进行近似}
 
-当一个求和具有 $\sum_{k=m}^n f(k)$ 的形式，其中 $f(k)$ 是单调递增的函数时，您可以通过积分进行近似：
+当一个求和具有 $\sum_{k=m}^n f(k)$ 的形式，其中 $f(k)$ 是单调递增的函数时，你可以通过积分进行近似：
 
 $$
 \int_{m-1}^n f(x) d x \leq \sum_{k=m}^n f(k) \leq \int_m^{n+1} f(x) d x .
 $$
 
-图 A.1 证明了这种近似方法的正确性。该求和表示为图中矩形的面积，而积分则是曲线下蓝色区域的面积。当 $f(k)$ 是单调递减的函数时，您可以使用类似的方法来提供界限。
+图 A.1 证明了这种近似方法的正确性。该求和表示为图中矩形的面积，而积分则是曲线下蓝色区域的面积。当 $f(k)$ 是单调递减的函数时，你可以使用类似的方法来提供界限。
 
 $$
 \int_m^{n+1} f(x) d x \leq \sum_{k=m}^n f(k) \leq \int_{m-1}^n f(x) d x .
@@ -3174,35 +3174,1284 @@ $$
 
 \chapter{集合论以及相关知识}
 
+本书的许多章节涉及离散数学的元素。本附录回顾了集合、关系、函数、图和树的符号、定义和基本性质。如果您已经熟悉这些材料，您可能只需要浏览一下本章。
+
 \section{集合}
 
-\section{关系}
+集合是一组可区分的对象，称为其成员或元素。如果对象$x$是集合$S$的成员，我们写作$x \in S$（读作"$x$是$S$的成员"或更简洁地说" $x$ 属于 $S$ "）。如果$x$不是$S$的成员，我们写作$x \notin S$。要明确描述一个集合，请将其成员作为列表写在大括号内。例如，要定义一个包含精确数字1、2和3的集合$S$，请写成$S=\{1,2,3\}$。由于2属于集合$S$，我们可以写成$2 \in S$，而由于4不是成员，我们可以写成$4 \notin S$。集合不能包含相同的对象${ }^1$，它的元素没有顺序。如果两个集合$A$和$B$包含相同的元素，则它们相等，写作$A=B$。例如，$\{1,2,3,1\}=\{1,2,3\}=\{3,2,1\}$。
+
+我们采用特殊符号表示经常遇到的集合：
+
+\begin{itemize}
+\item $\emptyset$表示空集，即不包含任何成员的集合。
+\item $\mathbb{Z}$表示整数集，即集合$\{\ldots,-2,-1,0,1,2,\ldots\}$。
+\item $\mathbb{R}$表示实数集。
+\item $\mathbb{N}$表示自然数集，即集合$\{0,1,2,\ldots\} .^2$。
+\end{itemize}
+
+如果集合$A$的所有元素都包含在集合$B$中，即如果$x \in A$意味着$x \in B$，那么我们写作$A \subseteq B$，并说$A$是$B$的子集。如果$A \subseteq B$但$A \neq B$，则称集合$A$是集合$B$的真子集，写作$A \subset B$。（有些作者使用符号"$C$"表示普通子集关系，而不是真子集关系。）每个集合都是其本身的子集：对于任何集合$A$，我们有$A \subseteq A$。对于两个集合$A$和$B$，当且仅当$A \subseteq B$且$B \subseteq A$时，我们有$A=B$。子集关系是可传递的（见第1159页）：对于任意三个集合$A,B,C$，如果$A \subseteq B$且$B \subseteq C$，则$A \subseteq C$。真子集关系也是可传递的。空集是所有集合的子集：对于任何集合$A$，我们有$\emptyset \subseteq A$。
+
+可以根据其他集合来指定集合。给定一个集合$A$，可以通过陈述区分元素的属性来定义一个集合$B\subseteq A$。例如，定义偶数的集合的一种方法是$\{x: x \in \mathbb{Z}$且$x / 2$是整数$\}$。这种符号中的冒号读作"such that"。（有些作者用竖线代替冒号。）
+
+给定两个集合$A$和$B$，集合运算定义了新的集合：
+
+\begin{itemize}
+\item 集合$A$和$B$的交集是集合$A \cap B=\{x: x \in A$且$x \in B\}$。
+\item 集合$A$和$B$的并集是集合$A \cup B=\{x: x \in A$或$x \in B\}$。
+\item 两个集合$A$和$B$之间的差集是集合$A-B=\{x: x \in A$且$x \notin B\}$。
+\end{itemize}
+
+集合运算遵守以下法则：
+
+\textbf{空集律}：
+
+$$
+\begin{aligned}
+& A \cap \emptyset=\emptyset, \\
+& A \cup \emptyset=A .
+\end{aligned}
+$$
+
+\textbf{幂等律}：
+
+$$
+\begin{aligned}
+& A \cap A=A, \\
+& A \cup A=A .
+\end{aligned}
+$$
+
+\textbf{交换律}：
+
+$$
+\begin{aligned}
+& A \cap B=B \cap A, \\
+& A \cup B=B \cup A .
+\end{aligned}
+$$
+
+\textbf{结合律}
+
+$$
+\begin{aligned}
+& A \cap(B \cap C)=(A \cap B) \cap C \\
+& A \cup(B \cup C)=(A \cup B) \cup C .
+\end{aligned}
+$$
+
+\textbf{分配律}
+
+$$
+\begin{aligned}
+& A \cap(B \cup C)=(A \cap B) \cup(A \cap C), \\
+& A \cup(B \cap C)=(A \cup B) \cap(A \cup C) .
+\end{aligned}
+$$
+
+\textbf{吸收律}
+$$
+\begin{aligned}
+& A \cap(A \cup B)=A \\
+& A \cup(A \cap B)=A
+\end{aligned}
+$$
+
+\textbf{德摩根律}
+
+$$
+\begin{aligned}
+& A-(B \cap C)=(A-B) \cup(A-C) \\
+& A-(B \cup C)=(A-B) \cap(A-C)
+\end{aligned}
+$$
+
+Figure B.1 illustrates the first of DeMorgan's laws, using a Venn diagram: a graphical picture in which sets are represented as regions of the plane.
+
+Often, all the sets under consideration are subsets of some larger set $U$ called the universe. For example, when considering various sets made up only of integers, the set $\mathbb{Z}$ of integers is an appropriate universe. Given a universe $U$, we define the complement of a set $A$ as $\bar{A}=U-A=\{x: x \in U$ and $x \notin A\}$. For any set $A \subseteq U$, we have the following laws:
+
+$$
+\begin{aligned}
+\overline{\bar{A}} & =A, \\
+A \cap \bar{A} & =\emptyset, \\
+A \cup \bar{A} & =U .
+\end{aligned}
+$$
+
+An equivalent way to express DeMorgan's laws (B.2) uses set complements. For any two sets $B, C \subseteq U$, we have
+$$
+\begin{aligned}
+& \overline{B \cap C}=\bar{B} \cup \bar{C}, \\
+& \overline{B \cup C}=\bar{B} \cap \bar{C} .
+\end{aligned}
+$$
+Two sets $A$ and $B$ are disjoint if they have no elements in common, that is, if $A \cap B=\emptyset$. A collection of sets $S_1, S_2, \ldots$, either finite or infinite, is a set of sets, in which each member is a set $S_i$. A collection $\delta=\left\{S_i\right\}$ of nonempty sets forms a partition of a set $S$ if
+- the sets are pairwise disjoint, that is, $S_i, S_j \in \mathcal{S}$ and $i \neq j$ imply $S_i \cap S_j=\emptyset$, and
+- their union is $S$, that is,
+$$
+S=\bigcup_{S_i \in 8} S_i .
+$$
+In other words, $S$ forms a partition of $S$ if each element of $S$ appears in exactly one set $S_i \in \mathcal{P}$.
+
+The number of elements in a set is the cardinality (or size) of the set, denoted $|S|$. Two sets have the same cardinality if their elements can be put into a one-to-one correspondence. The cardinality of the empty set is $|\emptyset|=0$. If the cardinality of a set is a natural number, the set is finite, and otherwise, it is infinite. An infinite set that can be put into a one-to-one correspondence with the natural numbers $\mathbb{N}$ is countably infinite, and otherwise, it is uncountable. For example, the integers $\mathbb{Z}$ are countable, but the reals $\mathbb{R}$ are uncountable.
+For any two finite sets $A$ and $B$, we have the identity
+$|A \cup B|=|A|+|B|-|A \cap B|$,
+from which we can conclude that
+$|A \cup B| \leq|A|+|B|$
+If $A$ and $B$ are disjoint, then $|A \cap B|=0$ and thus $|A \cup B|=|A|+|B|$. If $A \subseteq B$, then $|A| \leq|B|$
+
+A finite set of $n$ elements is sometimes called an $n$-set. A 1 -set is called a singleton. A subset of $k$ elements of a set is sometimes called a $k$-subset.
+
+We denote the set of all subsets of a set $S$, including the empty set and $S$ itself, by $2^S$, called the power set of $S$. For example, $2^{\{a, b\}}=\{\emptyset,\{a\},\{b\},\{a, b\}\}$. The power set of a finite set $S$ has cardinality $2^{|S|}$ (see Exercise B.1-5).
+
+We sometimes care about setlike structures in which the elements are ordered. An ordered pair of two elements $a$ and $b$ is denoted $(a, b)$ and is defined formally as the set $(a, b)=\{a,\{a, b\}\}$. Thus, the ordered pair $(a, b)$ is not the same as the ordered pair $(b, a)$.
+
+The Cartesian product of two sets $A$ and $B$, denoted $A \times B$, is the set of all ordered pairs such that the first element of the pair is an element of $A$ and the second is an element of $B$. More formally,
+$A \times B=\{(a, b): a \in A$ and $b \in B\}$.
+For example, $\{a, b\} \times\{a, b, c\}=\{(a, a),(a, b),(a, c),(b, a),(b, b),(b, c)\}$. When $A$ and $B$ are finite sets, the cardinality of their Cartesian product is
+$|A \times B|=|A| \cdot|B|$.
+The Cartesian product of $n$ sets $A_1, A_2, \ldots, A_n$ is the set of $n$-tuples
+$$
+A_1 \times A_2 \times \cdots \times A_n=\left\{\left(a_1, a_2, \ldots, a_n\right): a_i \in A_i \text { for } i=1,2, \ldots, n\right\},
+$$
+whose cardinality is
+$$
+\left|A_1 \times A_2 \times \cdots \times A_n\right|=\left|A_1\right| \cdot\left|A_2\right| \cdots\left|A_n\right|
+$$
+if all sets $A_i$ are finite. We denote an $n$-fold Cartesian product over a single set $A$ by the set
+$$
+A^n=\underbrace{A \times A \times \cdots \times A}_{n \text { times }},
+$$
+whose cardinality is $\left|A^n\right|=|A|^n$ if $A$ is finite. We can also view an $n$-tuple as a finite sequence of length $n$ (see page 1162).
+
+Intervals are continuous sets of real numbers. We denote them with parentheses and/or brackets. Given real numbers $a$ and $b$, the closed interval $[a, b]$ is the set $\{x \in \mathbb{R}: a \leq x \leq b\}$ of reals between $a$ and $b$, including both $a$ and $b$. (If $a>b$, this definition implies that $[a, b]=\emptyset$.) The open interval $(a, b)=$ $\{x \in \mathbb{R}: a<x<b\}$ omits both of the endpoints from the set. There are two halfopen intervals $[a, b)=\{x \in \mathbb{R}: a \leq x<b\}$ and $(a, b]=\{x \in \mathbb{R}: a<x \leq b\}$, each of which excludes one endpoint.
+
+Intervals can also be defined on the integers by replacing $\mathbb{R}$ in the these definitions by $\mathbb{Z}$. Whether the interval is defined over the reals or integers can usually be inferred from context.
+
+
+
+\section{二元关系}
+
+A binary relation $R$ on two sets $A$ and $B$ is a subset of the Cartesian product $A \times B$. If $(a, b) \in R$, we sometimes write $a R b$. When we say that $R$ is a binary relation on a set $A$, we mean that $R$ is a subset of $A \times A$. For example, the "less than" relation on the natural numbers is the set $\{(a, b): a, b \in \mathbb{N}$ and $a<b\}$. An $n$-ary relation on sets $A_1, A_2, \ldots, A_n$ is a subset of $A_1 \times A_2 \times \cdots \times A_n$.
+
+A binary relation $R \subseteq A \times A$ is reflexive if
+
+$a R a$
+
+for all $a \in A$. For example, "=" and " $\leq$ " are reflexive relations on $\mathbb{N}$, but "<" is not. The relation $R$ is symmetric if
+$a R b$ implies $b R a$
+for all $a, b \in A$. For example, "=" is symmetric, but " $<$ " and " $\leq$ " are not. The relation $R$ is transitive if
+$a R b$ and $b R c$ imply $a R c$
+for all $a, b, c \in A$. For example, the relations " $<, "$ " $\leq$," and "=" are transitive, but the relation $R=\{(a, b): a, b \in \mathbb{N}$ and $a=b-1\}$ is not, since $3 R 4$ and $4 R 5$ do not imply $3 R 5$.
+
+A relation that is reflexive, symmetric, and transitive is an equivalence relation. For example, "=" is an equivalence relation on the natural numbers, but " $<$ " is not. If $R$ is an equivalence relation on a set $A$, then for $a \in A$, the equivalence class of $a$ is the set $[a]=\{b \in A: a R b\}$, that is, the set of all elements equivalent to $a$. For example, if we define $R=\{(a, b): a, b \in \mathbb{N}$ and $a+b$ is an even number $\}$, then $R$ is an equivalence relation, since $a+a$ is even (reflexive), $a+b$ is even implies $b+a$ is even (symmetric), and $a+b$ is even and $b+c$ is even imply $a+c$ is even (transitive). The equivalence class of 4 is $[4]=\{0,2,4,6, \ldots\}$, and the equivalence class of 3 is $[3]=\{1,3,5,7, \ldots\}$. A basic theorem of equivalence classes is the following.
+Theorem B.I (An equivalence relation is the same as a partition)
+The equivalence classes of any equivalence relation $R$ on a set $A$ form a partition of $A$, and any partition of $A$ determines an equivalence relation on $A$ for which the sets in the partition are the equivalence classes.
+
+Proof For the first part of the proof, we must show that the equivalence classes of $R$ are nonempty, pairwise-disjoint sets whose union is $A$. Because $R$ is reflexive, $a \in[a]$, and so the equivalence classes are nonempty. Moreover, since every element $a \in A$ belongs to the equivalence class $[a]$, the union of the equivalence classes is $A$. It remains to show that the equivalence classes are pairwise disjoint, that is, if two equivalence classes $[a]$ and $[b]$ have an element $c$ in common, then they are in fact the same set. Suppose that $a R c$ and $b R c$. Symmetry gives that $c R b$ and, by transitivity, $a R b$. Thus, we have $x R a$ for any arbitrary element $x \in[a]$ and, by transitivity, $x R b$, and thus $[a] \subseteq[b]$. Similarly, $[b] \subseteq[a]$, and thus $[a]=[b]$
+
+For the second part of the proof, let $A=\left\{A_i\right\}$ be a partition of $A$, and define $R=\left\{(a, b)\right.$ : there exists $i$ such that $a \in A_i$ and $\left.b \in A_i\right\}$. We claim that $R$ is an equivalence relation on $A$. Reflexivity holds, since $a \in A_i$ implies $a R a$. Symmetry holds, because if $a R b$, then $a$ and $b$ belong to the same set $A_i$, and hence $b R a$. If $a R b$ and $b R c$, then all three elements are in the same set $A_i$, and thus $a R c$ and transitivity holds. To see that the sets in the partition are the equivalence classes of $R$, observe that if $a \in A_i$, then $x \in[a]$ implies $x \in A_i$, and $x \in A_i$ implies $x \in[a]$.
+A binary relation $R$ on a set $A$ is antisymmetric if $a R b$ and $b R a$ imply $a=b$.
+For example, the " $\leq$ " relation on the natural numbers is antisymmetric, since $a \leq b$ and $b \leq a$ imply $a=b$. A relation that is reflexive, antisymmetric, and transitive is a partial order, and we call a set on which a partial order is defined a partially ordered set. For example, the relation "is a descendant of" is a partial order on the set of all people (if we view individuals as being their own descendants).
+
+In a partially ordered set $A$, there may be no single "maximum" element $a$ such that $b R a$ for all $b \in A$. Instead, the set may contain several maximal elements $a$ such that for no $b \in A$, where $b \neq a$, is it the case that $a R b$. For example, a collection of different-sized boxes may contain several maximal boxes that don't fit inside any other box, yet it has no single "maximum" box into which any other box will fit. ${ }^3$
+
+A relation $R$ on a set $A$ is a total relation if for all $a, b \in A$, we have $a R b$ or $b R a$ (or both), that is, if every pairing of elements of $A$ is related by $R$. A partial order that is also a total relation is a total order or linear order. For example, the relation " $\leq$ " is a total order on the natural numbers, but the "is a descendant of" relation is not a total order on the set of all people, since there are individuals neither of whom is descended from the other. A total relation that is transitive, but not necessarily either symmetric or antisymmetric, is a total preorder.
 
 \section{函数}
 
+Given two sets $A$ and $B$, a function $f$ is a binary relation on $A$ and $B$ such that for all $a \in A$, there exists precisely one $b \in B$ such that $(a, b) \in f$. The set $A$ is called the domain of $f$, and the set $B$ is called the codomain of $f$. We sometimes write $f: A \rightarrow B$, and if $(a, b) \in f$, we write $b=f(a)$, since the choice of $a$ uniquely determines $b$.
+
+Intuitively, the function $f$ assigns an element of $B$ to each element of $A$. No element of $A$ is assigned two different elements of $B$, but the same element of $B$ can be assigned to two different elements of $A$. For example, the binary relation
+$f=\{(a, b): a, b \in \mathbb{N}$ and $b=a \bmod 2\}$
+is a function $f: \mathbb{N} \rightarrow\{0,1\}$, since for each natural number $a$, there is exactly one value $b$ in $\{0,1\}$ such that $b=a \bmod 2$. For this example, $0=f(0), 1=f(1)$, $0=f(2), 1=f(3)$, etc. In contrast, the binary relation
+$g=\{(a, b): a, b \in \mathbb{N}$ and $a+b$ is even $\}$
+is not a function, since $(1,3)$ and $(1,5)$ are both in $g$, and thus for the choice $a=1$, there is not precisely one $b$ such that $(a, b) \in g$.
+
+Given a function $f: A \rightarrow B$, if $b=f(a)$, we say that $a$ is the argument of $f$ and that $b$ is the value of $f$ at $a$. We can define a function by stating its value for every element of its domain. For example, we might define $f(n)=2 n$ for $n \in \mathbb{N}$, which means $f=\{(n, 2 n): n \in \mathbb{N}\}$. Two functions $f$ and $g$ are equal if they have the same domain and codomain and if $f(a)=g(a)$ for all $a$ in the domain.
+A finite sequence of length $n$ is a function $f$ whose domain is the set of $n$ integers $\{0,1, \ldots, n-1\}$. We often denote a finite sequence by listing its values in angle brackets: $\langle f(0), f(1), \ldots, f(n-1)\rangle$. An infinite sequence is a function whose domain is the set $\mathbb{N}$ of natural numbers. For example, the Fibonacci sequence, defined by recurrence $(3.31)$, is the infinite sequence $\langle 0,1,1,2,3,5,8,13,21, \ldots\rangle$.
+When the domain of a function $f$ is a Cartesian product, we often omit the extra parentheses surrounding the argument of $f$. For example, if we have a function $f: A_1 \times A_2 \times \cdots \times A_n \rightarrow B$, we write $b=f\left(a_1, a_2, \ldots, a_n\right)$ instead of writing $b=$ $f\left(\left(a_1, a_2, \ldots, a_n\right)\right)$. We also call each $a_i$ an argument to the function $f$, though technically $f$ has just a single argument, which is the $n$-tuple $\left(a_1, a_2, \ldots, a_n\right)$.
+If $f: A \rightarrow B$ is a function and $b=f(a)$, then we sometimes say that $b$ is the image of $a$ under $f$. The image of a set $A^{\prime} \subseteq A$ under $f$ is defined by
+$$
+f\left(A^{\prime}\right)=\left\{b \in B: b=f(a) \text { for some } a \in A^{\prime}\right\} .
+$$
+The range of $f$ is the image of its domain, that is, $f(A)$. For example, the range of the function $f: \mathbb{N} \rightarrow \mathbb{N}$ defined by $f(n)=2 n$ is $f(\mathbb{N})=\{m: m=2 n$ for some $n \in \mathbb{N}\}$, in other words, the set of nonnegative even integers.
+
+A function is a surjection if its range is its codomain. For example, the function $f(n)=\lfloor n / 2\rfloor$ is a surjective function from $\mathbb{N}$ to $\mathbb{N}$, since every element in $\mathbb{N}$ appears as the value of $f$ for some argument. In contrast, the function $f(n)=2 n$ is not a surjective function from $\mathbb{N}$ to $\mathbb{N}$, since no argument to $f$ can produce any odd natural number as a value. The function $f(n)=2 n$ is, however, a surjective function from the natural numbers to the even numbers. A surjection $f: A \rightarrow B$ is sometimes described as mapping $A$ onto $B$. When we say that $f$ is onto, we mean that it is surjective.
+
+A function $f: A \rightarrow B$ is an injection if distinct arguments to $f$ produce distinct values, that is, if $a \neq a^{\prime}$ implies $f(a) \neq f\left(a^{\prime}\right)$. For example, the function $f(n)=2 n$ is an injective function from $\mathbb{N}$ to $\mathbb{N}$, since each even number $b$ is the image under $f$ of at most one element of the domain, namely $b / 2$. The function $f(n)=\lfloor n / 2\rfloor$ is not injective, since the value 1 is produced by two arguments: $f(2)=1$ and $f(3)=1$. An injection is sometimes called a one-to-one function.
+A function $f: A \rightarrow B$ is a bijection if it is injective and surjective. For example, the function $f(n)=(-1)^n\lceil n / 2\rceil$ is a bijection from $\mathbb{N}$ to $\mathbb{Z}$ :
+
+$$
+\begin{array}{ccr}
+0 & \rightarrow & 0 \\
+1 & \rightarrow & -1 \\
+2 & \rightarrow & 1 \\
+3 & \rightarrow & -2, \\
+4 & \rightarrow & 2 \\
+\vdots &
+\end{array}
+$$
+The function is injective, since no element of $\mathbb{Z}$ is the image of more than one element of $\mathbb{N}$. It is surjective, since every element of $\mathbb{Z}$ appears as the image of some element of $\mathbb{N}$. Hence, the function is bijective. A bijection is sometimes called a one-to-one correspondence, since it pairs elements in the domain and codomain. A bijection from a set $A$ to itself is sometimes called a permutation.
+When a function $f$ is bijective, we define its inverse $f^{-1}$ as
+$f^{-1}(b)=a$ if and only if $f(a)=b$
+For example, the inverse of the function $f(n)=(-1)^n\lceil n / 2\rceil$ is
+$$
+f^{-1}(m)= \begin{cases}2 m & \text { if } m \geq 0 \\ -2 m-1 & \text { if } m<0\end{cases}
+$$
+
 \section{图}
+
+This section presents two kinds of graphs: directed and undirected. Certain definitions in the literature differ from those given here, but for the most part, the differences are slight. Section 20.1 shows how to represent graphs in computer memory.
+
+A directed graph (or digraph) $G$ is a pair $(V, E)$, where $V$ is a finite set and $E$ is a binary relation on $V$. The set $V$ is called the vertex set of $G$, and its elements are called vertices (singular: vertex). The set $E$ is called the edge set of $G$, and its elements are called edges. Figure B.2(a) is a pictorial representation of a directed graph on the vertex set $\{1,2,3,4,5,6\}$. Vertices are represented by circles in the figure, and edges are represented by arrows. Self-loops-edges from a vertex to itself - are possible.
+
+In an undirected graph $G=(V, E)$, the edge set $E$ consists of unordered pairs of vertices, rather than ordered pairs. That is, an edge is a set $\{u, v\}$, where $u, v \in V$ and $u \neq v$. By convention, we use the notation $(u, v)$ for an edge, rather than the set notation $\{u, v\}$, and we consider $(u, v)$ and $(v, u)$ to be the same edge. In an undirected graph, self-loops are forbidden, so that every edge consists of two distinct vertices. Figure B.2(b) shows an undirected graph on the vertex set $\{1,2,3,4,5,6\}$.
+
+Many definitions for directed and undirected graphs are the same, although certain terms have slightly different meanings in the two contexts. If $(u, v)$ is an edge in a directed graph $G=(V, E)$, we say that $(u, v)$ is incident from or leaves vertex $u$ and is incident to or enters vertex $v$. For example, the edges leaving vertex 2 in Figure B.2(a) are $(2,2),(2,4)$, and $(2,5)$. The edges entering vertex 2 are $(1,2)$ and $(2,2)$. If $(u, v)$ is an edge in an undirected graph $G=(V, E)$, we say that $(u, v)$ is incident on vertices $u$ and $v$. In Figure B.2(b), the edges incident on vertex 2 are $(1,2)$ and $(2,5)$.
+
+If $(u, v)$ is an edge in a graph $G=(V, E)$, we say that vertex $v$ is adjacent to vertex $u$. When the graph is undirected, the adjacency relation is symmetric. When the graph is directed, the adjacency relation is not necessarily symmetric. If $v$ is adjacent to $u$ in a directed graph, we can write $u \rightarrow v$. In parts (a) and (b) of Figure B.2, vertex 2 is adjacent to vertex 1 , since the edge $(1,2)$ belongs to both graphs. Vertex 1 is not adjacent to vertex 2 in Figure B.2(a), since the edge $(2,1)$ is absent.
+
+The degree of a vertex in an undirected graph is the number of edges incident on it. For example, vertex 2 in Figure B.2(b) has degree 2. A vertex whose degree is 0 , such as vertex 4 in Figure B.2(b), is isolated. In a directed graph, the out-degree of a vertex is the number of edges leaving it, and the in-degree of a vertex is the number of edges entering it. The degree of a vertex in a directed graph is its indegree plus its out-degree. Vertex 2 in Figure B.2(a) has in-degree 2, out-degree 3, and degree 5.
+
+A path of length $k$ from a vertex $u$ to a vertex $u^{\prime}$ in a graph $G=(V, E)$ is a sequence $\left\langle v_0, v_1, v_2, \ldots, v_k\right\rangle$ of vertices such that $u=v_0, u^{\prime}=v_k$, and $\left(v_{i-1}, v_i\right) \in E$ for $i=1,2, \ldots, k$. The length of the path is the number of edges in the path, which is 1 less than the number of vertices in the path. The path contains the vertices $v_0, v_1, \ldots, v_k$ and the edges $\left(v_0, v_1\right),\left(v_1, v_2\right), \ldots,\left(v_{k-1}, v_k\right)$. (There is always a 0 -length path from $u$ to $u$.) If there is a path $p$ from $u$ to $u^{\prime}$, we say that $u^{\prime}$ is reachable from $u$ via $p$, which we can write as $u \stackrel{p}{\longrightarrow} u^{\prime}$. A path is simple if all vertices in the path are distinct. In Figure B.2(a), the path $\langle 1,2,5,4\rangle$ is a simple path of length 3. The path $\langle 2,5,4,5\rangle$ is not simple. A subpath of path $p=\left\langle v_0, v_1, \ldots, v_k\right\rangle$ is a contiguous subsequence of its vertices. That is, for any $0 \leq i \leq j \leq k$, the subsequence of vertices $\left\langle v_i, v_{i+1}, \ldots, v_j\right\rangle$ is a subpath of $p$.
+In a directed graph, a path $\left\langle v_0, v_1, \ldots, v_k\right\rangle$ forms a cycle if $v_0=v_k$ and the path contains at least one edge. The cycle is simple if, in addition, $v_1, v_2, \ldots, v_k$ are distinct. A cycle consisting of $k$ vertices has length $k$. A self-loop is a cycle of length 1. Two paths $\left\langle v_0, v_1, v_2, \ldots, v_{k-1}, v_0\right\rangle$ and $\left\langle v_0^{\prime}, v_1^{\prime}, v_2^{\prime}, \ldots, v_{k-1}^{\prime}, v_0^{\prime}\right\rangle$ form the same cycle if there exists an integer $j$ such that $v_i^{\prime}=v_{(i+j) \bmod k \text { for }}$ $i=0,1, \ldots, k-1$. In Figure B .2(a), the path $\langle 1,2,4,1\rangle$ forms the same cycle as the paths $\langle 2,4,1,2\rangle$ and $\langle 4,1,2,4\rangle$. This cycle is simple, but the cycle $\langle 1,2,4,5,4,1\rangle$ is not. The cycle $\langle 2,2\rangle$ formed by the edge $(2,2)$ is a self-loop. A directed graph with no self-loops is simple. In an undirected graph, a path $\left\langle v_0, v_1, \ldots, v_k\right\rangle$ forms a cycle if $k>0, v_0=v_k$, and all edges on the path are distinct. The cycle is simple if $v_1, v_2, \ldots, v_k$ are distinct. For example, in Figure B.2(b), the path $\langle 1,2,5,1\rangle$ is a simple cycle. A graph with no simple cycles is acyclic.
+
+An undirected graph is connected if every vertex is reachable from all other vertices. The connected components of an undirected graph are the equivalence classes of vertices under the "is reachable from" relation. The graph shown in Figure B.2(b) has three connected components: $\{1,2,5\},\{3,6\}$, and $\{4\}$. Every vertex in the connected component $\{1,2,5\}$ is reachable from every other vertex in $\{1,2,5\}$. An undirected graph is connected if it has exactly one connected component. The edges of a connected component are those that are incident on only the vertices of the component. In other words, edge $(u, v)$ is an edge of a connected component only if both $u$ and $v$ are vertices of the component.
+
+A directed graph is strongly connected if every two vertices are reachable from each other. The strongly connected components of a directed graph are the equivalence classes of vertices under the "are mutually reachable" relation. A directed graph is strongly connected if it has only one strongly connected component. The graph in Figure B.2(a) has three strongly connected components: $\{1,2,4,5\},\{3\}$, and $\{6\}$. All pairs of vertices in $\{1,2,4,5\}$ are mutually reachable. The vertices $\{3,6\}$ do not form a strongly connected component, since vertex 6 cannot be reached from vertex 3 .
+
+Two graphs $G=(V, E)$ and $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$ are isomorphic if there exists a bijection $f: V \rightarrow V^{\prime}$ such that $(u, v) \in E$ if and only if $(f(u), f(v)) \in E^{\prime}$. In other words, $G$ and $G^{\prime}$ are isomorphic if the vertices of $G$ can be relabeled to be vertices of $G^{\prime}$, maintaining the corresponding edges in $G$ and $G^{\prime}$. Figure B.3(a) shows a pair of isomorphic graphs $G$ and $G^{\prime}$ with respective vertex sets $V=\{1,2,3,4,5,6\}$ and $V^{\prime}=\{u, v, w, x, y, z\}$. The mapping from $V$ to $V^{\prime}$ given by $f(1)=u, f(2)=v, f(3)=w, f(4)=x, f(5)=y, f(6)=z$ provides the required bijective function. The graphs in Figure B.3(b) are not isomorphic. Although both graphs have 5 vertices and 7 edges, the top graph has a vertex of degree 4 and the bottom graph does not.
+
+We say that a graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$ is a subgraph of $G=(V, E)$ if $V^{\prime} \subseteq V$ and $E^{\prime} \subseteq E$. Given a set $V^{\prime} \subseteq V$, the subgraph of $G$ induced by $V^{\prime}$ is the graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$, where
+$$
+E^{\prime}=\left\{(u, v) \in E: u, v \in V^{\prime}\right\}
+$$
+The subgraph induced by the vertex set $\{1,2,3,6\}$ in Figure B.2(a) appears in Figure B.2(c) and has the edge set $\{(1,2),(2,2),(6,3)\}$.
+
+Given an undirected graph $G=(V, E)$, the directed version of $G$ is the directed graph $G^{\prime}=\left(V, E^{\prime}\right)$, where $(u, v) \in E^{\prime}$ if and only if $(u, v) \in E$. That is, each undirected edge $(u, v)$ in $G$ turns into two directed edges, $(u, v)$ and $(v, u)$, in the directed version. Given a directed graph $G=(V, E)$, the undirected version of $G$ is the undirected graph $G^{\prime}=\left(V, E^{\prime}\right)$, where $(u, v) \in E^{\prime}$ if and only if $u \neq v$ and $E$ contains at least one of the edges $(u, v)$ and $(v, u)$. That is, the undirected version contains the edges of $G$ "with their directions removed" and with self-loops eliminated. (Since $(u, v)$ and $(v, u)$ are the same edge in an undirected graph, the undirected version of a directed graph contains it only once, even if the directed graph contains both edges $(u, v)$ and $(v, u)$.) In a directed graph $G=(V, E)$, a neighbor of a vertex $u$ is any vertex that is adjacent to $u$ in the undirected version of $G$. That is, $v$ is a neighbor of $u$ if $u \neq v$ and either $(u, v) \in E$ or $(v, u) \in E$. In an undirected graph, $u$ and $v$ are neighbors if they are adjacent.
+
+Several kinds of graphs have special names. A complete graph is an undirected graph in which every pair of vertices is adjacent. An undirected graph $G=(V, E)$ is bipartite if $V$ can be partitioned into two sets $V_1$ and $V_2$ such that $(u, v) \in E$ implies either $u \in V_1$ and $v \in V_2$ or $u \in V_2$ and $v \in V_1$. That is, all edges go between the two sets $V_1$ and $V_2$. An acyclic, undirected graph is a forest, and a connected, acyclic, undirected graph is a (free) tree (see Section B.5). We often take the first letters of "directed acyclic graph" and call such a graph a dag.
+
+There are two variants of graphs that you may occasionally encounter. A multigraph is like an undirected graph, but it can have both multiple edges between vertices (such as two distinct edges $(u, v)$ and $(u, v))$ and self-loops. A hypergraph is like an undirected graph, but each hyperedge, rather than connecting two vertices, connects an arbitrary subset of vertices. Many algorithms written for ordinary directed and undirected graphs can be adapted to run on these graphlike structures.
+
+The contraction of an undirected graph $G=(V, E)$ by an edge $e=(u, v)$ is a graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$, where $V^{\prime}=V-\{u, v\} \cup\{x\}$ and $x$ is a new vertex. The set of edges $E^{\prime}$ is formed from $E$ by deleting the edge $(u, v)$ and, for each vertex $w$ adjacent to $u$ or $v$, deleting whichever of $(u, w)$ and $(v, w)$ belongs to $E$ and adding the new edge $(x, w)$. In effect, $u$ and $v$ are "contracted" into a single vertex.
 
 \section{树}
 
+As with graphs, there are many related, but slightly different, notions of trees. This section presents definitions and mathematical properties of several kinds of trees. Sections 10.3 and 20.1 describe how to represent trees in computer memory.
 
+\subsection{自由树}
+
+As defined in Section B.4, a free tree is a connected, acyclic, undirected graph. We often omit the adjective "free" when we say that a graph is a tree. If an undirected graph is acyclic but possibly disconnected, it is a forest. Many algorithms that work for trees also work for forests. Figure B.4(a) shows a free tree, and Figure B.4(b) shows a forest. The forest in Figure B .4(b) is not a tree because it is not connected. The graph in Figure B.4(c) is connected but neither a tree nor a forest, because it contains a cycle.
+
+The following theorem captures many important facts about free trees.
+
+Theorem B.2 (Properties of free trees)
+Let $G=(V, E)$ be an undirected graph. The following statements are equivalent.
+
+1. $G$ is a free tree.
+2. Any two vertices in $G$ are connected by a unique simple path.
+3. $G$ is connected, but if any edge is removed from $E$, the resulting graph is disconnected.
+4. $G$ is connected, and $|E|=|V|-1$.
+5. $G$ is acyclic, and $|E|=|V|-1$.
+6. $G$ is acyclic, but if any edge is added to $E$, the resulting graph contains a cycle.
+Proof (1) $\Rightarrow$ (2): Since a tree is connected, any two vertices in $G$ are connected by at least one simple path. Suppose for the sake of contradiction that vertices $u$ and $v$ are connected by two distinct simple paths as shown in Figure B.5. Let $w$ be the vertex at which the paths first diverge. That is, if we call the paths $p_1$ and $p_2$, then $w$ is the first vertex on both $p_1$ and $p_2$ whose successor on $p_1$ is $x$ and whose successor on $p_2$ is $y$, where $x \neq y$. Let $z$ be the first vertex at which the paths reconverge, that is, $z$ is the first vertex following $w$ on $p_1$ that is also on $p_2$. Let $p^{\prime}=w \rightarrow x \leadsto z$ be the subpath of $p_1$ from $w$ through $x$ to $z$, so that $p_1=u \leadsto w \stackrel{p^{\prime}}{\rightarrow} z \leadsto v$, and let $p^{\prime \prime}=w \rightarrow y \leadsto z$ be the subpath of $p_2$ from $w$ through $y$ to $z$, so that $p_2=u \leadsto w \stackrel{p^{\prime \prime}}{\rightarrow} z \leadsto v$. Paths $p^{\prime}$ and $p^{\prime \prime}$ share no vertices except their endpoints. Then, as Figure B.5 shows, the path obtained by concatenating $p^{\prime}$ and the reverse of $p^{\prime \prime}$ is a cycle, which contradicts our assumption that $G$ is a tree. Thus, if $G$ is a tree, there can be at most one simple path between two vertices.
+$(2) \Rightarrow(3)$ : If any two vertices in $G$ are connected by a unique simple path, then $G$ is connected. Let $(u, v)$ be any edge in $E$. This edge is a path from $u$ to $v$, and so it must be the unique path from $u$ to $v$. If $(u, v)$ were to be removed from $G$, there would be no path from $u$ to $v$, and $G$ would be disconnected.
+(3) $\Rightarrow(4)$ : By assumption, the graph $G$ is connected, so Exercise B.4-3 gives that $|E| \geq|V|-1$. We prove $|E| \leq|V|-1$ by induction on $|V|$. The base cases are when $|V|=1$ or $|V|=2$, and in either case, $|E|=|V|-1$. For the inductive step, suppose that $|V| \geq 3$ for graph $G$ and that any graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$, where $\left|V^{\prime}\right|<|V|$, that satisfies (3) also satisfies $\left|E^{\prime}\right| \leq\left|V^{\prime}\right|-1$. Removing an arbitrary edge from $G$ separates the graph into $k \geq 2$ connected components (actually $k=2$ ). Each component satisfies (3), or else $G$ would not satisfy (3). Consider each connected component $V_i$, with edge set $E_i$, as a separate free tree. Then, because each connected component has fewer than $|V|$ vertices, the inductive hypothesis implies that $\left|E_i\right| \leq\left|V_i\right|-1$. Thus, the number of edges in all $k$ connected components combined is at most $|V|-k \leq|V|-2$. Adding in the removed edge yields $|E| \leq|V|-1$
+(4) $\Rightarrow$ (5): Suppose that $G$ is connected and that $|E|=|V|-1$. We must show that $G$ is acyclic. Suppose that $G$ has a cycle containing $k$ vertices $v_1, v_2, \ldots, v_k$, and without loss of generality assume that this cycle is simple. Let $G_k=\left(V_k, E_k\right)$ be the subgraph of $G$ consisting of the cycle, so that $\left|V_k\right|=\left|E_k\right|=k$. If $k<|V|$, then because $G$ is connected, there must be a vertex $v_{k+1} \in V-V_k$ that is adjacent to some vertex $v_i \in V_k$. Define $G_{k+1}=\left(V_{k+1}, E_{k+1}\right)$ to be the subgraph of $G$ with $V_{k+1}=V_k \cup\left\{v_{k+1}\right\}$ and $E_{k+1}=E_k \cup\left\{\left(v_i, v_{k+1}\right)\right\}$. Note that $\left|V_{k+1}\right|=$ $\left|E_{k+1}\right|=k+1$. If $k+1<|V|$, then continue, defining $G_{k+2}$ in the same manner, and so forth, until we obtain $G_n=\left(V_n, E_n\right)$, where $n=|V|, V_n=V$, and $\left|E_n\right|=\left|V_n\right|=|V|$. Since $G_n$ is a subgraph of $G$, we have $E_n \subseteq E$, and hence $|E| \geq\left|E_n\right|=\left|V_n\right|=|V|$, which contradicts the assumption that $|E|=|V|-1$. Thus, $G$ is acyclic.
+(5) $\Rightarrow$ (6): Suppose that $G$ is acyclic and that $|E|=|V|-1$. Let $k$ be the number of connected components of $G$. Each connected component is a free tree by definition, and since (1) implies (5), the sum of all edges in all connected components of $G$ is $|V|-k$. Consequently, $k$ must equal 1 , and $G$ is in fact a tree. Since (1) implies (2), any two vertices in $G$ are connected by a unique simple path. Thus, adding any edge to $G$ creates a cycle.
+(6) $\Rightarrow$ (1): Suppose that $G$ is acyclic but that adding any edge to $E$ creates a cycle. We must show that $G$ is connected. Let $u$ and $v$ be arbitrary vertices in $G$. If $u$ and $v$ are not already adjacent, adding the edge $(u, v)$ creates a cycle in which all edges but $(u, v)$ belong to $G$. Thus, the cycle minus edge $(u, v)$ must contain a path from $u$ to $v$, and since $u$ and $v$ were chosen arbitrarily, $G$ is connected.
+
+
+\subsection{有根树和有序树}
+
+A rooted tree is a free tree in which one of the vertices is distinguished from the others. We call the distinguished vertex the root of the tree. We often refer to a vertex of a rooted tree as a node ${ }^5$ of the tree. Figure B.6(a) shows a rooted tree on a set of 12 nodes with $\operatorname{root} 7$.
+
+Consider a node $x$ in a rooted tree $T$ with root $r$. We call any node $y$ on the unique simple path from $r$ to $x$ an ancestor of $x$. If $y$ is an ancestor of $x$, then $x$ is a descendant of $y$. (Every node is both an ancestor and a descendant of itself.) If $y$ is an ancestor of $x$ and $x \neq y$, then $y$ is a proper ancestor of $x$ and $x$ is a proper descendant of $y$. The subtree rooted at $x$ is the tree induced by descendants of $x$, rooted at $x$. For example, the subtree rooted at node 8 in Figure B.6(a) contains nodes $8,6,5$, and 9 .
+
+If the last edge on the simple path from the root $r$ of a tree $T$ to a node $x$ is $(y, x)$, then $y$ is the parent of $x$, and $x$ is a child of $y$. The root is the only node in $T$ with no parent. If two nodes have the same parent, they are siblings. A node with no children is a leaf or external node. A nonleaf node is an internal node.
+
+The number of children of a node $x$ in a rooted tree $T$ is the degree of $x{ }^6$ The length of the simple path from the root $r$ to a node $x$ is the depth of $x$ in $T$. A level of a tree consists of all nodes at the same depth. The height of a node in a tree is the number of edges on the longest simple downward path from the node to a leaf, and the height of a tree is the height of its root. The height of a tree is also equal to the largest depth of any node in the tree.
+
+An ordered tree is a rooted tree in which the children of each node are ordered. That is, if a node has $k$ children, then there is a first child, a second child, and so on, up to and including a $k$ th child. The two trees in Figure B.6 are different when considered to be ordered trees, but the same when considered to be just rooted trees.
+
+\subsection{二叉树和位置树}
+
+We define binary trees recursively. A binary tree $T$ is a structure defined on a finite set of nodes that either
+- contains no nodes, or
+- is composed of three disjoint sets of nodes: a root node, a binary tree called its left subtree, and a binary tree called its right subtree.
+
+The binary tree that contains no nodes is called the empty tree or null tree, sometimes denoted NIL. If the left subtree is nonempty, its root is called the left child of the root of the entire tree. Likewise, the root of a nonnull right subtree is the right child of the root of the entire tree. If a subtree is the null tree NIL, we say that the child is absent or missing. Figure B.7(a) shows a binary tree.
+
+A binary tree is not simply an ordered tree in which each node has degree at most 2. For example, in a binary tree, if a node has just one child, the position of the child-whether it is the left child or the right child-matters. In an ordered tree, there is no distinguishing a sole child as being either left or right. Figure B.7(b) shows a binary tree that differs from the tree in Figure B.7(a) because of the position of one node. Considered as ordered trees, however, the two trees are identical.
+
+One way to represent the positioning information in a binary tree is by the internal nodes of an ordered tree, as shown in Figure B.7(c). The idea is to replace each missing child in the binary tree with a node having no children. These leaf nodes are drawn as squares in the figure. The tree that results is a full binary tree: each node is either a leaf or has degree exactly 2 . No nodes have degree 1. Consequently, the order of the children of a node preserves the position information.
+
+The positioning information that distinguishes binary trees from ordered trees extends to trees with more than two children per node. In a positional tree, the children of a node are labeled with distinct positive integers. The $i$ th child of a node is absent if no child is labeled with integer $i$. A $k$-ary tree is a positional tree in which for every node, all children with labels greater than $k$ are missing. Thus, a binary tree is a $k$-ary tree with $k=2$.
+
+A complete $k$-ary tree is a $k$-ary tree in which all leaves have the same depth and all internal nodes have degree $k$. Figure B.8 shows a complete binary tree of height 3 . How many leaves does a complete $k$-ary tree of height $h$ have? The root has $k$ children at depth 1 , each of which has $k$ children at depth 2 , etc. Thus, the number of nodes at depth $d$ is $k^d$. In a complete $k$-ary tree with height $h$, the leaves are at depth $h$, so that there are $k^h$ leaves. Consequently, the height of a complete $k$-ary tree with $n$ leaves is $\log _k n$. A complete $k$-ary tree of height $h$ has
+$$
+\begin{aligned}
+1+k+k^2+\cdots+k^{h-1} & =\sum_{d=0}^{h-1} k^d \\
+& =\frac{k^h-1}{k-1} \quad \text { (by equation (A.6) on page 1142) }
+\end{aligned}
+$$
+(by equation (A.6) on page 1142)
+internal nodes. Thus, a complete binary tree has $2^h-1$ internal nodes.
 
 \chapter{计数和概率}
 
+This appendix reviews elementary combinatorics and probability theory. If you have a good background in these areas, you may want to skim the beginning of this appendix lightly and concentrate on the later sections. Most of this book's chapters do not require probability, but for some chapters it is essential.
+
+Section C.1 reviews elementary results in counting theory, including standard formulas for counting permutations and combinations. The axioms of probability and basic facts concerning probability distributions form Section C.2. Random variables are introduced in Section C.3, along with the properties of expectation and variance. Section C.4 investigates the geometric and binomial distributions that arise from studying Bernoulli trials. The study of the binomial distribution continues in Section C.5, an advanced discussion of the "tails" of the distribution.
+
 \section{计数}
+
+Counting theory tries to answer the question "How many?" without actually enumerating all the choices. For example, you might ask, "How many different $n$-bit numbers are there?" or "How many orderings of $n$ distinct elements are there?" This section reviews the elements of counting theory. Since some of the material assumes a basic understanding of sets, you might wish to start by reviewing the material in Section B.1.
+Rules of sum and product
+We can sometimes express a set of items that we wish to count as a union of disjoint sets or as a Cartesian product of sets.
+
+The rule of sum says that the number of ways to choose one element from one of two disjoint sets is the sum of the cardinalities of the sets. That is, if $A$ and $B$ are two finite sets with no members in common, then $|A \cup B|=|A|+|B|$, which follows from equation (B.3) on page 1156. For example, if each position on a car's license plate is a letter or a digit, then the number of possibilities for each position is $26+10=36$, since there are 26 choices if it is a letter and 10 choices if it a digit.
+
+The rule of product says that the number of ways to choose an ordered pair is the number of ways to choose the first element times the number of ways to choose the second element. That is, if $A$ and $B$ are two finite sets, then $|A \times B|=|A| \cdot|B|$, which is simply equation (B.4) on page 1157. For example, if an ice-cream parlor offers 28 flavors of ice cream and four toppings, the number of possible sundaes with one scoop of ice cream and one topping is $28 \cdot 4=112$.
+Strings
+A string over a finite set $S$ is a sequence of elements of $S$. For example, there are eight binary strings of length 3 :
+$000,001,010,011,100,101,110,111$.
+(Here we use the shorthand of omitting the angle brackets when denoting a sequence.) We sometimes call a string of length $k$ a $k$-string. A substring $s^{\prime}$ of a string $s$ is an ordered sequence of consecutive elements of $s$. A $k$-substring of a string is a substring of length $k$. For example, 010 is a 3-substring of 01101001 (the 3-substring that begins in position 4), but 111 is not a substring of 01101001 .
+We can view a $k$-string over a set $S$ as an element of the Cartesian product $S^k$ of $k$-tuples, which means that there are $|S|^k$ strings of length $k$. For example, the number of binary $k$-strings is $2^k$. Intuitively, to construct a $k$-string over an $n$-set, there are $n$ ways to pick the first element; for each of these choices, there are $n$ ways to pick the second element; and so forth $k$ times. This construction leads to the $k$-fold product $\underbrace{n \cdot n \cdots n}_{n \text { times }}=n^k$ as the number of $k$-strings.
+Permutations
+A permutation of a finite set $S$ is an ordered sequence of all the elements of $S$, with each element appearing exactly once. For example, if $S=\{a, b, c\}$, then $S$ has 6 permutations:
+$a b c, a c b, b a c, b c a, c a b, c b a$.
+(Again, we use the shorthand of omitting the angle brackets when denoting a sequence.) There are $n$ ! permutations of a set of $n$ elements, since there are $n$ ways to choose the first element of the sequence, $n-1$ ways for the second element, $n-2$ ways for the third, and so on.
+
+A $k$-permutation of $S$ is an ordered sequence of $k$ elements of $S$, with no element appearing more than once in the sequence. (Thus, an ordinary permutation is an $n$-permutation of an $n$-set.) Here are the 2-permutations of the set $\{a, b, c, d\}$ : $a b, a c, a d, b a, b c, b d, c a, c b, c d, d a, d b, d c$.
+The number of $k$-permutations of an $n$-set is
+$$
+n(n-1)(n-2) \cdots(n-k+1)=\frac{n !}{(n-k) !} \text {, }
+$$
+since there are $n$ ways to choose the first element, $n-1$ ways to choose the second element, and so on, until $k$ elements are chosen, with the last element chosen from the remaining $n-k+1$ elements. For the above example, with $n=4$ and $k=2$, the formula (C.1) evaluates to $4 ! / 2 !=12$, matching the number of 2-permutations listed.
+Combinations
+A $k$-combination of an $n$-set $S$ is simply a $k$-subset of $S$. For example, the 4-set $\{a, b, c, d\}$ has six 2-combinations:
+$a b, a c, a d, b c, b d, c d$.
+(Here we use the shorthand of omitting the braces around each subset.) To construct a $k$-combination of an $n$-set, choose $k$ distinct (different) elements from the $n$-set. The order of selecting the elements does not matter.
+
+We can express the number of $k$-combinations of an $n$-set in terms of the number of $k$-permutations of an $n$-set. Every $k$-combination has exactly $k$ ! permutations of its elements, each of which is a distinct $k$-permutation of the $n$-set. Thus the number of $k$-combinations of an $n$-set is the number of $k$-permutations divided by $k !$. From equation (C.1), this quantity is
+$\frac{n !}{k !(n-k) !}$.
+For $k=0$, this formula tells us that the number of ways to choose 0 elements from an $n$-set is $1($ not 0$)$, since $0 !=1$.
+Binomial coefficients
+The notation $\left(\begin{array}{l}n \\ k\end{array}\right)$ (read " $n$ choose $k$ ") denotes the number of $k$-combinations of an $n$-set. Equation (C.2) gives
+$$
+\left(\begin{array}{l}
+n \\
+k
+\end{array}\right)=\frac{n !}{k !(n-k) !}
+$$
+
+This formula is symmetric in $k$ and $n-k$ :
+$$
+\left(\begin{array}{l}
+n \\
+k
+\end{array}\right)=\left(\begin{array}{c}
+n \\
+n-k
+\end{array}\right)
+$$
+These numbers are also known as binomial coefficients, due to their appearance in the binomial theorem:
+$$
+(x+y)^n=\sum_{k=0}^n\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) x^k y^{n-k} \text {, }
+$$
+where $n \in \mathbb{N}$ and $x, y \in \mathbb{R}$. The right-hand side of equation (C.4) is called the binomial expansion of the left-hand side. A special case of the binomial theorem occurs when $x=y=1$ :
+$$
+2^n=\sum_{k=0}^n\left(\begin{array}{l}
+n \\
+k
+\end{array}\right)
+$$
+This formula corresponds to counting the $2^n$ binary $n$-strings by the number of $1 \mathrm{~s}$ they contain: $\left(\begin{array}{l}n \\ k\end{array}\right)$ binary $n$-strings contain exactly $k 1 \mathrm{~s}$, since there are $\left(\begin{array}{l}n \\ k\end{array}\right)$ ways to choose $k$ out of the $n$ positions in which to place the $1 \mathrm{~s}$.
+
+Many identities involve binomial coefficients. The exercises at the end of this section give you the opportunity to prove a few.
+Binomial bounds
+You sometimes need to bound the size of a binomial coefficient. For $1 \leq k \leq n$, we have the lower bound
+$$
+\begin{aligned}
+\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) & =\frac{n(n-1) \cdots(n-k+1)}{k(k-1) \cdots 1} \\
+& =\left(\frac{n}{k}\right)\left(\frac{n-1}{k-1}\right) \cdots\left(\frac{n-k+1}{1}\right) \\
+& \geq\left(\frac{n}{k}\right)^k
+\end{aligned}
+$$
+Taking advantage of the inequality $k ! \geq(k / e)^k$ derived from Stirling's approximation (3.25) on page 67 , we obtain the upper bounds
+$$
+\begin{aligned}
+\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) & =\frac{n(n-1) \cdots(n-k+1)}{k(k-1) \cdots 1} \\
+& \leq \frac{n^k}{k !} \\
+& \leq\left(\frac{e n}{k}\right)^k
+\end{aligned}
+$$
+
+For all integers $k$ such that $0 \leq k \leq n$, you can use induction (see Exercise C.1-12) to prove the bound
+$$
+\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) \leq \frac{n^n}{k^k(n-k)^{n-k}}
+$$
+where for convenience we assume that $0^0=1$. For $k=\lambda n$, where $0 \leq \lambda \leq 1$, we can rewrite this bound as
+$$
+\begin{aligned}
+\left(\begin{array}{c}
+n \\
+\lambda n
+\end{array}\right) & \leq \frac{n^n}{(\lambda n)^{\lambda n}((1-\lambda) n)^{(1-\lambda) n}} \\
+& =\left(\left(\frac{1}{\lambda}\right)^\lambda\left(\frac{1}{1-\lambda}\right)^{1-\lambda}\right)^n \\
+& =2^{n H(\lambda)},
+\end{aligned}
+$$
+where
+$$
+H(\lambda)=-\lambda \lg \lambda-(1-\lambda) \lg (1-\lambda)
+$$
+is the (binary) entropy function and where, for convenience, we assume that $0 \lg 0=0$, so that $H(0)=H(1)=0$.
 
 \section{概率}
 
+Probability is an essential tool for the design and analysis of probabilistic and randomized algorithms. This section reviews basic probability theory.
+
+We define probability in terms of a sample space $S$, which is a set whose elements are called outcomes or elementary events. Think of each outcome as a possible result of an experiment. For the experiment of flipping two distinguishable coins, with each individual flip resulting in a head $(\mathrm{H})$ or a tail $(\mathrm{T})$, you can view the sample space $S$ as consisting of the set of all possible 2-strings over $\{\mathrm{H}, \mathrm{T}\}$ : $S=\{$ HH, HT, TH, TT $\}$.
+An event is a subset ${ }^1$ of the sample space $S$. For example, in the experiment of flipping two coins, the event of obtaining one head and one tail is $\{\mathrm{HT}, \mathrm{TH}\}$. The event $S$ is called the certain event, and the event $\emptyset$ is called the null event. We say that two events $A$ and $B$ are mutually exclusive if $A \cap B=\emptyset$. An outcome $s$ also defines the event $\{s\}$, which we sometimes write as just $s$. By definition, all outcomes are mutually exclusive.
+Axioms of probability
+A probability distribution $\operatorname{Pr}\{\}$ on a sample space $S$ is a mapping from events of $S$ to real numbers satisfying the following probability axioms:
+1. $\operatorname{Pr}\{A\} \geq 0$ for any event $A$.
+2. $\operatorname{Pr}\{S\}=1$.
+3. $\operatorname{Pr}\{A \cup B\}=\operatorname{Pr}\{A\}+\operatorname{Pr}\{B\}$ for any two mutually exclusive events $A$ and $B$. More generally, for any sequence of events $A_1, A_2, \ldots$ (finite or countably infinite) that are pairwise mutually exclusive,
+$$
+\operatorname{Pr}\left\{\bigcup_i A_i\right\}=\sum_i \operatorname{Pr}\left\{A_i\right\} .
+$$
+We call $\operatorname{Pr}\{A\}$ the probability of the event $A$. Axiom 2 is simply a normalization requirement: there is really nothing fundamental about choosing 1 as the probability of the certain event, except that it is natural and convenient.
+
+Several results follow immediately from these axioms and basic set theory (see Section B.1). The null event $\emptyset$ has probability $\operatorname{Pr}\{\emptyset\} 0$. If $A \subseteq B$, then $\operatorname{Pr}\{A\} \leq \operatorname{Pr}\{B\}$. Using $\bar{A}$ to denote the event $S-A$ (the complement of $A$ ), we have $\operatorname{Pr}\{\bar{A}\}=1-\operatorname{Pr}\{A\}$. For any two events $A$ and $B$,
+$$
+\begin{aligned}
+\operatorname{Pr}\{A \cup B\} & =\operatorname{Pr}\{A\}+\operatorname{Pr}\{B\}-\operatorname{Pr}\{A \cap B\} \\
+& \leq \operatorname{Pr}\{A\}+\operatorname{Pr}\{B\} .
+\end{aligned}
+$$
+In our coin-flipping example, suppose that each of the four outcomes has probability $1 / 4$. Then the probability of getting at least one head is
+$$
+\begin{aligned}
+\operatorname{Pr}\{\mathrm{HH}, \mathrm{HT}, \mathrm{TH}\} & =\operatorname{Pr}\{\mathrm{HH}\}+\operatorname{Pr}\{\mathrm{HT}\}+\operatorname{Pr}\{\mathrm{TH}\} \\
+& =3 / 4 .
+\end{aligned}
+$$
+Another way to obtain the same result is to observe that since the probability of getting strictly less than one head is $\operatorname{Pr}\{\mathrm{TT}\}=1 / 4$, the probability of getting at least one head is $1-1 / 4=3 / 4$.
+Discrete probability distributions
+A probability distribution is discrete if it is defined over a finite or countably infinite sample space. Let $S$ be the sample space. Then for any event $A$,
+$$
+\operatorname{Pr}\{A\}=\sum_{s \in A} \operatorname{Pr}\{s\} \text {, }
+$$
+since outcomes, specifically those in $A$, are mutually exclusive. If $S$ is finite and every outcome $s \in S$ has probability $\operatorname{Pr}\{s\}=1 /|S|$, then we have the uniform probability distribution on $S$. In such a case the experiment is often described as "picking an element of $S$ at random."
+
+As an example, consider the process of flipping a fair coin, one for which the probability of obtaining a head is the same as the probability of obtaining a tail, that is, $1 / 2$. Flipping the coin $n$ times gives the uniform probability distribution defined on the sample space $S=\{\mathrm{H}, \mathrm{T}\}^n$, a set of size $2^n$. We can represent each outcome in $S$ as a string of length $n$ over $\{\mathrm{H}, \mathrm{T}\}$, with each string occurring with probability $1 / 2^n$. The event $A=$ \{exactly $k$ heads and exactly $n-k$ tails occur\} is a subset of $S$ of size $|A|=\left(\begin{array}{l}n \\ k\end{array}\right)$, since $\left(\begin{array}{l}n \\ k\end{array}\right)$ strings of length $n$ over $\{\mathrm{H}, \mathrm{T}\}$ contain exactly $k$ H's. The probability of event $A$ is thus $\operatorname{Pr}\{A\}=\left(\begin{array}{l}n \\ k\end{array}\right) / 2^n$.
+Continuous uniform probability distribution
+The continuous uniform probability distribution is an example of a probability distribution in which not all subsets of the sample space are considered to be events. The continuous uniform probability distribution is defined over a closed interval $[a, b]$ of the reals, where $a<b$. The intuition is that each point in the interval $[a, b]$ should be "equally likely." Because there are an uncountable number of points, however, if all points had the same finite, positive probability, axioms 2 and 3 would not be simultaneously satisfied. For this reason, we'd like to associate a probability only with some of the subsets of $S$ in such a way that the axioms are satisfied for these events.
+
+For any closed interval $[c, d]$, where $a \leq c \leq d \leq b$, the continuous uniform probability distribution defines the probability of the event $[c, d]$ to be
+$$
+\operatorname{Pr}\{[c, d]\}=\frac{d-c}{b-a} \text {. }
+$$
+Letting $c=d$ gives that the probability of a single point is 0 . Removing the endpoints $[c, c]$ and $[d, d]$ of an interval $[c, d]$ results in the open interval $(c, d)$. Since $[c, d]=[c, c] \cup(c, d) \cup[d, d]$, axiom 3 gives $\operatorname{Pr}\{[c, d]\}=\operatorname{Pr}\{(c, d)\}$. Generally, the set of events for the continuous uniform probability distribution contains any subset of the sample space $[a, b]$ that can be obtained by a finite or countable union of open and closed intervals, as well as certain more complicated sets.
+Conditional probability and independence
+Sometimes you have some prior partial knowledge about the outcome of an experiment. For example, suppose that a friend has flipped two fair coins and has told you that at least one of the coins showed a head. What is the probability that both coins are heads? The information given eliminates the possibility of two tails. The three remaining outcomes are equally likely, and so you infer that each occurs with probability $1 / 3$. Since only one of these outcomes shows two heads, the answer is $1 / 3$.
+
+Conditional probability formalizes the notion of having prior partial knowledge of the outcome of an experiment. The conditional probability of an event $A$ given that another event $B$ occurs is defined to be
+$$
+\operatorname{Pr}\{A \mid B\}=\frac{\operatorname{Pr}\{A \cap B\}}{\operatorname{Pr}\{B\}}
+$$
+whenever $\operatorname{Pr}\{B\} \neq 0$. (Read "Pr $\{A \mid B\}$ " as "the probability of $A$ given $B . "$.) The idea behind equation (C.16) is that since we are given that event $B$ occurs, the event that $A$ also occurs is $A \cap B$. That is, $A \cap B$ is the set of outcomes in which both $A$ and $B$ occur. Because the outcome is one of the elementary events in $B$, we normalize the probabilities of all the elementary events in $B$ by dividing them by $\operatorname{Pr}\{B\}$, so that they sum to 1 . The conditional probability of $A$ given $B$ is, therefore, the ratio of the probability of event $A \cap B$ to the probability of event $B$. In the example above, $A$ is the event that both coins are heads, and $B$ is the event that at least one coin is a head. Thus, $\operatorname{Pr}\{A \mid B\}=(1 / 4) /(3 / 4)=1 / 3$.
+
+Two events are independent if
+$$
+\operatorname{Pr}\{A \cap B\}=\operatorname{Pr}\{A\} \operatorname{Pr}\{B\} \text {, }
+$$
+which is equivalent, if $\operatorname{Pr}\{B\} \neq 0$, to the condition
+$$
+\operatorname{Pr}\{A \mid B\}=\operatorname{Pr}\{A\}
+$$
+For example, suppose that you flip two fair coins and that the outcomes are independent. Then the probability of two heads is $(1 / 2)(1 / 2)=1 / 4$. Now suppose that one event is that the first coin comes up heads and the other event is that the coins come up differently. Each of these events occurs with probability $1 / 2$, and the probability that both events occur is $1 / 4$. Thus, according to the definition of independence, the events are independent-even though you might think that both events depend on the first coin. Finally, suppose that the coins are welded together so that they both fall heads or both fall tails and that the two possibilities are equally likely. Then the probability that each coin comes up heads is $1 / 2$, but the probability that they both come up heads is $1 / 2 \neq(1 / 2)(1 / 2)$. Consequently, the event that one comes up heads and the event that the other comes up heads are not independent.
+A collection $A_1, A_2, \ldots, A_n$ of events is said to be pairwise independent if $\operatorname{Pr}\left\{A_i \cap A_j\right\}=\operatorname{Pr}\left\{A_i\right\} \operatorname{Pr}\left\{A_j\right\}$
+for all $1 \leq i<j \leq n$. We say that the events of the collection are (mutually) independent if every $k$-subset $A_{i_1}, A_{i_2}, \ldots, A_{i_k}$ of the collection, where $2 \leq k \leq n$ and $1 \leq i_1<i_2<\cdots<i_k \leq n$, satisfies
+$$
+\operatorname{Pr}\left\{A_{i_1} \cap A_{i_2} \cap \cdots \cap A_{i_k}\right\}=\operatorname{Pr}\left\{A_{i_1}\right\} \operatorname{Pr}\left\{A_{i_2}\right\} \cdots \operatorname{Pr}\left\{A_{i_k}\right\}
+$$
+For example, suppose that you flip two fair coins. Let $A_1$ be the event that the first coin is heads, let $A_2$ be the event that the second coin is heads, and let $A_3$ be the event that the two coins are different. Then,
+$$
+\begin{aligned}
+\operatorname{Pr}\left\{A_1\right\} & =1 / 2, \\
+\operatorname{Pr}\left\{A_2\right\} & =1 / 2, \\
+\operatorname{Pr}\left\{A_3\right\} & =1 / 2, \\
+\operatorname{Pr}\left\{A_1 \cap A_2\right\} & =1 / 4, \\
+\operatorname{Pr}\left\{A_1 \cap A_3\right\} & =1 / 4, \\
+\operatorname{Pr}\left\{A_2 \cap A_3\right\} & =1 / 4, \\
+\operatorname{Pr}\left\{A_1 \cap A_2 \cap A_3\right\} & =0 .
+\end{aligned}
+$$
+Since for $1 \leq i<j \leq 3$, we have $\operatorname{Pr}\left\{A_i \cap A_j\right\}=\operatorname{Pr}\left\{A_i\right\} \operatorname{Pr}\left\{A_j\right\}=1 / 4$, the events $A_1, A_2$, and $A_3$ are pairwise independent. The events are not mutually independent, however, because $\operatorname{Pr}\left\{A_1 \cap A_2 \cap A_3\right\}=0$ and $\operatorname{Pr}\left\{A_1\right\} \operatorname{Pr}\left\{A_2\right\} \operatorname{Pr}\left\{A_3\right\}=$ $1 / 8 \neq 0$.
+
+Bayes's theorem
+From the definition (C.16) of conditional probability and the commutative law $A \cap B=B \cap A$, it follows that for two events $A$ and $B$, each with nonzero probability,
+$$
+\begin{aligned}
+\operatorname{Pr}\{A \cap B\} & =\operatorname{Pr}\{B\} \operatorname{Pr}\{A \mid B\} \\
+& =\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\} .
+\end{aligned}
+$$
+Solving for $\operatorname{Pr}\{A \mid B\}$, we obtain
+$$
+\operatorname{Pr}\{A \mid B\}=\frac{\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}}{\operatorname{Pr}\{B\}}
+$$
+which is known as Bayes's theorem. The denominator $\operatorname{Pr}\{B\}$ is a normalizing constant, which we can reformulate as follows. Since $B=(B \cap A) \cup(B \cap \bar{A})$, and since $B \cap A$ and $B \cap \bar{A}$ are mutually exclusive events,
+$$
+\begin{aligned}
+\operatorname{Pr}\{B\} & =\operatorname{Pr}\{B \cap A\}+\operatorname{Pr}\{B \cap \bar{A}\} \\
+& =\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}+\operatorname{Pr}\{\bar{A}\} \operatorname{Pr}\{B \mid \bar{A}\} .
+\end{aligned}
+$$
+Substituting into equation (C.19) produces an equivalent form of Bayes's theorem:
+$$
+\operatorname{Pr}\{A \mid B\}=\frac{\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}}{\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}+\operatorname{Pr}\{\bar{A}\} \operatorname{Pr}\{B \mid \bar{A}\}}
+$$
+Bayes's theorem can simplify the computing of conditional probabilities. For example, suppose that you have a fair coin and a biased coin that always comes up heads. Run an experiment consisting of three independent events: choose one of the two coins at random, flip that coin once, and then flip it again. Suppose that the coin you have chosen comes up heads both times. What is the probability that it's the biased coin?
+
+Bayes's theorem solves this problem. Let $A$ be the event that you choose the biased coin, and let $B$ be the event that the chosen coin comes up heads both times. We wish to determine $\operatorname{Pr}\{A \mid B\}$, knowing that $\operatorname{Pr}\{A\}=1 / 2, \operatorname{Pr}\{B \mid A\}=1$, $\operatorname{Pr}\{\bar{A}\}=1 / 2$, and $\operatorname{Pr}\{B \mid \bar{A}\}=1 / 4$. Thus we have
+$$
+\begin{aligned}
+\operatorname{Pr}\{A \mid B\} & =\frac{(1 / 2) \cdot 1}{(1 / 2) \cdot 1+(1 / 2) \cdot(1 / 4)} \\
+& =4 / 5 .
+\end{aligned}
+$$
+
 \section{离散随机变量}
+
+A (discrete) random variable $X$ is a function from a finite or countably infinite sample space $S$ to the real numbers. It associates a real number with each possible outcome of an experiment, which allows us to work with the probability distribution induced on the resulting set of numbers. Random variables can also be defined for uncountably infinite sample spaces, but they raise technical issues that are unnecessary to address for our purposes. Therefore we'll assume that random variables are discrete.
+
+For a random variable $X$ and a real number $x$, we define the event $X=x$ to be $\{s \in S: X(s)=x\}$, and thus
+$$
+\operatorname{Pr}\{X=x\}=\sum_{s \in S: X(s)=x} \operatorname{Pr}\{s\} .
+$$
+The function
+$$
+f(x)=\operatorname{Pr}\{X=x\}
+$$
+is the probability density function of the random variable $X$. From the probability axioms, $\operatorname{Pr}\{X=x\} \geq 0$ and $\sum_x \operatorname{Pr}\{X=x\}=1$.
+
+As an example, consider the experiment of rolling a pair of ordinary, 6-sided dice. There are 36 possible outcomes in the sample space. Assume that the probability distribution is uniform, so that each outcome $s \in S$ is equally likely: $\operatorname{Pr}\{s\}=1 / 36$. Define the random variable $X$ to be the maximum of the two values showing on the dice. We have $\operatorname{Pr}\{X=3\}=5 / 36$, since $X$ assigns a value of 3 to 5 of the 36 possible outcomes, namely, $(1,3),(2,3),(3,3),(3,2)$, and $(3,1)$.
+We can define several random variables on the same sample space. If $X$ and $Y$ are random variables, the function
+$f(x, y)=\operatorname{Pr}\{X=x$ and $Y=y\}$
+is the joint probability density function of $X$ and $Y$. For a fixed value $y$,
+
+$$
+\operatorname{Pr}\{Y=y\}=\sum_x \operatorname{Pr}\{X=x \text { and } Y=y\}
+$$
+and similarly, for a fixed value $x$,
+$$
+\operatorname{Pr}\{X=x\}=\sum_y \operatorname{Pr}\{X=x \text { and } Y=y\}
+$$
+Using the definition (C.16) of conditional probability on page 1187 , we have
+$$
+\operatorname{Pr}\{X=x \mid Y=y\}=\frac{\operatorname{Pr}\{X=x \text { and } Y=y\}}{\operatorname{Pr}\{Y=y\}} .
+$$
+We define two random variables $X$ and $Y$ to be independent if for all $x$ and $y$, the events $X=x$ and $Y=y$ are independent or, equivalently, if for all $x$ and $y$, we have $\operatorname{Pr}\{X=x$ and $Y=y\}=\operatorname{Pr}\{X=x\} \operatorname{Pr}\{Y=y\}$.
+
+Given a set of random variables defined over the same sample space, we can define new random variables as sums, products, or other functions of the original variables.
+Expected value of a random variable
+The simplest, and often the most useful, summary of the distribution of a random variable is the "average" of the values it takes on. The expected value (or, synonymously, expectation or mean) of a discrete random variable $X$ is
+$$
+\mathrm{E}[X]=\sum_x x \cdot \operatorname{Pr}\{X=x\}
+$$
+which is well defined if the sum is finite or converges absolutely. Sometimes the expectation of $X$ is denoted by $\mu_X$ or, when the random variable is apparent from context, simply by $\mu$.
+
+Consider a game in which you flip two fair coins. You earn $\$ 3$ for each head but lose $\$ 2$ for each tail. The expected value of the random variable $X$ representing your earnings is
+$$
+\begin{aligned}
+\mathrm{E}[X] & =6 \cdot \operatorname{Pr}\{2 \mathrm{H} ' \mathrm{~s}\}+1 \cdot \operatorname{Pr}\{1 \mathrm{H}, 1 \mathrm{~T}\}-4 \cdot \operatorname{Pr}\{2 \mathrm{~T} ' \mathrm{~s}\} \\
+& =6 \cdot(1 / 4)+1 \cdot(1 / 2)-4 \cdot(1 / 4) \\
+& =1
+\end{aligned}
+$$
+Linearity of expectation says that the expectation of the sum of two random variables is the sum of their expectations, that is,
+$$
+\mathrm{E}[X+Y]=\mathrm{E}[X]+\mathrm{E}[Y]
+$$
+
+whenever $\mathrm{E}[X]$ and $\mathrm{E}[Y]$ are defined. Linearity of expectation applies to a broad range of situations, holding even when $X$ and $Y$ are not independent. It also extends to finite and absolutely convergent summations of expectations. Linearity of expectation is the key property that enables us to perform probabilistic analyses by using indicator random variables (see Section 5.2).
+
+If $X$ is any random variable, any function $g(x)$ defines a new random variable $g(X)$. If the expectation of $g(X)$ is defined, then
+$$
+\mathrm{E}[g(X)]=\sum_x g(x) \cdot \operatorname{Pr}\{X=x\}
+$$
+Letting $g(x)=a x$, we have for any constant $a$,
+$$
+\mathrm{E}[a X]=a \mathrm{E}[X]
+$$
+Consequently, expectations are linear: for any two random variables $X$ and $Y$ and any constant $a$,
+$$
+\mathrm{E}[a X+Y]=a \mathrm{E}[X]+\mathrm{E}[Y]
+$$
+When two random variables $X$ and $Y$ are independent and each has a defined expectation,
+$$
+\begin{aligned}
+\mathrm{E}[X Y] & =\sum_x \sum_y x y \cdot \operatorname{Pr}\{X=x \text { and } Y=y\} \\
+& =\sum_x \sum_y x y \cdot \operatorname{Pr}\{X=x\} \operatorname{Pr}\{Y=y\} \quad \text { (by independence of } X \text { and } Y \text { ) } \\
+& =\left(\sum_x x \cdot \operatorname{Pr}\{X=x\}\right)\left(\sum_y y \cdot \operatorname{Pr}\{Y=y\}\right) \\
+& =\mathrm{E}[X] \mathrm{E}[Y] \quad \text { (by equation (C.23)). }
+\end{aligned}
+$$
+(by equation (C.23)) .
+In general, when $n$ random variables $X_1, X_2, \ldots, X_n$ are mutually independent, $\mathrm{E}\left[X_1 X_2 \cdots X_n\right]=\mathrm{E}\left[X_1\right] \mathrm{E}\left[X_2\right] \cdots \mathrm{E}\left[X_n\right]$
+When a random variable $X$ takes on values from the set of natural numbers $\mathbb{N}=\{0,1,2, \ldots\}$, we have a nice formula for its expectation:
+$$
+\begin{aligned}
+\mathrm{E}[X] & =\sum_{i=0}^{\infty} i \cdot \operatorname{Pr}\{X=i\} \\
+& =\sum_{i=0}^{\infty} i \cdot(\operatorname{Pr}\{X \geq i\}-\operatorname{Pr}\{X \geq i+1\}) \\
+& =\sum_{i=1}^{\infty} \operatorname{Pr}\{X \geq i\}
+\end{aligned}
+$$
+
+since each term $\operatorname{Pr}\{X \geq i\}$ is added in $i$ times and subtracted out $i-1$ times (except $\operatorname{Pr}\{X \geq 0\}$, which is added in 0 times and not subtracted out at all).
+A function $f(x)$ is convex if
+$$
+f(\lambda x+(1-\lambda) y) \leq \lambda f x)+(1-\lambda) f y)
+$$
+for all $x$ and $y$ and for all $0 \leq \lambda \leq 1$. Jensen's inequality says that when a convex function $f(x)$ is applied to a random variable $X$,
+$$
+\mathrm{E}[f(X)] \geq f(\mathrm{E}[X])
+$$
+provided that the expectations exist and are finite.
+Variance and standard deviation
+The expected value of a random variable does not express how "spread out" the variable's values are. For example, consider random variables $X$ and $Y$ for which $\operatorname{Pr}\{X=1 / 4\}=\operatorname{Pr}\{X=3 / 4\}=1 / 2$ and $\operatorname{Pr}\{Y=0\}=\operatorname{Pr}\{Y=1\}=1 / 2$. Then both $\mathrm{E}[X]$ and $\mathrm{E}[Y]$ are $1 / 2$, yet the actual values taken on by $Y$ are further from the mean than the actual values taken on by $X$.
+
+The notion of variance mathematically expresses how far from the mean a random variable's values are likely to be. The variance of a random variable $X$ with mean $\mathrm{E}[X]$ is
+$$
+\begin{aligned}
+\operatorname{Var}[X] & =\mathrm{E}\left[(X-\mathrm{E}[X])^2\right] \\
+& =\mathrm{E}\left[X^2-2 X \mathrm{E}[X]+\mathrm{E}^2[X]\right] \\
+& =\mathrm{E}\left[X^2\right]-2 \mathrm{E}[X \mathrm{E}[X]]+\mathrm{E}^2[X] \\
+& =\mathrm{E}\left[X^2\right]-2 \mathrm{E}^2[X]+\mathrm{E}^2[X] \\
+& =\mathrm{E}\left[X^2\right]-\mathrm{E}^2[X] .
+\end{aligned}
+$$
+To justify the equation $\mathrm{E}\left[\mathrm{E}^2[X]\right]=\mathrm{E}^2[X]$, note that because $\mathrm{E}[X]$ is a real number and not a random variable, so is $\mathrm{E}^2[X]$. The equation $\mathrm{E}[X \mathrm{E}[X]]=\mathrm{E}^2[X]$ follows from equation (C.25), with $a=\mathrm{E}[X]$. Rewriting equation (C.31) yields an expression for the expectation of the square of a random variable:
+$$
+\mathrm{E}\left[X^2\right]=\operatorname{Var}[X]+\mathrm{E}^2[X]
+$$
+The variance of a random variable $X$ and the variance of $a X$ are related (see Exercise C.3-10):
+$\operatorname{Var}[a X]=a^2 \operatorname{Var}[X]$
+When $X$ and $Y$ are independent random variables,
+$\operatorname{Var}[X+Y]=\operatorname{Var}[X]+\operatorname{Var}[Y]$
+
+In general, if $n$ random variables $X_1, X_2, \ldots, X_n$ are pairwise independent, then
+$$
+\operatorname{Var}\left[\sum_{i=1}^n X_i\right]=\sum_{i=1}^n \operatorname{Var}\left[X_i\right] \text {. }
+$$
+The standard deviation of a random variable $X$ is the nonnegative square root of the variance of $X$. The standard deviation of a random variable $X$ is sometimes denoted $\sigma_X$ or simply $\sigma$ when the random variable $X$ is understood from context. With this notation, the variance of $X$ is denoted $\sigma^2$.
 
 \section{几何分布和二项分布}
 
+A Bernoulli trial is an experiment with only two possible outcomes: success, which occurs with probability $p$, and failure, which occurs with probability $q=1-p$. A coin flip serves as an example where, depending on your point of view, heads equates to success and tails to failure. When we speak of Bernoulli trials collectively, we mean that the trials are mutually independent and, unless we specifically say otherwise, that each has the same probability $p$ for success. Two important distributions arise from Bernoulli trials: the geometric distribution and the binomial distribution.
+
+The geometric distribution
+
+Consider a sequence of Bernoulli trials, each with a probability $p$ of success and a probability $q=1-p$ of failure. How many trials occur before a success? Define the random variable $X$ to be the number of trials needed to obtain a success. Then $X$ has values in the range $\{1,2, \ldots\}$, and for $k \geq 1$,
+
+$$
+\operatorname{Pr}\{X=k\}=q^{k-1} p
+$$
+since $k-1$ failures occur before the first success. A probability distribution satisfying equation (C.35) is said to be a geometric distribution. Figure C.1 illustrates such a distribution.
+
+Assuming that $q<1$, we can calculate the expectation of a geometric distribution:
+$$
+\begin{aligned}
+\mathrm{E}[X] & =\sum_{k=1}^{\infty} k q^{k-1} p \\
+& =\frac{p}{q} \sum_{k=0}^{\infty} k q^k \\
+& =\frac{p}{q} \cdot \frac{q}{(1-q)^2} \quad \text { (by equation (A.11) on page 1142) } \\
+& =\frac{p}{q} \cdot \frac{q}{p^2} \\
+& =1 / p
+\end{aligned}
+$$
+(by equation (A.11) on page 1142)
+
+Thus, on average, it takes $1 / p$ trials before a success occurs, an intuitive result. As Exercise C.4-3 asks you to show, the variance is
+$$
+\operatorname{Var}[X]=q / p^2
+$$
+As an example, suppose that you repeatedly roll two dice until you obtain either a seven or an eleven. Of the 36 possible outcomes, 6 yield a seven and 2 yield an eleven. Thus, the probability of success is $p=8 / 36=2 / 9$, and you'd have to roll $1 / p=9 / 2=4.5$ times on average to obtain a seven or eleven.
+The binomial distribution
+How many successes occur during $n$ Bernoulli trials, where a success occurs with probability $p$ and a failure with probability $q=1-p$ ? Define the random variable $X$ to be the number of successes in $n$ trials. Then $X$ has values in the range $\{0,1, \ldots, n\}$, and for $k=0,1, \ldots, n$,
+$$
+\operatorname{Pr}\{X=k\}=\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) p^k q^{n-k},
+$$
+since there are $\left(\begin{array}{l}n \\ k\end{array}\right)$ ways to pick which $k$ of the $n$ trials are successes, and the probability that each occurs is $p^k q^{n-k}$. A probability distribution satisfying equation (C.38) is said to be a binomial distribution. For convenience, we define the family of binomial distributions using the notation
+$$
+b(k ; n, p)=\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) p^k(1-p)^{n-k}
+$$
+Figure C.2 illustrates a binomial distribution. The name "binomial" comes from the right-hand side of equation (C.38) being the $k$ th term of the expansion of $(p+q)^n$. Consequently, since $p+q=1$, equation (C.4) on page 1181 gives
+$$
+\sum_{k=0}^n b(k ; n, p)=1
+$$
+as axiom 2 of the probability axioms requires.
+We can compute the expectation of a random variable having a binomial distribution from equations (C.9) and (C.40). Let $X$ be a random variable that follows the binomial distribution $b(k ; n, p)$, and let $q=1-p$. The definition of expectation gives
+
+$$
+\begin{aligned}
+\mathrm{E}[X] & =\sum_{k=0}^n k \cdot \operatorname{Pr}\{X=k\} \\
+& =\sum_{k=0}^n k \cdot b(k ; n, p) \\
+& =\sum_{k=1}^n k\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) p^k q^{n-k} \\
+& =n p \sum_{k=1}^n\left(\begin{array}{c}
+n-1 \\
+k-1
+\end{array}\right) p^{k-1} q^{n-k} \quad \text { (by equation (C.9) on page } 1183 \text { ) } \\
+& =n p \sum_{k=0}^{n-1}\left(\begin{array}{c}
+n-1 \\
+k
+\end{array}\right) p^k q^{(n-1)-k} \quad \\
+& =n p \sum_{k=0}^{n-1} b(k ; n-1, p) \\
+& =n p \quad \text { (by equation (C.40)) }
+\end{aligned}
+$$
+(by equation (C.9) on page 1183 )
+(by equation (C.40)) .
+(C. 41$)$
+Linearity of expectation produces the same result with substantially less algebra. Let $X_i$ be the random variable describing the number of successes in the $i$ th trial. Then $\mathrm{E}\left[X_i\right]=p \cdot 1+q \cdot 0=p$, and the expected number of successes for $n$ trials is
+
+$$
+\begin{aligned}
+\mathrm{E}[X] & =\mathrm{E}\left[\sum_{i=1}^n X_i\right] \\
+& =\sum_{i=1}^n \mathrm{E}\left[X_i\right] \quad \text { (by equation (C.24) on page 1192) } \\
+& =\sum_{i=1}^n p \\
+& =n p
+\end{aligned}
+$$
+(by equation (C.24) on page 1192)
+We can use the same approach to calculate the variance of the distribution. By equation (C.31), $\operatorname{Var}\left[X_i\right]=\mathrm{E}\left[X_i^2\right]-\mathrm{E}^2\left[X_i\right]$. Since $X_i$ takes on only the values 0 and 1 , we have $X_i^2=X_i$, which implies $\mathrm{E}\left[X_i^2\right]=\mathrm{E}\left[X_i\right]=p$. Hence,
+$\operatorname{Var}\left[X_i\right]=p-p^2=p(1-p)=p q$
+To compute the variance of $X$, we take advantage of the independence of the $n$ trials. By equation (C.33), we have
+$$
+\begin{aligned}
+\operatorname{Var}[X] & =\operatorname{Var}\left[\sum_{i=1}^n X_i\right] \\
+& =\sum_{i=1}^n \operatorname{Var}\left[X_i\right] \\
+& =\sum_{i=1}^n p q \\
+& =n p q .
+\end{aligned}
+$$
+As Figure C. 2 shows, the binomial distribution $b(k ; n, p)$ increases with $k$ until it reaches the mean $n p$, and then it decreases. To prove that the distribution always behaves in this manner, examine the ratio of successive terms:
+$$
+\begin{aligned}
+\frac{b(k ; n, p)}{b(k-1 ; n, p)} & =\frac{\left(\begin{array}{c}
+n \\
+k
+\end{array}\right) p^k q^{n-k}}{\left(\begin{array}{c}
+n \\
+k-1
+\end{array}\right) p^{k-1} q^{n-k+1}} \\
+& =\frac{n !(k-1) !(n-k+1) ! p}{k !(n-k) ! n ! q} \\
+& =\frac{(n-k+1) p}{k q} \\
+& =1+\frac{(n-k+1) p-k q}{k q} \\
+& =1+\frac{(n-k+1) p-k(1-p)}{k q}
+\end{aligned}
+$$
+
+$$
+=1+\frac{(n+1) p-k}{k q}
+$$
+This ratio is greater than 1 precisely when $(n+1) p-k$ is positive. Consequently, $b(k ; n, p)>b(k-1 ; n, p)$ for $k<(n \quad+1) p$ (the distribution increases), and $b(k ; n, p)<b(k-1 ; n, p)$ for $k>(n+1) p$ (the distribution decreases). If $(n+1) p$ is an integer, then for $k=(n+1) p$, the ratio $b(k ; n, p) / b(k-1 ; n, p)$ equals 1 , so that $b(k ; n, p)=b(k-1 ; n, p)$. In this case, the distribution has two maxima: at $k=(n+1) p$ and at $k-1=(n+1) p-1=n p-q$. Otherwise, it attains a maximum at the unique integer $k$ that lies in the range $n p-q<k<(n+1) p$. The following lemma provides an upper bound on the binomial distribution.
+Lemma C.I
+Let $n \geq 0$, let $0<p<1$, let $q=1-p$, and let $0 \leq k \leq n$. Then
+$$
+b(k ; n, p) \leq\left(\frac{n p}{k}\right)^k\left(\frac{n q}{n-k}\right)^{n-k}
+$$
+Proof We have
+$$
+\begin{aligned}
+b(k ; n, p) & =\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) p^k q^{n-k} \\
+& \leq\left(\frac{n}{k}\right)^k\left(\frac{n}{n-k}\right)^{n-k} p^k q^{n-k} \quad \text { (by inequality (C.7) on page 1182) } \\
+& =\left(\frac{n p}{k}\right)^k\left(\frac{n q}{n-k}\right)^{n-k}
+\end{aligned}
+$$
+(by inequality (C.7) on page 1182 )
+
 \section{二项分布的尾部}
+
+The probability of having at least, or at most, $k$ successes in $n$ Bernoulli trials, each with probability $p$ of success, is often of more interest than the probability of having exactly $k$ successes. In this section, we investigate the tails of the binomial distribution: the two regions of the distribution $b(k ; n, p)$ that are far from the mean $n p$. We'll prove several important bounds on (the sum of all terms in) a tail.
+We first provide a bound on the right tail of the distribution $b(k ; n, p)$. To determine bounds on the left tail, simply invert the roles of successes and failures.
+Theorem C.2
+Consider a sequence of $n$ Bernoulli trials, where success occurs with probability $p$. Let $X$ be the random variable denoting the total number of successes. Then for $0 \leq k \leq n$, the probability of at least $k$ successes is
+$$
+\begin{aligned}
+\operatorname{Pr}\{X \geq k\} & =\sum_{i=k}^n b(i ; n, p) \\
+& \leq\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) p^k
+\end{aligned}
+$$
+Proof For $S \subseteq\{1,2, \ldots, n\}$, let $A_S$ denote the event that the $i$ th trial is a success for every $i \in S$. Since $\operatorname{Pr}\left\{A_S\right\}=p^k$, where $|S|=k$, we have
+$$
+\begin{aligned}
+\operatorname{Pr}\{X \geq k\} & =\operatorname{Pr}\left\{\text { there exists } S \subseteq\{1,2, \ldots, n\}:|S|=k \text { and } A_S\right\} \\
+& =\operatorname{Pr}\left\{\bigcup_{S \subseteq\{1,2, \ldots, n\}:|S|=k} A_S\right\} \\
+& \leq \sum_{s \subseteq\{1,2, \ldots, n\}:|S|=k} \operatorname{Pr}\left\{A_S\right\} \quad \text { (by inequality (C.21) on page 1190) } \\
+& =\left(\begin{array}{l}
+n \\
+k
+\end{array}\right) p^k
+\end{aligned}
+$$
+The following corollary restates the theorem for the left tail of the binomial distribution. In general, we'll leave it to you to adapt the proofs from one tail to the other.
+Corollary C.3
+Consider a sequence of $n$ Bernoulli trials, where success occurs with probability $p$. If $X$ is the random variable denoting the total number of successes, then for $0 \leq k \leq n$, the probability of at most $k$ successes is
+
+$$
+\begin{aligned}
+\operatorname{Pr}\{X \leq k\} & =\sum_{i=0}^k b(i ; n, p) \\
+& \leq\left(\begin{array}{c}
+n \\
+n-k
+\end{array}\right)(1-p)^{n-k} \\
+& =\left(\begin{array}{l}
+n \\
+k
+\end{array}\right)(1-p)^{n-k}
+\end{aligned}
+$$
+Our next bound concerns the left tail of the binomial distribution. Its corollary shows that, far from the mean, the left tail diminishes exponentially.
+Theorem C.4
+Consider a sequence of $n$ Bernoulli trials, where success occurs with probability $p$ and failure with probability $q=1-p$. Let $X$ be the random variable denoting the total number of successes. Then for $0<k<n p$, the probability of fewer than $k$ successes is
+$$
+\begin{aligned}
+\operatorname{Pr}\{X<k\} & =\sum_{i=0}^{k-1} b(i ; n, p) \\
+& <\frac{k q}{n p-k} b(k ; n, p)
+\end{aligned}
+$$
+Proof We bound the series $\sum_{i=0}^{k-1} b(i ; n, p)$ by a geometric series using the technique from Section A.2, page 1147 . For $i=1,2, \ldots, k$, equation (C.45) gives
+$$
+\begin{aligned}
+\frac{b(i-1 ; n, p)}{b(i ; n, p)} & =\frac{i q}{(n-i+1) p} \\
+& <\frac{i q}{(n-i) p} \\
+& \leq \frac{k q}{(n-k) p}
+\end{aligned}
+$$
+If we let
+$$
+\begin{aligned}
+x & =\frac{k q}{(n-k) p} \\
+& <\frac{k q}{(n-n p) p} \\
+& =\frac{k q}{n q p}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+& =\frac{k}{n p} \\
+& <1
+\end{aligned}
+$$
+it follows that
+$$
+b(i-1 ; n, p)<x b(i ; n, p)
+$$
+for $0<i \leq k$. Iteratively applying this inequality $k-i$ times gives
+$$
+b(i ; n, p)<x^{k-i} b(k ; n, p)
+$$
+for $0 \leq i<k$, and hence
+$$
+\begin{aligned}
+\sum_{i=0}^{k-1} b(i ; n, p) & \sum_{i=0}^{k-1} x^{k-i} b(k ; n, p) \\
+& <b(k ; n, p) \sum_{i=1}^{\infty} x^i \\
+& =\frac{x}{1-x} b(k ; n, p) \\
+& =\frac{k q /((n-k) p)}{((n-k) p-k q) /((n-k) p)} b(k ; n, p) \\
+& =\frac{k q}{n p-k p-k q} b(k ; n, p) \\
+& =\frac{k q}{n p-k} b(k ; n, p)
+\end{aligned}
+$$
+Corollary C.5
+Consider a sequence of $n$ Bernoulli trials, where success occurs with probability $p$ and failure with probability $q=1-p$. Then for $0<k \leq n p / 2$, the probability of fewer than $k$ successes is less than half the probability of fewer than $k+1$ successes.
+Proof Because $k \leq n p / 2$, we have
+$$
+\begin{aligned}
+\frac{k q}{n p-k} & \leq \frac{(n p / 2) q}{n p-(n p / 2)} \\
+& =\frac{(n p / 2) q}{n p / 2} \\
+& \leq 1
+\end{aligned}
+$$
+since $q \leq 1$. Letting $X$ be the random variable denoting the number of successes, Theorem C.4 and inequality (C.46) imply that the probability of fewer than $k$ successes is
+
+$$
+\operatorname{Pr}\{X<k\}=\sum_{i=0}^{k-1} b(i ; n, p)<b(k ; n, p) .
+$$
+Thus we have
+$$
+\begin{aligned}
+& \frac{\operatorname{Pr}\{X<k\}}{\operatorname{Pr}\{X<k+1\}}=\frac{\sum_{i=0}^{k-1} b(i ; n, p)}{\sum_{i=0}^k b(i ; n, p)} \\
+&=\frac{\sum_{i=0}^{k-1} b(i ; n, p)}{\sum_{i=0}^{k-1} b(i ; n, p)+b(k ; n, p)} \\
+&<1 / 2 \\
+& \text { since } \sum_{i=0}^{k-1} b(i ; n, p)<b(k ; n, p) .
+\end{aligned}
+$$
+Bounds on the right tail follow similarly. Exercise C.5-2 asks you to prove them.
+Corollary C.6
+Consider a sequence of $n$ Bernoulli trials, where success occurs with probability $p$. Let $X$ be the random variable denoting the total number of successes. Then for $n p<k<n$, the probability of more than $k$ successes is
+$$
+\begin{aligned}
+\operatorname{Pr}\{X>k\} & =\sum_{i=k+1}^n b(i ; n, p) \\
+& <\frac{(n-k) p}{k-n p} b(k ; n, p) .
+\end{aligned}
+$$
+Corollary C.7
+Consider a sequence of $n$ Bernoulli trials, where success occurs with probability $p$ and failure with probability $q=1-p$. Then for $(n p+n) / 2<k<n$, the probability of more than $k$ successes is less than half the probability of more than $k-1$ successes.
+
+The next theorem considers $n$ Bernoulli trials, each with a probability $p_i$ of success, for $i=1,2, \ldots, n$. As the subsequent corollary shows, we can use the theorem to provide a bound on the right tail of the binomial distribution by setting $p_i=p$ for each trial.
+Theorem C.8
+Consider a sequence of $n$ Bernoulli trials, where in the $i$ th trial, for $i=1,2, \ldots, n$, success occurs with probability $p_i$ and failure occurs with probability $q_i=1-p_i$. Let $X$ be the random variable describing the total number of successes, and let $\mu=\mathrm{E}[X]$. Then for $r>\mu$,
+
+$$
+\operatorname{Pr}\{X-\mu \geq r\} \leq\left(\frac{\mu e}{r}\right)^r
+$$
+Proof Since for any $\alpha>0$, the function $e^{\alpha x}$ strictly increases in $x$,
+$$
+\operatorname{Pr}\{X-\mu \geq r\}=\operatorname{Pr}\left\{e^{\alpha(X-\mu)} \geq e^{\alpha r}\right\}
+$$
+where we will determine $\alpha$ later. Using Markov's inequality (C.34), we obtain
+$$
+\operatorname{Pr}\left\{e^{\alpha(X-\mu)} \geq e^{\alpha r}\right\} \leq \mathrm{E}\left[e^{\alpha(X-\mu)}\right] e^{-\alpha r}
+$$
+The bulk of the proof consists of bounding $\mathrm{E}\left[e^{\alpha(X-\mu)}\right]$ and substituting a suitable value for $\alpha$ in inequality (C.48). First, we evaluate $\mathrm{E}\left[e^{\alpha(X-\mu)}\right]$. Using the technique of indicator random variables (see Section 5.2), let $X_i=\mathrm{I}$ the $i$ th Bernoulli trial is a success $\}$ for $i=1,2, \ldots, n$. That is, $X_i$ is the random variable that is 1 if the $i$ th Bernoulli trial is a success and 0 if it is a failure. Thus, we have
+$$
+X=\sum_{i=1}^n X_i
+$$
+and by linearity of expectation,
+$$
+\mu=\mathrm{E}[X]=\mathrm{E}\left[\sum_{i=1}^n X_i\right]=\sum_{i=1}^n \mathrm{E}\left[X_i\right]=\sum_{i=1}^n p_i
+$$
+which implies
+$$
+X-\mu=\sum_{i=1}^n\left(X_i-p_i\right)
+$$
+To evaluate $\mathrm{E}\left[e^{\alpha(X-\mu)}\right]$, we substitute for $X-\mu$, obtaining
+$$
+\begin{aligned}
+\mathrm{E}\left[e^{\alpha(X-\mu)}\right] & =\mathrm{E}\left[e^{\alpha \sum_{i=1}^n\left(X_i-p_i\right)}\right] \\
+& =\mathrm{E}\left[\prod_{i=1}^n e^{\alpha\left(X_i-p_i\right)}\right] \\
+& =\prod_{i=1}^n \mathrm{E}\left[e^{\alpha\left(X_i-p_i\right)}\right],
+\end{aligned}
+$$
+which follows from equation (C.27), since the mutual independence of the random variables $X_i$ implies the mutual independence of the random variables $e^{\alpha\left(X_i-p_i\right)}$ (see Exercise C.3-5). By the definition of expectation,
+
+$$
+\begin{aligned}
+\mathrm{E}\left[e^{\alpha\left(X_i-p_i\right)}\right] & =e^{\alpha\left(1-p_i\right)} p_i+e^{\alpha\left(0-p_i\right)} q_i \\
+& =p_i e^{\alpha q_i}+q_i e^{-\alpha p_i} \\
+& \leq p_i e^\alpha+1 \\
+& \leq \exp \left(p_i e^\alpha\right)
+\end{aligned}
+$$
+where $\exp (x)$ denotes the exponential function: $\exp (x)=e^x$. (Inequality (C.49) follows from the inequalities $\alpha>0, q_i \leq 1, e^{\alpha q_i} \leq e^\alpha$, and $e^{-\alpha p_i} \leq 1$. The last line follows from inequality (3.14) on page 66.) Consequently,
+$$
+\begin{aligned}
+\mathrm{E}\left[e^{\alpha(X-\mu)}\right] & =\prod_{i=1}^n \mathrm{E}\left[e^{\alpha\left(X_i-p_i\right)}\right] \\
+& \leq \prod_{i=1}^n \exp \left(p_i e^\alpha\right) \\
+& =\exp \left(\sum_{i=1}^n p_i e^\alpha\right) \\
+& =\exp \left(\mu e^\alpha\right)
+\end{aligned}
+$$
+since $\mu=\sum_{i=1}^n p_i$. Therefore, from equation (C.47) and inequalities (C.48) and (C.50), it follows that
+$$
+\operatorname{Pr}\{X-\mu \geq r\} \leq \exp \left(\mu e^\alpha-\alpha r\right)
+$$
+Choosing $\alpha=\ln (r / \mu)$ (see Exercise C.5-7), we obtain
+$$
+\begin{aligned}
+\operatorname{Pr}\{X-\mu \geq r\} & \leq \exp \left(\mu e^{\ln (r / \mu)}-r \ln (r / \mu)\right) \\
+& =\exp (r-r \ln (r / \mu)) \\
+& =\frac{e^r}{(r / \mu)^r} \\
+& =\left(\frac{\mu e}{r}\right)^r
+\end{aligned}
+$$
+When applied to Bernoulli trials in which each trial has the same probability of success, Theorem C.8 yields the following corollary bounding the right tail of a binomial distribution.
+Corollary C. 9
+Consider a sequence of $n$ Bernoulli trials, where in each trial success occurs with probability $p$ and failure occurs with probability $q=1-p$. Then for $r>n p$,
+
+$$
+\begin{aligned}
+\operatorname{Pr}\{X-n p \geq r\} & =\sum_{k=\lceil n p+r\rceil}^n b(k ; n, p) \\
+& \leq\left(\frac{n p e}{r}\right)^r
+\end{aligned}
+$$
+Proof By equation (C.41), we have $\mu=\mathrm{E}[X]=n p$.
 
 \chapter{矩阵}
 
+Matrices arise in numerous applications, including, but by no means limited to, scientific computing. If you have seen matrices before, much of the material in this appendix will be familiar to you, but some of it might be new. Section D. 1 covers basic matrix definitions and operations, and Section D.2 presents some basic matrix properties.
+
 \section{矩阵和矩阵运算}
 
+This section reviews some basic concepts of matrix theory and some fundamental properties of matrices.
+Matrices and vectors
+A matrix is a rectangular array of numbers. For example,
+$$
+\begin{aligned}
+A & =\left(\begin{array}{lll}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23}
+\end{array}\right) \\
+& =\left(\begin{array}{lll}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{array}\right)
+\end{aligned}
+$$
+is a $2 \times 3$ matrix $A=\left(a_{i j}\right)$, where for $i=1,2$ and $j=1,2,3$, the element of the matrix in row $i$ and column $j$ is denoted by $a_{i j}$. By convention, uppercase letters denote matrices and corresponding subscripted lowercase letters denote their elements. We denote the set of all $m \times n$ matrices with real-valued entries by $\mathbb{R}^{m \times n}$ and, in general, the set of $m \times n$ matrices with entries drawn from a set $S$ by $S^{m \times n}$.
+The transpose of a matrix $A$ is the matrix $A^{\mathrm{T}}$ obtained by exchanging the rows and columns of $A$. For the matrix $A$ of equation (D.1),
+
+$$
+A^{\mathrm{T}}=\left(\begin{array}{ll}
+1 & 4 \\
+2 & 5 \\
+3 & 6
+\end{array}\right)
+$$
+A vector is a one-dimensional array of numbers. For example,
+$$
+x=\left(\begin{array}{l}
+2 \\
+3 \\
+5
+\end{array}\right)
+$$
+is a vector of size 3 . We sometimes call a vector of length $n$ an $n$-vector. By convention, lowercase letters denote vectors, and the $i$ th element of a size- $n$ vector $x$ is denoted by $x_i$, for $i=1,2, \ldots, n$. We take the standard form of a vector to be as a column vector equivalent to an $n \times 1$ matrix, whereas the corresponding $r o w$ vector is obtained by taking the transpose:
+$$
+x^{\mathrm{T}}=\left(\begin{array}{lll}
+2 & 3 & 5
+\end{array}\right)
+$$
+The unit vector $e_i$ is the vector whose $i$ th element is 1 and all of whose other elements are 0 . Usually, the context makes the size of a unit vector clear.
+
+A zero matrix is a matrix all of whose entries are 0. Such a matrix is often denoted 0 , since the ambiguity between the number 0 and a matrix of 0 s can usually be resolved from context. If a matrix of 0 s is intended, then the size of the matrix also needs to be derived from the context.
+Square matrices
+Square $n \times n$ matrices arise frequently. Several special cases of square matrices are of particular interest:
+1. A diagonal matrix has $a_{i j}=0$ whenever $i \neq j$. Because all of the off-diagonal elements are 0 , a succinct way to specify the matrix lists only the elements along the diagonal:
+2. The $n \times n$ identity matrix $I_n$ is a diagonal matrix with 1 s along the diagonal:
+$$
+\begin{aligned}
+I_n & =\operatorname{diag}(1,1, \ldots, 1) \\
+& =\left(\begin{array}{cccc}
+1 & 0 & \ldots & 0 \\
+0 & 1 & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \ldots & 1
+\end{array}\right) .
+\end{aligned}
+$$
+
+When $I$ appears without a subscript, its size derives from the context. The $i$ th column of an identity matrix is the unit vector $e_i$.
+3. A tridiagonal matrix $T$ is one for which $t_{i j}=0$ if $|i-j|>1$. Nonzero entries appear only on the main diagonal, immediately above the main diagonal $\left(t_{i, i+1}\right.$ for $i=1,2, \ldots, n-1)$, or immediately below the main diagonal $\left(t_{i+1, i}\right.$ for $i=1,2, \ldots, n-1)$ :
+4. An upper-triangular matrix $U$ is one for which $u_{i j}=0$ if $i>j$. All entries below the diagonal are 0 :
+
+An upper-triangular matrix is unit upper-triangular if it has all $1 \mathrm{~s}$ along the diagonal.
+5. A lower-triangular matrix $L$ is one for which $l_{i j}=0$ if $i<j$. All entries above the diagonal are 0 :
+$$
+L=\left(\begin{array}{cccc}
+l_{11} & 0 & \ldots & 0 \\
+l_{21} & l_{22} & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+l_{n 1} & l_{n 2} & \ldots & l_{n n}
+\end{array}\right)
+$$
+A lower-triangular matrix is unit lower-triangular if it has all $1 \mathrm{~s}$ along the diagonal.
+
+6. A permutation matrix $P$ has exactly one 1 in each row or column, and 0 s elsewhere. An example of a permutation matrix is
+$$
+P=\left(\begin{array}{lllll}
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 & 0
+\end{array}\right)
+$$
+Such a matrix is called a permutation matrix because multiplying a vector $x$ by a permutation matrix has the effect of permuting (rearranging) the elements of $x$. Exercise D.1-4 explores additional properties of permutation matrices.
+7. A symmetric matrix $A$ satisfies the condition $A=A^{\mathrm{T}}$. For example,
+$$
+\left(\begin{array}{lll}
+1 & 2 & 3 \\
+2 & 6 & 4 \\
+3 & 4 & 5
+\end{array}\right)
+$$
+is a symmetric matrix.
+Basic matrix operations
+The elements of a matrix or vector are scalar numbers from a number system, such as the real numbers, the complex numbers, or integers modulo a prime. The number system defines how to add and multiply scalars. These definitions extend to encompass addition and multiplication of matrices.
+
+We define matrix addition as follows. If $A=\left(a_{i j}\right)$ and $B=\left(b_{i j}\right)$ are $m \times n$ matrices, then their matrix sum $C=\left(c_{i j}\right)=A+B$ is the $m \times n$ matrix defined by
+$$
+c_{i j}=a_{i j}+b_{i j}
+$$
+for $i=1,2, \ldots, m$ and $j=1,2, \ldots, n$. That is, matrix addition is performed componentwise. A zero matrix is the identity for matrix addition:
+$$
+A+0=A=0+A
+$$
+If $\lambda$ is a scalar number and $A=\left(a_{i j}\right)$ is a matrix, then $\lambda A=\left(\lambda a_{i j}\right)$ is the scalar multiple of $A$ obtained by multiplying each of its elements by $\lambda$. As a special case, we define the negative of a matrix $A=\left(a_{i j}\right)$ to be $-1 \cdot A=-A$, so that the $i j$ th entry of $-A$ is $-a_{i j}$. Thus,
+$$
+A+(-A)=0=(-A)+A
+$$
+
+The negative of a matrix defines matrix subtraction: $A-B=A+(-B)$.
+We define matrix multiplication as follows. Start with two matrices $A$ and $B$ that are compatible in the sense that the number of columns of $A$ equals the number of rows of $B$. (In general, an expression containing a matrix product $A B$ is always assumed to imply that matrices $A$ and $B$ are compatible.) If $A=\left(a_{i k}\right)$ is a $p \times q$ matrix and $B=\left(b_{k j}\right)$ is a $q \times r$ matrix, then their matrix product $C=A B$ is the $p \times r$ matrix $C=\left(c_{i j}\right)$, where
+$$
+c_{i j}=\sum_{k=1}^q a_{i k} b_{k j}
+$$
+for $i=1,2, \ldots, m$ and $j=1,2, \ldots, p$. The procedure RECTANGULARMATRIX-MULTIPLY on page 374 implements matrix multiplication in the straightforward manner based on equation (D.2), assuming that $C$ is initialized to 0 , using $p q r$ multiplications and $p(q-1) r$ additions for a running time of $\Theta(p q r)$. If the matrices are $n \times n$ square matrices, so that $n=p=q=r$, the pseudocode reduces to MatriX-MultiPly on page 81 , whose running time is $\Theta\left(n^3\right)$. (Section 4.2 describes an asymptotically faster $\Theta\left(n^{\lg 7}\right)$-time algorithm due to V. Strassen.)
+
+Matrices have many (but not all) of the algebraic properties typical of numbers. Identity matrices are identities for matrix multiplication:
+$$
+I_m A=A I_n=A
+$$
+for any $m \times n$ matrix $A$. Multiplying by a zero matrix gives a zero matrix:
+$$
+A \cdot 0=0
+$$
+Matrix multiplication is associative:
+$$
+A(B C)=(A B) C
+$$
+for compatible matrices $A, B$, and $C$. Matrix multiplication distributes over addition:
+$$
+\begin{aligned}
+& A(B+C)=A B+A C \\
+& (B+C) D=B D+C D
+\end{aligned}
+$$
+For $n>1$, multiplication of $n \times n$ matrices is not commutative. For example, if $A=\left(\begin{array}{ll}0 & 1 \\ 0 & 0\end{array}\right)$ and $B=\left(\begin{array}{ll}0 & 0 \\ 1 & 0\end{array}\right)$, then $A B=\left(\begin{array}{ll}1 & 0 \\ 0 & 0\end{array}\right)$ and $B A=\left(\begin{array}{ll}0 & 0 \\ 0 & 1\end{array}\right)$.
+We define matrix-vector products or vector-vector products as if the vector were the equivalent $n \times 1$ matrix (or a $1 \times n$ matrix, in the case of a row vector). Thus, if $A$ is an $m \times n$ matrix and $x$ is an $n$-vector, then $A x$ is an $m$-vector. If $x$ and $y$ are $n$-vectors, then
+
+$$
+x^{\mathrm{T}} y=\sum_{i=1}^n x_i y_i
+$$
+is a scalar number (actually a $1 \times 1$ matrix) called the inner product of $x$ and $y$. We also use the notation $\langle x, y\rangle$ to denote $x^{\mathrm{T}} y$. The inner-product operator is commutative: $\langle x, y\rangle=\langle y, x\rangle$. The matrix $x y^{\mathrm{T}}$ is an $n \times n$ matrix $Z$ called the outer product of $x$ and $y$, where $z_{i j}=x_i y_j$. The (euclidean) norm $\|x\|$ of an $n$-vector $x$ is defined by
+$$
+\begin{aligned}
+\|x\| & =\left(x_1^2+x_2^2+\cdots+x_n^2\right)^{1 / 2} \\
+& =\left(x^{\mathrm{T}} x\right)^{1 / 2} .
+\end{aligned}
+$$
+Thus, the norm of $x$ is its length in $n$-dimensional euclidean space. A useful fact, which follows from the equality
+$$
+\left(\left(a x_1\right)^2+\left(a x_2\right)^2+\cdots+\left(a x_n\right)^2\right)^{1 / 2}=|a|\left(x_1^2+x_2^2+\cdots+x_n^2\right)^{1 / 2}
+$$
+is that for any real number $a$ and $n$-vector $x$,
+$$
+\|a x\|=|a|\|x\| \text {. }
+$$
+
 \section{矩阵的基本性质}
+
+We now define some basic properties pertaining to matrices: inverses, linear dependence and independence, rank, and determinants. We also define the class of positive-definite matrices.
+
+Matrix inverses, ranks, and determinants
+The inverse of an $n \times n$ matrix $A$ is the $n \times n$ matrix, denoted $A^{-1}$ (if it exists), such that $A A^{-1}=I_n=A^{-1} A$. For example,
+$$
+\left(\begin{array}{ll}
+1 & 1 \\
+1 & 0
+\end{array}\right)^{-1}=\left(\begin{array}{rr}
+0 & 1 \\
+1 & -1
+\end{array}\right)
+$$
+Many nonzero $n \times n$ matrices do not have inverses. A matrix without an inverse is called noninvertible, or singular. An example of a nonzero singular matrix is
+$$
+\left(\begin{array}{ll}
+1 & 0 \\
+1 & 0
+\end{array}\right)
+$$
+If a matrix has an inverse, it is called invertible, or nonsingular. Matrix inverses, when they exist, are unique. (See Exercise D.2-1.) If $A$ and $B$ are nonsingular $n \times n$ matrices, then
+$$
+(B A)^{-1}=A^{-1} B^{-1}
+$$
+The inverse operation commutes with the transpose operation:
+$$
+\left(A^{-1}\right)^{\mathrm{T}}=\left(A^{\mathrm{T}}\right)^{-1}
+$$
+The vectors $x_1, x_2, \ldots, x_n$ are linearly dependent if there exist coefficients $c_1, c_2, \ldots, c_n$, not all of which are 0 , such that $c_1 x_1+c_2 x_2+\cdots+c_n x_n=0$. The row vectors $x_1=\left(\begin{array}{lll}1 & 2 & 3\end{array}\right), x_2=\left(\begin{array}{lll}2 & 6 & 4\end{array}\right)$, and $x_3=\left(\begin{array}{lll}4 & 11 & 9\end{array}\right)$ are linearly dependent, for example, since $2 x_1+3 x_2-2 x_3=0$. If vectors are not linearly dependent, they are linearly independent. For example, the columns of an identity matrix are linearly independent.
+
+The column rank of a nonzero $m \times n$ matrix $A$ is the size of the largest set of linearly independent columns of $A$. Similarly, the row rank of $A$ is the size of the largest set of linearly independent rows of $A$. A fundamental property of any matrix $A$ is that its row rank always equals its column rank, so that we can simply refer to the rank of $A$. The rank of an $m \times n$ matrix is an integer between 0 and $\min \{m, n\}$, inclusive. (The rank of a zero matrix is 0 , and the rank of an $n \times n$ identity matrix is $n$.) An alternate, but equivalent and often more useful, definition is that the rank of a nonzero $m \times n$ matrix $A$ is the smallest number $r$ such that there exist matrices $B$ and $C$ of respective sizes $m \times r$ and $r \times n$ such that $A=B C$. A square $n \times n$ matrix has full rank if its rank is $n$. An $m \times n$ matrix has full column rank if its rank is $n$. The following theorem gives a fundamental property of ranks.
+Theorem D.I
+A square matrix has full rank if and only if it is nonsingular.
+
+A null vector for a matrix $A$ is a nonzero vector $x$ such that $A x=0$. The following theorem (whose proof is left as Exercise D.2-7) and its corollary relate the notions of column rank and singularity to null vectors.
+Theorem D.2
+A matrix has full column rank if and only if it does not have a null vector.
+Corollary D.3
+A square matrix is singular if and only if it has a null vector.
+The $i j$ th minor of an $n \times n$ matrix $A$, for $n>1$, is the $(n-1) \times(n-1)$ matrix $A_{[i j]}$ obtained by deleting the $i$ th row and $j$ th column of $A$. The determinant of an $n \times n$ matrix $A$ is defined recursively in terms of its minors by
+$\operatorname{det}(A)= \begin{cases}a_{11} & \text { if } n=1, \\ \sum_{j=1}^n(-1)^{1+j} a_{1 j} \operatorname{det}\left(A_{[1 j]}\right) & \text { if } n>1 .\end{cases}$
+The term $(-1)^{i+j} \operatorname{det}\left(A_{[i j]}\right)$ is known as the cofactor of the element $a_{i j}$.
+The following theorems, whose proofs are omitted, express fundamental properties of the determinant.
+Theorem D.4 (Determinant properties)
+The determinant of a square matrix $A$ has the following properties:
+- If any row or any column of $A$ is zero, then $\operatorname{det}(A)=0$.
+- The determinant of $A$ is multiplied by $\lambda$ if the entries of any one row (or any one column) of $A$ are all multiplied by $\lambda$.
+- The determinant of $A$ is unchanged if the entries in one row (respectively, column) are added to those in another row (respectively, column).
+- The determinant of $A$ equals the determinant of $A^{\mathrm{T}}$.
+- The determinant of $A$ is multiplied by -1 if any two rows (or any two columns) are exchanged.
+Also, for any square matrices $A$ and $B$, we have $\operatorname{det}(A B)=\operatorname{det}(A) \operatorname{det}(B)$.
+Theorem D.5
+An $n \times n$ matrix $A$ is singular if and only if $\operatorname{det}(A)=0$.
+
+Positive-definite matrices
+Positive-definite matrices play an important role in many applications. An $n \times n$ matrix $A$ is positive-definite if $x^{\mathrm{T}} A x>0$ for all $n$-vectors $x \neq 0$. For example, the identity matrix is positive-definite, since if $x=\left(\begin{array}{llll}x_1 & x_2 & \cdots & x_n\end{array}\right)^{\mathrm{T}}$ is a nonzero vector, then
+$$
+\begin{aligned}
+x^{\mathrm{T}} I_n x & =x^{\mathrm{T}} x \\
+& =\sum_{i=1}^n x_i^2 \\
+& >0 .
+\end{aligned}
+$$
+Matrices that arise in applications are often positive-definite due to the following theorem.
+Theorem D.6
+For any matrix $A$ with full column rank, the matrix $A^{\mathrm{T}} A$ is positive-definite.
+Proof We must show that $x^{\mathrm{T}}\left(A^{\mathrm{T}} A\right) x>0$ for any nonzero vector $x$. For any vector $x$
+$$
+\begin{aligned}
+x^{\mathrm{T}}\left(A^{\mathrm{T}} A\right) x & =(A x)^{\mathrm{T}}(A x) \quad \text { (by Exercise D.1-2) } \\
+& =\|A x\|^2 .
+\end{aligned}
+$$
+The value $\|A x\|^2$ is just the sum of the squares of the elements of the vector $A x$. Therefore, $\|A x\|^2 \geq 0$. We'll show by contradiction that $\|A x\|^2>0$. Suppose that $\|A x\|^2=0$. Then, every element of $A x$ is 0 , which is to say $A x=0$. Since $A$ has full column rank, Theorem D.2 says that $x=0$, which contradicts the requirement that $x$ is nonzero. Hence, $A^{\mathrm{T}} A$ is positive-definite.
+
+Section 28.3 explores other properties of positive-definite matrices. Section 33.3 uses a similar condition, known as positive-semidefinite. An $n \times n$ matrix $A$ is positive-semidefinite if $x^{\mathrm{T}} A x \geq 0$ for all $n$-vectors $x \neq 0$.
 
 \part{算法的代码实现}
 
