@@ -3265,9 +3265,9 @@ $$
 \end{aligned}
 $$
 
-Figure B.1 illustrates the first of DeMorgan's laws, using a Venn diagram: a graphical picture in which sets are represented as regions of the plane.
+图B.1使用Venn图示了DeMorgan定律中的第一个定律：在图中，集合被表示为平面上的区域。
 
-Often, all the sets under consideration are subsets of some larger set $U$ called the universe. For example, when considering various sets made up only of integers, the set $\mathbb{Z}$ of integers is an appropriate universe. Given a universe $U$, we define the complement of a set $A$ as $\bar{A}=U-A=\{x: x \in U$ and $x \notin A\}$. For any set $A \subseteq U$, we have the following laws:
+通常，所有考虑的集合都是某个更大的集合$U$的子集，这个更大的集合称为宇宙。例如，在考虑仅由整数组成的各种集合时，整数集$\mathbb{Z}$是一个适当的宇宙。给定一个宇宙$U$，我们将集合$A$的补集定义为$\bar{A}=U-A=\{x: x \in U$且$x \notin A\}$。对于任何$A \subseteq U$的集合，我们有以下法则：
 
 $$
 \begin{aligned}
@@ -3277,108 +3277,137 @@ A \cup \bar{A} & =U .
 \end{aligned}
 $$
 
-An equivalent way to express DeMorgan's laws (B.2) uses set complements. For any two sets $B, C \subseteq U$, we have
+表达DeMorgan定律（B.2）的一种等价方式使用集合补集。对于任何两个集合$B, C \subseteq U$，我们有：
+
 $$
 \begin{aligned}
 & \overline{B \cap C}=\bar{B} \cup \bar{C}, \\
 & \overline{B \cup C}=\bar{B} \cap \bar{C} .
 \end{aligned}
 $$
-Two sets $A$ and $B$ are disjoint if they have no elements in common, that is, if $A \cap B=\emptyset$. A collection of sets $S_1, S_2, \ldots$, either finite or infinite, is a set of sets, in which each member is a set $S_i$. A collection $\delta=\left\{S_i\right\}$ of nonempty sets forms a partition of a set $S$ if
-- the sets are pairwise disjoint, that is, $S_i, S_j \in \mathcal{S}$ and $i \neq j$ imply $S_i \cap S_j=\emptyset$, and
-- their union is $S$, that is,
+
+如果两个集合$A$和$B$没有共同元素，即$A \cap B=\emptyset$，则它们是不相交的。集合$S_1, S_2, \ldots$的集合是一个包含每个成员为集合$S_i$的集合，可以是有限的或无限的。如果非空集合的集合$\delta=\left\{S_i\right\}$形成一个集合$S$的划分，则满足以下条件：
+
+\begin{itemize}
+\item 这些集合是成对不相交的，即$S_i, S_j \in \mathcal{S}$且$i \neq j$意味着$S_i \cap S_j=\emptyset$，以及
+\item 它们的并集是$S$，即
+\end{itemize}
+
 $$
 S=\bigcup_{S_i \in 8} S_i .
 $$
-In other words, $S$ forms a partition of $S$ if each element of $S$ appears in exactly one set $S_i \in \mathcal{P}$.
 
-The number of elements in a set is the cardinality (or size) of the set, denoted $|S|$. Two sets have the same cardinality if their elements can be put into a one-to-one correspondence. The cardinality of the empty set is $|\emptyset|=0$. If the cardinality of a set is a natural number, the set is finite, and otherwise, it is infinite. An infinite set that can be put into a one-to-one correspondence with the natural numbers $\mathbb{N}$ is countably infinite, and otherwise, it is uncountable. For example, the integers $\mathbb{Z}$ are countable, but the reals $\mathbb{R}$ are uncountable.
-For any two finite sets $A$ and $B$, we have the identity
-$|A \cup B|=|A|+|B|-|A \cap B|$,
-from which we can conclude that
+换句话说，如果$S$的每个元素都恰好出现在一个集合$S_i \in \mathcal{P}$中，则$S$形成$S$的一个划分。
+
+集合中元素的数量称为集合的基数（或大小），表示为$|S|$。如果两个集合的元素可以进行一一对应，则它们具有相同的基数。空集的基数为$|\emptyset|=0$。如果一个集合的基数是自然数，则该集合是有限的，否则它是无限的。可以与自然数$\mathbb{N}$进行一一对应的无限集合称为可数无限集合，否则它是不可数的。例如，整数$\mathbb{Z}$是可数的，但实数$\mathbb{R}$是不可数的。
+
+对于任意两个有限集合$A$和$B$，我们有恒等式
+
+$|A \cup B|=|A|+|B|-|A \cap B|$，
+
+由此我们可以得出
+
 $|A \cup B| \leq|A|+|B|$
-If $A$ and $B$ are disjoint, then $|A \cap B|=0$ and thus $|A \cup B|=|A|+|B|$. If $A \subseteq B$, then $|A| \leq|B|$
 
-A finite set of $n$ elements is sometimes called an $n$-set. A 1 -set is called a singleton. A subset of $k$ elements of a set is sometimes called a $k$-subset.
+如果$A$和$B$是不相交的，则$|A \cap B|=0$，因此$|A \cup B|=|A|+|B|$。如果$A \subseteq B$，则$|A| \leq|B|$。
 
-We denote the set of all subsets of a set $S$, including the empty set and $S$ itself, by $2^S$, called the power set of $S$. For example, $2^{\{a, b\}}=\{\emptyset,\{a\},\{b\},\{a, b\}\}$. The power set of a finite set $S$ has cardinality $2^{|S|}$ (see Exercise B.1-5).
+一个有$n$个元素的有限集合有时被称为$n$-集。一个1-集被称为单例集。一个集合中$k$个元素的子集有时被称为$k$-子集。
 
-We sometimes care about setlike structures in which the elements are ordered. An ordered pair of two elements $a$ and $b$ is denoted $(a, b)$ and is defined formally as the set $(a, b)=\{a,\{a, b\}\}$. Thus, the ordered pair $(a, b)$ is not the same as the ordered pair $(b, a)$.
+我们用$2^S$表示一个集合$S$的所有子集，包括空集和$S$本身，称为$S$的幂集。例如，$2^{\{a, b\}}=\{\emptyset,\{a\},\{b\},\{a, b\}\}$。有限集合$S$的幂集的基数是$2^{|S|}$（参见练习B.1-5）。
 
-The Cartesian product of two sets $A$ and $B$, denoted $A \times B$, is the set of all ordered pairs such that the first element of the pair is an element of $A$ and the second is an element of $B$. More formally,
+有时我们关心元素有序的类似集合的结构。两个元素$a$和$b$的有序对用$(a, b)$表示，并且被正式定义为集合$(a, b)=\{a,\{a, b\}\}$。因此，有序对$(a, b)$与有序对$(b, a)$不同。
+
+两个集合$A$和$B$的笛卡尔积，表示为$A \times B$，是由所有满足第一个元素是$A$中的一个元素，第二个元素是$B$中的一个元素的有序对组成的集合。更正式地说，
+
 $A \times B=\{(a, b): a \in A$ and $b \in B\}$.
-For example, $\{a, b\} \times\{a, b, c\}=\{(a, a),(a, b),(a, c),(b, a),(b, b),(b, c)\}$. When $A$ and $B$ are finite sets, the cardinality of their Cartesian product is
+
+例如，$\{a, b\} \times\{a, b, c\}=\{(a, a),(a, b),(a, c),(b, a),(b, b),(b, c)\}$。当$A$和$B$是有限集合时，它们的笛卡尔积的基数是
+
 $|A \times B|=|A| \cdot|B|$.
-The Cartesian product of $n$ sets $A_1, A_2, \ldots, A_n$ is the set of $n$-tuples
+
+$n$个集合$A_1, A_2, \ldots, A_n$的笛卡尔积是$n$元组的集合。
+
 $$
 A_1 \times A_2 \times \cdots \times A_n=\left\{\left(a_1, a_2, \ldots, a_n\right): a_i \in A_i \text { for } i=1,2, \ldots, n\right\},
 $$
-whose cardinality is
+
+它的基数是
+
 $$
 \left|A_1 \times A_2 \times \cdots \times A_n\right|=\left|A_1\right| \cdot\left|A_2\right| \cdots\left|A_n\right|
 $$
-if all sets $A_i$ are finite. We denote an $n$-fold Cartesian product over a single set $A$ by the set
+
+如果所有的集合$A_i$都是有限的。我们用集合表示单个集合$A$的$n$次笛卡尔积
+
 $$
 A^n=\underbrace{A \times A \times \cdots \times A}_{n \text { times }},
 $$
-whose cardinality is $\left|A^n\right|=|A|^n$ if $A$ is finite. We can also view an $n$-tuple as a finite sequence of length $n$ (see page 1162).
 
-Intervals are continuous sets of real numbers. We denote them with parentheses and/or brackets. Given real numbers $a$ and $b$, the closed interval $[a, b]$ is the set $\{x \in \mathbb{R}: a \leq x \leq b\}$ of reals between $a$ and $b$, including both $a$ and $b$. (If $a>b$, this definition implies that $[a, b]=\emptyset$.) The open interval $(a, b)=$ $\{x \in \mathbb{R}: a<x<b\}$ omits both of the endpoints from the set. There are two halfopen intervals $[a, b)=\{x \in \mathbb{R}: a \leq x<b\}$ and $(a, b]=\{x \in \mathbb{R}: a<x \leq b\}$, each of which excludes one endpoint.
+如果$A$是有限的，则$n$元组的基数是$\left|A^n\right|=|A|^n$。我们也可以将$n$元组视为长度为$n$的有限序列（参见第1162页）。
 
-Intervals can also be defined on the integers by replacing $\mathbb{R}$ in the these definitions by $\mathbb{Z}$. Whether the interval is defined over the reals or integers can usually be inferred from context.
+区间是实数的连续集合。我们用括号和/或方括号表示它们。给定实数$a$和$b$，闭区间$[a, b]$是实数$a$和$b$之间的实数集合$\{x \in \mathbb{R}: a \leq x \leq b\}$，包括$a$和$b$本身。（如果$a>b$，则此定义意味着$[a, b]=\emptyset$。）开区间$(a, b)=\{x \in \mathbb{R}: a<x<b\}$从集合中省略了两个端点。有两个半开区间$[a, b)=\{x \in \mathbb{R}: a \leq x<b\}$和$(a, b]=\{x \in \mathbb{R}: a<x \leq b\}$，每个区间都排除一个端点。
 
-
+区间也可以在整数上定义，方法是将这些定义中的$\mathbb{R}$替换为$\mathbb{Z}$。区间是在实数还是整数上定义的通常可以从上下文中推断出来。
 
 \section{二元关系}
 
-A binary relation $R$ on two sets $A$ and $B$ is a subset of the Cartesian product $A \times B$. If $(a, b) \in R$, we sometimes write $a R b$. When we say that $R$ is a binary relation on a set $A$, we mean that $R$ is a subset of $A \times A$. For example, the "less than" relation on the natural numbers is the set $\{(a, b): a, b \in \mathbb{N}$ and $a<b\}$. An $n$-ary relation on sets $A_1, A_2, \ldots, A_n$ is a subset of $A_1 \times A_2 \times \cdots \times A_n$.
+在两个集合$A$和$B$上的二元关系$R$是笛卡尔积$A \times B$的子集。如果$(a, b) \in R$，我们有时写作$a R b$。当我们说$R$是集合$A$上的二元关系时，我们指的是$R$是$A \times A$的子集。例如，自然数上的“小于”关系是集合$\{(a, b): a, b \in \mathbb{N}$且$a<b\}$。在集合$A_1, A_2, \ldots, A_n$上的$n$元关系是$A_1 \times A_2 \times \cdots \times A_n$的子集。
 
-A binary relation $R \subseteq A \times A$ is reflexive if
+如果二元关系$R \subseteq A \times A$是自反的，则
 
 $a R a$
 
-for all $a \in A$. For example, "=" and " $\leq$ " are reflexive relations on $\mathbb{N}$, but "<" is not. The relation $R$ is symmetric if
-$a R b$ implies $b R a$
-for all $a, b \in A$. For example, "=" is symmetric, but " $<$ " and " $\leq$ " are not. The relation $R$ is transitive if
-$a R b$ and $b R c$ imply $a R c$
-for all $a, b, c \in A$. For example, the relations " $<, "$ " $\leq$," and "=" are transitive, but the relation $R=\{(a, b): a, b \in \mathbb{N}$ and $a=b-1\}$ is not, since $3 R 4$ and $4 R 5$ do not imply $3 R 5$.
+对于所有$a \in A$都成立。例如，"="和"$\leq$"是自反关系，但"<"不是。如果对于所有$a, b \in A$，都有$a R b$意味着$b R a$，则关系$R$是对称的。例如，"="是对称的，但"$<$"和"$\leq$"不是。如果对于所有$a, b, c \in A$，都有$a R b$和$b R c$意味着$a R c$，则关系$R$是传递的。例如，关系"$<$"、"$\leq$"和"="都是传递的，但关系$R=\{(a, b): a, b \in \mathbb{N}$且$a=b-1\}$不是传递的，因为$3 R 4$和$4 R 5$并不意味着$3 R 5$。
 
-A relation that is reflexive, symmetric, and transitive is an equivalence relation. For example, "=" is an equivalence relation on the natural numbers, but " $<$ " is not. If $R$ is an equivalence relation on a set $A$, then for $a \in A$, the equivalence class of $a$ is the set $[a]=\{b \in A: a R b\}$, that is, the set of all elements equivalent to $a$. For example, if we define $R=\{(a, b): a, b \in \mathbb{N}$ and $a+b$ is an even number $\}$, then $R$ is an equivalence relation, since $a+a$ is even (reflexive), $a+b$ is even implies $b+a$ is even (symmetric), and $a+b$ is even and $b+c$ is even imply $a+c$ is even (transitive). The equivalence class of 4 is $[4]=\{0,2,4,6, \ldots\}$, and the equivalence class of 3 is $[3]=\{1,3,5,7, \ldots\}$. A basic theorem of equivalence classes is the following.
-Theorem B.I (An equivalence relation is the same as a partition)
-The equivalence classes of any equivalence relation $R$ on a set $A$ form a partition of $A$, and any partition of $A$ determines an equivalence relation on $A$ for which the sets in the partition are the equivalence classes.
+一个自反、对称和传递的关系是等价关系。例如，"="是自然数上的等价关系，但"$<$"不是。如果$R$是集合$A$上的等价关系，则对于$a \in A$，$a$的等价类是集合$[a]=\{b \in A: a R b\}$，即所有与$a$等价的元素的集合。例如，如果我们定义$R=\{(a, b): a, b \in \mathbb{N}$且$a+b$是偶数$\}$，那么$R$是一个等价关系，因为$a+a$是偶数（自反），$a+b$是偶数意味着$b+a$也是偶数（对称），$a+b$是偶数并且$b+c$是偶数意味着$a+c$也是偶数（传递）。4的等价类是$[4]=\{0,2,4,6, \ldots\}$，3的等价类是$[3]=\{1,3,5,7, \ldots\}$。等价类的一个基本定理如下。
 
-Proof For the first part of the proof, we must show that the equivalence classes of $R$ are nonempty, pairwise-disjoint sets whose union is $A$. Because $R$ is reflexive, $a \in[a]$, and so the equivalence classes are nonempty. Moreover, since every element $a \in A$ belongs to the equivalence class $[a]$, the union of the equivalence classes is $A$. It remains to show that the equivalence classes are pairwise disjoint, that is, if two equivalence classes $[a]$ and $[b]$ have an element $c$ in common, then they are in fact the same set. Suppose that $a R c$ and $b R c$. Symmetry gives that $c R b$ and, by transitivity, $a R b$. Thus, we have $x R a$ for any arbitrary element $x \in[a]$ and, by transitivity, $x R b$, and thus $[a] \subseteq[b]$. Similarly, $[b] \subseteq[a]$, and thus $[a]=[b]$
+定理B.I（等价关系与划分等价）
 
-For the second part of the proof, let $A=\left\{A_i\right\}$ be a partition of $A$, and define $R=\left\{(a, b)\right.$ : there exists $i$ such that $a \in A_i$ and $\left.b \in A_i\right\}$. We claim that $R$ is an equivalence relation on $A$. Reflexivity holds, since $a \in A_i$ implies $a R a$. Symmetry holds, because if $a R b$, then $a$ and $b$ belong to the same set $A_i$, and hence $b R a$. If $a R b$ and $b R c$, then all three elements are in the same set $A_i$, and thus $a R c$ and transitivity holds. To see that the sets in the partition are the equivalence classes of $R$, observe that if $a \in A_i$, then $x \in[a]$ implies $x \in A_i$, and $x \in A_i$ implies $x \in[a]$.
-A binary relation $R$ on a set $A$ is antisymmetric if $a R b$ and $b R a$ imply $a=b$.
-For example, the " $\leq$ " relation on the natural numbers is antisymmetric, since $a \leq b$ and $b \leq a$ imply $a=b$. A relation that is reflexive, antisymmetric, and transitive is a partial order, and we call a set on which a partial order is defined a partially ordered set. For example, the relation "is a descendant of" is a partial order on the set of all people (if we view individuals as being their own descendants).
+任何集合$A$上的等价关系$R$的等价类构成了$A$的一个划分，任何$A$的划分都可以确定一个等价关系，其中划分中的集合是等价类。
 
-In a partially ordered set $A$, there may be no single "maximum" element $a$ such that $b R a$ for all $b \in A$. Instead, the set may contain several maximal elements $a$ such that for no $b \in A$, where $b \neq a$, is it the case that $a R b$. For example, a collection of different-sized boxes may contain several maximal boxes that don't fit inside any other box, yet it has no single "maximum" box into which any other box will fit. ${ }^3$
+证明：对于证明的第一部分，我们必须证明$R$的等价类是非空、两两不相交的集合，它们的并集是$A$。因为$R$是自反的，所以$a \in[a]$，因此等价类是非空的。此外，由于每个元素$a \in A$都属于等价类$[a]$，所以等价类的并集是$A$。我们仍需要证明等价类是两两不相交的，即如果两个等价类$[a]$和$[b]$有一个共同元素$c$，那么它们实际上是同一个集合。假设$a R c$和$b R c$。根据对称性，我们有$c R b$，并且根据传递性，我们有$a R b$。因此，对于任意任意元素$x \in[a]$，我们有$x R a$，再根据传递性，我们有$x R b$，因此$[a] \subseteq[b]$。同样地，$[b] \subseteq[a]$，因此$[a]=[b]$。
 
-A relation $R$ on a set $A$ is a total relation if for all $a, b \in A$, we have $a R b$ or $b R a$ (or both), that is, if every pairing of elements of $A$ is related by $R$. A partial order that is also a total relation is a total order or linear order. For example, the relation " $\leq$ " is a total order on the natural numbers, but the "is a descendant of" relation is not a total order on the set of all people, since there are individuals neither of whom is descended from the other. A total relation that is transitive, but not necessarily either symmetric or antisymmetric, is a total preorder.
+对于证明的第二部分，让$A=\left\{A_i\right\}$是$A$的一个划分，并定义$R=\left\{(a, b)\right.$：存在$i$使得$a \in A_i$且$\left.b \in A_i\right\}$。我们声称$R$是集合$A$上的一个等价关系。自反性成立，因为$a \in A_i$意味着$a R a$。对称性成立，因为如果$a R b$，那么$a$和$b$属于同一个集合$A_i$，因此$b R a$。如果$a R b$和$b R c$，那么所有三个元素都在同一个集合$A_i$中，因此$a R c$成立，传递性成立。要看到划分中的集合是等价类，观察如果$a \in A_i$，则$x \in[a]$意味着$x \in A_i$，而$x \in A_i$意味着$x \in[a]$。
+
+集合$A$上的二元关系$R$如果满足$a R b$和$b R a$蕴含$a=b$，则称其为反对称的。
+
+例如，自然数上的“$\leq$”关系是反对称的，因为$a \leq b$和$b \leq a$蕴含$a=b$。一个既是自反的、反对称的、又是传递的关系被称为偏序，而我们称一个偏序被定义在其上的集合为偏序集。例如，“是某人的后代”关系是所有人组成的集合上的一个偏序（如果我们把个体看作是他们自己的后代）。
+
+在一个偏序集$A$中，可能没有单个的“最大”元素$a$，使得对于所有$b \in A$都有$b R a$。相反，该集合可能包含多个极大元素$a$，使得对于没有$b \in A$，其中$b \neq a$，有$a R b$。例如，一个大小不同的盒子集合可能包含几个最大的盒子，这些盒子都无法放入其他任何盒子中，但它没有单一的“最大”盒子可以容纳任何其他盒子。
+
+如果对于所有$a, b \in A$，我们有$a R b$或$b R a$（或两者都有），即如果$A$中所有元素都被关系$R$关联，则关系$R$是一个全关系。既是偏序又是全关系的关系被称为全序或线性序。例如，“$\leq$”关系是自然数上的一个全序，但“是某人的后代”的关系不是所有人组成的集合上的一个全序，因为有些人彼此之间没有后代关系。一个既是传递的、但不一定对称或反对称的全关系被称为全预序。
 
 \section{函数}
 
 Given two sets $A$ and $B$, a function $f$ is a binary relation on $A$ and $B$ such that for all $a \in A$, there exists precisely one $b \in B$ such that $(a, b) \in f$. The set $A$ is called the domain of $f$, and the set $B$ is called the codomain of $f$. We sometimes write $f: A \rightarrow B$, and if $(a, b) \in f$, we write $b=f(a)$, since the choice of $a$ uniquely determines $b$.
 
 Intuitively, the function $f$ assigns an element of $B$ to each element of $A$. No element of $A$ is assigned two different elements of $B$, but the same element of $B$ can be assigned to two different elements of $A$. For example, the binary relation
+
 $f=\{(a, b): a, b \in \mathbb{N}$ and $b=a \bmod 2\}$
+
 is a function $f: \mathbb{N} \rightarrow\{0,1\}$, since for each natural number $a$, there is exactly one value $b$ in $\{0,1\}$ such that $b=a \bmod 2$. For this example, $0=f(0), 1=f(1)$, $0=f(2), 1=f(3)$, etc. In contrast, the binary relation
+
 $g=\{(a, b): a, b \in \mathbb{N}$ and $a+b$ is even $\}$
+
 is not a function, since $(1,3)$ and $(1,5)$ are both in $g$, and thus for the choice $a=1$, there is not precisely one $b$ such that $(a, b) \in g$.
 
 Given a function $f: A \rightarrow B$, if $b=f(a)$, we say that $a$ is the argument of $f$ and that $b$ is the value of $f$ at $a$. We can define a function by stating its value for every element of its domain. For example, we might define $f(n)=2 n$ for $n \in \mathbb{N}$, which means $f=\{(n, 2 n): n \in \mathbb{N}\}$. Two functions $f$ and $g$ are equal if they have the same domain and codomain and if $f(a)=g(a)$ for all $a$ in the domain.
 A finite sequence of length $n$ is a function $f$ whose domain is the set of $n$ integers $\{0,1, \ldots, n-1\}$. We often denote a finite sequence by listing its values in angle brackets: $\langle f(0), f(1), \ldots, f(n-1)\rangle$. An infinite sequence is a function whose domain is the set $\mathbb{N}$ of natural numbers. For example, the Fibonacci sequence, defined by recurrence $(3.31)$, is the infinite sequence $\langle 0,1,1,2,3,5,8,13,21, \ldots\rangle$.
+
 When the domain of a function $f$ is a Cartesian product, we often omit the extra parentheses surrounding the argument of $f$. For example, if we have a function $f: A_1 \times A_2 \times \cdots \times A_n \rightarrow B$, we write $b=f\left(a_1, a_2, \ldots, a_n\right)$ instead of writing $b=$ $f\left(\left(a_1, a_2, \ldots, a_n\right)\right)$. We also call each $a_i$ an argument to the function $f$, though technically $f$ has just a single argument, which is the $n$-tuple $\left(a_1, a_2, \ldots, a_n\right)$.
+
 If $f: A \rightarrow B$ is a function and $b=f(a)$, then we sometimes say that $b$ is the image of $a$ under $f$. The image of a set $A^{\prime} \subseteq A$ under $f$ is defined by
+
 $$
 f\left(A^{\prime}\right)=\left\{b \in B: b=f(a) \text { for some } a \in A^{\prime}\right\} .
 $$
+
 The range of $f$ is the image of its domain, that is, $f(A)$. For example, the range of the function $f: \mathbb{N} \rightarrow \mathbb{N}$ defined by $f(n)=2 n$ is $f(\mathbb{N})=\{m: m=2 n$ for some $n \in \mathbb{N}\}$, in other words, the set of nonnegative even integers.
 
 A function is a surjection if its range is its codomain. For example, the function $f(n)=\lfloor n / 2\rfloor$ is a surjective function from $\mathbb{N}$ to $\mathbb{N}$, since every element in $\mathbb{N}$ appears as the value of $f$ for some argument. In contrast, the function $f(n)=2 n$ is not a surjective function from $\mathbb{N}$ to $\mathbb{N}$, since no argument to $f$ can produce any odd natural number as a value. The function $f(n)=2 n$ is, however, a surjective function from the natural numbers to the even numbers. A surjection $f: A \rightarrow B$ is sometimes described as mapping $A$ onto $B$. When we say that $f$ is onto, we mean that it is surjective.
 
 A function $f: A \rightarrow B$ is an injection if distinct arguments to $f$ produce distinct values, that is, if $a \neq a^{\prime}$ implies $f(a) \neq f\left(a^{\prime}\right)$. For example, the function $f(n)=2 n$ is an injective function from $\mathbb{N}$ to $\mathbb{N}$, since each even number $b$ is the image under $f$ of at most one element of the domain, namely $b / 2$. The function $f(n)=\lfloor n / 2\rfloor$ is not injective, since the value 1 is produced by two arguments: $f(2)=1$ and $f(3)=1$. An injection is sometimes called a one-to-one function.
+
 A function $f: A \rightarrow B$ is a bijection if it is injective and surjective. For example, the function $f(n)=(-1)^n\lceil n / 2\rceil$ is a bijection from $\mathbb{N}$ to $\mathbb{Z}$ :
 
 $$
@@ -3391,50 +3420,58 @@ $$
 \vdots &
 \end{array}
 $$
-The function is injective, since no element of $\mathbb{Z}$ is the image of more than one element of $\mathbb{N}$. It is surjective, since every element of $\mathbb{Z}$ appears as the image of some element of $\mathbb{N}$. Hence, the function is bijective. A bijection is sometimes called a one-to-one correspondence, since it pairs elements in the domain and codomain. A bijection from a set $A$ to itself is sometimes called a permutation.
-When a function $f$ is bijective, we define its inverse $f^{-1}$ as
-$f^{-1}(b)=a$ if and only if $f(a)=b$
-For example, the inverse of the function $f(n)=(-1)^n\lceil n / 2\rceil$ is
+
+这个函数是单射的，因为$\mathbb{Z}$中的任何元素都不是$\mathbb{N}$中多个元素的映像。它是满射的，因为$\mathbb{Z}$中的每个元素都是$\mathbb{N}$中某个元素的映像。因此，这个函数是双射的。双射有时被称为一一对应，因为它将定义域和值域中的元素配对。从集合$A$到其自身的双射有时被称为置换。
+
+当函数$f$是双射时，我们将其逆函数$f^{-1}$定义为
+
+当且仅当$f(a)=b$时，$f^{-1}(b)=a$
+
+例如，函数$f(n)=(-1)^n\lceil n / 2\rceil$的逆函数是
+
 $$
 f^{-1}(m)= \begin{cases}2 m & \text { if } m \geq 0 \\ -2 m-1 & \text { if } m<0\end{cases}
 $$
 
 \section{图}
 
-This section presents two kinds of graphs: directed and undirected. Certain definitions in the literature differ from those given here, but for the most part, the differences are slight. Section 20.1 shows how to represent graphs in computer memory.
+本节介绍了两种图形：有向图和无向图。文献中的某些定义与此处给出的定义不同，但大部分差异很小。第20.1节介绍了如何在计算机内存中表示图。
 
-A directed graph (or digraph) $G$ is a pair $(V, E)$, where $V$ is a finite set and $E$ is a binary relation on $V$. The set $V$ is called the vertex set of $G$, and its elements are called vertices (singular: vertex). The set $E$ is called the edge set of $G$, and its elements are called edges. Figure B.2(a) is a pictorial representation of a directed graph on the vertex set $\{1,2,3,4,5,6\}$. Vertices are represented by circles in the figure, and edges are represented by arrows. Self-loops-edges from a vertex to itself - are possible.
+有向图（或有向图）$G$是一个二元组$(V, E)$，其中$V$是一个有限集合，$E$是$V$上的二元关系。集合$V$称为$G$的顶点集，其元素称为顶点（单数：顶点）。集合$E$称为$G$的边集，其元素称为边。图B.2(a)是在顶点集$\{1,2,3,4,5,6\}$上的有向图的图示表示。在图中，顶点用圆圈表示，边用箭头表示。自环 - 从一个顶点到其自身的边 - 是可能的。
 
-In an undirected graph $G=(V, E)$, the edge set $E$ consists of unordered pairs of vertices, rather than ordered pairs. That is, an edge is a set $\{u, v\}$, where $u, v \in V$ and $u \neq v$. By convention, we use the notation $(u, v)$ for an edge, rather than the set notation $\{u, v\}$, and we consider $(u, v)$ and $(v, u)$ to be the same edge. In an undirected graph, self-loops are forbidden, so that every edge consists of two distinct vertices. Figure B.2(b) shows an undirected graph on the vertex set $\{1,2,3,4,5,6\}$.
+在无向图$G=(V, E)$中，边集$E$由无序顶点对而不是有序顶点对组成。也就是说，一条边是一个集合$\{u, v\}$，其中$u,v \in V$且$u \neq v$。按照惯例，我们使用$(u,v)$表示一条边，而不是集合符号$\{u,v\}$，并且我们认为$(u,v)$和$(v,u)$是同一条边。在无向图中，禁止自环，因此每条边都由两个不同的顶点组成。图B.2(b)显示了在顶点集$\{1,2,3,4,5,6\}$上的无向图。
 
-Many definitions for directed and undirected graphs are the same, although certain terms have slightly different meanings in the two contexts. If $(u, v)$ is an edge in a directed graph $G=(V, E)$, we say that $(u, v)$ is incident from or leaves vertex $u$ and is incident to or enters vertex $v$. For example, the edges leaving vertex 2 in Figure B.2(a) are $(2,2),(2,4)$, and $(2,5)$. The edges entering vertex 2 are $(1,2)$ and $(2,2)$. If $(u, v)$ is an edge in an undirected graph $G=(V, E)$, we say that $(u, v)$ is incident on vertices $u$ and $v$. In Figure B.2(b), the edges incident on vertex 2 are $(1,2)$ and $(2,5)$.
+许多有向图和无向图的定义是相同的，尽管在两种情况下某些术语的含义略有不同。如果$(u,v)$是有向图$G=(V,E)$中的一条边，则我们称$(u,v)$从顶点$u$离开或离开顶点$u$，并进入或进入顶点$v$。例如，在图B.2(a)中，离开顶点2的边是$(2,2),(2,4)$和$(2,5)$。进入顶点2的边是$(1,2)$和$(2,2)$。如果$(u,v)$是无向图$G=(V,E)$中的一条边，则我们称$(u,v)$作用于顶点$u$和$v$。在图B.2(b)中，作用于顶点2的边是$(1,2)$和$(2,5)$。
 
-If $(u, v)$ is an edge in a graph $G=(V, E)$, we say that vertex $v$ is adjacent to vertex $u$. When the graph is undirected, the adjacency relation is symmetric. When the graph is directed, the adjacency relation is not necessarily symmetric. If $v$ is adjacent to $u$ in a directed graph, we can write $u \rightarrow v$. In parts (a) and (b) of Figure B.2, vertex 2 is adjacent to vertex 1 , since the edge $(1,2)$ belongs to both graphs. Vertex 1 is not adjacent to vertex 2 in Figure B.2(a), since the edge $(2,1)$ is absent.
+如果$(u,v)$是图$G=(V,E)$中的一条边，则我们称顶点$v$与顶点$u$相邻。当图是无向的时，邻接关系是对称的。当图是有向的时，邻接关系不一定对称。如果在有向图中$v$与$u$相邻，我们可以写成$u\rightarrow v$。在图B.2的(a)和(b)部分中，由于边$(1,2)$同时属于两个图，因此顶点2与顶点1相邻。在图B.2(a)中，顶点1与顶点2不相邻，因为边$(2,1)$不存在。
 
-The degree of a vertex in an undirected graph is the number of edges incident on it. For example, vertex 2 in Figure B.2(b) has degree 2. A vertex whose degree is 0 , such as vertex 4 in Figure B.2(b), is isolated. In a directed graph, the out-degree of a vertex is the number of edges leaving it, and the in-degree of a vertex is the number of edges entering it. The degree of a vertex in a directed graph is its indegree plus its out-degree. Vertex 2 in Figure B.2(a) has in-degree 2, out-degree 3, and degree 5.
+在无向图中，顶点的度数是与其相邻的边数。例如，在图B.2(b)中，顶点2的度数为2。度数为0的顶点，如图B.2(b)中的顶点4，被称为孤立点。在有向图中，顶点的出度是离开它的边数，入度是进入它的边数。有向图中顶点的度数是其入度加其出度。在图B.2(a)中，顶点2的入度为2，出度为3，度数为5。
 
-A path of length $k$ from a vertex $u$ to a vertex $u^{\prime}$ in a graph $G=(V, E)$ is a sequence $\left\langle v_0, v_1, v_2, \ldots, v_k\right\rangle$ of vertices such that $u=v_0, u^{\prime}=v_k$, and $\left(v_{i-1}, v_i\right) \in E$ for $i=1,2, \ldots, k$. The length of the path is the number of edges in the path, which is 1 less than the number of vertices in the path. The path contains the vertices $v_0, v_1, \ldots, v_k$ and the edges $\left(v_0, v_1\right),\left(v_1, v_2\right), \ldots,\left(v_{k-1}, v_k\right)$. (There is always a 0 -length path from $u$ to $u$.) If there is a path $p$ from $u$ to $u^{\prime}$, we say that $u^{\prime}$ is reachable from $u$ via $p$, which we can write as $u \stackrel{p}{\longrightarrow} u^{\prime}$. A path is simple if all vertices in the path are distinct. In Figure B.2(a), the path $\langle 1,2,5,4\rangle$ is a simple path of length 3. The path $\langle 2,5,4,5\rangle$ is not simple. A subpath of path $p=\left\langle v_0, v_1, \ldots, v_k\right\rangle$ is a contiguous subsequence of its vertices. That is, for any $0 \leq i \leq j \leq k$, the subsequence of vertices $\left\langle v_i, v_{i+1}, \ldots, v_j\right\rangle$ is a subpath of $p$.
-In a directed graph, a path $\left\langle v_0, v_1, \ldots, v_k\right\rangle$ forms a cycle if $v_0=v_k$ and the path contains at least one edge. The cycle is simple if, in addition, $v_1, v_2, \ldots, v_k$ are distinct. A cycle consisting of $k$ vertices has length $k$. A self-loop is a cycle of length 1. Two paths $\left\langle v_0, v_1, v_2, \ldots, v_{k-1}, v_0\right\rangle$ and $\left\langle v_0^{\prime}, v_1^{\prime}, v_2^{\prime}, \ldots, v_{k-1}^{\prime}, v_0^{\prime}\right\rangle$ form the same cycle if there exists an integer $j$ such that $v_i^{\prime}=v_{(i+j) \bmod k \text { for }}$ $i=0,1, \ldots, k-1$. In Figure B .2(a), the path $\langle 1,2,4,1\rangle$ forms the same cycle as the paths $\langle 2,4,1,2\rangle$ and $\langle 4,1,2,4\rangle$. This cycle is simple, but the cycle $\langle 1,2,4,5,4,1\rangle$ is not. The cycle $\langle 2,2\rangle$ formed by the edge $(2,2)$ is a self-loop. A directed graph with no self-loops is simple. In an undirected graph, a path $\left\langle v_0, v_1, \ldots, v_k\right\rangle$ forms a cycle if $k>0, v_0=v_k$, and all edges on the path are distinct. The cycle is simple if $v_1, v_2, \ldots, v_k$ are distinct. For example, in Figure B.2(b), the path $\langle 1,2,5,1\rangle$ is a simple cycle. A graph with no simple cycles is acyclic.
+在图$G=(V,E)$中从顶点$u$到顶点$u^{\prime}$的长度为$k$的路径是一系列顶点$\left\langle v_0,v_1,v_2,\ldots,v_k\right\rangle$，使得$u=v_0,u^{\prime}=v_k$且$\left(v_{i-1},v_i\right)\in E$对于$i=1,2,\ldots,k$。路径的长度是路径中边的数量，即路径中顶点数减1。路径包含顶点$v_0,v_1,\ldots,v_k$和边$\left(v_0,v_1\right),\left(v_1,v_2\right),\ldots,\left(v_{k-1},v_k\right)$。（从$u$到$u$总是有长度为0的路径。）如果存在从$u$到$u^{\prime}$的路径$p$，我们称$u^{\prime}$可以通过$p$从$u$到达，我们可以写成$u\stackrel{p}{\longrightarrow}u^{\prime}$。如果路径中所有顶点都不同，则路径是简单路径。在图B.2(a)中，路径$\left\langle 1,2,5,4\right\rangle$是长度为3的简单路径。路径$\left\langle 2,5,4,5\right\rangle$不是简单路径。路径$p=\left\langle v_0,v_1,\ldots,v_k\right\rangle$的子路径是其顶点的连续子序列。也就是说，对于任何$0 \leq i \leq j \leq k$，顶点子序列$\left\langle v_i,v_{i+1},\ldots,v_j\right\rangle$是$p$的子路径。
 
-An undirected graph is connected if every vertex is reachable from all other vertices. The connected components of an undirected graph are the equivalence classes of vertices under the "is reachable from" relation. The graph shown in Figure B.2(b) has three connected components: $\{1,2,5\},\{3,6\}$, and $\{4\}$. Every vertex in the connected component $\{1,2,5\}$ is reachable from every other vertex in $\{1,2,5\}$. An undirected graph is connected if it has exactly one connected component. The edges of a connected component are those that are incident on only the vertices of the component. In other words, edge $(u, v)$ is an edge of a connected component only if both $u$ and $v$ are vertices of the component.
+在有向图中，路径$\left\langle v_0, v_1, \ldots, v_k\right\rangle$如果$v_0=v_k$且路径包含至少一条边，则形成一个环。如果此外$v_1, v_2, \ldots, v_k$是不同的，则该环是简单的。由$k$个顶点组成的环的长度为$k$。自环是长度为1的环。如果存在整数$j$，使得对于$i=0,1,\ldots,k-1$，有$v_i^{\prime}=v_{(i+j) \bmod k}$，则路径$\left\langle v_0, v_1, v_2, \ldots, v_{k-1}, v_0\right\rangle$和$\left\langle v_0^{\prime}, v_1^{\prime}, v_2^{\prime}, \ldots, v_{k-1}^{\prime}, v_0^{\prime}\right\rangle$形成相同的环。在图B.2(a)中，路径$\left\langle 1,2,4,1\right\rangle$与路径$\left\langle 2,4,1,2\right\rangle$和$\left\langle 4,1,2,4\right\rangle$形成相同的环。这个环是简单的，但是路径$\left\langle 1,2,4,5,4,1\right\rangle$不是简单环。由边$(2,2)$形成的环$\left\langle 2,2\right\rangle$是自环。没有自环的有向图是简单的。在无向图中，路径$\left\langle v_0, v_1, \ldots, v_k\right\rangle$如果$k>0,v_0=v_k$且路径上所有边都不同，则形成一个环。如果此外$v_1,v_2,\ldots,v_k$是不同的，则该环是简单的。例如，在图B.2(b)中，路径$\left\langle 1,2,5,1\right\rangle$是一个简单环。没有简单环的图是无环图。
 
-A directed graph is strongly connected if every two vertices are reachable from each other. The strongly connected components of a directed graph are the equivalence classes of vertices under the "are mutually reachable" relation. A directed graph is strongly connected if it has only one strongly connected component. The graph in Figure B.2(a) has three strongly connected components: $\{1,2,4,5\},\{3\}$, and $\{6\}$. All pairs of vertices in $\{1,2,4,5\}$ are mutually reachable. The vertices $\{3,6\}$ do not form a strongly connected component, since vertex 6 cannot be reached from vertex 3 .
+一个无向图是连通的，如果每个顶点都可以从所有其他顶点到达。无向图的连通分量是在“可达性”关系下，顶点的等价类。在图B.2(b)中，有三个连通分量：$\{1,2,5\},\{3,6\}$和$\{4\}$。在连通分量$\{1,2,5\}$中的每个顶点都可以从$\{1,2,5\}$中的任何其他顶点到达。如果一个无向图恰好只有一个连通分量，则它是连通的。连通分量的边是仅与该分量中的顶点相关的边。换句话说，当且仅当$u$和$v$都是该分量中的顶点时，边$(u,v)$才是该连通分量的边。
 
-Two graphs $G=(V, E)$ and $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$ are isomorphic if there exists a bijection $f: V \rightarrow V^{\prime}$ such that $(u, v) \in E$ if and only if $(f(u), f(v)) \in E^{\prime}$. In other words, $G$ and $G^{\prime}$ are isomorphic if the vertices of $G$ can be relabeled to be vertices of $G^{\prime}$, maintaining the corresponding edges in $G$ and $G^{\prime}$. Figure B.3(a) shows a pair of isomorphic graphs $G$ and $G^{\prime}$ with respective vertex sets $V=\{1,2,3,4,5,6\}$ and $V^{\prime}=\{u, v, w, x, y, z\}$. The mapping from $V$ to $V^{\prime}$ given by $f(1)=u, f(2)=v, f(3)=w, f(4)=x, f(5)=y, f(6)=z$ provides the required bijective function. The graphs in Figure B.3(b) are not isomorphic. Although both graphs have 5 vertices and 7 edges, the top graph has a vertex of degree 4 and the bottom graph does not.
+如果有向图中的任意两个顶点都可以互相到达，则该有向图是强连通的。有向图的强连通分量是在“互相可达性”关系下，顶点的等价类。如果一个有向图只有一个强连通分量，则它是强连通的。在图B.2(a)中，有三个强连通分量：$\{1,2,4,5\},\{3\}$和$\{6\}$。在$\{1,2,4,5\}$中的所有顶点都可以互相到达。顶点$\{3,6\}$不构成一个强连通分量，因为从顶点3无法到达顶点6。
 
-We say that a graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$ is a subgraph of $G=(V, E)$ if $V^{\prime} \subseteq V$ and $E^{\prime} \subseteq E$. Given a set $V^{\prime} \subseteq V$, the subgraph of $G$ induced by $V^{\prime}$ is the graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$, where
+如果存在一个双射$f:V\rightarrow V^{\prime}$，使得当且仅当$(u,v)\in E$时，$(f(u),f(v))\in E^{\prime}$，则两个图$G=(V,E)$和$G^{\prime}=\left(V^{\prime},E^{\prime}\right)$是同构的。换句话说，如果可以重新标记$G$的顶点为$G^{\prime}$的顶点，同时保持$G$和$G^{\prime}$中对应的边，则$G$和$G^{\prime}$是同构的。图B.3(a)展示了一对同构图$G$和$G^{\prime}$，它们的顶点集分别为$V=\{1,2,3,4,5,6\}$和$V^{\prime}=\{u,v,w,x,y,z\}$。从$V$到$V^{\prime}$的映射$f(1)=u,f(2)=v,f(3)=w,f(4)=x,f(5)=y,f(6)=z$提供了所需的双射函数。图B.3(b)中的两个图不是同构的。尽管这两个图都有5个顶点和7条边，但是上面的图有一个度为4的顶点，而下面的图则没有。
+
+如果$V^{\prime}\subseteq V$且$E^{\prime}\subseteq E$，则称图$G^{\prime}=\left(V^{\prime},E^{\prime}\right)$是图$G=(V,E)$的子图。给定一个集合$V^{\prime}\subseteq V$，由$V^{\prime}$诱导的$G$的子图是图$G^{\prime}=\left(V^{\prime},E^{\prime}\right)$，其中
+
 $$
 E^{\prime}=\left\{(u, v) \in E: u, v \in V^{\prime}\right\}
 $$
-The subgraph induced by the vertex set $\{1,2,3,6\}$ in Figure B.2(a) appears in Figure B.2(c) and has the edge set $\{(1,2),(2,2),(6,3)\}$.
 
-Given an undirected graph $G=(V, E)$, the directed version of $G$ is the directed graph $G^{\prime}=\left(V, E^{\prime}\right)$, where $(u, v) \in E^{\prime}$ if and only if $(u, v) \in E$. That is, each undirected edge $(u, v)$ in $G$ turns into two directed edges, $(u, v)$ and $(v, u)$, in the directed version. Given a directed graph $G=(V, E)$, the undirected version of $G$ is the undirected graph $G^{\prime}=\left(V, E^{\prime}\right)$, where $(u, v) \in E^{\prime}$ if and only if $u \neq v$ and $E$ contains at least one of the edges $(u, v)$ and $(v, u)$. That is, the undirected version contains the edges of $G$ "with their directions removed" and with self-loops eliminated. (Since $(u, v)$ and $(v, u)$ are the same edge in an undirected graph, the undirected version of a directed graph contains it only once, even if the directed graph contains both edges $(u, v)$ and $(v, u)$.) In a directed graph $G=(V, E)$, a neighbor of a vertex $u$ is any vertex that is adjacent to $u$ in the undirected version of $G$. That is, $v$ is a neighbor of $u$ if $u \neq v$ and either $(u, v) \in E$ or $(v, u) \in E$. In an undirected graph, $u$ and $v$ are neighbors if they are adjacent.
+图B.2(a)中由顶点集$\{1,2,3,6\}$诱导的子图出现在图B.2(c)中，其边集为$\{(1,2),(2,2),(6,3)\}$。
 
-Several kinds of graphs have special names. A complete graph is an undirected graph in which every pair of vertices is adjacent. An undirected graph $G=(V, E)$ is bipartite if $V$ can be partitioned into two sets $V_1$ and $V_2$ such that $(u, v) \in E$ implies either $u \in V_1$ and $v \in V_2$ or $u \in V_2$ and $v \in V_1$. That is, all edges go between the two sets $V_1$ and $V_2$. An acyclic, undirected graph is a forest, and a connected, acyclic, undirected graph is a (free) tree (see Section B.5). We often take the first letters of "directed acyclic graph" and call such a graph a dag.
+给定一个无向图$G=(V,E)$，$G$的有向版本是有向图$G^{\prime}=\left(V,E^{\prime}\right)$，其中$(u,v)\in E^{\prime}$当且仅当$(u,v)\in E$。也就是说，$G$中的每条无向边$(u,v)$在有向版本中变成了两条有向边$(u,v)$和$(v,u)$。给定一个有向图$G=(V,E)$，$G$的无向版本是无向图$G^{\prime}=\left(V,E^{\prime}\right)$，其中$(u,v)\in E^{\prime}$当且仅当$u\neq v$且$E$至少包含边$(u,v)$和$(v,u)$中的一条。也就是说，无向版本包含了$G$的边“去掉了方向”并消除了自环。（由于$(u,v)$和$(v,u)$在无向图中是同一条边，因此有向图的无向版本只包含一次，即使有向图包含了边$(u,v)$和$(v,u)$。）在有向图$G=(V,E)$中，顶点$u$的邻居是任何在$G$的无向版本中与$u$相邻的顶点。也就是说，如果$u\neq v$，则$v$是$u$的邻居，当且仅当$(u,v)\in E$或$(v,u)\in E$。在无向图中，如果两个顶点相邻，则它们是邻居。
 
-There are two variants of graphs that you may occasionally encounter. A multigraph is like an undirected graph, but it can have both multiple edges between vertices (such as two distinct edges $(u, v)$ and $(u, v))$ and self-loops. A hypergraph is like an undirected graph, but each hyperedge, rather than connecting two vertices, connects an arbitrary subset of vertices. Many algorithms written for ordinary directed and undirected graphs can be adapted to run on these graphlike structures.
+几种类型的图有特殊的名称。一个完全图是一个无向图，其中每对顶点都相邻。如果可以将$V$分成两个集合$V_1$和$V_2$，使得$(u,v)\in E$意味着$u\in V_1,v\in V_2$或者$u\in V_2,v\in V_1$，则无向图$G=(V,E)$是二分图。也就是说，所有边都连接两个集合$V_1$和$V_2$中的顶点。一个无环无向图是森林，一个连通的无环无向图是（自由）树（见B.5节）。我们通常取“有向无环图”的首字母，并称这样的图为dag。
 
-The contraction of an undirected graph $G=(V, E)$ by an edge $e=(u, v)$ is a graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$, where $V^{\prime}=V-\{u, v\} \cup\{x\}$ and $x$ is a new vertex. The set of edges $E^{\prime}$ is formed from $E$ by deleting the edge $(u, v)$ and, for each vertex $w$ adjacent to $u$ or $v$, deleting whichever of $(u, w)$ and $(v, w)$ belongs to $E$ and adding the new edge $(x, w)$. In effect, $u$ and $v$ are "contracted" into a single vertex.
+有两种你偶尔可能会遇到的图变体。多重图类似于无向图，但可以在顶点之间具有多个边（例如两个不同的边$(u,v)$和$(u,v))$，以及自环。超图类似于无向图，但每个超边连接的是任意子集的顶点，而不是连接两个顶点。许多针对普通有向图和无向图编写的算法可以适应这些类似图形的结构。
+
+无向图$G=(V,E)$通过边$e=(u,v)$的收缩变成一个图$G^{\prime}=\left(V^{\prime},E^{\prime}\right)$，其中$V^{\prime}=V-\{u,v\}\cup\{x\}$，$x$是一个新顶点。边集$E^{\prime}$由$E$中删除边$(u,v)$并对于每个与$u$或$v$相邻的顶点$w$，删除属于$E$的$(u,w)$和$(v,w)$中的一个，添加新边$(x,w)$。实际上，$u$和$v$被“收缩”成一个单独的顶点。
 
 \section{树}
 
@@ -3442,97 +3479,128 @@ As with graphs, there are many related, but slightly different, notions of trees
 
 \subsection{自由树}
 
-As defined in Section B.4, a free tree is a connected, acyclic, undirected graph. We often omit the adjective "free" when we say that a graph is a tree. If an undirected graph is acyclic but possibly disconnected, it is a forest. Many algorithms that work for trees also work for forests. Figure B.4(a) shows a free tree, and Figure B.4(b) shows a forest. The forest in Figure B .4(b) is not a tree because it is not connected. The graph in Figure B.4(c) is connected but neither a tree nor a forest, because it contains a cycle.
+如B.4节中定义的，自由树是一种连通的无环无向图。当我们说一个图是一棵树时，通常省略“自由”这个形容词。如果一个无向图是无环的但可能是不连通的，那么它就是一片森林。许多适用于树的算法也适用于森林。图B.4(a)展示了一棵自由树，图B.4(b)展示了一片森林。图B.4(b)中的森林不是一棵树，因为它不连通。图B.4(c)中的图连通但既不是树也不是森林，因为它包含一个环。
 
-The following theorem captures many important facts about free trees.
+以下定理概括了关于自由树的许多重要事实。
 
-Theorem B.2 (Properties of free trees)
-Let $G=(V, E)$ be an undirected graph. The following statements are equivalent.
+定理B.2（自由树的性质）
 
-1. $G$ is a free tree.
-2. Any two vertices in $G$ are connected by a unique simple path.
-3. $G$ is connected, but if any edge is removed from $E$, the resulting graph is disconnected.
-4. $G$ is connected, and $|E|=|V|-1$.
-5. $G$ is acyclic, and $|E|=|V|-1$.
-6. $G$ is acyclic, but if any edge is added to $E$, the resulting graph contains a cycle.
-Proof (1) $\Rightarrow$ (2): Since a tree is connected, any two vertices in $G$ are connected by at least one simple path. Suppose for the sake of contradiction that vertices $u$ and $v$ are connected by two distinct simple paths as shown in Figure B.5. Let $w$ be the vertex at which the paths first diverge. That is, if we call the paths $p_1$ and $p_2$, then $w$ is the first vertex on both $p_1$ and $p_2$ whose successor on $p_1$ is $x$ and whose successor on $p_2$ is $y$, where $x \neq y$. Let $z$ be the first vertex at which the paths reconverge, that is, $z$ is the first vertex following $w$ on $p_1$ that is also on $p_2$. Let $p^{\prime}=w \rightarrow x \leadsto z$ be the subpath of $p_1$ from $w$ through $x$ to $z$, so that $p_1=u \leadsto w \stackrel{p^{\prime}}{\rightarrow} z \leadsto v$, and let $p^{\prime \prime}=w \rightarrow y \leadsto z$ be the subpath of $p_2$ from $w$ through $y$ to $z$, so that $p_2=u \leadsto w \stackrel{p^{\prime \prime}}{\rightarrow} z \leadsto v$. Paths $p^{\prime}$ and $p^{\prime \prime}$ share no vertices except their endpoints. Then, as Figure B.5 shows, the path obtained by concatenating $p^{\prime}$ and the reverse of $p^{\prime \prime}$ is a cycle, which contradicts our assumption that $G$ is a tree. Thus, if $G$ is a tree, there can be at most one simple path between two vertices.
-$(2) \Rightarrow(3)$ : If any two vertices in $G$ are connected by a unique simple path, then $G$ is connected. Let $(u, v)$ be any edge in $E$. This edge is a path from $u$ to $v$, and so it must be the unique path from $u$ to $v$. If $(u, v)$ were to be removed from $G$, there would be no path from $u$ to $v$, and $G$ would be disconnected.
-(3) $\Rightarrow(4)$ : By assumption, the graph $G$ is connected, so Exercise B.4-3 gives that $|E| \geq|V|-1$. We prove $|E| \leq|V|-1$ by induction on $|V|$. The base cases are when $|V|=1$ or $|V|=2$, and in either case, $|E|=|V|-1$. For the inductive step, suppose that $|V| \geq 3$ for graph $G$ and that any graph $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$, where $\left|V^{\prime}\right|<|V|$, that satisfies (3) also satisfies $\left|E^{\prime}\right| \leq\left|V^{\prime}\right|-1$. Removing an arbitrary edge from $G$ separates the graph into $k \geq 2$ connected components (actually $k=2$ ). Each component satisfies (3), or else $G$ would not satisfy (3). Consider each connected component $V_i$, with edge set $E_i$, as a separate free tree. Then, because each connected component has fewer than $|V|$ vertices, the inductive hypothesis implies that $\left|E_i\right| \leq\left|V_i\right|-1$. Thus, the number of edges in all $k$ connected components combined is at most $|V|-k \leq|V|-2$. Adding in the removed edge yields $|E| \leq|V|-1$
-(4) $\Rightarrow$ (5): Suppose that $G$ is connected and that $|E|=|V|-1$. We must show that $G$ is acyclic. Suppose that $G$ has a cycle containing $k$ vertices $v_1, v_2, \ldots, v_k$, and without loss of generality assume that this cycle is simple. Let $G_k=\left(V_k, E_k\right)$ be the subgraph of $G$ consisting of the cycle, so that $\left|V_k\right|=\left|E_k\right|=k$. If $k<|V|$, then because $G$ is connected, there must be a vertex $v_{k+1} \in V-V_k$ that is adjacent to some vertex $v_i \in V_k$. Define $G_{k+1}=\left(V_{k+1}, E_{k+1}\right)$ to be the subgraph of $G$ with $V_{k+1}=V_k \cup\left\{v_{k+1}\right\}$ and $E_{k+1}=E_k \cup\left\{\left(v_i, v_{k+1}\right)\right\}$. Note that $\left|V_{k+1}\right|=$ $\left|E_{k+1}\right|=k+1$. If $k+1<|V|$, then continue, defining $G_{k+2}$ in the same manner, and so forth, until we obtain $G_n=\left(V_n, E_n\right)$, where $n=|V|, V_n=V$, and $\left|E_n\right|=\left|V_n\right|=|V|$. Since $G_n$ is a subgraph of $G$, we have $E_n \subseteq E$, and hence $|E| \geq\left|E_n\right|=\left|V_n\right|=|V|$, which contradicts the assumption that $|E|=|V|-1$. Thus, $G$ is acyclic.
-(5) $\Rightarrow$ (6): Suppose that $G$ is acyclic and that $|E|=|V|-1$. Let $k$ be the number of connected components of $G$. Each connected component is a free tree by definition, and since (1) implies (5), the sum of all edges in all connected components of $G$ is $|V|-k$. Consequently, $k$ must equal 1 , and $G$ is in fact a tree. Since (1) implies (2), any two vertices in $G$ are connected by a unique simple path. Thus, adding any edge to $G$ creates a cycle.
-(6) $\Rightarrow$ (1): Suppose that $G$ is acyclic but that adding any edge to $E$ creates a cycle. We must show that $G$ is connected. Let $u$ and $v$ be arbitrary vertices in $G$. If $u$ and $v$ are not already adjacent, adding the edge $(u, v)$ creates a cycle in which all edges but $(u, v)$ belong to $G$. Thus, the cycle minus edge $(u, v)$ must contain a path from $u$ to $v$, and since $u$ and $v$ were chosen arbitrarily, $G$ is connected.
+设$G=(V,E)$是一个无向图，以下陈述是等价的：
+
+\begin{enumerate}
+\item $G$是一棵自由树。
+\item $G$中任意两个顶点之间都有唯一的简单路径相连。
+\item $G$是连通的，但如果从$E$中删除任何边，则得到的图将不再连通。
+\item $G$是连通的，且$|E|=|V|-1$。
+\item $G$是无环的，且$|E|=|V|-1$。
+\item $G$是无环的，但如果添加任何边到$E$中，则得到的图将包含一个环。
+\end{enumerate}
+
+证明（1）$\Rightarrow$（2）：由于树是连通的，因此$G$中任意两个顶点至少被一个简单路径连接。假设为了推导矛盾，顶点$u$和$v$由图B.5所示的两条不同的简单路径相连。设$w$是路径首次分叉的顶点。也就是说，如果我们称这些路径为$p_1$和$p_2$，则$w$是$p_1$和$p_2$上第一个继承者分别为$x$和$y$（其中$x \neq y$）的顶点。设$z$是路径重新汇合的第一个顶点，即在$p_1$上跟随$w$的第一个同时也在$p_2$上的顶点。设$p^{\prime}=w \rightarrow x \leadsto z$是从$w$到$z$的$p_1$子路径，使得$p_1=u \leadsto w \stackrel{p^{\prime}}{\rightarrow} z \leadsto v$，并且设$p^{\prime \prime}=w \rightarrow y \leadsto z$是从$w$到$z$的$p_2$子路径，使得$p_2=u \leadsto w \stackrel{p^{\prime \prime}}{\rightarrow} z \leadsto v$。路径$p^{\prime}$和$p^{\prime \prime}$除了它们的端点之外没有共同的顶点。因此，如图B.5所示，由$p^{\prime}$和$p^{\prime \prime}$串联而成的路径是一个环，这与假设$G$是一棵树相矛盾。因此，如果$G$是一棵树，则两个顶点之间最多只有一条简单路径。
+
+（2）$\Rightarrow$（3）：如果在$G$中任意两个顶点之间都有唯一的简单路径相连，则$G$是连通的。设$(u,v)$是$E$中的任意一条边。这条边是从$u$到$v$的路径，因此它必须是从$u$到$v$的唯一路径。如果从$G$中删除$(u,v)$，则从$u$到$v$将没有路径，因此，$G$将不再连通。
+
+（3）$\Rightarrow$（4）：根据假设，图$G$是连通的，因此练习B.4-3给出了$|E| \geq|V|-1$。我们通过对|V|进行归纳证明 $|E| \leq|V|-1$。基本情况是当|V|=1或|V|=2时，在任一情况下，都有 $|E|=|V|-1$。对于归纳步骤，假设对于具有 $|V| \geq 3 $ 的图 $G $，满足（3）的任何图 $G^{\prime}=\left(V^{\prime}, E^{\prime}\right)$ 也满足 $\left|E^{\prime}\right| \leq\left|V^{\prime}\right|-1 $。从 $G $ 中移除任意边将该图分成 $k \geq 2 $ 个连通分量（实际上 $k=2 $）。每个分量都满足（3），否则 $G $ 将不满足（3）。将每个连通分量 $V_i $ 视为单独的自由树，并将其边集记为 $E_i $。因为每个连通分量都有少于 $|V|$ 个顶点，所以归纳假设意味着 $\left|E_i\right| \leq\left|V_i\right|-1 $。因此，所有 $k $ 个连通分量中的边数总共最多为 $|V|-$。
+
+(4) $\Rightarrow$ (5)：假设$G$是连通的且$|E|=|V|-1$。我们必须证明$G$是无环的。假设$G$有一个包含$k$个顶点$v_1, v_2, \ldots, v_k$的环，不失一般性地假设这个环是简单的。令$G_k=\left(V_k, E_k\right)$是由环组成的$G$的子图，使得$\left|V_k\right|=\left|E_k\right|=k$。如果$k<|V|$，则因为$G$是连通的，必须存在一个顶点$v_{k+1} \in V-V_k$与某个顶点$v_i \in V_k$相邻。定义$G_{k+1}=\left(V_{k+1}, E_{k+1}\right)$为子图$G$，其中$V_{k+1}=V_k \cup\left\{v_{k+1}\right\}$且$E_{k+1}=E_k \cup\left\{\left(v_i, v_{k+1}\right)\right\}$。注意到$\left|V_{k+1}\right|=$ $\left|E_{k+1}\right|=k+1$。如果$k+1<|V|$，则继续按同样的方式定义$G_{k+2}$，以此类推，直到我们得到$G_n=\left(V_n, E_n\right)$，其中$n=|V|, V_n=V$且$\left|E_n\right|=\left|V_n\right|=|V|$。由于$G_n$是$G$的子图，因此我们有$E_n \subseteq E$，因此$|E| \geq\left|E_n\right|=\left|V_n\right|=|V|$，这与假设$|E|=|V|-1$相矛盾。因此，$G$是无环的。
+
+(5) $\Rightarrow$ (6)：假设$G$是无环的且$|E|=|V|-1$。设$k$是$G$的连通分量数。根据定义，每个连通分量都是一棵自由树，而且因为（1）蕴含（5），所以所有连通分量中所有边的和为$|V|-k$。因此，$k=1$，而且实际上，$G$是一棵树。由于（1）蕴含（2），因此在$G$中任意两个顶点都通过唯一的简单路径相连。因此，向$G$添加任何边都会形成一个环。
+
+(6) $\Rightarrow$ (1)：假设$G$是无环的，但向任何边添加边都会形成一个环。我们必须证明$G$是连通的。设$u,v$是$G$中任意的顶点。如果$u,v$不相邻，则添加边$(u,v)$将在其中所有边但$(u,v)$属于图中形成一个环。因此，减去边$(u,v)$的环必须包含从$u$到$v$的路径，并且由于选择了任意的顶点 $u,v $，因此 $G $ 是连通的。
 
 
 \subsection{有根树和有序树}
 
-A rooted tree is a free tree in which one of the vertices is distinguished from the others. We call the distinguished vertex the root of the tree. We often refer to a vertex of a rooted tree as a node ${ }^5$ of the tree. Figure B.6(a) shows a rooted tree on a set of 12 nodes with $\operatorname{root} 7$.
+一棵有根树是一棵自由树，其中一个顶点与其他顶点不同。我们称这个特殊的顶点为树的根。我们通常将有根树的顶点称为树的节点。图B.6（a）显示了一个具有12个节点和根7的有根树。
 
-Consider a node $x$ in a rooted tree $T$ with root $r$. We call any node $y$ on the unique simple path from $r$ to $x$ an ancestor of $x$. If $y$ is an ancestor of $x$, then $x$ is a descendant of $y$. (Every node is both an ancestor and a descendant of itself.) If $y$ is an ancestor of $x$ and $x \neq y$, then $y$ is a proper ancestor of $x$ and $x$ is a proper descendant of $y$. The subtree rooted at $x$ is the tree induced by descendants of $x$, rooted at $x$. For example, the subtree rooted at node 8 in Figure B.6(a) contains nodes $8,6,5$, and 9 .
+考虑具有根$r$的有根树$T$中的节点$x$。我们称从$r$到$x$的唯一简单路径上的任何节点$y$为$x$的祖先。如果$y$是$x$的祖先，则$x$是$y$的后代。（每个节点都是其本身的祖先和后代。）如果$y$是$x$的祖先且$x \neq y$，则$y$是$x$的真祖先，$x$是$y$的真后代。以$x$为根的子树是由$x$的后代组成的以$x$为根的树。例如，在图B.6（a）中以节点8为根的子树包含节点8、6、5和9。
 
-If the last edge on the simple path from the root $r$ of a tree $T$ to a node $x$ is $(y, x)$, then $y$ is the parent of $x$, and $x$ is a child of $y$. The root is the only node in $T$ with no parent. If two nodes have the same parent, they are siblings. A node with no children is a leaf or external node. A nonleaf node is an internal node.
+如果从树$T$的根$r$到节点$x$的简单路径上的最后一条边是$(y,x)$，则$y$是$x$的父节点，而$x$是$y$的子节点。根是没有父节点的唯一节点。如果两个节点具有相同的父节点，则它们是兄弟姐妹。没有孩子的节点称为叶子节点或外部节点。非叶子节点称为内部节点。
 
-The number of children of a node $x$ in a rooted tree $T$ is the degree of $x{ }^6$ The length of the simple path from the root $r$ to a node $x$ is the depth of $x$ in $T$. A level of a tree consists of all nodes at the same depth. The height of a node in a tree is the number of edges on the longest simple downward path from the node to a leaf, and the height of a tree is the height of its root. The height of a tree is also equal to the largest depth of any node in the tree.
+在有根树$T$中，节点$x$的孩子数是$x$的度数。从根$r$到节点$x$的简单路径的长度是$x$在$T$中的深度。树的层由深度相同的所有节点组成。节点在树中的高度是从该节点到叶子节点最长简单向下路径上边数，而树的高度是其根节点的高度。一棵树的高度也等于该树中任何节点的最大深度。
 
-An ordered tree is a rooted tree in which the children of each node are ordered. That is, if a node has $k$ children, then there is a first child, a second child, and so on, up to and including a $k$ th child. The two trees in Figure B.6 are different when considered to be ordered trees, but the same when considered to be just rooted trees.
+有序树是一棵有根树，其中每个节点的孩子都有顺序。也就是说，如果一个节点有$k$个孩子，则有第一个孩子、第二个孩子等，直到第$k$个孩子。在图B.6中，当被视为有序树时，这两棵树是不同的，但当被视为仅有根时，它们是相同的。
 
 \subsection{二叉树和位置树}
 
-We define binary trees recursively. A binary tree $T$ is a structure defined on a finite set of nodes that either
-- contains no nodes, or
-- is composed of three disjoint sets of nodes: a root node, a binary tree called its left subtree, and a binary tree called its right subtree.
+我们对二叉树进行递归定义。一个二叉树$T$是在有限节点集上定义的结构，其要么
 
-The binary tree that contains no nodes is called the empty tree or null tree, sometimes denoted NIL. If the left subtree is nonempty, its root is called the left child of the root of the entire tree. Likewise, the root of a nonnull right subtree is the right child of the root of the entire tree. If a subtree is the null tree NIL, we say that the child is absent or missing. Figure B.7(a) shows a binary tree.
+\begin{itemize}
+\item 不包含任何节点，或者
+\item 由三个不相交的节点集组成：一个根节点，称为其左子树的二叉树和称为其右子树的二叉树。
+\end{itemize}
 
-A binary tree is not simply an ordered tree in which each node has degree at most 2. For example, in a binary tree, if a node has just one child, the position of the child-whether it is the left child or the right child-matters. In an ordered tree, there is no distinguishing a sole child as being either left or right. Figure B.7(b) shows a binary tree that differs from the tree in Figure B.7(a) because of the position of one node. Considered as ordered trees, however, the two trees are identical.
+不包含任何节点的二叉树称为空树或空二叉树，有时用NIL表示。如果左子树非空，则其根称为整个树的根的左孩子。同样，非空右子树的根是整个树的根的右孩子。如果子树是空树NIL，则说该子树缺失或不存在。图B.7（a）显示了一棵二叉树。
 
-One way to represent the positioning information in a binary tree is by the internal nodes of an ordered tree, as shown in Figure B.7(c). The idea is to replace each missing child in the binary tree with a node having no children. These leaf nodes are drawn as squares in the figure. The tree that results is a full binary tree: each node is either a leaf or has degree exactly 2 . No nodes have degree 1. Consequently, the order of the children of a node preserves the position information.
+二叉树不仅仅是每个节点度数最多为2的有序树。例如，在二叉树中，如果一个节点只有一个孩子，则孩子的位置（它是左孩子还是右孩子）很重要。在有序树中，无法将唯一的孩子区分为左孩子或右孩子。图B.7（b）显示了一棵与图B.7（a）中的树不同的二叉树，因为其中一个节点的位置不同。然而，从有序树的角度来看，这两棵树是相同的。
 
-The positioning information that distinguishes binary trees from ordered trees extends to trees with more than two children per node. In a positional tree, the children of a node are labeled with distinct positive integers. The $i$ th child of a node is absent if no child is labeled with integer $i$. A $k$-ary tree is a positional tree in which for every node, all children with labels greater than $k$ are missing. Thus, a binary tree is a $k$-ary tree with $k=2$.
+一种表示二叉树中位置信息的方法是使用有序树的内部节点，如图B.7（c）所示。思想是将二叉树中每个缺失的孩子替换为一个没有孩子的节点。这些叶节点在图中表示为正方形。结果得到的树是一棵满二叉树：每个节点要么是叶节点，要么其度数恰好为2。没有度数为1的节点。因此，节点的孩子顺序保留了位置信息。
 
-A complete $k$-ary tree is a $k$-ary tree in which all leaves have the same depth and all internal nodes have degree $k$. Figure B.8 shows a complete binary tree of height 3 . How many leaves does a complete $k$-ary tree of height $h$ have? The root has $k$ children at depth 1 , each of which has $k$ children at depth 2 , etc. Thus, the number of nodes at depth $d$ is $k^d$. In a complete $k$-ary tree with height $h$, the leaves are at depth $h$, so that there are $k^h$ leaves. Consequently, the height of a complete $k$-ary tree with $n$ leaves is $\log _k n$. A complete $k$-ary tree of height $h$ has
+区分二叉树和有序树的位置信息也适用于每个节点具有超过两个孩子的树。在位置树中，节点的孩子用不同的正整数标记。如果没有用整数$i$标记的孩子，则第$i$个孩子不存在。$k$叉树是一棵位置树，在每个节点上，所有标记大于$k$的孩子都不存在。因此，二叉树是一个$k$叉树，其中$k=2$。
+
+完全$k$叉树是具有相同深度的所有叶子和所有内部节点度为$k$的$k$叉树。图B.8显示了一棵高度为3的完全二叉树。高度为$h$的完全$k$叉树有多少个叶子？根在深度1处有$k$个孩子，每个孩子在深度2处有$k$个孩子，以此类推。因此，深度$d$处的节点数为$k^d$。在高度为$h$的完全$k$叉树中，叶子位于深度$h$，因此有$k^h$个叶子。因此，具有$n$个叶子的完全$k$叉树的高度为$\log_k n$。高度为$h$的完全$k$叉树具有$k^{h+1}-1\over k-1$个节点。
+
 $$
 \begin{aligned}
 1+k+k^2+\cdots+k^{h-1} & =\sum_{d=0}^{h-1} k^d \\
 & =\frac{k^h-1}{k-1} \quad \text { (by equation (A.6) on page 1142) }
 \end{aligned}
 $$
-(by equation (A.6) on page 1142)
-internal nodes. Thus, a complete binary tree has $2^h-1$ internal nodes.
+
+因此，完全二叉树有$2^h-1$个内部节点。
 
 \chapter{计数和概率}
 
-This appendix reviews elementary combinatorics and probability theory. If you have a good background in these areas, you may want to skim the beginning of this appendix lightly and concentrate on the later sections. Most of this book's chapters do not require probability, but for some chapters it is essential.
+本附录回顾了初等组合数学和概率论。如果您在这些领域有很好的背景，可以轻松地浏览本附录的开头，然后集中精力阅读后面的章节。本书的大多数章节不需要概率，但对于某些章节来说，它是必不可少的。
 
-Section C.1 reviews elementary results in counting theory, including standard formulas for counting permutations and combinations. The axioms of probability and basic facts concerning probability distributions form Section C.2. Random variables are introduced in Section C.3, along with the properties of expectation and variance. Section C.4 investigates the geometric and binomial distributions that arise from studying Bernoulli trials. The study of the binomial distribution continues in Section C.5, an advanced discussion of the "tails" of the distribution.
+第C.1节回顾了计数理论中的基本结果，包括计算排列和组合的标准公式。概率公理和概率分布的基本事实构成了第C.2节。第C.3节介绍了随机变量，以及期望和方差的性质。第C.4节研究了几何分布和二项分布，这些分布是从研究伯努利试验中得出的。第C.5节继续研究了二项分布，并深入讨论了分布的“尾部”。
 
 \section{计数}
 
-Counting theory tries to answer the question "How many?" without actually enumerating all the choices. For example, you might ask, "How many different $n$-bit numbers are there?" or "How many orderings of $n$ distinct elements are there?" This section reviews the elements of counting theory. Since some of the material assumes a basic understanding of sets, you might wish to start by reviewing the material in Section B.1.
-Rules of sum and product
-We can sometimes express a set of items that we wish to count as a union of disjoint sets or as a Cartesian product of sets.
+计数理论试图回答“有多少？”的问题，而不必枚举所有的选择。例如，您可能会问：“有多少个不同的$n$位数字？”或“有多少种$n$个不同元素的排序方式？”本节回顾了计数理论的基本要素。由于其中一些材料假设您已经基本了解集合，因此您可能希望先回顾第B.1节中的材料。
 
-The rule of sum says that the number of ways to choose one element from one of two disjoint sets is the sum of the cardinalities of the sets. That is, if $A$ and $B$ are two finite sets with no members in common, then $|A \cup B|=|A|+|B|$, which follows from equation (B.3) on page 1156. For example, if each position on a car's license plate is a letter or a digit, then the number of possibilities for each position is $26+10=36$, since there are 26 choices if it is a letter and 10 choices if it a digit.
+\textbf{求和和乘积法则}
 
-The rule of product says that the number of ways to choose an ordered pair is the number of ways to choose the first element times the number of ways to choose the second element. That is, if $A$ and $B$ are two finite sets, then $|A \times B|=|A| \cdot|B|$, which is simply equation (B.4) on page 1157. For example, if an ice-cream parlor offers 28 flavors of ice cream and four toppings, the number of possible sundaes with one scoop of ice cream and one topping is $28 \cdot 4=112$.
-Strings
-A string over a finite set $S$ is a sequence of elements of $S$. For example, there are eight binary strings of length 3 :
-$000,001,010,011,100,101,110,111$.
-(Here we use the shorthand of omitting the angle brackets when denoting a sequence.) We sometimes call a string of length $k$ a $k$-string. A substring $s^{\prime}$ of a string $s$ is an ordered sequence of consecutive elements of $s$. A $k$-substring of a string is a substring of length $k$. For example, 010 is a 3-substring of 01101001 (the 3-substring that begins in position 4), but 111 is not a substring of 01101001 .
-We can view a $k$-string over a set $S$ as an element of the Cartesian product $S^k$ of $k$-tuples, which means that there are $|S|^k$ strings of length $k$. For example, the number of binary $k$-strings is $2^k$. Intuitively, to construct a $k$-string over an $n$-set, there are $n$ ways to pick the first element; for each of these choices, there are $n$ ways to pick the second element; and so forth $k$ times. This construction leads to the $k$-fold product $\underbrace{n \cdot n \cdots n}_{n \text { times }}=n^k$ as the number of $k$-strings.
-Permutations
-A permutation of a finite set $S$ is an ordered sequence of all the elements of $S$, with each element appearing exactly once. For example, if $S=\{a, b, c\}$, then $S$ has 6 permutations:
-$a b c, a c b, b a c, b c a, c a b, c b a$.
-(Again, we use the shorthand of omitting the angle brackets when denoting a sequence.) There are $n$ ! permutations of a set of $n$ elements, since there are $n$ ways to choose the first element of the sequence, $n-1$ ways for the second element, $n-2$ ways for the third, and so on.
+我们有时可以将我们希望计数的一组项目表示为不相交集合的并集或集合的笛卡尔积。
 
-A $k$-permutation of $S$ is an ordered sequence of $k$ elements of $S$, with no element appearing more than once in the sequence. (Thus, an ordinary permutation is an $n$-permutation of an $n$-set.) Here are the 2-permutations of the set $\{a, b, c, d\}$ : $a b, a c, a d, b a, b c, b d, c a, c b, c d, d a, d b, d c$.
-The number of $k$-permutations of an $n$-set is
+求和法则表明，从两个不相交集合中选择一个元素的方式数是这两个集合的基数之和。也就是说，如果$A$和$B$是两个没有共同成员的有限集合，则$|A\cup B|=|A|+|B|$，这可以从第1156页上的公式(B.3)推导出来。例如，如果汽车牌照上每个位置都是一个字母或数字，则每个位置的可能性数为$26+10=36$，因为如果是字母，则有26个选择，如果是数字，则有10个选择。
+
+乘积法则表明，选择有序对的方式数等于选择第一个元素的方式数乘以选择第二个元素的方式数。也就是说，如果$A$和$B$是两个有限集合，则$|A\times B|=|A|\cdot |B|$，这就是第1157页上的公式(B.4)。例如，如果一个冰淇淋店提供28种口味的冰淇淋和4种配料，那么有一个冰淇淋球和一个配料的可选圣代数量为$28\cdot 4=112$。
+
+\textbf{字符串}
+
+在有限集合$S$上，一个字符串是$S$中元素的序列。例如，长度为3的二进制字符串有8个：
+
+$000,001,010,011,100,101,110,111$。
+
+（在这里，我们使用简写来表示序列时省略了尖括号。）我们有时将长度为$k$的字符串称为$k$-字符串。字符串$s$的子串$s^{\prime}$是$s$中连续元素的有序序列。一个字符串的$k$-子串是长度为$k$的子串。例如，010是01101001的一个3-子串（从位置4开始的3-子串），但111不是01101001的子串。
+
+我们可以将在集合$S$上的$k$-字符串视为$k$元组的笛卡尔积$S^k$中的一个元素，这意味着长度为$k$的字符串有$|S|^k$个。例如，二进制$k$-字符串的数量是$2^k$。直观地说，要构造一个$n$元集上的$k$-字符串，有$n$种方法选择第一个元素；对于每个选择，有$n$种方法选择第二个元素；以此类推$k$次。这种构造方法导致了$k$重乘积$\underbrace{n \cdot n \cdots n}_{n \text { times }}=n^k$成为$k$-字符串的数量。
+
+\textbf{排列}
+
+有限集合$S$的一个排列是$S$中所有元素的有序序列，每个元素恰好出现一次。例如，如果$S=\{a,b,c\}$，则$S$有6个排列：
+
+$a b c, a c b, b a c, b c a, c a b, c b a$。
+
+（同样地，我们在表示序列时使用简写省略了尖括号。）一个$n$元集的排列有$n$！个，因为有$n$种方法选择序列的第一个元素，$n-1$种方法选择第二个元素，$n-2$种方法选择第三个元素，以此类推。
+
+在集合$S$中，一个$k$-排列是$S$的$k$个元素的有序序列，序列中没有元素出现超过一次。（因此，一个普通的排列是$n$元集的$n$-排列。）这里是集合$\{a,b,c,d\}$的2-排列：$a b, a c, a d, b a, b c, b d, c a, c b, c d, d a, d b, d c$。
+
+一个$n$-元集的$k$-排列的数量是
+
 $$
-n(n-1)(n-2) \cdots(n-k+1)=\frac{n !}{(n-k) !} \text {, }
+n(n-1)(n-2) \cdots(n-k+1)=\frac{n !}{(n-k) !} \text {。}
 $$
-since there are $n$ ways to choose the first element, $n-1$ ways to choose the second element, and so on, until $k$ elements are chosen, with the last element chosen from the remaining $n-k+1$ elements. For the above example, with $n=4$ and $k=2$, the formula (C.1) evaluates to $4 ! / 2 !=12$, matching the number of 2-permutations listed.
+
+因为有$n$种方法选择第一个元素，$n-1$种方法选择第二个元素，以此类推，直到选择了$k$个元素，最后一个元素从剩余的$n-k+1$个元素中选择。对于上面的例子，当$n=4$，$k=2$时，公式(C.1)的计算结果为$4 ! / 2 !=12$，与列出的2-排列数相匹配。
+
 Combinations
+
 A $k$-combination of an $n$-set $S$ is simply a $k$-subset of $S$. For example, the 4-set $\{a, b, c, d\}$ has six 2-combinations:
+
 $a b, a c, a d, b c, b d, c d$.
+
 (Here we use the shorthand of omitting the braces around each subset.) To construct a $k$-combination of an $n$-set, choose $k$ distinct (different) elements from the $n$-set. The order of selecting the elements does not matter.
 
 We can express the number of $k$-combinations of an $n$-set in terms of the number of $k$-permutations of an $n$-set. Every $k$-combination has exactly $k$ ! permutations of its elements, each of which is a distinct $k$-permutation of the $n$-set. Thus the number of $k$-combinations of an $n$-set is the number of $k$-permutations divided by $k !$. From equation (C.1), this quantity is
