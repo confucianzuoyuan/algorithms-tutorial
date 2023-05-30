@@ -3595,19 +3595,22 @@ $$
 
 因为有$n$种方法选择第一个元素，$n-1$种方法选择第二个元素，以此类推，直到选择了$k$个元素，最后一个元素从剩余的$n-k+1$个元素中选择。对于上面的例子，当$n=4$，$k=2$时，公式(C.1)的计算结果为$4 ! / 2 !=12$，与列出的2-排列数相匹配。
 
-Combinations
+\textbf{组合}
 
-A $k$-combination of an $n$-set $S$ is simply a $k$-subset of $S$. For example, the 4-set $\{a, b, c, d\}$ has six 2-combinations:
+一个$n$元集$S$的$k$-组合只是$S$的一个$k$-子集。例如，4-集$\{a,b,c,d\}$有六个2-组合：
 
-$a b, a c, a d, b c, b d, c d$.
+$a b, a c, a d, b c, b d, c d$。
 
-(Here we use the shorthand of omitting the braces around each subset.) To construct a $k$-combination of an $n$-set, choose $k$ distinct (different) elements from the $n$-set. The order of selecting the elements does not matter.
+（这里我们使用省略每个子集周围大括号的简写。）要构造一个$n$元集的$k$-组合，从$n$元集中选择$k$个不同的元素。选择元素的顺序无关紧要。
 
-We can express the number of $k$-combinations of an $n$-set in terms of the number of $k$-permutations of an $n$-set. Every $k$-combination has exactly $k$ ! permutations of its elements, each of which is a distinct $k$-permutation of the $n$-set. Thus the number of $k$-combinations of an $n$-set is the number of $k$-permutations divided by $k !$. From equation (C.1), this quantity is
-$\frac{n !}{k !(n-k) !}$.
-For $k=0$, this formula tells us that the number of ways to choose 0 elements from an $n$-set is $1($ not 0$)$, since $0 !=1$.
-Binomial coefficients
-The notation $\left(\begin{array}{l}n \\ k\end{array}\right)$ (read " $n$ choose $k$ ") denotes the number of $k$-combinations of an $n$-set. Equation (C.2) gives
+我们可以用$n$元集的$k$-排列数来表示$n$元集的$k$-组合数。每个$k$-组合都有$k !$个元素的排列，每个排列都是$n$元集的不同的$k$-排列。因此，一个$n$元集的$k$-组合数是$k$-排列数除以$k !$。从方程(C.1)可以得到，这个数量是$\frac{n !}{k !(n-k) !}$。
+
+对于$k=0$，这个公式告诉我们从一个$n$元集中选择0个元素的方法数是1（而不是0），因为$0 !=1$。
+
+\textbf{二项式系数}
+
+符号$\left(\begin{array}{l}n \\ k\end{array}\right)$（读作“$n$选$k$”）表示$n$元集的$k$-组合数。方程(C.2)给出了这个数量的另一种表示方式：$\left(\begin{array}{l}n \\ k\end{array}\right)=\frac{n !}{k !(n-k) !}$。
+
 $$
 \left(\begin{array}{l}
 n \\
@@ -3615,7 +3618,8 @@ k
 \end{array}\right)=\frac{n !}{k !(n-k) !}
 $$
 
-This formula is symmetric in $k$ and $n-k$ :
+这个公式在$k$和$n-k$中是对称的：
+
 $$
 \left(\begin{array}{l}
 n \\
@@ -3625,25 +3629,33 @@ n \\
 n-k
 \end{array}\right)
 $$
-These numbers are also known as binomial coefficients, due to their appearance in the binomial theorem:
+
+这些数字也被称为二项式系数，因为它们出现在二项式定理中：
+
 $$
 (x+y)^n=\sum_{k=0}^n\left(\begin{array}{l}
 n \\
 k
 \end{array}\right) x^k y^{n-k} \text {, }
 $$
-where $n \in \mathbb{N}$ and $x, y \in \mathbb{R}$. The right-hand side of equation (C.4) is called the binomial expansion of the left-hand side. A special case of the binomial theorem occurs when $x=y=1$ :
+
+其中$n \in \mathbb{N}$，$x, y \in \mathbb{R}$。方程(C.4)的右边称为左边的二项式展开式。当$x=y=1$时，二项式定理的一个特殊情况发生：
+
 $$
 2^n=\sum_{k=0}^n\left(\begin{array}{l}
 n \\
 k
 \end{array}\right)
 $$
-This formula corresponds to counting the $2^n$ binary $n$-strings by the number of $1 \mathrm{~s}$ they contain: $\left(\begin{array}{l}n \\ k\end{array}\right)$ binary $n$-strings contain exactly $k 1 \mathrm{~s}$, since there are $\left(\begin{array}{l}n \\ k\end{array}\right)$ ways to choose $k$ out of the $n$ positions in which to place the $1 \mathrm{~s}$.
 
-Many identities involve binomial coefficients. The exercises at the end of this section give you the opportunity to prove a few.
-Binomial bounds
-You sometimes need to bound the size of a binomial coefficient. For $1 \leq k \leq n$, we have the lower bound
+这个公式对应于通过它们包含的1的数量来计算$2^n$个二进制$n$-字符串的数量：$\left(\begin{array}{l}n \\ k\end{array}\right)$个二进制$n$-字符串恰好包含$k$个1，因为在$n$个位置中选择$k$个位置放置1，有$\left(\begin{array}{l}n \\ k\end{array}\right)$种方法。
+
+许多恒等式涉及二项式系数。本节末尾的练习题为您提供了证明一些恒等式的机会。
+
+二项式界
+
+有时你需要限制一个二项式系数的大小。对于$1 \leq k \leq n$，我们有下界：
+
 $$
 \begin{aligned}
 \left(\begin{array}{l}
@@ -3654,7 +3666,9 @@ k
 & \geq\left(\frac{n}{k}\right)^k
 \end{aligned}
 $$
-Taking advantage of the inequality $k ! \geq(k / e)^k$ derived from Stirling's approximation (3.25) on page 67 , we obtain the upper bounds
+
+利用从第67页的Stirling逼近（3.25）推导出的不等式$k ! \geq(k / e)^k$，我们得到了上界：
+
 $$
 \begin{aligned}
 \left(\begin{array}{l}
@@ -3666,14 +3680,17 @@ k
 \end{aligned}
 $$
 
-For all integers $k$ such that $0 \leq k \leq n$, you can use induction (see Exercise C.1-12) to prove the bound
+对于所有满足$0 \leq k \leq n$的整数$k$，您可以使用归纳法（参见练习题C.1-12）来证明下界：
+
 $$
 \left(\begin{array}{l}
 n \\
 k
 \end{array}\right) \leq \frac{n^n}{k^k(n-k)^{n-k}}
 $$
-where for convenience we assume that $0^0=1$. For $k=\lambda n$, where $0 \leq \lambda \leq 1$, we can rewrite this bound as
+
+为了方便起见，我们假设$0^0=1$。对于$k=\lambda n$，其中$0 \leq \lambda \leq 1$，我们可以将这个下界重写为：
+
 $$
 \begin{aligned}
 \left(\begin{array}{c}
@@ -3684,83 +3701,117 @@ n \\
 & =2^{n H(\lambda)},
 \end{aligned}
 $$
-where
+
+其中
+
 $$
 H(\lambda)=-\lambda \lg \lambda-(1-\lambda) \lg (1-\lambda)
 $$
-is the (binary) entropy function and where, for convenience, we assume that $0 \lg 0=0$, so that $H(0)=H(1)=0$.
+
+这是（二进制）熵函数，为了方便起见，我们假设$0 \lg 0=0$，因此$H(0)=H(1)=0$。
 
 \section{概率}
 
-Probability is an essential tool for the design and analysis of probabilistic and randomized algorithms. This section reviews basic probability theory.
+概率是设计和分析概率和随机算法的基本工具。本节回顾了基本的概率论。
 
-We define probability in terms of a sample space $S$, which is a set whose elements are called outcomes or elementary events. Think of each outcome as a possible result of an experiment. For the experiment of flipping two distinguishable coins, with each individual flip resulting in a head $(\mathrm{H})$ or a tail $(\mathrm{T})$, you can view the sample space $S$ as consisting of the set of all possible 2-strings over $\{\mathrm{H}, \mathrm{T}\}$ : $S=\{$ HH, HT, TH, TT $\}$.
-An event is a subset ${ }^1$ of the sample space $S$. For example, in the experiment of flipping two coins, the event of obtaining one head and one tail is $\{\mathrm{HT}, \mathrm{TH}\}$. The event $S$ is called the certain event, and the event $\emptyset$ is called the null event. We say that two events $A$ and $B$ are mutually exclusive if $A \cap B=\emptyset$. An outcome $s$ also defines the event $\{s\}$, which we sometimes write as just $s$. By definition, all outcomes are mutually exclusive.
-Axioms of probability
-A probability distribution $\operatorname{Pr}\{\}$ on a sample space $S$ is a mapping from events of $S$ to real numbers satisfying the following probability axioms:
-1. $\operatorname{Pr}\{A\} \geq 0$ for any event $A$.
-2. $\operatorname{Pr}\{S\}=1$.
-3. $\operatorname{Pr}\{A \cup B\}=\operatorname{Pr}\{A\}+\operatorname{Pr}\{B\}$ for any two mutually exclusive events $A$ and $B$. More generally, for any sequence of events $A_1, A_2, \ldots$ (finite or countably infinite) that are pairwise mutually exclusive,
+我们用样本空间$S$来定义概率，它是一个集合，其元素称为结果或基本事件。将每个结果视为实验的可能结果。例如，对于抛两个可区分的硬币的实验，每次独立抛掷的结果是正面（$\mathrm{H}$）或反面（$\mathrm{T}$），您可以将样本空间$S$视为由$\{\mathrm{H}, \mathrm{T}\}$上所有可能的2-串组成的集合：$S=\{$ HH, HT, TH, TT $\}$。
+
+事件是样本空间$S$的子集${ }^1$。例如，在抛两个硬币的实验中，获得一个正面和一个反面的事件是$\{\mathrm{HT}, \mathrm{TH}\}$。事件$S$称为必然事件，事件$\emptyset$称为零事件。如果$A \cap B=\emptyset$，则称两个事件$A$和$B$互斥。结果$s$也定义了事件$\{s\}$，有时我们将其写作$s$。根据定义，所有结果都是互斥的。
+
+概率公理
+
+样本空间$S$上的概率分布$\operatorname{Pr}\{\}$是一个从$S$的事件到实数的映射，满足以下概率公理：
+
+\begin{enumerate}
+\item 对于任何事件$A$，$\operatorname{Pr}\{A\} \geq 0$。
+\item $\operatorname{Pr}\{S\}=1$。
+\item 对于任何两个互斥事件$A$和$B$，$\operatorname{Pr}\{A \cup B\}=\operatorname{Pr}\{A\}+\operatorname{Pr}\{B\}$。更一般地，对于任何一组彼此互斥的事件$A_1, A_2, \ldots$（有限或可数无限），有：
+
 $$
 \operatorname{Pr}\left\{\bigcup_i A_i\right\}=\sum_i \operatorname{Pr}\left\{A_i\right\} .
 $$
-We call $\operatorname{Pr}\{A\}$ the probability of the event $A$. Axiom 2 is simply a normalization requirement: there is really nothing fundamental about choosing 1 as the probability of the certain event, except that it is natural and convenient.
+\end{enumerate}
 
-Several results follow immediately from these axioms and basic set theory (see Section B.1). The null event $\emptyset$ has probability $\operatorname{Pr}\{\emptyset\} 0$. If $A \subseteq B$, then $\operatorname{Pr}\{A\} \leq \operatorname{Pr}\{B\}$. Using $\bar{A}$ to denote the event $S-A$ (the complement of $A$ ), we have $\operatorname{Pr}\{\bar{A}\}=1-\operatorname{Pr}\{A\}$. For any two events $A$ and $B$,
+我们称$\operatorname{Pr}\{A\}$为事件$A$的概率。公理2只是一个归一化要求：选择1作为必然事件的概率并没有什么根本性质，只是自然和方便而已。
+
+从这些公理和基本集合论（见B.1节）中可以立即得出几个结果。空事件$\emptyset$的概率为$\operatorname{Pr}\{\emptyset\} = 0$。如果$A \subseteq B$，则$\operatorname{Pr}\{A\} \leq \operatorname{Pr}\{B\}$。用$\bar{A}$表示事件$S-A$（即$A$的补集），我们有$\operatorname{Pr}\{\bar{A}\}=1-\operatorname{Pr}\{A\}$。对于任何两个事件$A$和$B$，有：
+
 $$
 \begin{aligned}
 \operatorname{Pr}\{A \cup B\} & =\operatorname{Pr}\{A\}+\operatorname{Pr}\{B\}-\operatorname{Pr}\{A \cap B\} \\
 & \leq \operatorname{Pr}\{A\}+\operatorname{Pr}\{B\} .
 \end{aligned}
 $$
-In our coin-flipping example, suppose that each of the four outcomes has probability $1 / 4$. Then the probability of getting at least one head is
+
+在我们抛硬币的例子中，假设每个结果的概率都是$1/4$。那么至少获得一个正面的概率是：
+
 $$
 \begin{aligned}
 \operatorname{Pr}\{\mathrm{HH}, \mathrm{HT}, \mathrm{TH}\} & =\operatorname{Pr}\{\mathrm{HH}\}+\operatorname{Pr}\{\mathrm{HT}\}+\operatorname{Pr}\{\mathrm{TH}\} \\
 & =3 / 4 .
 \end{aligned}
 $$
-Another way to obtain the same result is to observe that since the probability of getting strictly less than one head is $\operatorname{Pr}\{\mathrm{TT}\}=1 / 4$, the probability of getting at least one head is $1-1 / 4=3 / 4$.
-Discrete probability distributions
-A probability distribution is discrete if it is defined over a finite or countably infinite sample space. Let $S$ be the sample space. Then for any event $A$,
+
+得到相同结果的另一种方法是观察到，由于获得严格少于一个正面的概率为$\operatorname{Pr}\{\mathrm{TT}\}=1/4$，获得至少一个正面的概率为$1-1/4=3/4$。
+
+\textbf{离散概率分布}
+
+如果概率分布定义在有限或可数无限的样本空间上，则称其为离散概率分布。设$S$为样本空间，则对于任何事件$A$，有：
+
 $$
 \operatorname{Pr}\{A\}=\sum_{s \in A} \operatorname{Pr}\{s\} \text {, }
 $$
-since outcomes, specifically those in $A$, are mutually exclusive. If $S$ is finite and every outcome $s \in S$ has probability $\operatorname{Pr}\{s\}=1 /|S|$, then we have the uniform probability distribution on $S$. In such a case the experiment is often described as "picking an element of $S$ at random."
 
-As an example, consider the process of flipping a fair coin, one for which the probability of obtaining a head is the same as the probability of obtaining a tail, that is, $1 / 2$. Flipping the coin $n$ times gives the uniform probability distribution defined on the sample space $S=\{\mathrm{H}, \mathrm{T}\}^n$, a set of size $2^n$. We can represent each outcome in $S$ as a string of length $n$ over $\{\mathrm{H}, \mathrm{T}\}$, with each string occurring with probability $1 / 2^n$. The event $A=$ \{exactly $k$ heads and exactly $n-k$ tails occur\} is a subset of $S$ of size $|A|=\left(\begin{array}{l}n \\ k\end{array}\right)$, since $\left(\begin{array}{l}n \\ k\end{array}\right)$ strings of length $n$ over $\{\mathrm{H}, \mathrm{T}\}$ contain exactly $k$ H's. The probability of event $A$ is thus $\operatorname{Pr}\{A\}=\left(\begin{array}{l}n \\ k\end{array}\right) / 2^n$.
-Continuous uniform probability distribution
-The continuous uniform probability distribution is an example of a probability distribution in which not all subsets of the sample space are considered to be events. The continuous uniform probability distribution is defined over a closed interval $[a, b]$ of the reals, where $a<b$. The intuition is that each point in the interval $[a, b]$ should be "equally likely." Because there are an uncountable number of points, however, if all points had the same finite, positive probability, axioms 2 and 3 would not be simultaneously satisfied. For this reason, we'd like to associate a probability only with some of the subsets of $S$ in such a way that the axioms are satisfied for these events.
+由于结果，特别是$A$中的结果是互斥的。如果$S$是有限的，并且每个结果$s \in S$的概率都是$\operatorname{Pr}\{s\}=1/|S|$，则我们在$S$上有均匀分布的概率分布。在这种情况下，实验通常被描述为“随机选择$S$的一个元素”。
 
-For any closed interval $[c, d]$, where $a \leq c \leq d \leq b$, the continuous uniform probability distribution defines the probability of the event $[c, d]$ to be
+例如，考虑抛一枚公平的硬币，即正面和反面出现的概率相同，即$1/2$。抛$n$次硬币会得到在样本空间$S=\{\mathrm{H}, \mathrm{T}\}^n$上定义的均匀概率分布，其大小为$2^n$。我们可以将$S$中的每个结果表示为$\{\mathrm{H}, \mathrm{T}\}$上长度为$n$的字符串，每个字符串出现的概率为$1/2^n$。事件$A=$\{恰好发生$k$个正面和$n-k$个反面\}是大小为$|A|=\left(\begin{array}{l}n \\ k\end{array}\right)$的$S$的子集，因为$\left(\begin{array}{l}n \\ k\end{array}\right)$个长度为$n$的$\{\mathrm{H}, \mathrm{T}\}$字符串恰好包含$k$个H。因此，事件$A$的概率为$\operatorname{Pr}\{A\}=\left(\begin{array}{l}n \\ k\end{array}\right)/2^n$。
+
+\textbf{连续均匀概率分布}
+
+连续均匀概率分布是概率分布的一个例子，其中并非样本空间的所有子集都被视为事件。连续均匀概率分布定义在实数的闭区间$[a, b]$上，其中$a<b$。直觉上，区间$[a, b]$中的每个点应该“等可能”出现。然而，由于有无数个点，如果所有点具有相同的有限正概率，则公理2和3不能同时满足。因此，我们希望仅以某些子集与概率相关联，以使这些事件满足公理。
+
+对于任何闭区间$[c, d]$，其中$a \leq c \leq d \leq b$，连续均匀概率分布将事件$[c, d]$的概率定义为：
+
 $$
 \operatorname{Pr}\{[c, d]\}=\frac{d-c}{b-a} \text {. }
 $$
-Letting $c=d$ gives that the probability of a single point is 0 . Removing the endpoints $[c, c]$ and $[d, d]$ of an interval $[c, d]$ results in the open interval $(c, d)$. Since $[c, d]=[c, c] \cup(c, d) \cup[d, d]$, axiom 3 gives $\operatorname{Pr}\{[c, d]\}=\operatorname{Pr}\{(c, d)\}$. Generally, the set of events for the continuous uniform probability distribution contains any subset of the sample space $[a, b]$ that can be obtained by a finite or countable union of open and closed intervals, as well as certain more complicated sets.
-Conditional probability and independence
-Sometimes you have some prior partial knowledge about the outcome of an experiment. For example, suppose that a friend has flipped two fair coins and has told you that at least one of the coins showed a head. What is the probability that both coins are heads? The information given eliminates the possibility of two tails. The three remaining outcomes are equally likely, and so you infer that each occurs with probability $1 / 3$. Since only one of these outcomes shows two heads, the answer is $1 / 3$.
 
-Conditional probability formalizes the notion of having prior partial knowledge of the outcome of an experiment. The conditional probability of an event $A$ given that another event $B$ occurs is defined to be
+令$c=d$得到单个点的概率为0。移除区间$[c, d]$的端点$[c, c]$和$[d, d]$，得到开区间$(c, d)$。由于$[c, d]=[c, c] \cup(c, d) \cup[d, d]$，公理3给出$\operatorname{Pr}\{[c, d]\}=\operatorname{Pr}\{(c, d)\}$。一般来说，连续均匀概率分布的事件集包含样本空间$[a, b]$的任何子集，该子集可以由有限或可数个开区间和闭区间的并集以及某些更复杂的集合获得。
+
+\textbf{条件概率和独立性}
+
+有时您对实验结果有一些先验知识。例如，假设朋友抛了两枚公平的硬币，并告诉您至少有一枚硬币显示正面。两枚硬币都是正面的概率是多少？给定的信息消除了两个反面的可能性。剩下的三个结果是等可能的，因此您推断每个结果发生的概率为$1/3$。由于这三个结果中只有一个显示两个正面，因此答案是$1/3$。
+
+条件概率形式化了先前对实验结果的部分先验知识的概念。给定另一个事件$B$发生的条件下，事件$A$的条件概率被定义为：
+
 $$
 \operatorname{Pr}\{A \mid B\}=\frac{\operatorname{Pr}\{A \cap B\}}{\operatorname{Pr}\{B\}}
 $$
-whenever $\operatorname{Pr}\{B\} \neq 0$. (Read "Pr $\{A \mid B\}$ " as "the probability of $A$ given $B . "$.) The idea behind equation (C.16) is that since we are given that event $B$ occurs, the event that $A$ also occurs is $A \cap B$. That is, $A \cap B$ is the set of outcomes in which both $A$ and $B$ occur. Because the outcome is one of the elementary events in $B$, we normalize the probabilities of all the elementary events in $B$ by dividing them by $\operatorname{Pr}\{B\}$, so that they sum to 1 . The conditional probability of $A$ given $B$ is, therefore, the ratio of the probability of event $A \cap B$ to the probability of event $B$. In the example above, $A$ is the event that both coins are heads, and $B$ is the event that at least one coin is a head. Thus, $\operatorname{Pr}\{A \mid B\}=(1 / 4) /(3 / 4)=1 / 3$.
 
-Two events are independent if
+每当$\operatorname{Pr}\{B\} \neq 0$时。（将“Pr $\{A \mid B\}$”读作“给定$B$的情况下$A$的概率。”）方程式(C.16)背后的思想是，由于我们已知事件$B$发生，因此也发生事件$A \cap B$。也就是说，$A \cap B$是同时发生$A$和$B$的结果集。由于结果是$B$中基本事件之一，我们通过将它们除以$\operatorname{Pr}\{B\}$来归一化$B$中所有基本事件的概率，使它们总和为1。因此，给定$B$的情况下$A$的条件概率是事件$A \cap B$的概率与事件$B$的概率之比。在上面的例子中，$A$是两枚硬币都是正面的事件，$B$是至少有一枚硬币是正面的事件。因此，$\operatorname{Pr}\{A \mid B\}=(1 / 4) /(3 / 4)=1 / 3$。
+
+如果两个事件的发生不会相互影响，则它们是独立的。
+
 $$
 \operatorname{Pr}\{A \cap B\}=\operatorname{Pr}\{A\} \operatorname{Pr}\{B\} \text {, }
 $$
-which is equivalent, if $\operatorname{Pr}\{B\} \neq 0$, to the condition
+
+如果$\operatorname{Pr}\{B\} \neq 0$，则等价于以下条件：
+
 $$
 \operatorname{Pr}\{A \mid B\}=\operatorname{Pr}\{A\}
 $$
-For example, suppose that you flip two fair coins and that the outcomes are independent. Then the probability of two heads is $(1 / 2)(1 / 2)=1 / 4$. Now suppose that one event is that the first coin comes up heads and the other event is that the coins come up differently. Each of these events occurs with probability $1 / 2$, and the probability that both events occur is $1 / 4$. Thus, according to the definition of independence, the events are independent-even though you might think that both events depend on the first coin. Finally, suppose that the coins are welded together so that they both fall heads or both fall tails and that the two possibilities are equally likely. Then the probability that each coin comes up heads is $1 / 2$, but the probability that they both come up heads is $1 / 2 \neq(1 / 2)(1 / 2)$. Consequently, the event that one comes up heads and the event that the other comes up heads are not independent.
-A collection $A_1, A_2, \ldots, A_n$ of events is said to be pairwise independent if $\operatorname{Pr}\left\{A_i \cap A_j\right\}=\operatorname{Pr}\left\{A_i\right\} \operatorname{Pr}\left\{A_j\right\}$
-for all $1 \leq i<j \leq n$. We say that the events of the collection are (mutually) independent if every $k$-subset $A_{i_1}, A_{i_2}, \ldots, A_{i_k}$ of the collection, where $2 \leq k \leq n$ and $1 \leq i_1<i_2<\cdots<i_k \leq n$, satisfies
+
+例如，假设您抛两枚公平的硬币，结果是独立的。那么两个正面的概率是$(1 / 2)(1 / 2)=1 / 4$。现在假设一个事件是第一枚硬币正面朝上，另一个事件是两枚硬币结果不同。这两个事件各自以$1/2$的概率发生，而两个事件同时发生的概率是$1/4$。因此，根据独立性的定义，这些事件是独立的，即使您可能认为这两个事件都依赖于第一枚硬币。最后，假设硬币被焊在一起，它们都会正面朝上或反面朝上，并且这两种可能性是等可能的。那么每个硬币正面向上的概率是$1/2$，但它们同时正面朝上的概率是$1/2 \neq(1 / 2)(1 / 2)$。因此，一个硬币正面向上的事件和另一个硬币正面向上的事件不是独立的。
+
+如果对于所有$1 \leq i<j \leq n$，都有$\operatorname{Pr}\left\{A_i \cap A_j\right\}=\operatorname{Pr}\left\{A_i\right\} \operatorname{Pr}\left\{A_j\right\}$，则称事件集合$A_1, A_2, \ldots, A_n$是成对独立的。如果集合中每个$k$元子集$A_{i_1}, A_{i_2}, \ldots, A_{i_k}$（其中$2 \leq k \leq n$且$1 \leq i_1<i_2<\cdots<i_k \leq n$）都满足以下条件，则称该集合中的事件是（相互）独立的：
+
 $$
 \operatorname{Pr}\left\{A_{i_1} \cap A_{i_2} \cap \cdots \cap A_{i_k}\right\}=\operatorname{Pr}\left\{A_{i_1}\right\} \operatorname{Pr}\left\{A_{i_2}\right\} \cdots \operatorname{Pr}\left\{A_{i_k}\right\}
 $$
-For example, suppose that you flip two fair coins. Let $A_1$ be the event that the first coin is heads, let $A_2$ be the event that the second coin is heads, and let $A_3$ be the event that the two coins are different. Then,
+
+例如，假设您抛两枚公平的硬币。让$A_1$表示第一枚硬币是正面，$A_2$表示第二枚硬币是正面，$A_3$表示两枚硬币结果不同，则：
+
 $$
 \begin{aligned}
 \operatorname{Pr}\left\{A_1\right\} & =1 / 2, \\
@@ -3772,34 +3823,45 @@ $$
 \operatorname{Pr}\left\{A_1 \cap A_2 \cap A_3\right\} & =0 .
 \end{aligned}
 $$
-Since for $1 \leq i<j \leq 3$, we have $\operatorname{Pr}\left\{A_i \cap A_j\right\}=\operatorname{Pr}\left\{A_i\right\} \operatorname{Pr}\left\{A_j\right\}=1 / 4$, the events $A_1, A_2$, and $A_3$ are pairwise independent. The events are not mutually independent, however, because $\operatorname{Pr}\left\{A_1 \cap A_2 \cap A_3\right\}=0$ and $\operatorname{Pr}\left\{A_1\right\} \operatorname{Pr}\left\{A_2\right\} \operatorname{Pr}\left\{A_3\right\}=$ $1 / 8 \neq 0$.
 
-Bayes's theorem
-From the definition (C.16) of conditional probability and the commutative law $A \cap B=B \cap A$, it follows that for two events $A$ and $B$, each with nonzero probability,
+因为对于$1 \leq i<j \leq 3$，我们有$\operatorname{Pr}\left\{A_i \cap A_j\right\}=\operatorname{Pr}\left\{A_i\right\} \operatorname{Pr}\left\{A_j\right\}=1 / 4$，所以事件$A_1, A_2$和$A_3$是成对独立的。然而，这些事件不是相互独立的，因为$\operatorname{Pr}\left\{A_1 \cap A_2 \cap A_3\right\}=0$，而$\operatorname{Pr}\left\{A_1\right\} \operatorname{Pr}\left\{A_2\right\} \operatorname{Pr}\left\{A_3\right\}=1 / 8 \neq 0$。
+
+\textbf{贝叶斯定理}
+
+根据条件概率的定义（公式C.16）和交换律$A \cap B=B \cap A$，对于两个事件$A$和$B$，每个事件的概率都不为零，可以得到：
+
 $$
 \begin{aligned}
 \operatorname{Pr}\{A \cap B\} & =\operatorname{Pr}\{B\} \operatorname{Pr}\{A \mid B\} \\
 & =\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\} .
 \end{aligned}
 $$
-Solving for $\operatorname{Pr}\{A \mid B\}$, we obtain
+
+解出$\operatorname{Pr}\{A \mid B\}$，我们得到：
+
 $$
 \operatorname{Pr}\{A \mid B\}=\frac{\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}}{\operatorname{Pr}\{B\}}
 $$
-which is known as Bayes's theorem. The denominator $\operatorname{Pr}\{B\}$ is a normalizing constant, which we can reformulate as follows. Since $B=(B \cap A) \cup(B \cap \bar{A})$, and since $B \cap A$ and $B \cap \bar{A}$ are mutually exclusive events,
+
+这被称为贝叶斯定理。分母$\operatorname{Pr}\{B\}$是一个规范化常数，我们可以将其改写如下。由于$B=(B \cap A) \cup(B \cap \bar{A})$，而且$B \cap A$和$B \cap \bar{A}$是互斥事件，因此：
+
 $$
 \begin{aligned}
 \operatorname{Pr}\{B\} & =\operatorname{Pr}\{B \cap A\}+\operatorname{Pr}\{B \cap \bar{A}\} \\
 & =\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}+\operatorname{Pr}\{\bar{A}\} \operatorname{Pr}\{B \mid \bar{A}\} .
 \end{aligned}
 $$
-Substituting into equation (C.19) produces an equivalent form of Bayes's theorem:
+
+将其代入公式(C.19)中得到贝叶斯定理的等价形式：
+
 $$
 \operatorname{Pr}\{A \mid B\}=\frac{\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}}{\operatorname{Pr}\{A\} \operatorname{Pr}\{B \mid A\}+\operatorname{Pr}\{\bar{A}\} \operatorname{Pr}\{B \mid \bar{A}\}}
 $$
-Bayes's theorem can simplify the computing of conditional probabilities. For example, suppose that you have a fair coin and a biased coin that always comes up heads. Run an experiment consisting of three independent events: choose one of the two coins at random, flip that coin once, and then flip it again. Suppose that the coin you have chosen comes up heads both times. What is the probability that it's the biased coin?
 
-Bayes's theorem solves this problem. Let $A$ be the event that you choose the biased coin, and let $B$ be the event that the chosen coin comes up heads both times. We wish to determine $\operatorname{Pr}\{A \mid B\}$, knowing that $\operatorname{Pr}\{A\}=1 / 2, \operatorname{Pr}\{B \mid A\}=1$, $\operatorname{Pr}\{\bar{A}\}=1 / 2$, and $\operatorname{Pr}\{B \mid \bar{A}\}=1 / 4$. Thus we have
+贝叶斯定理可以简化条件概率的计算。例如，假设您有一枚公平硬币和一枚总是正面朝上的偏置硬币。进行一个由三个独立事件组成的实验：随机选择其中一枚硬币，将该硬币抛一次，然后再抛一次。假设您选择的硬币两次都正面朝上。那么它是偏置硬币的概率是多少？
+
+贝叶斯定理可以解决这个问题。令$A$表示您选择的是偏置硬币，$B$表示所选硬币两次都正面朝上。我们希望确定$\operatorname{Pr}\{A \mid B\}$，已知$\operatorname{Pr}\{A\}=1 / 2, \operatorname{Pr}\{B \mid A\}=1, \operatorname{Pr}\{\bar{A}\}=1 / 2$和$\operatorname{Pr}\{B \mid \bar{A}\}=1 / 4$。因此，我们有：
+
 $$
 \begin{aligned}
 \operatorname{Pr}\{A \mid B\} & =\frac{(1 / 2) \cdot 1}{(1 / 2) \cdot 1+(1 / 2) \cdot(1 / 4)} \\
@@ -3809,45 +3871,62 @@ $$
 
 \section{离散随机变量}
 
-A (discrete) random variable $X$ is a function from a finite or countably infinite sample space $S$ to the real numbers. It associates a real number with each possible outcome of an experiment, which allows us to work with the probability distribution induced on the resulting set of numbers. Random variables can also be defined for uncountably infinite sample spaces, but they raise technical issues that are unnecessary to address for our purposes. Therefore we'll assume that random variables are discrete.
+一个（离散）随机变量$X$是从有限或可数无限样本空间$S$到实数的函数。它将每个实数与实验的每个可能结果相关联，这使我们能够处理在生成的数字集上的概率分布。随机变量也可以针对不可数无限的样本空间进行定义，但它们会引起一些技术问题，这些问题对我们的目的来说是不必要的。因此，我们将假设随机变量是离散的。
 
-For a random variable $X$ and a real number $x$, we define the event $X=x$ to be $\{s \in S: X(s)=x\}$, and thus
+对于一个随机变量$X$和一个实数$x$，我们定义事件$X=x$为$\{s \in S: X(s)=x\}$，因此：
+
 $$
 \operatorname{Pr}\{X=x\}=\sum_{s \in S: X(s)=x} \operatorname{Pr}\{s\} .
 $$
-The function
+
+函数
+
 $$
 f(x)=\operatorname{Pr}\{X=x\}
 $$
-is the probability density function of the random variable $X$. From the probability axioms, $\operatorname{Pr}\{X=x\} \geq 0$ and $\sum_x \operatorname{Pr}\{X=x\}=1$.
 
-As an example, consider the experiment of rolling a pair of ordinary, 6-sided dice. There are 36 possible outcomes in the sample space. Assume that the probability distribution is uniform, so that each outcome $s \in S$ is equally likely: $\operatorname{Pr}\{s\}=1 / 36$. Define the random variable $X$ to be the maximum of the two values showing on the dice. We have $\operatorname{Pr}\{X=3\}=5 / 36$, since $X$ assigns a value of 3 to 5 of the 36 possible outcomes, namely, $(1,3),(2,3),(3,3),(3,2)$, and $(3,1)$.
-We can define several random variables on the same sample space. If $X$ and $Y$ are random variables, the function
+这是随机变量$X$的概率密度函数。根据概率公理，$\operatorname{Pr}\{X=x\} \geq 0$，且$\sum_x \operatorname{Pr}\{X=x\}=1$。
+
+例如，考虑掷一对普通的6面骰子的实验。样本空间中有36种可能的结果。假设概率分布是均匀的，因此每个结果$s \in S$是等可能的：$\operatorname{Pr}\{s\}=1 / 36$。定义随机变量$X$为两个骰子上显示的最大值。我们有$\operatorname{Pr}\{X=3\}=5 / 36$，因为$X$将值3分配给36个可能结果中的5个，即$(1,3),(2,3),(3,3),(3,2)$和$(3,1)$。
+
+我们可以在同一样本空间上定义多个随机变量。如果$X$和$Y$是随机变量，则函数：
+
 $f(x, y)=\operatorname{Pr}\{X=x$ and $Y=y\}$
-is the joint probability density function of $X$ and $Y$. For a fixed value $y$,
+
+是$X$和$Y$的联合概率密度函数。对于固定的值$y$，
 
 $$
 \operatorname{Pr}\{Y=y\}=\sum_x \operatorname{Pr}\{X=x \text { and } Y=y\}
 $$
-and similarly, for a fixed value $x$,
+
+类似的，对于固定值 $x$ ，
+
 $$
 \operatorname{Pr}\{X=x\}=\sum_y \operatorname{Pr}\{X=x \text { and } Y=y\}
 $$
-Using the definition (C.16) of conditional probability on page 1187 , we have
+
+使用第1187页上条件概率的定义（C.16），我们有
+
 $$
 \operatorname{Pr}\{X=x \mid Y=y\}=\frac{\operatorname{Pr}\{X=x \text { and } Y=y\}}{\operatorname{Pr}\{Y=y\}} .
 $$
-We define two random variables $X$ and $Y$ to be independent if for all $x$ and $y$, the events $X=x$ and $Y=y$ are independent or, equivalently, if for all $x$ and $y$, we have $\operatorname{Pr}\{X=x$ and $Y=y\}=\operatorname{Pr}\{X=x\} \operatorname{Pr}\{Y=y\}$.
 
-Given a set of random variables defined over the same sample space, we can define new random variables as sums, products, or other functions of the original variables.
-Expected value of a random variable
-The simplest, and often the most useful, summary of the distribution of a random variable is the "average" of the values it takes on. The expected value (or, synonymously, expectation or mean) of a discrete random variable $X$ is
+我们定义两个随机变量$X$和$Y$是独立的，如果对于所有$x$和$y$，事件$X=x$和$Y=y$是独立的，或者等价地，如果对于所有$x$和$y$，我们有$\operatorname{Pr}\{X=x$ and $Y=y\}=\operatorname{Pr}\{X=x\} \operatorname{Pr}\{Y=y\}$。
+
+给定在相同样本空间上定义的一组随机变量，我们可以将新的随机变量定义为原始变量的总和、乘积或其他函数。
+
+\textbf{随机变量的期望值}
+
+随机变量分布的最简单、通常也是最有用的总结是它所取值的“平均值”。离散随机变量$X$的期望值（或同义词期望或平均值）为
+
 $$
 \mathrm{E}[X]=\sum_x x \cdot \operatorname{Pr}\{X=x\}
 $$
-which is well defined if the sum is finite or converges absolutely. Sometimes the expectation of $X$ is denoted by $\mu_X$ or, when the random variable is apparent from context, simply by $\mu$.
 
-Consider a game in which you flip two fair coins. You earn $\$ 3$ for each head but lose $\$ 2$ for each tail. The expected value of the random variable $X$ representing your earnings is
+如果总和是有限的或绝对收敛的，则它是良定义的。有时，$X$的期望值用$\mu_X$表示，或者当随机变量在上下文中明显时，仅用$\mu$表示。
+
+考虑一个游戏，您翻转两个公平硬币。每出现一次正面，您赚取3美元，每出现一次反面，您损失2美元。表示您收益的随机变量$X$的期望值是：
+
 $$
 \begin{aligned}
 \mathrm{E}[X] & =6 \cdot \operatorname{Pr}\{2 \mathrm{H} ' \mathrm{~s}\}+1 \cdot \operatorname{Pr}\{1 \mathrm{H}, 1 \mathrm{~T}\}-4 \cdot \operatorname{Pr}\{2 \mathrm{~T} ' \mathrm{~s}\} \\
@@ -3855,26 +3934,35 @@ $$
 & =1
 \end{aligned}
 $$
-Linearity of expectation says that the expectation of the sum of two random variables is the sum of their expectations, that is,
+
+期望的可加性表明，两个随机变量之和的期望是它们期望的和，即
+
 $$
 \mathrm{E}[X+Y]=\mathrm{E}[X]+\mathrm{E}[Y]
 $$
 
-whenever $\mathrm{E}[X]$ and $\mathrm{E}[Y]$ are defined. Linearity of expectation applies to a broad range of situations, holding even when $X$ and $Y$ are not independent. It also extends to finite and absolutely convergent summations of expectations. Linearity of expectation is the key property that enables us to perform probabilistic analyses by using indicator random variables (see Section 5.2).
+只要$\mathrm{E}[X]$和$\mathrm{E}[Y]$被定义了。期望的可加性适用于广泛的情况，即使$X$和$Y$不独立也成立。它还扩展到期望的有限和和绝对收敛的情况。期望的可加性是使我们能够使用指示器随机变量进行概率分析的关键属性（参见第5.2节）。
 
-If $X$ is any random variable, any function $g(x)$ defines a new random variable $g(X)$. If the expectation of $g(X)$ is defined, then
+如果$X$是任意随机变量，任何函数$g(x)$都定义了一个新的随机变量$g(X)$。如果定义了$g(X)$的期望，则
+
 $$
 \mathrm{E}[g(X)]=\sum_x g(x) \cdot \operatorname{Pr}\{X=x\}
 $$
-Letting $g(x)=a x$, we have for any constant $a$,
+
+令$g(x)=a x$，则对于任何常数$a$，
+
 $$
 \mathrm{E}[a X]=a \mathrm{E}[X]
 $$
-Consequently, expectations are linear: for any two random variables $X$ and $Y$ and any constant $a$,
+
+因此，期望是线性的：对于任何两个随机变量$X$和$Y$和任何常数$a$，
+
 $$
 \mathrm{E}[a X+Y]=a \mathrm{E}[X]+\mathrm{E}[Y]
 $$
-When two random variables $X$ and $Y$ are independent and each has a defined expectation,
+
+当两个随机变量$X$和$Y$是独立的，并且每个随机变量都有定义的期望时，
+
 $$
 \begin{aligned}
 \mathrm{E}[X Y] & =\sum_x \sum_y x y \cdot \operatorname{Pr}\{X=x \text { and } Y=y\} \\
@@ -3883,9 +3971,11 @@ $$
 & =\mathrm{E}[X] \mathrm{E}[Y] \quad \text { (by equation (C.23)). }
 \end{aligned}
 $$
-(by equation (C.23)) .
-In general, when $n$ random variables $X_1, X_2, \ldots, X_n$ are mutually independent, $\mathrm{E}\left[X_1 X_2 \cdots X_n\right]=\mathrm{E}\left[X_1\right] \mathrm{E}\left[X_2\right] \cdots \mathrm{E}\left[X_n\right]$
-When a random variable $X$ takes on values from the set of natural numbers $\mathbb{N}=\{0,1,2, \ldots\}$, we have a nice formula for its expectation:
+
+一般来说，当$n$个随机变量$X_1，X_2，\ldots，X_n$互相独立时，$\mathrm{E}\left[X_1 X_2 \cdots X_n\right]=\mathrm{E}\left[X_1\right] \mathrm{E}\left[X_2\right] \cdots \mathrm{E}\left[X_n\right]$
+
+当一个随机变量$X$取自然数集合$\mathbb{N}=\{0,1,2, \ldots\}$中的值时，我们有一个漂亮的期望公式：
+
 $$
 \begin{aligned}
 \mathrm{E}[X] & =\sum_{i=0}^{\infty} i \cdot \operatorname{Pr}\{X=i\} \\
@@ -3894,20 +3984,28 @@ $$
 \end{aligned}
 $$
 
-since each term $\operatorname{Pr}\{X \geq i\}$ is added in $i$ times and subtracted out $i-1$ times (except $\operatorname{Pr}\{X \geq 0\}$, which is added in 0 times and not subtracted out at all).
-A function $f(x)$ is convex if
+因为每个术语$\operatorname{Pr}\{X \geq i\}$被添加$i$次，减去$i-1$次（除了$\operatorname{Pr}\{X \geq 0\}$，它被添加了0次，根本没有被减去）。
+
+如果一个函数$f(x)$满足
+
 $$
 f(\lambda x+(1-\lambda) y) \leq \lambda f x)+(1-\lambda) f y)
 $$
-for all $x$ and $y$ and for all $0 \leq \lambda \leq 1$. Jensen's inequality says that when a convex function $f(x)$ is applied to a random variable $X$,
+
+对于所有$x$和$y$和所有$0 \leq \lambda \leq 1$，则该函数是凸函数。Jensen不等式表明，当将凸函数$f(x)$应用于随机变量$X$时，
+
 $$
 \mathrm{E}[f(X)] \geq f(\mathrm{E}[X])
 $$
-provided that the expectations exist and are finite.
-Variance and standard deviation
-The expected value of a random variable does not express how "spread out" the variable's values are. For example, consider random variables $X$ and $Y$ for which $\operatorname{Pr}\{X=1 / 4\}=\operatorname{Pr}\{X=3 / 4\}=1 / 2$ and $\operatorname{Pr}\{Y=0\}=\operatorname{Pr}\{Y=1\}=1 / 2$. Then both $\mathrm{E}[X]$ and $\mathrm{E}[Y]$ are $1 / 2$, yet the actual values taken on by $Y$ are further from the mean than the actual values taken on by $X$.
 
-The notion of variance mathematically expresses how far from the mean a random variable's values are likely to be. The variance of a random variable $X$ with mean $\mathrm{E}[X]$ is
+前提是期望存在且有限。
+
+\textbf{方差和标准差}
+
+随机变量的期望值并不表达变量的值有多"分散"。例如，考虑随机变量$X$和$Y$，其中$\operatorname{Pr}\{X=1 / 4\}=\operatorname{Pr}\{X=3 / 4\}=1 / 2$且$\operatorname{Pr}\{Y=0\}=\operatorname{Pr}\{Y=1\}=1 / 2$。然后，$\mathrm{E}[X]$和$\mathrm{E}[Y]$都是$1 / 2$，但是$Y$所取的实际值比$X$所取的实际值更远离均值。
+
+方差的概念在数学上表达了随机变量的值离均值有多远。具有均值$\mathrm{E}[X]$的随机变量$X$的方差是
+
 $$
 \begin{aligned}
 \operatorname{Var}[X] & =\mathrm{E}\left[(X-\mathrm{E}[X])^2\right] \\
@@ -3917,26 +4015,34 @@ $$
 & =\mathrm{E}\left[X^2\right]-\mathrm{E}^2[X] .
 \end{aligned}
 $$
+
 To justify the equation $\mathrm{E}\left[\mathrm{E}^2[X]\right]=\mathrm{E}^2[X]$, note that because $\mathrm{E}[X]$ is a real number and not a random variable, so is $\mathrm{E}^2[X]$. The equation $\mathrm{E}[X \mathrm{E}[X]]=\mathrm{E}^2[X]$ follows from equation (C.25), with $a=\mathrm{E}[X]$. Rewriting equation (C.31) yields an expression for the expectation of the square of a random variable:
+
 $$
 \mathrm{E}\left[X^2\right]=\operatorname{Var}[X]+\mathrm{E}^2[X]
 $$
+
 The variance of a random variable $X$ and the variance of $a X$ are related (see Exercise C.3-10):
+
 $\operatorname{Var}[a X]=a^2 \operatorname{Var}[X]$
+
 When $X$ and $Y$ are independent random variables,
+
 $\operatorname{Var}[X+Y]=\operatorname{Var}[X]+\operatorname{Var}[Y]$
 
 In general, if $n$ random variables $X_1, X_2, \ldots, X_n$ are pairwise independent, then
+
 $$
 \operatorname{Var}\left[\sum_{i=1}^n X_i\right]=\sum_{i=1}^n \operatorname{Var}\left[X_i\right] \text {. }
 $$
+
 The standard deviation of a random variable $X$ is the nonnegative square root of the variance of $X$. The standard deviation of a random variable $X$ is sometimes denoted $\sigma_X$ or simply $\sigma$ when the random variable $X$ is understood from context. With this notation, the variance of $X$ is denoted $\sigma^2$.
 
 \section{几何分布和二项分布}
 
 A Bernoulli trial is an experiment with only two possible outcomes: success, which occurs with probability $p$, and failure, which occurs with probability $q=1-p$. A coin flip serves as an example where, depending on your point of view, heads equates to success and tails to failure. When we speak of Bernoulli trials collectively, we mean that the trials are mutually independent and, unless we specifically say otherwise, that each has the same probability $p$ for success. Two important distributions arise from Bernoulli trials: the geometric distribution and the binomial distribution.
 
-The geometric distribution
+\textbf{几何分布}
 
 Consider a sequence of Bernoulli trials, each with a probability $p$ of success and a probability $q=1-p$ of failure. How many trials occur before a success? Define the random variable $X$ to be the number of trials needed to obtain a success. Then $X$ has values in the range $\{1,2, \ldots\}$, and for $k \geq 1$,
 
@@ -3955,7 +4061,6 @@ $$
 & =1 / p
 \end{aligned}
 $$
-(by equation (A.11) on page 1142)
 
 Thus, on average, it takes $1 / p$ trials before a success occurs, an intuitive result. As Exercise C.4-3 asks you to show, the variance is
 $$
